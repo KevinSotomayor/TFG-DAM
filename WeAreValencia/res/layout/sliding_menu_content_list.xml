@@ -5,8 +5,13 @@
      android:layout_height="fill_parent"
      android:orientation="vertical"
      android:gravity="center">
-    <TextView 
-        android:text="Menú"
+    <ListView 
+        android:id="@android:id/list"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent" 
+        android:background="#555555"
+        android:divider="#2E2E2E"
+        android:dividerHeight="5dp">
+    </ListView>
+
 </LinearLayout>

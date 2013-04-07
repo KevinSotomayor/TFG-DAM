@@ -6,7 +6,8 @@
      android:orientation="vertical"
      android:gravity="center">
     <TextView 
-        android:text="We are Valencia"
+        android:text="@string/proximamente"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"/>
+        android:layout_height="fill_parent"
+        android:gravity="center"/>
 </LinearLayout>
