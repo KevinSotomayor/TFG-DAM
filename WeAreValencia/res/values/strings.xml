@@ -8,5 +8,6 @@
     <string name="WeAre">WE ARE</string>
     <string name="Valencia">VALENCIA</string>
     <string name="proximamente">Próximamente</string>
+    <color name="action_bar_color_line">#F2F2F2</color>
 
 </resources>

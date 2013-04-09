@@ -37,9 +37,6 @@ public class Main_FragmentActivity extends SherlockFragmentActivity implements S
 		}
 		
 		
-		//disable button up of buttom home of actionbar
-		//actionBar = getSupportActionBar();
-		//actionBar.setDisplayHomeAsUpEnabled(true);
 		
 		//prepare slidingmenu
 		setSlidingActionBarEnabled(true);

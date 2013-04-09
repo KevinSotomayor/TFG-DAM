@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="Theme.WeAreValencia"    parent="Holo.Theme.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
        <!--  <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>   -->
@@ -8,5 +8,6 @@
            parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/background_actionbar</item> 
         <item name="android:background">@drawable/background_actionbar</item>
+
     </style>
 </resources>

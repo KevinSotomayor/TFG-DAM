@@ -13,7 +13,10 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.widget.SearchView;
 import com.slidingmenu.lib.SlidingMenu;
 
 import dam.project.wearevalencia.R;
@@ -22,6 +25,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	ActionBar actionBar;
 	Typeface robotoThin, robotoBoldCondensed;
 	SlidingMenu slidingMenu;
+	private static int MAP = 1;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();
 		return inflater.inflate(R.layout.main_content_activity, null);	
@@ -39,6 +43,20 @@ public class Main_Content_Fragment extends SherlockFragment{
 
 	}
 	
+	//Metodo del menu y el listener del menú	
+		/*Menu del actionBarSherlock - boton de buscar */
+		//a diferencia del menu comun este llama a su super method y pasando como parametro el inflater también
+			public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+				super.onCreateOptionsMenu(menu, menuInflater);
+				
+			 
+				menu.add(0, MAP, 0, "Ir al mapa")
+				.setIcon(R.drawable.location_place)
+				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+				
+				
+			}
+			
 	/*Listener del boton home actionBar */
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
@@ -68,8 +86,9 @@ public class Main_Content_Fragment extends SherlockFragment{
 	        
 					//actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();
 					//boton de volver atras del boton home, e icono personalizado
-					actionBar.setDisplayHomeAsUpEnabled(true);
-			       // actionBar.setIcon(R.drawable.action_home);
+					actionBar.setDisplayHomeAsUpEnabled(false);
+	        		actionBar.setHomeButtonEnabled(true);
+			        actionBar.setIcon(R.drawable.nav_menu);
 			        
 			        //cambiar el titulo por otro con subtitulo + layout
 			        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal
