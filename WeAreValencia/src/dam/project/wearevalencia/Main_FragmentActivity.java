@@ -1,5 +1,6 @@
 package dam.project.wearevalencia;
 
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingActivityBase;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
 public class Main_FragmentActivity extends SherlockFragmentActivity implements SlidingActivityBase{
+	ActionBar actionBar;
 	private Fragment mContent;
 	SlidingMenu slidingMenu;
 	
@@ -34,7 +36,12 @@ public class Main_FragmentActivity extends SherlockFragmentActivity implements S
 		.replace(R.id.content_fragment, mContent).commit();
 		}
 		
-		//vista del menu
+		
+		//disable button up of buttom home of actionbar
+		//actionBar = getSupportActionBar();
+		//actionBar.setDisplayHomeAsUpEnabled(true);
+		
+		//prepare slidingmenu
 		setSlidingActionBarEnabled(true);
 		SlidingMenuAction();
 	}
@@ -51,7 +58,8 @@ public class Main_FragmentActivity extends SherlockFragmentActivity implements S
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		slidingMenu.setFadeDegree(0.70f);
-		slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_WINDOW);
+		//slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_WINDOW); //deslizar todo
+		slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 		slidingMenu.setMenu(R.layout.sliding_menu_fragment_list);
 		
 		getSupportFragmentManager()
