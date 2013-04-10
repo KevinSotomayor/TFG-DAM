@@ -19,6 +19,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.widget.SearchView;
 import com.slidingmenu.lib.SlidingMenu;
 
+import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 
 public class Main_Content_Fragment extends SherlockFragment{
@@ -37,7 +38,8 @@ public class Main_Content_Fragment extends SherlockFragment{
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
 		
-		slidingMenu = new SlidingMenu(getActivity());
+		slidingMenu = Main_FragmentActivity.putReference();
+		
 		//cambiar el actionbar con iconos y fondo personalizado
 		changeActionBar();
 
@@ -63,10 +65,6 @@ public class Main_Content_Fragment extends SherlockFragment{
     	case android.R.id.home:
     		slidingMenu.toggle();
     		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
-    		//si no funciona el boton te indica que deslices
-    		Toast toast = Toast.makeText(getActivity(), "Desliza el dedo desde el lateral de la pantalla para ver el menú", Toast.LENGTH_SHORT);
-    		toast.setGravity(Gravity.CENTER, 0, 0);
-    		toast.show();
     		return true;
 
     	default:

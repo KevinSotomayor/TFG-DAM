@@ -24,9 +24,9 @@
 			<View
 			    android:layout_width="1dp"
 			    android:layout_height="fill_parent"
-			    android:background="#FF6441"
-			    android:layout_marginRight="38dp" />
-		</LinearLayout>
+			    android:background="#29FF8063"
+			    android:layout_marginRight="36dp" />
+		</LinearLayout> <!--   android:background="#29FF6441" -->
 	    
 	    <TextView 
 	        android:id="@+id/tituloWeAreValencia"
@@ -56,8 +56,8 @@
 			<View
 			    android:layout_width="1dp"
 			    android:layout_height="fill_parent"
-			    android:background="#FF6441"
+			    android:background="#29FF8063"
 			    android:layout_marginLeft="40dp"
-			     />
+			     />     <!--   android:background="#29FF6441" -->
 		</LinearLayout>
 </LinearLayout>

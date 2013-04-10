@@ -4,51 +4,54 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingActivityBase;
+import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 
-public class Main_FragmentActivity extends SherlockFragmentActivity implements SlidingActivityBase{
-	ActionBar actionBar;
+public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private Fragment mContent;
-	SlidingMenu slidingMenu;
+	static SlidingMenu slidingMenu;
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_content_activity);
-		
+		setBehindContentView(R.layout.sliding_menu_frame_list);
 		//set the above view
 		if(savedInstanceState != null)
 			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "content");
-		if(mContent == null){
+		
+		if(mContent == null)
 			mContent = new Main_Content_Fragment();
-					
-		setContentView(R.layout.main_fragment_activity);
+				
+		setContentView(R.layout.main_frame_activity);
+	
+		//reemplazada la vista "contenedora" por la vista "main_content_activity"
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		ft.replace(R.id.content_fragment, mContent).commit();
+	
+		// que no se deslize el actionbar
+		setSlidingActionBarEnabled(false); 
+		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 		
-		
-		getSupportFragmentManager()
-		.beginTransaction()
-		.replace(R.id.content_fragment, mContent).commit();
-		}
-		
-		
-		
-		//prepare slidingmenu
-		setSlidingActionBarEnabled(true);
 		SlidingMenuAction();
+				
+		//reemplazar la vista del sliding menu
+		ft = getSupportFragmentManager().beginTransaction();
+		ft.replace(R.id.sliding_menu_fragment, new Sliding_Menu_Fragment()).commit();
+		
+		
 	}
 	
-	
-	
-	
+
 	private void SlidingMenuAction() {
 		//configurar slidingMenu
-		slidingMenu = new SlidingMenu(this);
+		slidingMenu = getSlidingMenu();
 		slidingMenu.setShadowDrawable(R.drawable.shadow);
 		slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
 		slidingMenu.setBehindOffset(89);
@@ -56,99 +59,14 @@ public class Main_FragmentActivity extends SherlockFragmentActivity implements S
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		slidingMenu.setFadeDegree(0.70f);
 		//slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_WINDOW); //deslizar todo
-		slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
-		slidingMenu.setMenu(R.layout.sliding_menu_fragment_list);
-		
-		getSupportFragmentManager()
-		.beginTransaction()
-		.replace(R.id.sliding_menu_fragment, new Sliding_Menu_Fragment())
-		.commit();
+		//slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 	
 		
 	}
 	
-	@Override
-	public void onBackPressed(){
-		
-		if (slidingMenu.isMenuShowing()) {
-			slidingMenu.showContent();
-		} else {
-			super.onBackPressed();
-		}
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	/******* metodos implementados ****/
-	@Override
-	public void setBehindContentView(View view, LayoutParams layoutParams) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setBehindContentView(View view) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setBehindContentView(int layoutResID) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public SlidingMenu getSlidingMenu() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void toggle() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showContent() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void showSecondaryMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setSlidingActionBarEnabled(boolean slidingActionBarEnabled) {
-		// TODO Auto-generated method stub
-		
+	//devuelve la referencia al objeto de esta clase, con lo cual en las otras clases de donde querramos abrir el menú
+	//solo habrá que instanciar el objeto.
+	public static SlidingMenu putReference(){
+		return slidingMenu;
 	}
 }
