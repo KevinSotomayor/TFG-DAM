@@ -38,6 +38,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
 		
+		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
 		slidingMenu = Main_FragmentActivity.putReference();
 		
 		//cambiar el actionbar con iconos y fondo personalizado
