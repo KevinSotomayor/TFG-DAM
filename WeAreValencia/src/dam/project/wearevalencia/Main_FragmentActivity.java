@@ -1,19 +1,14 @@
 package dam.project.wearevalencia;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.slidingmenu.lib.SlidingMenu;
-import com.slidingmenu.lib.app.SlidingActivityBase;
-import com.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
+
 
 public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private Fragment mContent;

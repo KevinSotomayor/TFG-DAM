@@ -1,9 +1,9 @@
 package dam.project.wearevalencia.fragments;
 
-import org.holoeverywhere.widget.Toast;
-
+import android.R.menu;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
+import com.slidingmenu.lib.SlidingMenu.OnClosedListener;
+import com.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
@@ -24,7 +26,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	ActionBar actionBar;
 	Typeface robotoThin, robotoBoldCondensed;
 	SlidingMenu slidingMenu;
-	private static int MAP = 1;
+	private final static int MAP = 1;
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();
 		return inflater.inflate(R.layout.main_content_activity, null);	
@@ -36,13 +38,35 @@ public class Main_Content_Fragment extends SherlockFragment{
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
 		
-		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
-		slidingMenu = Main_FragmentActivity.putReference();
-		
 		//cambiar el actionbar con iconos y fondo personalizado
 		changeActionBar();
+		
+		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
+		slidingMenu = Main_FragmentActivity.putReference();
+	
+		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
+		slidingMenu.setOnOpenedListener(new OnOpenedListener() {
+
+			public void onOpened() {
+				actionBar.setHomeButtonEnabled(false);
+    			actionBar.setDisplayShowHomeEnabled(false);
+    			setHasOptionsMenu(false);
+			}
+		});
+		
+		slidingMenu.setOnClosedListener(new OnClosedListener() {
+			
+			public void onClosed() {
+				actionBar.setHomeButtonEnabled(true);
+    			actionBar.setDisplayShowHomeEnabled(true);
+    			setHasOptionsMenu(true);
+				
+			}
+		});
 
 	}
+	
+   
 	
 	//Metodo del menu y el listener del menú	
 		/*Menu del actionBarSherlock - boton de buscar */
@@ -63,6 +87,18 @@ public class Main_Content_Fragment extends SherlockFragment{
     	switch(item.getItemId()){
     	case android.R.id.home:
     		slidingMenu.toggle();
+    		
+    	/*	if(slidingMenu.isShown()){
+    			actionBar.setHomeButtonEnabled(false);
+    			actionBar.setDisplayShowHomeEnabled(false);
+    			setHasOptionsMenu(false);
+    			
+    		}else {
+    			actionBar.setHomeButtonEnabled(true);
+    			actionBar.setDisplayShowHomeEnabled(true);
+    			setHasOptionsMenu(true);
+    		}*/
+    		
     		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
     		return true;
 
@@ -95,16 +131,26 @@ public class Main_Content_Fragment extends SherlockFragment{
 					         
 			        //inflar un view con el layout de los titulos
 			        View customView = LayoutInflater.from(getActivity()).inflate(R.layout.actionbar_title,null);
-			        
+			
 			        //identificar las etiquetas y setTypeface otra letra
 			        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
 			        titulo.setTypeface(robotoThin);
 			        
 			        TextView subtitulo =(TextView)customView.findViewById(R.id.titulo2WeAreValencia);
 			        subtitulo.setTypeface(robotoBoldCondensed);
-
+  
+			        /// center xml in actionbar
+			        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+			        lp.gravity = Gravity.CENTER;
+			        customView.setLayoutParams(lp);
+			        /* http://stackoverflow.com/questions/11327210/setting-a-custom-text-in-the-center-actionbarsherlock */
+			        
 			        //set inflate view to actionBarSherlock
 			        actionBar.setCustomView(customView);
+			        
+			        
+			      
+
 			        
 			        
 		
