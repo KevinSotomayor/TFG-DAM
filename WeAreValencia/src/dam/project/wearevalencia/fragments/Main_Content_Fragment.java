@@ -4,7 +4,6 @@ import org.holoeverywhere.widget.Toast;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,6 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.SearchView;
 import com.slidingmenu.lib.SlidingMenu;
 
 import dam.project.wearevalencia.Main_FragmentActivity;
@@ -107,6 +105,8 @@ public class Main_Content_Fragment extends SherlockFragment{
 
 			        //set inflate view to actionBarSherlock
 			        actionBar.setCustomView(customView);
+			        
+			        
 		
 					
 		}

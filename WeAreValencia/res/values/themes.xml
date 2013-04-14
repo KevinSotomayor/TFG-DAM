@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+   <!-- Theme for android 2.x  -->
     <style name="Theme.WeAreValencia"    parent="Holo.Theme.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+            
+   		 <!-- Theme for android 4.x -->
        <!--  <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>   -->
+    </style>
+    
+    <!-- Custom theme for actionbar --> 
+    <style name="Widget.Styled.ActionBar"
+           parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/background_actionbar</item> 
+        <item name="android:background">@drawable/background_actionbar</item>
+    </style>
+
+</resources>
+
+
+
+
+<!-- Original:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Theme.WeAreValencia"    parent="Holo.Theme.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
     </style>
     <style name="Widget.Styled.ActionBar"
            parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
@@ -11,3 +36,5 @@
 
     </style>
 </resources>
+
+ -->

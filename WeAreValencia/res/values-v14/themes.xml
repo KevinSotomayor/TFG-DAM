@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+   <!-- Theme for android 2.x and 4.x  -->
+    <style name="Theme.WeAreValencia"    parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
+       	<item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item> 
+       	<item name="android:showDividers">beginning</item>
+    	<item name="android:divider">@color/action_bar_color_divider</item>
+    </style>
+    
+    <!-- Custom theme for actionbar --> 
+    <style name="Widget.Styled.ActionBar"
+           parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/background_actionbar</item> 
+        <item name="android:background">@drawable/background_actionbar</item>
+    </style>
+    
+</resources>
