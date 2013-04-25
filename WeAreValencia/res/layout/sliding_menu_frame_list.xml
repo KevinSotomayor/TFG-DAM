@@ -3,7 +3,7 @@
      android:id="@+id/sliding_menu_fragment"
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
-     android:background="#2E2E2E"
+     android:background="@color/background_slidingMenu"
      android:baselineAligned="false">
 
 </LinearLayout>

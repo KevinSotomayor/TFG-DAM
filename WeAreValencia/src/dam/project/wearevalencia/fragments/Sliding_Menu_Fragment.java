@@ -27,18 +27,19 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		adapter = new SampleAdapterMenu(getActivity());
 		
 		//items de la lista:
-		ItemList valencia = new ItemList("VALENCIA", R.drawable.valencia);
-		ItemList lugaresDeInteres = new ItemList("LUGARES DE INTERÉS", R.drawable.lugaresdeinteres);
-		ItemList fallas = new ItemList("FALLAS", R.drawable.fallas);
-		ItemList mapa = new ItemList("MAPA DE VALENCIA", R.drawable.mapa);
-		ItemList consejo = new ItemList("CONSEJOS", R.drawable.consejo);
+		ItemList valencia = new ItemList(getActivity().getString(R.string.smValencia), R.drawable.valencia);
+		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.lugaresdeinteres);
+		ItemList fallas = new ItemList(getActivity().getString(R.string.smFallas), R.drawable.fallas);
+		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.cc);
+		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.mapa);
+
 		
 		adapter.add(valencia);
 		adapter.add(lugaresDeInteres);
 		adapter.add(fallas);
+		adapter.add(cc);
 		adapter.add(mapa);
-		adapter.add(consejo);
-		
+
 		setListAdapter(adapter);
 		
 		

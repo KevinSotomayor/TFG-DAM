@@ -6,4 +6,5 @@
 	<dimen name="shadow_width">16dp</dimen>
 	<dimen name="TextViewSlidingMenu">18dp</dimen>
 	<dimen name="titleText">17dp</dimen>
+	<dimen name="dividerPadding">50dp</dimen>
 </resources>

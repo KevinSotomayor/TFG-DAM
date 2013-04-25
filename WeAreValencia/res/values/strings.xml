@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="action_bar_color_divider">#29FFA48F</color>
+    <color name="background_slidingMenu">#141414</color>
+    
     <string name="app_name">We are Valencia</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -8,6 +10,9 @@
     <string name="WeAre">WE ARE</string>
     <string name="Valencia">VALENCIA</string>
     <string name="proximamente">Próximamente</string>
-    <color name="action_bar_color_divider">#29FF8063</color>
-
+    <string name="smValencia">VALENCIA</string>
+	<string name="smLugares">LUGARES DE INTERÉS</string>
+	<string name="smFallas">FALLAS</string>
+	<string name="smMapaVLC">MAPA DE VALENCIA</string>
+	<string name="smCC">CENTROS COMERCIALES</string>
 </resources>

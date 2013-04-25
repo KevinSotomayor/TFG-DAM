@@ -1,7 +1,8 @@
 package dam.project.wearevalencia.fragments;
 
-import android.R.menu;
+import android.annotation.TargetApi;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -87,18 +88,6 @@ public class Main_Content_Fragment extends SherlockFragment{
     	switch(item.getItemId()){
     	case android.R.id.home:
     		slidingMenu.toggle();
-    		
-    	/*	if(slidingMenu.isShown()){
-    			actionBar.setHomeButtonEnabled(false);
-    			actionBar.setDisplayShowHomeEnabled(false);
-    			setHasOptionsMenu(false);
-    			
-    		}else {
-    			actionBar.setHomeButtonEnabled(true);
-    			actionBar.setDisplayShowHomeEnabled(true);
-    			setHasOptionsMenu(true);
-    		}*/
-    		
     		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
     		return true;
 
@@ -110,6 +99,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	
     ////////	
 
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void changeActionBar() {
 		
 			//Titulo de la app e icono de la izquierda del ABS
@@ -138,6 +128,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 			        
 			        TextView subtitulo =(TextView)customView.findViewById(R.id.titulo2WeAreValencia);
 			        subtitulo.setTypeface(robotoBoldCondensed);
+	
   
 			        /// center xml in actionbar
 			        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
