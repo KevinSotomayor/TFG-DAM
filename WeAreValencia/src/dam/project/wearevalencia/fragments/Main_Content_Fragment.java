@@ -1,13 +1,20 @@
 package dam.project.wearevalencia.fragments;
 
+import org.holoeverywhere.widget.Toast;
+
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
@@ -24,27 +31,72 @@ import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 
 public class Main_Content_Fragment extends SherlockFragment{
-	ActionBar actionBar;
-	Typeface robotoThin, robotoBoldCondensed;
-	SlidingMenu slidingMenu;
+	//constantes
 	private final static int MAP = 1;
+
+	private ActionBar actionBar;
+	private Typeface robotoThin, robotoBoldCondensed;
+	private SlidingMenu slidingMenu;
+	
+	private LinearLayout main_Layout;
+	private AnimationDrawable animacion_backgrounds;
+	private TransitionDrawable transitionDrawable;
+	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();
+		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
 		return inflater.inflate(R.layout.main_content_activity, null);	
 	}
 
+	
+	@SuppressWarnings("deprecation")
+	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
 		
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
-		
-		//cambiar el actionbar con iconos y fondo personalizado
 		changeActionBar();
 		
 		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
 		slidingMenu = Main_FragmentActivity.putReference();
 	
+		
+		/*codigo de animationDrawable*/
+		//animacion asociada al linearLayout (tema 3 de Android - Dibujar en Android - pag 10)
+		main_Layout = (LinearLayout)getActivity().findViewById(R.id.main_bg_layout);
+		animacion_backgrounds = (AnimationDrawable)getActivity().getResources().getDrawable(R.anim.animacion_main_bg);
+		
+		//comprobacion si la version de android en la que se ejecuta es anterior a la honeycomb(target16)
+		//ya que setBackgroundDrawable es deprecated.
+		if(Build.VERSION.SDK_INT <= 16)
+			main_Layout.setBackgroundDrawable(animacion_backgrounds);
+		else
+			main_Layout.setBackground(animacion_backgrounds);
+		
+		//inicar la animacion
+		new Handler().postDelayed(new Runnable() {
+			@Override
+			public void run() {
+				animacion_backgrounds.start();
+				
+			}
+		},2000);
+		
+		
+		
+		/*codigo de transitionDrawable
+		main_Layout = (LinearLayout)getActivity().findViewById(R.id.main_bg_layout);
+		transitionDrawable = (TransitionDrawable)getActivity().getResources().getDrawable(R.drawable.transition_main_bg);
+		if(Build.VERSION.SDK_INT <= 16)
+			main_Layout.setBackgroundDrawable(transitionDrawable);
+		else
+			main_Layout.setBackground(transitionDrawable);
+		
+		transitionDrawable.startTransition(11000);
+		*/
+		
+		
+		
 		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
 		slidingMenu.setOnOpenedListener(new OnOpenedListener() {
 
@@ -71,7 +123,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	
 	//Metodo del menu y el listener del menú	
 		/*Menu del actionBarSherlock - boton de buscar */
-		//a diferencia del menu comun este llama a su super method y pasando como parametro el inflater también
+		//a diferencia del menu comun este no infla un xml con los items, que tambien se puede.
 			public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
 				super.onCreateOptionsMenu(menu, menuInflater);
 				
@@ -83,31 +135,34 @@ public class Main_Content_Fragment extends SherlockFragment{
 				
 			}
 			
-	/*Listener del boton home actionBar */
+			
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
+    	/*Listener del boton home actionBar */
     	case android.R.id.home:
     		slidingMenu.toggle();
     		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
     		return true;
-
+    		
+    	case MAP:
+    		//abrir mapa de la ciudad
+    		Toast.makeText(getActivity(), "Mapa de Valencia", Toast.LENGTH_SHORT).show(); //de prueba
+    		return true;
+    		
     	default:
     		return super.onOptionsItemSelected(item);
     	}
     	
     }
 	
-    ////////	
-
+    
+	//cambiar el actionbar con iconos y fondo personalizado
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void changeActionBar() {
-		
-			//Titulo de la app e icono de la izquierda del ABS
 			//typeface personalizadas
 	        robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
 	        robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
 	        
-					//actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();
 					//boton de volver atras del boton home, e icono personalizado
 					actionBar.setDisplayHomeAsUpEnabled(false);
 	        		actionBar.setHomeButtonEnabled(true);
@@ -135,22 +190,10 @@ public class Main_Content_Fragment extends SherlockFragment{
 			        lp.gravity = Gravity.CENTER;
 			        customView.setLayoutParams(lp);
 			        /* http://stackoverflow.com/questions/11327210/setting-a-custom-text-in-the-center-actionbarsherlock */
-			        
+			
 			        //set inflate view to actionBarSherlock
 			        actionBar.setCustomView(customView);
-			        
-			        
-			      
-
-			        
-			        
-		
 					
-		}
-		//////////
-	
-
-
-		
+		}	
 	
 }

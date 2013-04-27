@@ -1,0 +1,20 @@
+<Transition xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:drawable="@drawable/main_bg_10"/>
+	<item android:drawable="@drawable/main_bg_12"/>
+	<item android:drawable="@drawable/main_bg_4"/>
+	<item android:drawable="@drawable/main_bg_9"/>
+	<item android:drawable="@drawable/main_bg_2"/>
+	<item android:drawable="@drawable/main_bg_6"/>
+	<item android:drawable="@drawable/main_bg_11"/>
+	<item android:drawable="@drawable/main_bg_8"/>
+	<item android:drawable="@drawable/main_bg_3"/>
+	<item android:drawable="@drawable/main_bg_5"/>
+	<item android:drawable="@drawable/main_bg_7"/>
+	<item android:drawable="@drawable/main_bg_1"/>
+	<item android:drawable="@drawable/main_bg_13"/>
+	<item android:drawable="@drawable/main_bg_16"/>
+	<item android:drawable="@drawable/main_bg_15"/>
+	<item android:drawable="@drawable/main_bg_14"/>
+</Transition>
+
+<!-- Tema 3 android - Pagina 8 -->
