@@ -1,8 +1,6 @@
 package dam.project.wearevalencia.fragments;
 
 import org.holoeverywhere.widget.Toast;
-
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
@@ -40,7 +38,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 	
 	private LinearLayout main_Layout;
 	private AnimationDrawable animacion_backgrounds;
-	private TransitionDrawable transitionDrawable;
 	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
