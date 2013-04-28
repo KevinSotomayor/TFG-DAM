@@ -5,9 +5,8 @@
     <style name="Theme.WeAreValencia"    parent="android:Theme.Holo.Light.DarkActionBar">
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
        	<item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item> 
-       	<item name="android:showDividers">beginning</item>
+       	<item name="android:showDividers">none</item>
     	<item name="android:divider">@color/action_bar_color_divider</item>
-    	<item name="android:dividerPadding">@dimen/dividerPadding</item>
     </style>
     
     <!-- Custom theme for actionbar --> 

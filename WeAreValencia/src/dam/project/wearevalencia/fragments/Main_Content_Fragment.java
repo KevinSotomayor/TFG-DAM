@@ -172,7 +172,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	
   
 			        /// center xml in actionbar
-			        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+			        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 			        lp.gravity = Gravity.CENTER;
 			        customView.setLayoutParams(lp);
 			        /* http://stackoverflow.com/questions/11327210/setting-a-custom-text-in-the-center-actionbarsherlock */
