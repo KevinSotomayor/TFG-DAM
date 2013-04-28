@@ -84,17 +84,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 		
 		
 		
-		/*codigo de transitionDrawable
-		main_Layout = (LinearLayout)getActivity().findViewById(R.id.main_bg_layout);
-		transitionDrawable = (TransitionDrawable)getActivity().getResources().getDrawable(R.drawable.transition_main_bg);
-		if(Build.VERSION.SDK_INT <= 16)
-			main_Layout.setBackgroundDrawable(transitionDrawable);
-		else
-			main_Layout.setBackground(transitionDrawable);
-		
-		transitionDrawable.startTransition(11000);
-		*/
-		
 		
 		
 		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
