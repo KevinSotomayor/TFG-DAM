@@ -4,7 +4,6 @@ import org.holoeverywhere.widget.Toast;
 import android.annotation.TargetApi;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.TransitionDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -12,6 +11,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +24,8 @@ import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.SlidingMenu.OnClosedListener;
 import com.slidingmenu.lib.SlidingMenu.OnOpenedListener;
+import android.view.View.OnClickListener;
+
 
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
@@ -49,6 +51,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
+		Button main_galeria, main_sitios, main_buscar, main_descubre;
 		
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
@@ -70,18 +73,40 @@ public class Main_Content_Fragment extends SherlockFragment{
 		else
 			main_Layout.setBackground(animacion_backgrounds);
 		
-		//inicar la animacion
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
+				
 				animacion_backgrounds.start();
 				
 			}
-		},2000);
+		},500);
 		
+		//cambiar typeface's a los botones de la pantalla principal
+		main_galeria = (Button)getActivity().findViewById(R.id.main_galeria_button);
+		main_galeria.setTypeface(robotoThin);
 		
+		main_sitios = (Button)getActivity().findViewById(R.id.main_sitios_visitados_button);
+		main_sitios.setTypeface(robotoThin);
+
+		main_buscar = (Button)getActivity().findViewById(R.id.main_buscar_sitio_button);
+		main_buscar.setTypeface(robotoThin);
+
 		
-		
+		main_descubre = (Button)getActivity().findViewById(R.id.main_descubre_button);
+		main_descubre.setTypeface(robotoThin);
+		main_descubre.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(slidingMenu.isShown()){
+					slidingMenu.toggle();
+				}else{
+					slidingMenu.showMenu();
+				}
+				
+			}
+		});
 		
 		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
 		slidingMenu.setOnOpenedListener(new OnOpenedListener() {
@@ -90,6 +115,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 				actionBar.setHomeButtonEnabled(false);
     			actionBar.setDisplayShowHomeEnabled(false);
     			setHasOptionsMenu(false);
+    
 			}
 		});
 		
@@ -109,7 +135,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 	
 	//Metodo del menu y el listener del menú	
 		/*Menu del actionBarSherlock - boton de buscar */
-		//a diferencia del menu comun este no infla un xml con los items, que tambien se puede.
 			public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
 				super.onCreateOptionsMenu(menu, menuInflater);
 				
@@ -124,14 +149,12 @@ public class Main_Content_Fragment extends SherlockFragment{
 			
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
-    	/*Listener del boton home actionBar */
     	case android.R.id.home:
     		slidingMenu.toggle();
     		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
     		return true;
     		
     	case MAP:
-    		//abrir mapa de la ciudad
     		Toast.makeText(getActivity(), "Mapa de Valencia", Toast.LENGTH_SHORT).show(); //de prueba
     		return true;
     		

@@ -5,5 +5,85 @@
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
      android:orientation="vertical"
-     android:gravity="center">
+     android:gravity="bottom">
+     
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="0dp"
+		 android:layout_weight="1"
+         android:gravity="center"
+         android:orientation="horizontal" >
+
+         
+     </LinearLayout>
+     <LinearLayout 
+         android:layout_width="fill_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+         android:padding="10dp"
+         android:orientation="vertical"
+         android:gravity="center">
+         
+	     <LinearLayout 
+	         android:layout_width="fill_parent"
+	         android:layout_height="wrap_content"
+	         android:orientation="horizontal"
+	         android:paddingTop="8dp"
+	         android:paddingBottom="8dp"
+	         android:gravity="center">
+	         <Button 
+	             android:id="@+id/main_galeria_button"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:padding="8dp"
+	             android:background="@drawable/color_state_list_main_buttons"
+	             android:drawableTop="@drawable/content_picture"
+	             android:drawablePadding="5dp"
+	             android:text="@string/mainButton_Galeria"
+	             android:textColor="@color/white"/>
+	         <Button
+	             android:id="@+id/main_sitios_visitados_button"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:padding="8dp"
+	             android:background="@drawable/color_state_list_main_buttons"
+	             android:drawableTop="@drawable/navigation_accept"
+	             android:drawablePadding="5dp"
+	             android:text="@string/mainButton_SitiosVisitados"
+	             android:textColor="@color/white" />
+	         <Button 
+	             android:id="@+id/main_buscar_sitio_button"
+	             android:layout_width="wrap_content"
+	             android:layout_height="wrap_content"
+	             android:padding="8dp"
+	             android:background="@drawable/color_state_list_main_buttons"
+	             android:drawableTop="@drawable/action_search"
+	             android:drawablePadding="5dp"
+	             android:text="@string/mainButton_Buscar"
+	             android:textColor="@color/white"/>
+	     </LinearLayout>
+
+	     <LinearLayout
+	         android:layout_width="fill_parent"
+	         android:layout_height="wrap_content"
+	         android:paddingLeft="12dp"
+	         android:paddingRight="12dp"
+	         android:paddingTop="8dp"
+	         android:paddingBottom="8dp"
+	         android:gravity="center"
+	         android:orientation="horizontal" >
+
+	         <Button 
+	             android:id="@+id/main_descubre_button"
+	             android:layout_width="fill_parent"
+	             android:layout_height="wrap_content"
+	             android:background="@drawable/color_state_list_main_buttons"
+	             android:drawableLeft="@drawable/navigation_previous_item"
+	             android:drawablePadding="5dp"
+	             android:textColor="@color/white"
+	             android:text="@string/mainButton_Descubre"/>
+	         
+	     </LinearLayout>
+     </LinearLayout>
+     
 </LinearLayout>
