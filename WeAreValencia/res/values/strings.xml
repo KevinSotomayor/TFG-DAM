@@ -8,8 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="imageViewDescription">Image for Sliding Menu</string>
-    <string name="WeAre">WE ARE</string>
-    <string name="Valencia">VALENCIA</string>
+    <string name="WeAreValenciaInicio">INICIO</string>
     <string name="proximamente">Próximamente</string>
     <string name="smValencia">VALENCIA</string>
 	<string name="smLugares">LUGARES DE INTERÉS</string>
@@ -20,5 +19,6 @@
 	<string name="mainButton_SitiosVisitados">SITIOS \nVISITADOS</string>
 	<string name="mainButton_Buscar">BUSCAR</string>
 	<string name="mainButton_Descubre">DESCUBRE VALENCIA</string>
+	<string name="description_logo_letras">Logo We Are Valencia</string>
 	
 </resources>

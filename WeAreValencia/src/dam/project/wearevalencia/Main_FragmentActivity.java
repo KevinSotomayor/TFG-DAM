@@ -30,8 +30,8 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.content_fragment, mContent).commit();
 	
-		// que no se deslize el actionbar
-		setSlidingActionBarEnabled(false); 
+		// que se deslize el actionbar
+		setSlidingActionBarEnabled(true); 
 		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 		
 		SlidingMenuAction();
@@ -49,12 +49,11 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		slidingMenu = getSlidingMenu();
 		slidingMenu.setShadowDrawable(R.drawable.shadow);
 		slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
-		slidingMenu.setBehindOffset(89);
+		slidingMenu.setBehindOffset(80);
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		slidingMenu.setFadeDegree(0.70f);
-		//slidingMenu.attachToActivity(Main_FragmentActivity.this, SlidingMenu.SLIDING_WINDOW); //deslizar todo
-		//slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
+
 	
 		
 	}

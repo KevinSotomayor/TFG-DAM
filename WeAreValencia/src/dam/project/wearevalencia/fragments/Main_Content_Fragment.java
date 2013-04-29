@@ -22,8 +22,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
-import com.slidingmenu.lib.SlidingMenu.OnClosedListener;
-import com.slidingmenu.lib.SlidingMenu.OnOpenedListener;
 import android.view.View.OnClickListener;
 
 
@@ -108,27 +106,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 			}
 		});
 		
-		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
-		slidingMenu.setOnOpenedListener(new OnOpenedListener() {
-
-			public void onOpened() {
-				actionBar.setHomeButtonEnabled(false);
-    			actionBar.setDisplayShowHomeEnabled(false);
-    			setHasOptionsMenu(false);
-    
-			}
-		});
-		
-		slidingMenu.setOnClosedListener(new OnClosedListener() {
-			
-			public void onClosed() {
-				actionBar.setHomeButtonEnabled(true);
-    			actionBar.setDisplayShowHomeEnabled(true);
-    			setHasOptionsMenu(true);
-				
-			}
-		});
-
 	}
 	
    
@@ -188,11 +165,8 @@ public class Main_Content_Fragment extends SherlockFragment{
 			
 			        //identificar las etiquetas y setTypeface otra letra
 			        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
-			        titulo.setTypeface(robotoThin);
-			        
-			        TextView subtitulo =(TextView)customView.findViewById(R.id.titulo2WeAreValencia);
-			        subtitulo.setTypeface(robotoBoldCondensed);
-	
+			        titulo.setTypeface(robotoBoldCondensed);
+
   
 			        /// center xml in actionbar
 			        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
