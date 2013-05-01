@@ -133,15 +133,14 @@ public class Main_Content_Fragment extends SherlockFragment{
     		return true;
     		
     	case MAP:
-    		Intent i = new Intent(getActivity(), TorresSerrano.class);
-    		startActivity(i);
-    		Toast.makeText(getActivity(), "Mapa de Valencia", Toast.LENGTH_SHORT).show(); //de prueba
+
+
     		return true;
     		
-    	default:
-    		return super.onOptionsItemSelected(item);
     	}
     	
+		return super.onOptionsItemSelected(item);
+
     }
 	
     
