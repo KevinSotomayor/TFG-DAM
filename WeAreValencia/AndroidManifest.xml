@@ -23,6 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="dam.project.wearevalencia.fragments.TorresSerrano" 
+            android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaGalery"></activity>
     </application>
 
 </manifest>

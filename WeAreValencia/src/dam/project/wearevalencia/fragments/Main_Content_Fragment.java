@@ -2,6 +2,7 @@ package dam.project.wearevalencia.fragments;
 
 import org.holoeverywhere.widget.Toast;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
@@ -82,17 +83,17 @@ public class Main_Content_Fragment extends SherlockFragment{
 		
 		//cambiar typeface's a los botones de la pantalla principal
 		main_galeria = (Button)getActivity().findViewById(R.id.main_galeria_button);
-		main_galeria.setTypeface(robotoThin);
+		main_galeria.setTypeface(robotoBoldCondensed);
 		
 		main_sitios = (Button)getActivity().findViewById(R.id.main_sitios_visitados_button);
-		main_sitios.setTypeface(robotoThin);
+		main_sitios.setTypeface(robotoBoldCondensed);
 
 		main_buscar = (Button)getActivity().findViewById(R.id.main_buscar_sitio_button);
-		main_buscar.setTypeface(robotoThin);
+		main_buscar.setTypeface(robotoBoldCondensed);
 
 		
 		main_descubre = (Button)getActivity().findViewById(R.id.main_descubre_button);
-		main_descubre.setTypeface(robotoThin);
+		main_descubre.setTypeface(robotoBoldCondensed);
 		main_descubre.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -132,6 +133,8 @@ public class Main_Content_Fragment extends SherlockFragment{
     		return true;
     		
     	case MAP:
+    		Intent i = new Intent(getActivity(), TorresSerrano.class);
+    		startActivity(i);
     		Toast.makeText(getActivity(), "Mapa de Valencia", Toast.LENGTH_SHORT).show(); //de prueba
     		return true;
     		

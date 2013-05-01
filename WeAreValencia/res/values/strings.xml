@@ -3,10 +3,10 @@
     <color name="action_bar_color_divider">#29FFA48F</color>
     <color name="background_slidingMenu">#141414</color>
     <color name="white">#FFFFFF</color>
+    <color name="orange">#FF6C4B</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Opciones</string>
     <string name="imageViewDescription">Image for Sliding Menu</string>
     <string name="WeAreValenciaInicio">INICIO</string>
     <string name="proximamente">Próximamente</string>
@@ -20,5 +20,7 @@
 	<string name="mainButton_Buscar">BUSCAR</string>
 	<string name="mainButton_Descubre">DESCUBRE VALENCIA</string>
 	<string name="description_logo_letras">Logo We Are Valencia</string>
+	<string name="torresDe">TORRES DE</string>
+	<string name="Serranos"> SERRANOS</string>
 	
 </resources>
