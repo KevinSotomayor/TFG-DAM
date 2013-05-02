@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/torresdeserranos_container_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/main_bg_7">
+  <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="1"
+	    android:padding="17dp"
+	    android:orientation="vertical"
+	    android:gravity="center_vertical">
+	    
+        <include layout="@layout/torresdeserrano_map_fragment"/>
+        
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_weight="4"
+	    android:orientation="vertical"
+	    android:padding="17dp"
+	    android:gravity="center_vertical">
+	 <Button 
+	     android:id="@+id/torresdeserranos_galleryButton"
+	     android:layout_width="fill_parent"
+	     android:layout_height="wrap_content"
+	     android:text="@string/irGaleria"
+	     android:textColor="@color/white"
+	     android:background="@drawable/color_state_list_main_buttons"/>   
+       
+    </LinearLayout>
+    
+</LinearLayout>

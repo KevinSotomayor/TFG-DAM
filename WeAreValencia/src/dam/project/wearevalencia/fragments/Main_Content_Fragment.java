@@ -28,6 +28,8 @@ import android.view.View.OnClickListener;
 
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.TorresDeSerranos_Container;
+import dam.project.wearevalencia.maps.*;
 
 public class Main_Content_Fragment extends SherlockFragment{
 	//constantes
@@ -128,13 +130,13 @@ public class Main_Content_Fragment extends SherlockFragment{
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
     	case android.R.id.home:
-    		slidingMenu.toggle();
-    		//toggle(); -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
+    		slidingMenu.toggle();// -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
+    		
     		return true;
     		
     	case MAP:
-
-
+    		Intent ts = new Intent(getActivity(), TorresDeSerranos_Container.class);
+    		startActivity(ts);
     		return true;
     		
     	}
