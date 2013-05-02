@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|left"
+    android:paddingLeft="35dp"
+    android:orientation="horizontal">
+    
+    <TextView 
+        android:id="@+id/tituloOtherActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/titleText"
+        style="@style/TextAppearance.Sherlock.Widget.ActionBar.Title"/>
+    <TextView 
+        android:id="@+id/titulo2OtherActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/WeAreValenciaInicio"
+        android:layout_marginLeft="4dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/titleText"
+        style="@style/TextAppearance.Sherlock.Widget.ActionBar.Title"/>
+    
+</LinearLayout> 
