@@ -52,7 +52,8 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		slidingMenu.setBehindOffset(80);
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-		slidingMenu.setFadeDegree(0.70f);
+		slidingMenu.setFadeDegree(0.10f);
+		slidingMenu.setBehindScrollScale(0);
 
 	
 		
