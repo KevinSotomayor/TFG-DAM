@@ -4,6 +4,7 @@
     <color name="background_slidingMenu">#141414</color>
     <color name="white">#FFFFFF</color>
     <color name="orange">#FF6C4B</color>
+    <color name="orangeLogo">#ff522c</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="action_settings">Opciones</string>
@@ -24,4 +25,9 @@
 	<string name="Serranos"> SERRANOS</string>
 	<string name="irGaleria">IR A LA GALERÍA</string>
 	<string name="cargando">Cargando...</string>
+	<string name="optionsMaps">Opciones del mapa</string>
+	<string name="mapaNormal">Mapa Normal</string>
+	<string name="mapaHibryd">Mapa Hybrido</string>
+	<string name="mapaSatelite">Mapa Satélite</string>
+	<string name="mapaTerraneo">Mapa Terráneo</string>
 </resources>

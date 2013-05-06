@@ -29,12 +29,12 @@ import com.actionbarsherlock.view.MenuItem;
 
 import dam.project.wearevalencia.R;
 
-public class TorresDeSerranosGallery extends SherlockFragmentActivity implements ViewFactory {
+public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implements ViewFactory {
 	private ActionBar actionBar;
 	private Typeface robotoThin, robotoBoldCondensed;
 	//Integer pics[] = {R.drawable.serranos_1, R.drawable.main_bg_10, R.drawable.main_bg_11, R.drawable.main_bg_12, R.drawable.main_bg_14};
 	Integer[] pics;
-
+	int middle;
 	ImageSwitcher iSwitcher;
 
 	/** Called when the activity is first created. */
@@ -42,7 +42,7 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.torresdeserrano_gallery);
+		setContentView(R.layout.imageswitcher_gallery);
 
 		actionBar = getSupportActionBar();
 		changeActionBar();
@@ -52,7 +52,8 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 		Drawable unoDrawable = new BitmapDrawable(getResources(), unoBitmap);*/
 
 		pics = new Integer[]{R.drawable.main_bg_1, R.drawable.main_bg_10, R.drawable.main_bg_11, R.drawable.main_bg_12, R.drawable.main_bg_14};
-
+		middle = pics.length / 2;
+		
 		iSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcherSerranos);
 		iSwitcher.setFactory(this);
 		iSwitcher.setInAnimation(AnimationUtils.loadAnimation(this,	android.R.anim.fade_in));
@@ -60,7 +61,7 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 
 		Gallery gallery = (Gallery) findViewById(R.id.gallerySerranos);
 		gallery.setAdapter(new ImageAdapter(this));
-		gallery.setSelection(2);
+		gallery.setSelection(middle);
 		gallery.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -120,10 +121,8 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 	public View makeView() {
 		ImageView iView = new ImageView(this);
 		iView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-		iView.setLayoutParams(new 
-				ImageSwitcher.LayoutParams(
-						LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
-		iView.setImageResource(pics[2]);
+		iView.setLayoutParams(new ImageSwitcher.LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT));
+		iView.setImageResource(pics[middle]);
 		return iView;
 	}
 
@@ -131,7 +130,7 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 	public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
     	case android.R.id.home:
-    		TorresDeSerranosGallery.this.finish();
+    		TorresDeSerranos_Gallery.this.finish();
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);	
     		return true;
 
@@ -158,14 +157,14 @@ public class TorresDeSerranosGallery extends SherlockFragmentActivity implements
 
 
 		        //inflar un view con el layout de los titulos
-		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title_other_activity,null);
+		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title_gallery,null);
 
 		        //identificar las etiquetas y setTypeface otra letra
-		        TextView titulo = (TextView)customView.findViewById(R.id.tituloOtherActivity);
+		        TextView titulo = (TextView)customView.findViewById(R.id.tituloGallery);
 		        titulo.setText(getString(R.string.torresDe));
 		        titulo.setTypeface(robotoThin);
 
-		        TextView otroTitulo =(TextView)customView.findViewById(R.id.titulo2OtherActivity);
+		        TextView otroTitulo =(TextView)customView.findViewById(R.id.titulo2Gallery);
 		        otroTitulo.setText(getString(R.string.Serranos));
 		        otroTitulo.setTypeface(robotoBoldCondensed);
 

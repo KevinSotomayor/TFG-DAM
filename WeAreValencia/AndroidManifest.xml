@@ -51,9 +51,9 @@
         <activity android:name=".Main_FragmentActivity" android:screenOrientation="portrait"/>
         <activity android:name="dam.project.wearevalencia.maps.TorresDeSerranosMap" 
              android:screenOrientation="portrait"/>
-        <activity android:name=".TorresDeSerranos_Container" 
+        <activity android:name="dam.project.wearevalencia.maps.TorresDeSerranos_Map" 
              android:screenOrientation="portrait"/>
-        <activity android:name="dam.project.wearevalencia.gallery.TorresDeSerranosGallery" 
+        <activity android:name="dam.project.wearevalencia.gallery.TorresDeSerranos_Gallery" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaGalery"/>
         
     </application>

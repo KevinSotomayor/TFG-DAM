@@ -1,6 +1,5 @@
 package dam.project.wearevalencia.fragments;
 
-import org.holoeverywhere.widget.Toast;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -28,7 +27,6 @@ import android.view.View.OnClickListener;
 
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
-import dam.project.wearevalencia.TorresDeSerranos_Container;
 import dam.project.wearevalencia.maps.*;
 
 public class Main_Content_Fragment extends SherlockFragment{
@@ -36,7 +34,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	private final static int MAP = 1;
 
 	private ActionBar actionBar;
-	private Typeface robotoThin, robotoBoldCondensed;
+	private Typeface robotoBoldCondensed;
 	private SlidingMenu slidingMenu;
 	
 	private LinearLayout main_Layout;
@@ -114,7 +112,7 @@ public class Main_Content_Fragment extends SherlockFragment{
    
 	
 	//Metodo del menu y el listener del menú	
-		/*Menu del actionBarSherlock - boton de buscar */
+		/*Menu del actionBarSherlock*/
 			public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
 				super.onCreateOptionsMenu(menu, menuInflater);
 				
@@ -135,7 +133,7 @@ public class Main_Content_Fragment extends SherlockFragment{
     		return true;
     		
     	case MAP:
-    		Intent ts = new Intent(getActivity(), TorresDeSerranos_Container.class);
+    		Intent ts = new Intent(getActivity(), TorresDeSerranos_Map.class);
     		startActivity(ts);
     		return true;
     		
@@ -150,7 +148,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void changeActionBar() {
 			//typeface personalizadas
-	        robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
 	        robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
 	        
 					//boton de volver atras del boton home, e icono personalizado

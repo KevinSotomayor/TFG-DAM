@@ -16,36 +16,43 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		// Que se deslize el actionbar
+		setSlidingActionBarEnabled(true); 
+		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
+		
 		setBehindContentView(R.layout.sliding_menu_frame_list);
-		//set the above view
+		//reemplazar la vista del sliding menu
+		FragmentTransaction fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.sliding_menu_fragment, new Sliding_Menu_Fragment());
+		fragmentTransaction.commit();
+		
+		//configurar slidingMenu
+		SlidingMenuAction();
+
+		//si esta guardado el fragment y sino establecer la vista de la pantalla principal
 		if(savedInstanceState != null)
-			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "content");
+			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
 		
 		if(mContent == null)
 			mContent = new Main_Content_Fragment();
 				
 		setContentView(R.layout.main_frame_activity);
+		//reemplazada la vista "contenedora(main_frame_activity)" por la vista "main_content_activity"
+		fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
+		fragmentTransaction.replace(R.id.content_fragment, mContent).commit();
 	
-		//reemplazada la vista "contenedora" por la vista "main_content_activity"
-		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-		ft.replace(R.id.content_fragment, mContent).commit();
 	
-		// que se deslize el actionbar
-		setSlidingActionBarEnabled(true); 
-		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
-		
-		SlidingMenuAction();
-				
-		//reemplazar la vista del sliding menu
-		ft = getSupportFragmentManager().beginTransaction();
-		ft.replace(R.id.sliding_menu_fragment, new Sliding_Menu_Fragment()).commit();
-		
-		
+
+	}
+	
+	//guarda el fragment al salir de la actividad
+	public void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+		this.getSupportFragmentManager().putFragment(outState, "mContent", mContent);
 	}
 	
 
 	private void SlidingMenuAction() {
-		//configurar slidingMenu
 		slidingMenu = getSlidingMenu();
 		slidingMenu.setShadowDrawable(R.drawable.shadow);
 		slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
@@ -54,10 +61,9 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 		slidingMenu.setFadeDegree(0.10f);
 		slidingMenu.setBehindScrollScale(0);
-
-	
 		
 	}
+	
 	
 	//devuelve la referencia al objeto de esta clase, con lo cual en las otras clases de donde querramos abrir el menú
 	//solo habrá que instanciar el objeto.
