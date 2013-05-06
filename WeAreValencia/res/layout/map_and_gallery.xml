@@ -26,16 +26,25 @@
         android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:layout_weight="4"
-	    android:orientation="vertical"
+	    android:orientation="horizontal"
 	    android:padding="17dp"
 	    android:gravity="center_vertical">
 	 <Button 
 	     android:id="@+id/torresdeserranos_galleryButton"
 	     android:layout_width="fill_parent"
-	     android:layout_height="wrap_content"
+	     android:layout_height="fill_parent"
+	     android:layout_weight="1"
 	     android:text="@string/irGaleria"
 	     android:textColor="@color/white"
-	     android:background="@drawable/color_state_list_main_buttons"/>   
+	     android:background="@drawable/color_state_list_main_buttons"/>
+
+	 <ImageButton
+	     android:id="@+id/goLocationMapButton"
+	     android:layout_width="fill_parent"
+	     android:layout_height="match_parent"
+	     android:layout_weight="5"
+	     android:background="@drawable/color_state_list_main_buttons"
+	     android:src="@drawable/action_go_map"/>
        
     </LinearLayout>
     
