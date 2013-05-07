@@ -10,6 +10,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,10 +44,10 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 	private ActionBar actionBar;
 	
 	//constantes para identificar que opcion de menu se selecciona.
-	private final int MAPA_NORMAL = 0;
-	private final int MAPA_HYBRIDO = 1;
-	private final int MAPA_SATELITE = 2;
-	private final int MAPA_TERRANEO = 3;
+	private final int MAPA_NORMAL = 1;
+	private final int MAPA_HYBRIDO = 2;
+	private final int MAPA_SATELITE = 3;
+	private final int MAPA_TERRANEO = 4;
 	
 	private final float latitud = (float) 39.47926986007646;
 	private final float longitud = (float) -0.3760123212119959;
@@ -211,7 +212,8 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 		}
 	
 	public boolean onOptionsItemSelected (MenuItem item){
-    	switch(item.getItemId()){
+    	
+		switch(item.getItemId()){
     	
     	case android.R.id.home:
     		TorresDeSerranos_Map.this.finish();
@@ -219,24 +221,30 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
     		return true;
+    	
     	case 0:
+    		break;
+    		
+    	case MAPA_NORMAL:
     		mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     		break;
     		
-    	case 1:
+    	case MAPA_HYBRIDO:
     		mapa.setMapType(GoogleMap.MAP_TYPE_HYBRID);
     		break;
     		
-    	case 2:
+    	case MAPA_SATELITE:
     		mapa.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
     		break;
     		
-    	case 3:
+    	case MAPA_TERRANEO:
     		mapa.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
     		break;	
 
     	}
     	
+		Log.e("Variable item", "" + item.getItemId());
+
 		return super.onOptionsItemSelected(item);
 
     }
