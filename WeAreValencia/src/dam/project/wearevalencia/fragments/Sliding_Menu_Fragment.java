@@ -1,5 +1,6 @@
 package dam.project.wearevalencia.fragments;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.graphics.Typeface;
@@ -9,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 
 public class Sliding_Menu_Fragment extends ListFragment{
@@ -27,11 +30,11 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		adapter = new SampleAdapterMenu(getActivity());
 		
 		//items de la lista:
-		ItemList valencia = new ItemList(getActivity().getString(R.string.smValencia), R.drawable.valencia);
-		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.lugaresdeinteres);
-		ItemList fallas = new ItemList(getActivity().getString(R.string.smFallas), R.drawable.fallas);
-		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.cc);
-		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.mapa);
+		ItemList valencia = new ItemList(getActivity().getString(R.string.smValencia), R.drawable.slidingmenu_valencia);
+		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
+		ItemList fallas = new ItemList(getActivity().getString(R.string.smFallas), R.drawable.slidingmenu_fallas);
+		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
+		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
 
 		
 		adapter.add(valencia);
@@ -45,7 +48,49 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		
 	}
 
+	public void onListItemClick(ListView lista, View view, int position, long id){
+		Fragment newContent = null;
+		switch (position){
+		case 0:
+			break;
+		
+		case 1: 
+			newContent = new LugaresDeInteres();
+			break;
+		
+		case 2:
+			break;
+		
+		case 4: 
+			break;
+		
+		case 5:
+			break;
+			
+		
+		default:
+			break;
+		}
+		
+		if(newContent != null){
+			switchFragment(newContent);
+		}
+	}
 	
+	private void switchFragment(Fragment newContent) {
+		// getActivity() // -> Devuelva la actividad que está asociada con este fragmento.
+		if(getActivity() == null)
+			return;
+		
+		//comprueba si getActivity es una instancia de Main_FragmentActivity, la clase que va a contener este fragment
+		//llama al metodo de swtich para hacer el replace().
+		if(getActivity() instanceof Main_FragmentActivity){
+			Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
+			mFragmentActivity.switchContent(newContent);
+		}
+		
+	}
+
 	//similar a clase persona
 	private class ItemList{
 		public String textItem;

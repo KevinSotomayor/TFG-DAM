@@ -1,16 +1,15 @@
 package dam.project.wearevalencia.maps;
 
 import org.holoeverywhere.widget.Toast;
-
 import android.app.Dialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,14 +28,12 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
-import com.google.android.gms.maps.LocationSource;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
 
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.gallery.TorresDeSerranos_Gallery;
@@ -60,10 +57,14 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 	
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
-	
-	//objeto google map con el que se interactua
 	GoogleMap mapa;
 	Location location;
+	String provider;
+	
+	private LatLng myPosition;
+	private LatLng myDestine;
+	
+	
 		
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -80,50 +81,68 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
         if(status!=ConnectionResult.SUCCESS){ // Google Play Services no esta disponible
             int requestCode = 10;
             Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
+            //http://developer.android.com/intl/es/google/play-services/setup.html
             dialog.show();
         }else{
   
 	        mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 
 	        //mi posicion habilitada
-			mapa.setMyLocationEnabled(true);
 	        
 			goToTorresDeSerranos();
 			
-	        // obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
-	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-			Criteria criteria = new Criteria(); //establecemos precision
-			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
-			String provider = locationManager.getBestProvider(criteria, true); //devuelve en un string el provider con los mejores criterios 
-			locationManager.requestLocationUpdates(provider, MIN_TIME, MIN_DISTANCE, this); //obtener actualizaciones de posicionamiento
-	
-			if(locationManager != null){
-				boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-				boolean networkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-				
-				if(!gpsEnabled){
-					Toast toast = Toast.makeText(getApplicationContext(), "GPS Deshabilitado, actívalo para mejor precisión", Toast.LENGTH_LONG);
-					toast.setGravity(Gravity.CENTER,0,0);
-					toast.show();
-				}
-				if(!networkEnabled){
-					Toast toast = Toast.makeText(getApplicationContext(), "No hay conexión de datos, actívela para mostrar el mapa", Toast.LENGTH_LONG);
-					toast.setGravity(Gravity.CENTER,0,0);
-					toast.show();
-				}
-			}
-						
-			Location location = locationManager.getLastKnownLocation(provider);
-			//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
 			
-			if(location!=null){
-				Toast.makeText(getApplicationContext(), "Obteniendo ubicación, espere...", Toast.LENGTH_LONG).show();
-	            onLocationChanged(location);
-			}
+			 ImageButton myPosition = (ImageButton)findViewById(R.id.myLocationButton);
+		        myPosition.setOnClickListener(new OnClickListener() {
+					
+		        	@Override
+					public void onClick(View v) {
+						Toast.makeText(getApplicationContext(), "Obteniendo tu ubicación, espera...", Toast.LENGTH_LONG).show();
+
+						new Handler().post(new Runnable() {
+							
+							@Override
+							public void run() {
+				    			mapa.setMyLocationEnabled(true);
+				    			// obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
+				    	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+				    			Criteria criteria = new Criteria(); //establecemos precision
+				    			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
+				    			provider = locationManager.getBestProvider(criteria, true); //devuelve en un string el provider con los mejores criterios 
+						        
+								if(locationManager != null){
+									boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+									boolean networkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+									
+									if(!gpsEnabled){
+										Toast toast = Toast.makeText(getApplicationContext(), "GPS Deshabilitado, actívalo para mejor precisión", Toast.LENGTH_LONG);
+										toast.setGravity(Gravity.CENTER,0,0);
+										toast.show();
+									}
+									if(!networkEnabled){
+										Toast toast = Toast.makeText(getApplicationContext(), "No hay conexión de datos, actívela para mostrar el mapa", Toast.LENGTH_LONG);
+										toast.setGravity(Gravity.CENTER,0,0);
+										toast.show();
+									}
+								}
+											
+								location = locationManager.getLastKnownLocation(provider);
+								//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
+					
+								if(location!=null){
+									onLocationChanged(location);
+								}
+							}
+						});
+	        	}
+			});
+		        if(locationManager != null)
+		        	locationManager.requestLocationUpdates(provider, MIN_TIME, MIN_DISTANCE, this); //obtener actualizaciones de posicionamiento
+
         }
         
-        Button galeria = (Button)findViewById(R.id.torresdeserranos_galleryButton);
-        galeria.setTypeface(robotoThin);
+
+        ImageButton galeria = (ImageButton)findViewById(R.id.torresdeserranos_galleryButton);
         galeria.setOnClickListener(new OnClickListener() {
 			
         	@Override
@@ -132,12 +151,46 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 			}
 		});
         
+
+        ImageButton visitedSite = (ImageButton)findViewById(R.id.visitedSiteButton);
+        visitedSite.setOnClickListener(new OnClickListener() {
+			
+        	@Override
+			public void onClick(View v) {
+        		
+        		Toast.makeText(getApplicationContext(), "He visitado ya las Torres de Serranos", Toast.LENGTH_LONG).show();
+    	           
+    			}
+		
+		});
+        
+        //trazar ruta entre mi posicion y mi destino
+        ImageButton makeRoute = (ImageButton)findViewById(R.id.makeRouteButton);
+        makeRoute.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(getApplicationContext(), "Estableciendo ruta...", Toast.LENGTH_LONG).show();
+				new Handler().post(new Runnable() {
+					
+					@Override
+					public void run() {
+						
+					}
+				});
+			}
+			
+		});
+        
+        //cuando se pulse el boton, se posicionara nuevamente al usuario con la vista de las torres de serranos.
         ImageButton goLocation = (ImageButton)findViewById(R.id.goLocationMapButton);
         goLocation.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-		
+				
+				goToTorresDeSerranos();
+				
 			}
 		});
 	}
@@ -192,6 +245,7 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 	private void goToTorresDeSerranos(){
 		//establecer la posicion y marker de las torres de serranos:		
 		LatLng torresLatLng = new LatLng(latitud, longitud);
+		myDestine = torresLatLng;
 		//dirige la posicion del mapa hacia esa latitud y esa longitud
 		CameraPosition cameraPosition = new CameraPosition.Builder()
 		.target(torresLatLng)
@@ -237,7 +291,7 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
         		actionBar.setHomeButtonEnabled(true);
-		        actionBar.setIcon(R.drawable.navigation_back);
+		        actionBar.setIcon(R.drawable.ic_navigation_back);
 
 		        //cambiar el titulo por otro con subtitulo + layout
 		        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal
@@ -286,6 +340,7 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 
 	@Override
 	public void onLocationChanged(Location location) {
+		if(location != null){
 			//obteniendo la latitud de mi posicion actual
 			double latitude = location.getLatitude();
 			
@@ -294,13 +349,14 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 			
 			//direccion de mi posicion actual
 			LatLng myCurrentPosition = new LatLng(latitude, longitude);
-			
+			myDestine = myCurrentPosition;
 			//mover la posicion del mapa hacia donde estoy ubicado en ese momento
 			CameraPosition myCameraPosition = new CameraPosition.Builder()
 			.target(myCurrentPosition).zoom(15).build();
 			CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(myCameraPosition);
 			mapa.animateCamera(cameraUpdate);
-
+		}
+		
 	}
 
 	@Override

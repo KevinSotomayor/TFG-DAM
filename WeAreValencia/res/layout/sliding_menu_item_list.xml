@@ -1,6 +1,4 @@
-
-     
-    <FrameLayout 
+  <FrameLayout 
          xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/frameLayout"
         android:layout_width="fill_parent"
@@ -10,7 +8,7 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:contentDescription="@string/imageViewDescription"
-	        android:src="@drawable/valencia"/>
+	        android:src="@drawable/slidingmenu_valencia"/>
 	    
 	    <TextView 
 	        android:id="@+id/textViewItem"
@@ -19,8 +17,8 @@
 	        android:textSize="@dimen/TextViewSlidingMenu"
 	        android:gravity="center"
 	        android:layout_gravity="bottom"
-	        android:textColor="#ffffff"
-	        android:text=""
-	        android:background="#29000000"/>
+	        android:textColor="@color/white"
+	        android:text="@string/cargando"
+	        android:background="@color/blackTransparency"/>
     </FrameLayout>
     

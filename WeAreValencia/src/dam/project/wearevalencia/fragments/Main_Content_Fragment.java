@@ -118,7 +118,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 				
 			 
 				menu.add(0, MAP, 0, "Ir al mapa")
-				.setIcon(R.drawable.location_place)
+				.setIcon(R.drawable.ic_location_place)
 				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 				
 				
@@ -153,7 +153,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 					//boton de volver atras del boton home, e icono personalizado
 					actionBar.setDisplayHomeAsUpEnabled(false);
 	        		actionBar.setHomeButtonEnabled(true);
-			        actionBar.setIcon(R.drawable.nav_menu);
+			        actionBar.setIcon(R.drawable.ic_nav_menu);
 			        
 			        //cambiar el titulo por otro con subtitulo + layout
 			        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal

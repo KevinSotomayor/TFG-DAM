@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal" >
+	<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal" 
+	        android:gravity="center_horizontal">
+	    
+	    <TextView
+	        android:id="@+id/textViewLugaresDeInteres_ItemList"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="8"
+	        android:layout_gravity="center"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="15dp"
+	        android:text="@string/cargando"
+	        android:textSize="@dimen/TextViewLugaresDeInteresItem"
+	        android:textColor="@color/black"/>
+	    
+		<ImageView
+		    android:id="@+id/navigation_next"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
+		    android:layout_gravity="center"
+		    android:src="@drawable/ic_navigation_next" />
+	
+	</LinearLayout>
+</LinearLayout>

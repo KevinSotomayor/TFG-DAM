@@ -1,9 +1,22 @@
 <LinearLayout 
      xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="fill_parent"
+     android:layout_height="fill_parent"
+     android:orientation="vertical">
+    <Button 
+        android:id="@+id/buttonInicioSlidingMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/WeAreValenciaInicio"
+        android:textColor="@color/white"
+        android:background="@drawable/slidingmenu_color_state_list_main_buttons"/>
+	
+	<LinearLayout 
      android:id="@+id/sliding_menu_fragment"
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
      android:background="@color/background_slidingMenu"
      android:baselineAligned="false">
 
+	</LinearLayout>
 </LinearLayout>

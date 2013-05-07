@@ -29,23 +29,43 @@
 	    android:orientation="horizontal"
 	    android:padding="17dp"
 	    android:gravity="center_vertical">
-	 <Button 
+	 
+	<ImageButton
 	     android:id="@+id/torresdeserranos_galleryButton"
 	     android:layout_width="fill_parent"
-	     android:layout_height="fill_parent"
-	     android:layout_weight="1"
-	     android:text="@string/irGaleria"
-	     android:textColor="@color/white"
-	     android:background="@drawable/color_state_list_main_buttons"/>
-
+	     android:layout_height="match_parent"
+	     android:layout_weight="5"
+	     android:background="@drawable/color_state_list_main_buttons"
+	     android:src="@drawable/ic_content_picture"/>
+	<ImageButton
+	     android:id="@+id/myLocationButton"
+	     android:layout_width="fill_parent"
+	     android:layout_height="match_parent"
+	     android:layout_weight="5"
+	     android:background="@drawable/color_state_list_main_buttons"
+	     android:src="@drawable/ic_action_my_location"/>
+	<ImageButton
+	     android:id="@+id/visitedSiteButton"
+	     android:layout_width="fill_parent"
+	     android:layout_height="match_parent"
+	     android:layout_weight="5"
+	     android:background="@drawable/color_state_list_main_buttons"
+	     android:src="@drawable/ic_navigation_accept"/>
 	 <ImageButton
+	     android:id="@+id/makeRouteButton"
+	     android:layout_width="fill_parent"
+	     android:layout_height="match_parent"
+	     android:layout_weight="5"
+	     android:background="@drawable/color_state_list_main_buttons"
+	     android:src="@drawable/ic_action_make_route"/>
+      
+      <ImageButton
 	     android:id="@+id/goLocationMapButton"
 	     android:layout_width="fill_parent"
 	     android:layout_height="match_parent"
 	     android:layout_weight="5"
 	     android:background="@drawable/color_state_list_main_buttons"
-	     android:src="@drawable/action_go_map"/>
-       
+	     android:src="@drawable/ic_action_go_map"/>
     </LinearLayout>
     
 </LinearLayout>

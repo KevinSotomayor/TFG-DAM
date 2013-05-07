@@ -58,7 +58,6 @@
              android:screenOrientation="portrait"/>
         <activity android:name="dam.project.wearevalencia.gallery.TorresDeSerranos_Gallery" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaGalery"/>
-        
     </application>
 
 </manifest>

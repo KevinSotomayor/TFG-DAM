@@ -148,7 +148,7 @@ public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implement
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
         		actionBar.setHomeButtonEnabled(true);
-		        actionBar.setIcon(R.drawable.navigation_back);
+		        actionBar.setIcon(R.drawable.ic_navigation_back);
 
 		        //cambiar el titulo por otro con subtitulo + layout
 		        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal

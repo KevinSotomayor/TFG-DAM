@@ -42,7 +42,7 @@
 	             android:layout_height="wrap_content"
 	             android:padding="8dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/content_picture"
+	             android:drawableTop="@drawable/ic_content_picture"
 	             android:drawablePadding="5dp"
 	             android:text="@string/mainButton_Galeria"
 	             android:textColor="@color/white"/>
@@ -52,7 +52,7 @@
 	             android:layout_height="wrap_content"
 	             android:padding="8dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/navigation_accept"
+	             android:drawableTop="@drawable/ic_navigation_accept"
 	             android:drawablePadding="5dp"
 	             android:text="@string/mainButton_SitiosVisitados"
 	             android:textColor="@color/white" />
@@ -62,7 +62,7 @@
 	             android:layout_height="wrap_content"
 	             android:padding="8dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/action_search"
+	             android:drawableTop="@drawable/ic_action_search"
 	             android:drawablePadding="5dp"
 	             android:text="@string/mainButton_Buscar"
 	             android:textColor="@color/white"/>
@@ -83,7 +83,7 @@
 	             android:layout_width="fill_parent"
 	             android:layout_height="wrap_content"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableLeft="@drawable/navigation_previous_item"
+	             android:drawableLeft="@drawable/ic_navigation_previous_item"
 	             android:drawablePadding="5dp"
 	             android:textColor="@color/white"
 	             android:text="@string/mainButton_Descubre"/>

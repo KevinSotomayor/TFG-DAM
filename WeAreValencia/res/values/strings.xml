@@ -4,7 +4,15 @@
     <color name="background_slidingMenu">#141414</color>
     <color name="white">#FFFFFF</color>
     <color name="orange">#FF6C4B</color>
+    <color name="orangeLight">#FF7D5F</color>
     <color name="orangeLogo">#ff522c</color>
+    <color name="blackTransparency">#AA000000</color>
+    <color name="grisClaro">#555555</color>
+    <color name="grisOscuro">#2E2E2E</color>
+    <color name="black">#000000</color>
+    <color name="DividerListView">#EEEEEE</color>
+    <color name="orangePressedButton">#DDFF6643</color>
+    <color name="blackTransparencyCondensed">#DD000000</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="action_settings">Opciones</string>
@@ -30,4 +38,46 @@
 	<string name="mapaHibryd">Mapa Hybrido</string>
 	<string name="mapaSatelite">Mapa Satélite</string>
 	<string name="mapaTerraneo">Mapa Terráneo</string>
+	<string name="buscarLugaresDeInteres">Buscar un lugar</string>
+	
+	
+	<string name="lugaresDe">LUGARES DE</string>
+	<string name="interes"> INTERÉS</string>
+	<!-- Lista de contenido de Lugares de interes -->
+	<string name="Monumentos">Monumentos</string>
+	<string name="lonjaDeLaSeda">Lonja de la Seda</string>
+	<string name="torresDeSerranos">Torres de Serranos</string>
+	<string name="torresDeQuart">Torres de Quart</string>
+	<string name="mercadoCentral">Mercado Central</string>
+	<string name="cac">Ciudad de las Artes y las Ciencias</string>
+	<string name="mercadoColon">Mercado Colón</string>
+	<string name="plazaAyuntamiento">Plaza del Ayuntamiento</string>
+	<string name="estacionDelNorte">Estación del Norte</string>
+	<string name="plazaDeToros">Plaza de Toros</string>
+	<string name="plazaDeLaVirgen">Plaza de la Virgen</string>
+	<string name="elMicalet">El Micalet (El Miguelete)</string>
+	<string name="palauDeLaMusica">Palau de la Música</string>
+	
+	<!-- Ciudad de las artes y las ciencias -->
+	<string name="hemisferic">Hemisfèric</string>
+	<string name="museoDeLasCiencias">Museo Príncipe Felipe</string>
+	<string name="oceanografic">Oceanogràfic</string>
+	<string name="palauDeLesArts">Palau de les Arts</string>
+	<string name="umbracle">Umbracle</string>
+	<string name="agora">Ágora</string>
+	
+	<!-- Centro de la ciudad -->
+	<string name="centroCiudad">Centro de la Ciudad</string>
+	<string name="elCarmen">El Carmen</string>
+	<string name="ccbancaja">Centro Cultural Bancaja</string>
+	<string name="streetArt">Arte Urbano</string>
+	
+	<!-- Parques -->
+	<string name="parques">Parques</string>
+	<string name="jBotanico">Jardín Botánico</string>
+	<string name="jViveros">Jardínes Real - Viveros</string>
+	<string name="jTuria">Jardínes del Turia</string>
+	<string name="gulliver">Gulliver</string>
+	<string name="palauMusica">Palau de la Música</string>
+	<string name="parqueCabecera">Parque de Cabecera</string>
 </resources>
