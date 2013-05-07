@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/background_splashscreen"
     android:gravity="center" >
-
+	
 	<!-- triple linearlayout por motivos de doble fondo, el naranja y el degradado del shadow_splashscreen -->
 	<LinearLayout
 	    android:layout_width="fill_parent"
@@ -14,13 +14,13 @@
 	    android:orientation="vertical"
 	    android:background="@drawable/background_splashscreen_shadow"
 	    android:gravity="center">
-
+	    
 		    <LinearLayout
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:orientation="vertical"
 		    android:gravity="center">
-
+		    
 			    <ImageView 
 			        android:id="@+id/vaesa_splashscreen"
 			        android:layout_width="fill_parent"
@@ -38,7 +38,7 @@
 			        android:textColor="@color/orangeLogo"
 			        android:textAppearance="?android:attr/textAppearanceLarge"/>
 		</LinearLayout>
-
+	
 	</LinearLayout>
-
+	
 </LinearLayout>

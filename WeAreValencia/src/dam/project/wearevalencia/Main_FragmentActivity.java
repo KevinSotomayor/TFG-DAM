@@ -31,17 +31,6 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		fragmentTransaction.replace(R.id.sliding_menu_fragment, new Sliding_Menu_Fragment());
 		fragmentTransaction.commit();
 		
-		Button botonInicioSM = (Button)findViewById(R.id.buttonInicioSlidingMenu);
-		botonInicioSM.setTypeface(Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf"));
-		//volver a la pantalla principal
-		botonInicioSM.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				switchContent(new Main_Content_Fragment());
-			}
-		});
-		
 		//configurar slidingMenu
 		SlidingMenuAction();
 
@@ -57,7 +46,18 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.content_fragment, mContent).commit();
 	
-	
+
+		Button botonInicioSM = (Button)findViewById(R.id.buttonInicioSlidingMenu);
+		botonInicioSM.setTypeface(Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf"));
+		//volver a la pantalla principal
+		botonInicioSM.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				switchContent(new Main_Content_Fragment());
+			}
+		});
+		
 
 	}
 	

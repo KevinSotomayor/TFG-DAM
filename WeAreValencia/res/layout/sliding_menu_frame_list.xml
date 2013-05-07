@@ -9,8 +9,9 @@
         android:layout_height="wrap_content"
         android:text="@string/WeAreValenciaInicio"
         android:textColor="@color/white"
+        android:textSize="@dimen/TextViewSlidingMenu"
         android:background="@drawable/slidingmenu_color_state_list_main_buttons"/>
-	
+
 	<LinearLayout 
      android:id="@+id/sliding_menu_fragment"
      android:layout_width="fill_parent"

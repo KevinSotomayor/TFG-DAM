@@ -13,6 +13,7 @@
     <color name="DividerListView">#EEEEEE</color>
     <color name="orangePressedButton">#DDFF6643</color>
     <color name="blackTransparencyCondensed">#DD000000</color>
+    <color name="blackInicioButton">#232323</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="action_settings">Opciones</string>
