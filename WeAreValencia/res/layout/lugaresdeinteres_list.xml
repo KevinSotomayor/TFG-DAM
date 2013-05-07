@@ -8,12 +8,13 @@
     android:orientation="vertical">
     
     <ScrollView 
+        android:id="@+id/scrollView_LugaresDeInteres"
         android:layout_width="match_parent" 
 	    android:layout_height="match_parent"
 	    android:fillViewport="true"   >
 	    <LinearLayout 
 	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
+	        android:layout_height="wrap_content"
 	        android:orientation="vertical" >
 		   
 	        <LinearLayout 
@@ -170,4 +171,16 @@
 		    
 	    </LinearLayout>
     </ScrollView>
+    <LinearLayout 
+        android:id="@+id/linearLayoutProgressbarFicha"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+   <ProgressBar 
+	         android:id="@+id/progressBarLugaresDeInteres"
+	         android:layout_width="wrap_content"
+	         android:layout_height="wrap_content"
+	         style="?android:attr/progressBarStyleInverse"/>
+   </LinearLayout>
 </LinearLayout>

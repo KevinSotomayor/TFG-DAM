@@ -6,6 +6,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class HelperListView {
+	
     public static void getListViewSize(ListView myListView) {
         ListAdapter myListAdapter = myListView.getAdapter();
         if (myListAdapter == null) {
@@ -19,7 +20,7 @@ public class HelperListView {
             listItem.measure(0, 0);
             totalHeight += listItem.getMeasuredHeight();
         }
-      //setting listview item in adapter
+        //setting listview item in adapter
         ViewGroup.LayoutParams params = myListView.getLayoutParams();
         params.height = totalHeight + (myListView.getDividerHeight() * (myListAdapter.getCount() - 1));
         myListView.setLayoutParams(params);

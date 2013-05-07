@@ -13,8 +13,6 @@ import com.slidingmenu.lib.SlidingMenu;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,11 +22,10 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class LugaresDeInteres extends SherlockFragment {
 	private Typeface robotoThin, robotoBoldCondensed;
@@ -82,14 +79,14 @@ public class LugaresDeInteres extends SherlockFragment {
 		arrayList.add(torresDeQuart);
 		arrayList.add(mercadoCentral);
 		arrayList.add(mercadoColon);
-		arrayList.add(CAC);
 		arrayList.add(plazaAyuntamiento);
 		arrayList.add(estacionNorte);
 		arrayList.add(plazaToros);
 		arrayList.add(plazaVirgen);
 		arrayList.add(elMicalet);
+		arrayList.add(CAC);
 		arrayList.add(palauMusica);
-		
+
 		return arrayList;
 		
 	}
@@ -230,9 +227,22 @@ public class LugaresDeInteres extends SherlockFragment {
 		class ListAsyncTask extends AsyncTask<Void, Void, Void>{
 			TextView monumentos, cac, centroCiudad, parques;
 			ListView listaMonumentos, listaCAC, listaCentroCiudad, ListaParques;
-			AdaptadorLugaresDeInteres adaptadorListaMonumentos;
-			protected Void doInBackground(Void... params) {
+			AdaptadorLugaresDeInteres adaptador;
 			
+			View scrollView, progressBar;
+			
+			protected void onPreExecute() {
+				super.onPreExecute();
+				
+				progressBar = (ProgressBar)getView().findViewById(R.id.progressBarLugaresDeInteres);
+				progressBar.setVisibility(View.VISIBLE);
+				
+				scrollView = getView().findViewById(R.id.scrollView_LugaresDeInteres);
+				scrollView.setVisibility(View.GONE);
+
+			}
+			
+			protected Void doInBackground(Void... params) {
 				monumentos = (TextView)getView().findViewById(R.id.textViewlugaresDeInteres_Monumentos);
 				monumentos.setText(getString(R.string.Monumentos));
 				monumentos.setTypeface(robotoThin);
@@ -247,12 +257,38 @@ public class LugaresDeInteres extends SherlockFragment {
 				
 				parques = (TextView)getView().findViewById(R.id.textViewlugaresDeInteres_parques);
 				parques.setText(getString(R.string.parques));
-				parques.setTypeface(robotoThin);
-				
+				parques.setTypeface(robotoThin);					
+
 				listaMonumentos = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_Monumentos);
 				listaCAC = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_CAC);
 				listaCentroCiudad = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_centroCiudad);
 				ListaParques = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_parques);
+				//adaptadores con listas rellenas:
+				
+				try{
+					arrayLugaresDeInteres = obtainMonuments();
+					adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
+					listaMonumentos.setAdapter(adaptador);
+					HelperListView.getListViewSize(listaMonumentos);
+					
+					arrayLugaresDeInteres = obtainCAC();
+					adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
+					listaCAC.setAdapter(adaptador);
+					HelperListView.getListViewSize(listaCAC);
+					
+					arrayLugaresDeInteres = obtainCC();
+					adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
+					listaCentroCiudad.setAdapter(adaptador);
+					HelperListView.getListViewSize(listaCentroCiudad);
+					
+					arrayLugaresDeInteres = obtainParques();
+					adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
+					ListaParques.setAdapter(adaptador);
+					HelperListView.getListViewSize(ListaParques);
+					//http://www.androidhub4you.com/2012/12/listview-into-scrollview-in-android.html
+					}catch (Exception e) {
+						Log.e("Error en postExecute", getTag());
+					}
 				
 				return null;	
 
@@ -260,37 +296,17 @@ public class LugaresDeInteres extends SherlockFragment {
 			}
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
-				getActivity().runOnUiThread(new Runnable() {
+				
+				new Handler().postDelayed(new Runnable() {
 					
 					@Override
 					public void run() {
-						try{
-							arrayLugaresDeInteres = obtainMonuments();
-							adaptadorListaMonumentos = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
-							listaMonumentos.setAdapter(adaptadorListaMonumentos);
-							HelperListView.getListViewSize(listaMonumentos);
-							
-							arrayLugaresDeInteres = obtainCAC();
-							adaptadorListaMonumentos = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
-							listaCAC.setAdapter(adaptadorListaMonumentos);
-							HelperListView.getListViewSize(listaCAC);
-							
-							arrayLugaresDeInteres = obtainCC();
-							adaptadorListaMonumentos = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
-							listaCentroCiudad.setAdapter(adaptadorListaMonumentos);
-							HelperListView.getListViewSize(listaCentroCiudad);
-							
-							arrayLugaresDeInteres = obtainParques();
-							adaptadorListaMonumentos = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
-							ListaParques.setAdapter(adaptadorListaMonumentos);
-							HelperListView.getListViewSize(ListaParques);
-							//http://www.androidhub4you.com/2012/12/listview-into-scrollview-in-android.html
-							}catch (Exception e) {
-								Log.e("Error en postExecute", getTag());
-							}
+						progressBar.setVisibility(View.GONE);
+						scrollView.setVisibility(View.VISIBLE);
+
 					}
-				});
-				
+				}, 2000);
+		
 			}
 
 		}

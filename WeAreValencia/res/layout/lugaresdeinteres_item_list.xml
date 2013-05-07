@@ -14,8 +14,9 @@
 	        android:layout_height="wrap_content"
 	        android:layout_weight="8"
 	        android:layout_gravity="center"
-			android:layout_marginLeft="15dp"
-			android:layout_marginRight="15dp"
+			android:paddingLeft="10dp"
+			android:paddingTop="1dp"
+			android:paddingBottom="2dp"
 	        android:text="@string/cargando"
 	        android:textSize="@dimen/TextViewLugaresDeInteresItem"
 	        android:textColor="@color/black"/>
@@ -26,6 +27,8 @@
 		    android:layout_height="wrap_content"
 		    android:layout_weight="1"
 		    android:layout_gravity="center"
+		    android:paddingTop="1dp"
+		    android:paddingBottom="2dp"
 		    android:src="@drawable/ic_navigation_next" />
 	
 	</LinearLayout>

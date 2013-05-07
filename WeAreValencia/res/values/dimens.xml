@@ -6,6 +6,6 @@
 	<dimen name="shadow_width">16dp</dimen>
 	<dimen name="TextViewSlidingMenu">21dp</dimen>
 	<dimen name="TextViewLugaresDeInteres">20dp</dimen>
-	<dimen name="TextViewLugaresDeInteresItem">21dp</dimen>
+	<dimen name="TextViewLugaresDeInteresItem">20dp</dimen>
 	<dimen name="titleText">17dp</dimen>
 </resources>
