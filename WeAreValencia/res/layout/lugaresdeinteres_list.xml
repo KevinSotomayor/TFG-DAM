@@ -20,7 +20,7 @@
 	        <LinearLayout 
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
-		        android:paddingBottom="20dp"
+		        android:paddingBottom="10dp"
 		        android:orientation="vertical"
 		         >
 		     <FrameLayout 
@@ -49,6 +49,8 @@
 		            android:id="@+id/listView_lugaresDeInteres_Monumentos"
 		            android:layout_width="fill_parent"
 		            android:layout_height="fill_parent"
+		            android:layout_marginRight="8dp"
+		            android:layout_marginLeft="8dp"
 		            android:background="@drawable/background_list_lugaresdeinteres"
 		            android:divider="@color/DividerListView"
 		       		android:dividerHeight="2dp"/>
@@ -59,7 +61,7 @@
 		    <LinearLayout 
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
-		        android:paddingBottom="20dp"
+		        android:paddingBottom="2dp"
 		        android:orientation="vertical" >
 		     <FrameLayout 
 			        android:layout_width="fill_parent"
@@ -87,6 +89,8 @@
 		            android:id="@+id/listView_lugaresDeInteres_CAC"
 		            android:layout_width="fill_parent"
 		            android:layout_height="fill_parent"
+		            android:layout_marginRight="8dp"
+		            android:layout_marginLeft="8dp"
 		            android:background="@drawable/background_list_lugaresdeinteres"
 		            android:divider="@color/DividerListView"
 		       		android:dividerHeight="2dp"/>
@@ -97,7 +101,7 @@
 		    <LinearLayout 
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
-		        android:paddingBottom="20dp"
+		        android:paddingBottom="2dp"
 		        android:orientation="vertical" >
 		     <FrameLayout 
 			        android:layout_width="fill_parent"
@@ -125,6 +129,8 @@
 		            android:id="@+id/listView_lugaresDeInteres_centroCiudad"
 		            android:layout_width="fill_parent"
 		            android:layout_height="fill_parent"
+		            android:layout_marginRight="8dp"
+		            android:layout_marginLeft="8dp"
 		            android:background="@drawable/background_list_lugaresdeinteres"
 		            android:divider="@color/DividerListView"
 		       		android:dividerHeight="2dp"/>
@@ -134,7 +140,7 @@
 		    <LinearLayout 
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
-		        android:paddingBottom="20dp"
+		        android:paddingBottom="2dp"
 		        android:orientation="vertical" >
 		     <FrameLayout 
 			        android:layout_width="fill_parent"
@@ -162,6 +168,8 @@
 		            android:id="@+id/listView_lugaresDeInteres_parques"
 		            android:layout_width="fill_parent"
 		            android:layout_height="fill_parent"
+		            android:layout_marginRight="8dp"
+		            android:layout_marginLeft="8dp"
 		            android:background="@drawable/background_list_lugaresdeinteres"
 		            android:divider="@color/DividerListView"
 		       		android:dividerHeight="2dp"/>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:state_enabled="true" android:drawable="@drawable/ic_navigation_next_light" /> 
+    <item android:state_focused="true" android:state_enabled="true" android:drawable="@drawable/ic_navigation_next_light" /> 
+    <item android:state_hovered="true" android:state_enabled="true" android:drawable="@drawable/ic_navigation_next_light" /> 
+    <item android:drawable="@drawable/ic_navigation_next" /> 
+</selector>

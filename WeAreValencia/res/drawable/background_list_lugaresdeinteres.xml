@@ -13,7 +13,7 @@
     
     <!-- fondo blanco -->
     <item 
-        android:bottom="3px"
+        android:bottom="2px"
         android:right="1px"
         android:top="1px"
         android:left="1px">
