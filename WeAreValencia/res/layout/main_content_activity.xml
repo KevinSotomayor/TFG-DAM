@@ -10,28 +10,30 @@
      <LinearLayout
          android:layout_width="fill_parent"
          android:layout_height="0dp"
-		 android:layout_weight="1"
+		 android:layout_weight="3"
+		 android:paddingLeft="10dp"
+         android:paddingRight="10dp"
          android:gravity="center"
          android:orientation="horizontal" >
-	 <ImageView 
+
+	 <ImageView
 	     android:id="@+id/logo_letras"
 	     android:layout_width="wrap_content"
-	     android:layout_height="wrap_content"
-	     android:src="@drawable/logo_letras"
-	     android:contentDescription="@string/description_logo_letras"/>
+	     android:layout_height="match_parent"
+	     android:contentDescription="@string/description_logo_letras"
+	     android:src="@drawable/logo_letras" />
          
      </LinearLayout>
-     <LinearLayout 
+
+     <LinearLayout
          android:layout_width="fill_parent"
-         android:layout_height="0dp"
-         android:layout_weight="1"
-         android:padding="10dp"
-         android:orientation="vertical"
-         android:gravity="center">
+         android:layout_height="wrap_content"
+         android:orientation="vertical" >
          
 	     <LinearLayout 
 	         android:layout_width="fill_parent"
 	         android:layout_height="wrap_content"
+	         android:layout_weight="8"
 	         android:orientation="horizontal"
 	         android:paddingTop="18dp"
 	         android:paddingBottom="8dp"
@@ -40,7 +42,7 @@
 	             android:id="@+id/main_galeria_button"
 	             android:layout_width="wrap_content"
 	             android:layout_height="wrap_content"
-	             android:padding="8dp"
+	             android:padding="13dp"
 	             android:background="@drawable/color_state_list_main_buttons"
 	             android:drawableTop="@drawable/ic_content_picture"
 	             android:drawablePadding="5dp"
@@ -50,7 +52,7 @@
 	             android:id="@+id/main_sitios_visitados_button"
 	             android:layout_width="wrap_content"
 	             android:layout_height="wrap_content"
-	             android:padding="8dp"
+	             android:padding="13dp"
 	             android:background="@drawable/color_state_list_main_buttons"
 	             android:drawableTop="@drawable/ic_navigation_accept"
 	             android:drawablePadding="5dp"
@@ -60,7 +62,7 @@
 	             android:id="@+id/main_buscar_sitio_button"
 	             android:layout_width="wrap_content"
 	             android:layout_height="wrap_content"
-	             android:padding="8dp"
+	             android:padding="13dp"
 	             android:background="@drawable/color_state_list_main_buttons"
 	             android:drawableTop="@drawable/ic_action_search"
 	             android:drawablePadding="5dp"
@@ -70,12 +72,11 @@
 
 	     <LinearLayout
 	         android:layout_width="fill_parent"
-	         android:layout_height="wrap_content"
-	         android:paddingLeft="12dp"
-	         android:paddingRight="12dp"
-	         android:paddingTop="8dp"
-	         android:paddingBottom="8dp"
-	         android:gravity="center"
+	         android:layout_height="fill_parent"
+	         android:layout_weight="2"
+	         android:paddingLeft="20dp"
+	         android:paddingRight="20dp"
+	         android:gravity="bottom"
 	         android:orientation="horizontal" >
 
 	         <Button 
