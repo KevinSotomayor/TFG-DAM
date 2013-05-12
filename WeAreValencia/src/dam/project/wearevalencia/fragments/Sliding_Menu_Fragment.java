@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -32,17 +30,18 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		adapter = new SampleAdapterMenu(getActivity());
 		
 		//items de la lista:
-		ItemList valencia = new ItemList(getActivity().getString(R.string.smValencia), R.drawable.slidingmenu_valencia);
 		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
-		ItemList fallas = new ItemList(getActivity().getString(R.string.smFallas), R.drawable.slidingmenu_fallas);
+		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fallas);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
+		ItemList masSobreValencia = new ItemList(getActivity().getString(R.string.smMasSobreValencia), R.drawable.slidingmenu_valencia);
+		ItemList recomendaciones = new ItemList(getString(R.string.smRecomendaciones), R.drawable.slidingmenu_recomendaciones);
 		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
-
 		
-		adapter.add(valencia);
 		adapter.add(lugaresDeInteres);
-		adapter.add(fallas);
+		adapter.add(fiestasPopulares);
 		adapter.add(cc);
+		adapter.add(masSobreValencia);
+		adapter.add(recomendaciones);
 		adapter.add(mapa);
 
 		setListAdapter(adapter);
@@ -54,20 +53,23 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	public void onListItemClick(ListView lista, View view, int position, long id){
 		Fragment newContent = null;
 		switch (position){
-		case 0:
-			break;
-		
-		case 1: 
+		case 0: //lugares de interes
 			newContent = new LugaresDeInteres();
 			break;
 		
-		case 2:
+		case 1: //fiestas populares
 			break;
 		
-		case 4: 
+		case 2: //centros comerciales
+			break;
+			
+		case 3: //mas sobre valencia
+			break;
+			
+		case 4: //recomendaciones
 			break;
 		
-		case 5:
+		case 5: //mapa
 			break;
 			
 		
@@ -111,7 +113,6 @@ public class Sliding_Menu_Fragment extends ListFragment{
 
 		public SampleAdapterMenu(Context context) {
 			super(context, 0);
-			// TODO Auto-generated constructor stub
 		}
 		
 		public View getView(int position, View view, ViewGroup parent){

@@ -7,7 +7,7 @@
         android:id="@+id/buttonInicioSlidingMenu"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/WeAreValenciaInicio"
+        android:text="@string/valencia"
         android:textColor="@color/white"
         android:textSize="@dimen/TextViewSlidingMenu"
         android:background="@drawable/slidingmenu_color_state_list_main_buttons"/>

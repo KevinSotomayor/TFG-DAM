@@ -11,8 +11,9 @@
          android:layout_width="fill_parent"
          android:layout_height="0dp"
 		 android:layout_weight="3"
-		 android:paddingLeft="10dp"
-         android:paddingRight="10dp"
+		 android:layout_marginLeft="40dp"
+         android:layout_marginRight="40dp"
+         android:layout_marginBottom="50dp"
          android:gravity="center"
          android:orientation="horizontal" >
 
@@ -21,7 +22,7 @@
 	     android:layout_width="wrap_content"
 	     android:layout_height="match_parent"
 	     android:contentDescription="@string/description_logo_letras"
-	     android:src="@drawable/logo_letras" />
+	     android:src="@drawable/logo_inicio" />
          
      </LinearLayout>
 
@@ -34,38 +35,36 @@
 	         android:layout_width="fill_parent"
 	         android:layout_height="wrap_content"
 	         android:layout_weight="8"
-	         android:orientation="horizontal"
-	         android:paddingTop="18dp"
-	         android:paddingBottom="8dp"
+	         android:orientation="vertical"
+	         android:layout_marginLeft="30dp"
+         	 android:layout_marginRight="30dp"
+         	 android:layout_marginBottom="30dp"
 	         android:gravity="center">
 	         <Button 
 	             android:id="@+id/main_galeria_button"
-	             android:layout_width="wrap_content"
+	             android:layout_width="fill_parent"
 	             android:layout_height="wrap_content"
-	             android:padding="13dp"
+	             android:layout_marginBottom="2dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/ic_content_picture"
-	             android:drawablePadding="5dp"
-	             android:text="@string/mainButton_Galeria"
+	             android:drawableLeft="@drawable/ic_content_event"
+	             android:text="@string/mainButton_Eventos"
 	             android:textColor="@color/white"/>
 	         <Button
 	             android:id="@+id/main_sitios_visitados_button"
-	             android:layout_width="wrap_content"
+	             android:layout_width="fill_parent"
 	             android:layout_height="wrap_content"
-	             android:padding="13dp"
+	             android:layout_marginBottom="2dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/ic_navigation_accept"
-	             android:drawablePadding="5dp"
+	             android:drawableLeft="@drawable/ic_navigation_accept"
 	             android:text="@string/mainButton_SitiosVisitados"
 	             android:textColor="@color/white" />
 	         <Button 
 	             android:id="@+id/main_buscar_sitio_button"
-	             android:layout_width="wrap_content"
+	             android:layout_width="fill_parent"
 	             android:layout_height="wrap_content"
-	             android:padding="13dp"
+	             android:layout_marginBottom="2dp"
 	             android:background="@drawable/color_state_list_main_buttons"
-	             android:drawableTop="@drawable/ic_action_search"
-	             android:drawablePadding="5dp"
+	             android:drawableLeft="@drawable/ic_action_search"
 	             android:text="@string/mainButton_Buscar"
 	             android:textColor="@color/white"/>
 	     </LinearLayout>
@@ -74,18 +73,18 @@
 	         android:layout_width="fill_parent"
 	         android:layout_height="fill_parent"
 	         android:layout_weight="2"
-	         android:paddingLeft="20dp"
-	         android:paddingRight="20dp"
 	         android:gravity="bottom"
+	         android:layout_marginLeft="30dp"
+         	 android:layout_marginRight="30dp"
+         	 android:layout_marginBottom="30dp"
 	         android:orientation="horizontal" >
 
 	         <Button 
 	             android:id="@+id/main_descubre_button"
 	             android:layout_width="fill_parent"
 	             android:layout_height="wrap_content"
-	             android:background="@drawable/color_state_list_main_buttons"
+	             android:background="@drawable/color_state_list_main_bottom_button"
 	             android:drawableLeft="@drawable/ic_navigation_previous_item"
-	             android:drawablePadding="5dp"
 	             android:textColor="@color/white"
 	             android:text="@string/mainButton_Descubre"/>
 	         
