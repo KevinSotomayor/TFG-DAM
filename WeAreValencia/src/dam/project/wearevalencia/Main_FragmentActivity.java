@@ -21,8 +21,8 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private final String BUNDLE_KEY = "mContent";
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		// Que se deslize el actionbar
-		setSlidingActionBarEnabled(true); 
+		// Que no se deslize el actionbar
+		setSlidingActionBarEnabled(false); 
 		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 		
 		setBehindContentView(R.layout.sliding_menu_frame_list);
@@ -45,19 +45,7 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		//reemplazada la vista "contenedora(main_frame_activity)" por la vista "main_content_activity"
 		fragmentTransaction = this.getSupportFragmentManager().beginTransaction();
 		fragmentTransaction.replace(R.id.content_fragment, mContent).commit();
-	
 
-		Button botonInicioSM = (Button)findViewById(R.id.buttonInicioSlidingMenu);
-		botonInicioSM.setTypeface(Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf"));
-		//volver a la pantalla principal
-		botonInicioSM.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				switchContent(new Main_Content_Fragment());
-			}
-		});
-		
 
 	}
 	

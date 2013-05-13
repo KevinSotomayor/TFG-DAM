@@ -31,7 +31,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		
 		//items de la lista:
 		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
-		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fallas);
+		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fiesta);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
 		ItemList masSobreValencia = new ItemList(getActivity().getString(R.string.smMasSobreValencia), R.drawable.slidingmenu_valencia);
 		ItemList recomendaciones = new ItemList(getString(R.string.smRecomendaciones), R.drawable.slidingmenu_recomendaciones);
@@ -136,8 +136,8 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			}
 			
 			holder.hPhoto .setImageResource(getItem(position).photoItem);
-			Typeface robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
-			holder.hTexto.setTypeface(robotoThin);
+			Typeface roboto = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
+			holder.hTexto.setTypeface(roboto);
 			holder.hTexto.setText(getItem(position).textItem);
 			
 			return(mView);

@@ -2,6 +2,8 @@
 				android:oneshot="false">	
 	<item android:drawable="@drawable/main_bg_12"
 		android:duration="7000" />
+	<item android:drawable="@drawable/main_bg_14"
+		android:duration="7000" />	
 	<item android:drawable="@drawable/main_bg_9"
 		android:duration="7000" />	
 	<item android:drawable="@drawable/main_bg_11"
@@ -18,8 +20,6 @@
 		android:duration="7000" />
 	<item android:drawable="@drawable/main_bg_7"
 		android:duration="7000" />
-	<item android:drawable="@drawable/main_bg_10"
-		android:duration="7000" />	
 	<item android:drawable="@drawable/main_bg_5"
 		android:duration="7000" />
 	<item android:drawable="@drawable/main_bg_6"
@@ -28,8 +28,7 @@
 		android:duration="7000" />
 	<item android:drawable="@drawable/main_bg_8"
 		android:duration="7000" />		
-	<item android:drawable="@drawable/main_bg_14"
-		android:duration="7000" />				
+				
 </animation-list>
 
 <!--En el Api de android: http://developer.android.com/guide/topics/resources/animation-resource.html#Frame -->

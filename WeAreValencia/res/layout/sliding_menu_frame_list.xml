@@ -3,14 +3,6 @@
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
      android:orientation="vertical">
-    <Button 
-        android:id="@+id/buttonInicioSlidingMenu"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/valencia"
-        android:textColor="@color/white"
-        android:textSize="@dimen/TextViewSlidingMenu"
-        android:background="@drawable/slidingmenu_color_state_list_main_buttons"/>
 
 	<LinearLayout 
      android:id="@+id/sliding_menu_fragment"

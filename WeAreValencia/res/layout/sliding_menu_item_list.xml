@@ -19,6 +19,6 @@
 	        android:layout_gravity="bottom"
 	        android:textColor="@color/white"
 	        android:text="@string/cargando"
-	        android:background="@color/blackTransparency"/>
+	        android:background="@drawable/slidingmenu_color_state_list_main_buttons"/>
     </FrameLayout>
     
