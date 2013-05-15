@@ -21,8 +21,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
-import com.slidingmenu.lib.SlidingMenu.OnOpenedListener;
-import com.slidingmenu.lib.SlidingMenu.OnClosedListener;
 import android.view.View.OnClickListener;
 
 
@@ -61,28 +59,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
 		slidingMenu = Main_FragmentActivity.putReference();
 
-		//ocultar iconos del actionbar o mostrarlos dependiendo de si esta abierto o no el sliding menu:
-	    slidingMenu.setOnOpenedListener(new OnOpenedListener() {
-	
-	    public void onOpened() {
-	        actionBar.setHomeButtonEnabled(false);
-	          actionBar.setDisplayShowHomeEnabled(false);
-	          setHasOptionsMenu(false);
-	          titulo.setText(getString(R.string.app_name));
-	    	}
-	    });
-	    
-	    slidingMenu.setOnClosedListener(new OnClosedListener() {
-	         
-	     public void onClosed() {
-	        actionBar.setHomeButtonEnabled(true);
-	          actionBar.setDisplayShowHomeEnabled(true);
-	          setHasOptionsMenu(true);
-	          titulo.setText(getString(R.string.WeAreValenciaInicio));
-	      }
-	    });
-	    
-
+		
 		/*codigo de animationDrawable*/
 		//animacion asociada al linearLayout (tema 3 de Android - Dibujar en Android - pag 10)
 		main_Layout = (LinearLayout)getActivity().findViewById(R.id.main_bg_layout);

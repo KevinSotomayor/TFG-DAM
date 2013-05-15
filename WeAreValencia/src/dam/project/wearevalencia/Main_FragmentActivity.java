@@ -5,14 +5,10 @@ import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
-import android.widget.Button;
-import android.view.View.OnClickListener;
 
 
 public class Main_FragmentActivity extends SlidingFragmentActivity{
@@ -21,8 +17,11 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private final String BUNDLE_KEY = "mContent";
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		//identificar sliding menu:
+		slidingMenu = getSlidingMenu();
+
 		// Que no se deslize el actionbar
-		setSlidingActionBarEnabled(false); 
+		setSlidingActionBarEnabled(true); 
 		// es igual que: ->  //slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT); //deslizar todo menos el actionbar
 		
 		setBehindContentView(R.layout.sliding_menu_frame_list);
@@ -62,21 +61,20 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		}
 
 	private void SlidingMenuAction() {
-		slidingMenu = getSlidingMenu();
 		slidingMenu.setShadowDrawable(R.drawable.shadow);
 		slidingMenu.setShadowWidthRes(R.dimen.shadow_width);
-		slidingMenu.setBehindOffset(80);
+		slidingMenu.setBehindOffset(155);
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-		slidingMenu.setFadeDegree(0.10f);
-		slidingMenu.setBehindScrollScale(0);
-		
+		slidingMenu.setFadeEnabled(true);
+		slidingMenu.setFadeDegree(1.0f);
+		slidingMenu.setBehindScrollScale(0.10f);
 	}
 	
 	//metodo que se llama para reemplazar la vista de la actividad principal, esta, por el fragment que se selecciona en la opción de menu
 	public void switchContent(Fragment fragment) {
 		mContent = fragment;
-		FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+		FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
 		transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 		transaction.replace(R.id.content_fragment, fragment);
 		//transaction.addToBackStack(null);

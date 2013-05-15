@@ -2,7 +2,8 @@
          xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/frameLayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/slidingmenu_color_state_list_main_buttons">
 	    <ImageView 
 	        android:id="@+id/imageViewItem"
 	        android:layout_width="wrap_content"

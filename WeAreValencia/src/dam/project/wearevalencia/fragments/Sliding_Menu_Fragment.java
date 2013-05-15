@@ -17,6 +17,13 @@ import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 
 public class Sliding_Menu_Fragment extends ListFragment{
+	private final int INCIO = 0;
+	private final int LUGARES_DE_INTERES = 1;
+	private final int FIESTAS_POPULARES = 2;
+	private final int CENTROS_COMERCIALES = 3;
+	private final int MAS_SOBRE_VALENCIA = 4;
+	private final int RECOMENDACIONES = 5;
+	private final int MAPA = 6;
 	
 	SampleAdapterMenu adapter;
 	@Override
@@ -30,6 +37,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		adapter = new SampleAdapterMenu(getActivity());
 		
 		//items de la lista:
+		ItemList inicio = new ItemList(getActivity().getString(R.string.vacio), R.drawable.slidingmenu_logo_inicio);
 		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
 		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fiesta);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
@@ -37,6 +45,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		ItemList recomendaciones = new ItemList(getString(R.string.smRecomendaciones), R.drawable.slidingmenu_recomendaciones);
 		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
 		
+		adapter.add(inicio);
 		adapter.add(lugaresDeInteres);
 		adapter.add(fiestasPopulares);
 		adapter.add(cc);
@@ -53,25 +62,28 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	public void onListItemClick(ListView lista, View view, int position, long id){
 		Fragment newContent = null;
 		switch (position){
-		case 0: //lugares de interes
+		case INCIO: //lugares de interes
+			newContent = new Main_Content_Fragment();
+			break;
+		
+		case LUGARES_DE_INTERES: //fiestas populares
 			newContent = new LugaresDeInteres();
 			break;
 		
-		case 1: //fiestas populares
+		case FIESTAS_POPULARES: //centros comerciales
+			break;
+			
+		case CENTROS_COMERCIALES: //mas sobre valencia
+			break;
+			
+		case MAS_SOBRE_VALENCIA: //recomendaciones
 			break;
 		
-		case 2: //centros comerciales
+		case RECOMENDACIONES: //mapa
 			break;
 			
-		case 3: //mas sobre valencia
+		case MAPA:
 			break;
-			
-		case 4: //recomendaciones
-			break;
-		
-		case 5: //mapa
-			break;
-			
 		
 		default:
 			break;

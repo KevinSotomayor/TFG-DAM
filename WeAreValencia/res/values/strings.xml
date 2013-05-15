@@ -20,6 +20,7 @@
     <string name="action_settings">Opciones</string>
     <string name="imageViewDescription">Image for Sliding Menu</string>
     <string name="WeAreValenciaInicio">INICIO</string>
+    <string name="vacio"></string>
     <string name="proximamente">Próximamente</string>
     <string name="smMasSobreValencia">MÁS SOBRE VALENCIA</string>
 	<string name="smLugares">LUGARES DE INTERÉS</string>
