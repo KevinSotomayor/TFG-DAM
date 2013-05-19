@@ -55,6 +55,10 @@ public class Main_Content_Fragment extends SherlockFragment{
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
 		changeActionBar();
+		
+		setRetainInstance(true);
+		//setRetainInstance(true) will tell the FragmentManager to keep the fragment around when the containing Activity is killed and rebuilt for some reason.
+		// It doesn't guarantee that the Fragment instance will stick around after a transaction to add or replace.
 
 		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
 		slidingMenu = Main_FragmentActivity.putReference();
@@ -169,7 +173,6 @@ public class Main_Content_Fragment extends SherlockFragment{
 
 			        //identificar las etiquetas y setTypeface otra letra
 			        titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
-			        titulo.setTextSize(19);
 			        titulo.setTypeface(robotoBoldCondensed);
 
   

@@ -1,14 +1,21 @@
 package dam.project.wearevalencia;
 
 
+import java.util.ArrayList;
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
+
+import dam.project.wearevalencia.fragments.LugaresDeInteres;
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 
 public class Main_FragmentActivity extends SlidingFragmentActivity{
@@ -74,25 +81,33 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	//metodo que se llama para reemplazar la vista de la actividad principal, esta, por el fragment que se selecciona en la opción de menu
 	public void switchContent(Fragment fragment) {
 		mContent = fragment;
-		FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
-		transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
-		transaction.replace(R.id.content_fragment, fragment);
-		//transaction.addToBackStack(null);
-		transaction.commit();
+		Fragment lugaresDeInteres = new LugaresDeInteres();
+		
+		if(mContent == lugaresDeInteres){
+			//llamar a que se ejecute la otra clase.
+		
+		}else{
+			FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+			transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+			transaction.replace(R.id.content_fragment, fragment);
+			//transaction.addToBackStack(null);
+			transaction.commit();
 
-		//este handler hace que la transicion de cierre
-		//del contenido de la derecha del menu sea posible de ver
-		Handler handler = new Handler();
-		handler.postDelayed(new Runnable() {
-			@Override
-			public void run() {
-				getSlidingMenu().showContent();
-			}
-		}, 50);
+			//este handler hace que la transicion de cierre
+			//del contenido de la derecha del menu sea posible de ver
+			Handler handler = new Handler();
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					getSlidingMenu().showContent();
+				}
+			}, 50);
+		}
+		
 	}
 
-	
-	
+
+
 	//devuelve la referencia al objeto de esta clase, con lo cual en las otras clases de donde querramos abrir el menú
 	//solo habrá que instanciar el objeto.
 	public static SlidingMenu putReference(){

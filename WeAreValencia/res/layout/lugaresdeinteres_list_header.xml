@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <FrameLayout 
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/lugaresDeInteres_listViewHeader"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:background="@color/DividerListView">
+
+ <ImageView
+     android:id="@+id/imageViewLugaresDeInteres_Monumentos"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:contentDescription="@string/imageViewDescription"
+     android:src="@drawable/lugaresdeinteres_monumentos" />
+
+ <EditText
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:padding="10dp"
+     android:layout_marginBottom="10dp"
+     android:layout_marginLeft="15dp"
+     android:layout_marginRight="15dp"
+     android:layout_gravity="bottom"
+     android:hint="@string/buscarLugaresDeInteres"
+     android:textColorHint="@color/greyShadow"
+     android:background="@drawable/edittext_busqueda"
+     android:ems="10" />
+
+</FrameLayout>

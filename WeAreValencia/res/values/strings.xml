@@ -10,10 +10,11 @@
     <color name="grisClaro">#555555</color>
     <color name="grisOscuro">#2E2E2E</color>
     <color name="black">#000000</color>
-    <color name="DividerListView">#F4F4F4</color>
-    <color name="orangePressedButton">#FFFF6643</color>
-    <color name="greyNormalButton">#FF747474</color>
+    <color name="DividerListView">#e5e5e5</color>
+    <color name="orangePressedButton">#DDFF6643</color>
+    <!-- <color name="greyNormalButton">#DD747474</color>  -->
     <color name="blackGrey">#1C1C1C</color>
+    <color name="greyShadow">#FFd3d3d3</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="valencia">VALENCIA</string>
