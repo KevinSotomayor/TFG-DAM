@@ -6,6 +6,8 @@
 	<dimen name="shadow_width">16dp</dimen>
 	<dimen name="TextViewSlidingMenu">18dp</dimen>
 	<dimen name="TextViewLugaresDeInteres">20dp</dimen>
-	<dimen name="TextViewLugaresDeInteresItem">20dp</dimen>
+	<dimen name="TextViewLugaresDeInteresTitle">25dp</dimen>
+	<dimen name="TextViewLugaresDeInteresContent">16dp</dimen>
+	<dimen name="irMapaTextView">17dp</dimen>
 	<dimen name="titleText">17dp</dimen>
 </resources>

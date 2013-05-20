@@ -9,11 +9,14 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
+import com.google.android.gms.maps.model.LatLng;
 import com.slidingmenu.lib.SlidingMenu;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
@@ -25,24 +28,28 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class LugaresDeInteres extends SherlockFragment {
 	
-	private Typeface robotoThin, robotoBoldCondensed;
+	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
 
 	private final int BUSCAR = 1;
 
-	private ArrayList<String> arrayLugaresDeInteres;
+	private ArrayList<LugaresDeInteres_Item> arrayLugaresDeInteres;
 	
 	//constructor cuando no se le pasan datos
-	public LugaresDeInteres () {
+	/*public LugaresDeInteres () {
 		this.arrayLugaresDeInteres = obtainMonuments();
 	}
 	
@@ -50,7 +57,7 @@ public class LugaresDeInteres extends SherlockFragment {
 	public LugaresDeInteres(ArrayList<String> arrayList) {
 		this.arrayLugaresDeInteres = arrayList;
 		setRetainInstance(true);
-	}
+	}*/
 
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -69,41 +76,6 @@ public class LugaresDeInteres extends SherlockFragment {
 		slidingMenu = Main_FragmentActivity.putReference();
 
 		new ListAsyncTask().execute();
-
-	}
-
-	//metodos para recuperar el arraylist con la lista de los lugares
-	public ArrayList<String> obtainMonuments(){
-		ArrayList<String> arrayList = new ArrayList<String>();
-
-		//Strings de monumentos + array
-		String lonjaDeLaSeda = "Lonja de la seda"; //getActivity().getString(R.string.lonjaDeLaSeda);
-		String torresDeSerranos = "Torres de serranos"; //getActivity().getString(R.string.torresDeSerranos);
-		String torresDeQuart = "Torres de quart";//getActivity().getString(R.string.torresDeQuart);
-		String mercadoCentral = "Mercado Central";//getActivity().getString(R.string.mercadoCentral);
-		String mercadoColon = "Mercado Colón"; //getActivity().getString(R.string.mercadoColon);
-		String CAC = "Ciudad de las Artes y las Ciencias"; //getActivity().getString(R.string.cac);
-		String plazaAyuntamiento = "Plaza del ayuntamiento"; //getActivity().getString(R.string.plazaAyuntamiento);
-		String estacionNorte = "Estación del norte"; //getActivity().getString(R.string.estacionDelNorte);
-		String plazaToros = "Plaza de toros"; //getActivity().getString(R.string.plazaDeToros);
-		String plazaVirgen = "Plaza de la virgen"; //getActivity().getString(R.string.plazaDeLaVirgen);
-		String elMicalet = "El micalet";//getActivity().getString(R.string.elMicalet);
-		String palauMusica ="Palau de la musica"; // getActivity().getString(R.string.palauDeLaMusica);
-
-		arrayList.add(lonjaDeLaSeda);
-		arrayList.add(torresDeSerranos);
-		arrayList.add(torresDeQuart);
-		arrayList.add(mercadoCentral);
-		arrayList.add(mercadoColon);
-		arrayList.add(plazaAyuntamiento);
-		arrayList.add(estacionNorte);
-		arrayList.add(plazaToros);
-		arrayList.add(plazaVirgen);
-		arrayList.add(elMicalet);
-		arrayList.add(CAC);
-		arrayList.add(palauMusica);
-
-		return arrayList;
 
 	}
 	
@@ -139,6 +111,8 @@ public class LugaresDeInteres extends SherlockFragment {
 		//typeface personalizadas
         robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
+        robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
+        robotoRegular = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Regular.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
@@ -188,7 +162,7 @@ public class LugaresDeInteres extends SherlockFragment {
 
 
 			try{
-				//arrayLugaresDeInteres = obtainMonuments();
+				arrayLugaresDeInteres = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
 				listaMonumentos.setAdapter(adaptador);
 				
@@ -207,13 +181,13 @@ public class LugaresDeInteres extends SherlockFragment {
 
 	}
 	//clase interna que infla la vista con los empleados.
-	class AdaptadorLugaresDeInteres extends ArrayAdapter<String> {
-
+	class AdaptadorLugaresDeInteres extends ArrayAdapter<LugaresDeInteres_Item> {
+		
     	Activity context;
     	int layoutResource;
-    	ArrayList<String> arrayLugares;
+    	ArrayList<LugaresDeInteres_Item> arrayLugares;
 
-    	AdaptadorLugaresDeInteres(Activity context, int layoutResource, ArrayList<String> arrayLugares) {
+    	AdaptadorLugaresDeInteres(Activity context, int layoutResource, ArrayList<LugaresDeInteres_Item> arrayLugares) {
     		super(context, layoutResource, arrayLugares);
     		this.context = context;
     		this.layoutResource = layoutResource;
@@ -224,9 +198,33 @@ public class LugaresDeInteres extends SherlockFragment {
 			LayoutInflater inflater = getActivity().getLayoutInflater();
 			View item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
 
-			TextView textoItemList = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_ItemList);
-			textoItemList.setText(arrayLugares.get(position));
-			textoItemList.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf"));
+			TextView titulo = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Title);
+			titulo.setText(arrayLugares.get(position).getTitle());
+			titulo.setTypeface(robotoCondensed);
+			
+			TextView contenido = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Content);
+			contenido.setTypeface(robotoRegular);
+			//if(arrayLugares.get(position).getContent().length() )
+			contenido.setText(arrayLugares.get(position).getContent());
+			
+			TextView irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
+			irAlMapa.setTypeface(robotoRegular);
+			
+			
+			final String aux = arrayLugares.get(position).getLatLng().toString();
+			LinearLayout layout = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
+			layout.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(getActivity(), "Has presionado el mapa, en... " + aux , Toast.LENGTH_SHORT).show();
+				}
+			});
+			
+			
+			
+			ImageView icon = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
+			icon.setImageResource(arrayLugares.get(position).getIcon());
 
     		return (item);
 

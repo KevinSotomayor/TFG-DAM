@@ -69,8 +69,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			break;
 		
 		case LUGARES_DE_INTERES: //fiestas populares
-			ArrayList<String> arrayList = obtainMonuments();
-			newContent = new LugaresDeInteres(arrayList);
+			newContent = new LugaresDeInteres();
 			break;
 		
 		case FIESTAS_POPULARES: //centros comerciales
@@ -163,39 +162,5 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	public class ViewHolder {
 		TextView hTexto;
 		ImageView hPhoto;
-	}
-	//metodos para recuperar el arraylist con la lista de los lugares
-	public ArrayList<String> obtainMonuments(){
-		ArrayList<String> arrayList = new ArrayList<String>();
-
-		//Strings de monumentos + array
-		String lonjaDeLaSeda = "Lonja de la seda 1 "; //getActivity().getString(R.string.lonjaDeLaSeda);
-		String torresDeSerranos = "Torres de serranos 1 "; //getActivity().getString(R.string.torresDeSerranos);
-		String torresDeQuart = "Torres de quart 1 ";//getActivity().getString(R.string.torresDeQuart);
-		String mercadoCentral = "Mercado Central 1 ";//getActivity().getString(R.string.mercadoCentral);
-		String mercadoColon = "Mercado Colón 1 "; //getActivity().getString(R.string.mercadoColon);
-		String CAC = "Ciudad de las Artes y las Ciencias 1 "; //getActivity().getString(R.string.cac);
-		String plazaAyuntamiento = "Plaza del ayuntamiento 1 "; //getActivity().getString(R.string.plazaAyuntamiento);
-		String estacionNorte = "Estación del norte 1 "; //getActivity().getString(R.string.estacionDelNorte);
-		String plazaToros = "Plaza de toros 1 "; //getActivity().getString(R.string.plazaDeToros);
-		String plazaVirgen = "Plaza de la virgen 1 "; //getActivity().getString(R.string.plazaDeLaVirgen);
-		String elMicalet = "El micalet 1 ";//getActivity().getString(R.string.elMicalet);
-		String palauMusica ="Palau de la musica 1 "; // getActivity().getString(R.string.palauDeLaMusica);
-
-		arrayList.add(lonjaDeLaSeda);
-		arrayList.add(torresDeSerranos);
-		arrayList.add(torresDeQuart);
-		arrayList.add(mercadoCentral);
-		arrayList.add(mercadoColon);
-		arrayList.add(plazaAyuntamiento);
-		arrayList.add(estacionNorte);
-		arrayList.add(plazaToros);
-		arrayList.add(plazaVirgen);
-		arrayList.add(elMicalet);
-		arrayList.add(CAC);
-		arrayList.add(palauMusica);
-
-		return arrayList;
-
 	}
 }

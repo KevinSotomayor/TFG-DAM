@@ -1,40 +1,86 @@
 <LinearLayout 
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical">
-	<LinearLayout
+    
+    <LinearLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
+	        android:orientation="vertical" 
+	        android:gravity="center_horizontal"
 	        android:layout_marginLeft="15dp"
 	        android:layout_marginRight="15dp"
 	        android:layout_marginBottom="5dp"
-	        android:orientation="horizontal" 
-	        android:gravity="center_horizontal"
 	        android:background="@drawable/edittext_busqueda">
+    
+	<LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:orientation="horizontal">
 	    
-	    <TextView
-	        android:id="@+id/textViewLugaresDeInteres_ItemList"
-	        android:layout_width="0dp"
-	        android:layout_height="wrap_content"
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
 	        android:layout_weight="8"
-	        android:layout_gravity="center"
-			android:paddingLeft="10dp"
-			android:paddingTop="1dp"
-			android:paddingBottom="2dp"
-	        android:text="@string/cargando"
-	        android:textSize="@dimen/TextViewLugaresDeInteresItem"
-	        android:textColor="@drawable/textview_color_state_list"/>
+	        android:orientation="vertical"
+	        android:layout_margin="5dp"
+	        android:gravity="left">
+		    <TextView
+		        android:id="@+id/textViewLugaresDeInteres_Title"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+				android:layout_margin="3dp"
+		        android:text="@string/cargando"
+		        android:textSize="@dimen/TextViewLugaresDeInteresTitle"
+		        android:textColor="@color/TitleLugaresDeInteres"/>
+		    
+		    <TextView
+		        android:id="@+id/textViewLugaresDeInteres_Content"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+				android:layout_margin="3dp"
+		        android:text="@string/cargando"
+		        android:textSize="@dimen/TextViewLugaresDeInteresContent"
+		        android:textColor="@color/ContentLugaresDeInteres"/>
+	    </LinearLayout>
 	    
 		<ImageView
-		    android:id="@+id/navigation_next"
+		    android:id="@+id/imageViewLugaresDeInteres_Icon"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:layout_weight="1"
 		    android:gravity="right"
-		    android:paddingTop="1dp"
-		    android:paddingBottom="2dp"
-		    android:src="@drawable/imageview_color_state_list" />
+		    android:adjustViewBounds="true"
+		    android:src="@drawable/lugaresdeinteres_content_torresdeserranos" />
 		
+		</LinearLayout>
+		
+		<LinearLayout 
+		    android:id="@+id/layoutLugaresDeInteres_IrAlMapa"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    android:layout_marginBottom="4dp"
+		    android:layout_marginRight="5dp"
+		    android:layout_marginLeft="5dp"
+		    android:padding="2dp"
+		    android:background="@drawable/color_state_list_ir_mapa_layout">
+				<ImageView 
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:src="@drawable/color_state_list_ir_mapa_icon" />
+				
+				<TextView 
+				    android:id="@+id/button_lugaresDeInteres_irMapa"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:text="@string/irAlMapa"
+				    android:padding="5dp"
+				    android:textColor="@drawable/color_state_list_text_buttons"
+				    android:textSize="@dimen/irMapaTextView"
+				    />
+		</LinearLayout>
 	</LinearLayout>
+	
 </LinearLayout>

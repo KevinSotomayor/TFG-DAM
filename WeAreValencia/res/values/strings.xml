@@ -15,6 +15,11 @@
     <!-- <color name="greyNormalButton">#DD747474</color>  -->
     <color name="blackGrey">#1C1C1C</color>
     <color name="greyShadow">#FFd3d3d3</color>
+    <color name="greyShadow_Transparency">#e5e5e5</color>
+    <color name="orangePressedButton_Transparency">#89FF6643</color>
+    <color name="TitleLugaresDeInteres">#707070</color>
+    <color name="ContentLugaresDeInteres">#8d8d8d</color>
+    <color name="irAlMapaColor">#cccccc</color>
     
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="valencia">VALENCIA</string>
@@ -44,6 +49,7 @@
 	<string name="mapaSatelite">Mapa Satélite</string>
 	<string name="mapaTerraneo">Mapa Terráneo</string>
 	<string name="buscarLugaresDeInteres">Buscar un lugar</string>
+	<string name="irAlMapa">Ir al mapa</string>
 	
 	
 	<string name="lugaresDe">LUGARES DE</string>
@@ -51,6 +57,20 @@
 	<!-- Lista de contenido de Lugares de interes -->
 	<string name="Monumentos">Monumentos</string>
 	<string name="lonjaDeLaSeda">Lonja de la Seda</string>
+	<string name="LonjaDeLaSedaContent">La <b>Lonja de la Seda de Valencia</b> o <b>Lonja de los Mercaderes</b>
+	    es una obra maestra del gótico civil valenciano 
+	    situada en el centro histórico de la ciudad de Valencia (España). 
+	    Declarada <b>Patrimonio de la Humanidad</b> por la <b>Unesco</b>, se encuentra
+	     situada en la Plaza del Mercado, número 31, frente a 
+	    la Iglesia de los Santos Juanes y del Mercado Central de Valencia.
+	    
+	    Fue construida entre 1482 y 1548, y su primer constructor fue <b>Pere Compte</b> 
+	    entre los años 1483 y 1498 sobre el modelo de la Lonja de Palma de Mallorca, 
+	    constituyéndose en un edificio emblemático de la riqueza del 
+	    siglo de oro valenciano (siglo XV) y muestra de revolución comercial durante la Baja Edad Media, 
+	    del desarrollo social y del prestigio conseguido por la burguesía valenciana.
+	</string>
+	
 	<string name="torresDeSerranos">Torres de Serranos</string>
 	<string name="torresDeQuart">Torres de Quart</string>
 	<string name="mercadoCentral">Mercado Central</string>
