@@ -24,7 +24,7 @@
      android:layout_gravity="bottom"
      android:hint="@string/buscarLugaresDeInteres"
      android:textColorHint="@color/greyShadow"
-     android:background="@drawable/edittext_busqueda"
+     android:background="@drawable/background_tarjeta"
      android:ems="10" />
 
 </FrameLayout>

@@ -10,4 +10,5 @@
 	<dimen name="TextViewLugaresDeInteresContent">14dp</dimen>
 	<dimen name="irMapaTextView">17dp</dimen>
 	<dimen name="titleText">20dp</dimen>
+	<dimen name="textLayoutButton">20dp</dimen>
 </resources>

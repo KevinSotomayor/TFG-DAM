@@ -52,12 +52,18 @@
         </activity>
         
         <activity android:name=".Main_FragmentActivity" android:screenOrientation="portrait"/>
+        
         <activity android:name="dam.project.wearevalencia.maps.TorresDeSerranosMap" 
              android:screenOrientation="portrait"/>
+        
         <activity android:name="dam.project.wearevalencia.maps.Map_Item" 
              android:screenOrientation="portrait"/>
+        
         <activity android:name="dam.project.wearevalencia.gallery.Gallery_Item" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaGalery"/>
+        
+        <activity android:name="dam.project.wearevalencia.LugaresDeInteres_Ficha_Item" 
+            android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaFichaLugaresDeInteres"/>
     </application>
 
 </manifest>

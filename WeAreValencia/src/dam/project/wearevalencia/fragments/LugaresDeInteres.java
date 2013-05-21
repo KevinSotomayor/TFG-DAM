@@ -13,6 +13,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.slidingmenu.lib.SlidingMenu;
 import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
+
+import dam.project.wearevalencia.LugaresDeInteres_Ficha_Item;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.maps.Map_Item;
@@ -32,6 +34,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,7 +46,7 @@ import android.widget.TextView;
 
 public class LugaresDeInteres extends SherlockFragment {
 	
-	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed, robotoRegular;
+	private Typeface robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
 
@@ -115,7 +119,6 @@ public class LugaresDeInteres extends SherlockFragment {
 
 	private void changeActionBar() {
 		//typeface personalizadas
-        robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
         robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
         robotoRegular = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Regular.ttf");
@@ -153,20 +156,20 @@ public class LugaresDeInteres extends SherlockFragment {
 
 	//clase asincrona para que mientras se cargan las listas se muestre un progressbar
 	class ListAsyncTask extends AsyncTask<Void, Void, Void>{
-		ListView listaMonumentos, listaCAC, listaCentroCiudad, ListaParques;
+		ListView lista;
 		AdaptadorLugaresDeInteres adaptador;
 		View HeaderListView = (View)getActivity().getLayoutInflater().inflate(R.layout.lugaresdeinteres_list_header, null);
 
 		protected Void doInBackground(Void... params) {
 
-			listaMonumentos = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_Monumentos);
-			listaMonumentos.addHeaderView(HeaderListView);
+			lista = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_Monumentos);
+			lista.addHeaderView(HeaderListView);
 
 
 			try{
 				//arrayLugaresDeInteres = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
-				listaMonumentos.setAdapter(adaptador);
+				lista.setAdapter(adaptador);
 				
 				}catch (Exception e) {
 					Log.e("Error en postExecute", getTag());
@@ -178,7 +181,15 @@ public class LugaresDeInteres extends SherlockFragment {
 		}
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
+			lista.setOnItemClickListener(new OnItemClickListener() {
 
+				@Override
+				public void onItemClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
+					Intent i = new Intent(getActivity(), LugaresDeInteres_Ficha_Item.class);
+					startActivity(i);
+				}
+			});
 		}
 
 	}
@@ -216,8 +227,8 @@ public class LugaresDeInteres extends SherlockFragment {
 
 			}
 			cadenaTotal += "...";
-			
-			contenido.setText(cadenaTotal);
+			contenido.setText(cadenaTotal); 
+			//solo dejo imrpimir 85 caracteres en cada item  que se presenta en la lista
 			
 			TextView irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
 			irAlMapa.setTypeface(robotoRegular);
@@ -238,8 +249,6 @@ public class LugaresDeInteres extends SherlockFragment {
 					startActivity(i);
 				}
 			});
-			
-			
 			
 			ImageView icon = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
 			icon.setImageResource(arrayLugares.get(position).getIcon());

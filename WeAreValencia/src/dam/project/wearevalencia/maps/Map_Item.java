@@ -49,9 +49,6 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	
 	private final int MAPA_TERRANEO = 4;
 	
-	/*private final float latitud = (float) 39.47926986007646;
-	private final float longitud = (float) -0.3760123212119959;*/
-
 	//constantes para el minimo de tiempo en actualizar la posicion y la distancia en radio de la posicion actual
 	private final int MIN_TIME = 2000;
 	private final int MIN_DISTANCE = 50;
@@ -59,8 +56,6 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	private final String BUNDLE_TITLE_KEY = "title";
 	private final String BUNDLE_DESCRIPTION_KEY = "description";
 
-
-	
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
 	GoogleMap mapa;
@@ -100,11 +95,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
         }else{
   
 	        mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-
-	        //mi posicion habilitada
-	        
 			goToTorresDeSerranos();
-			
 			
 			 ImageButton myPosition = (ImageButton)findViewById(R.id.myLocationButton);
 		        myPosition.setOnClickListener(new OnClickListener() {

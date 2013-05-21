@@ -1,10 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout
+<ScrollView
      xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="fill_parent"
      android:layout_height="fill_parent"
-     android:orientation="vertical">
+     android:background="@color/DividerListView"
+     android:fillViewport="true">
+     
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+              <FrameLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+			    <ImageView 
+			        android:id="@+id/imageView_Ficha_LugaresDeInteres"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:contentDescription="@string/imageViewDescription"
+			        android:adjustViewBounds="true"
+			        android:src="@drawable/lugaresdeinteres_monumentos"/>
+			    
+			    <TextView 
+			        android:id="@+id/textView_Titulo_Ficha_LugaresDeInteres"
+			        android:layout_width="fill_parent"
+			        android:layout_height="60dp"
+			        android:textSize="@dimen/TextViewLugaresDeInteresTitle"
+			        android:gravity="center"
+			        android:layout_gravity="bottom"
+			        android:textColor="@color/white"
+			        android:text="@string/cargando"
+			        android:background="@drawable/background_textview_degree"/>
+    		</FrameLayout>
+		</LinearLayout>
+		
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center_horizontal">
+            
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@drawable/color_state_list_ficha_item_layout">
+                
+                <ImageView 
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:src="@drawable/color_state_list_visited_icon_button_layout" />
+                
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/heEstado"
+                    android:padding="10dp"
+                    android:textColor="@drawable/color_state_list_text_button_layout"
+                    android:textSize="@dimen/textLayoutButton"/>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:background="@drawable/color_state_list_ficha_item_layout">
+              
+                <ImageView 
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:src="@drawable/color_state_list_ir_mapa_icon_button_layout" />
+                
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/irAlMapa"
+                    android:padding="10dp"
+                    android:textColor="@drawable/color_state_list_text_button_layout"
+                    android:textSize="@dimen/textLayoutButton"/>
+            </LinearLayout>
+            
+            
+            
+        </LinearLayout>
+        
+        
+        
+    </LinearLayout>
     
     
-    
-</LinearLayout>
+</ScrollView>

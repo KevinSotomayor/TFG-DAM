@@ -20,7 +20,11 @@
     <color name="TitleLugaresDeInteres">#707070</color>
     <color name="ContentLugaresDeInteres">#8d8d8d</color>
     <color name="irAlMapaColor">#cccccc</color>
-    
+    <!-- degradado del textview ficha lugares de interes -->
+    <color name="startColorDegreeTextView">#CC000000</color>
+    <color name="centerColorDegreeTextView">#88000000</color>
+    <color name="endColorDegreeTextView">#06000000</color>
+        
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="valencia">VALENCIA</string>
     <string name="action_settings">Opciones</string>
@@ -39,7 +43,7 @@
 	<string name="mainButton_Buscar">BUSCAR</string>
 	<string name="mainButton_Descubre">DESCUBRE VALENCIA</string>
 	<string name="description_logo_letras">Logo We Are Valencia</string>
-	<string name="irGaleria">IR A LA GALERÍA</string>
+	<string name="irGaleria">Ir a la galería</string>
 	<string name="cargando">Cargando...</string>
 	<string name="optionsMaps">Opciones del mapa</string>
 	<string name="mapaNormal">Mapa Normal</string>
@@ -50,6 +54,7 @@
 	<string name="irAlMapa">Ir al mapa</string>
 	<string name="guardarImagen">Guardar imagen</string>
 	<string name="establecerFondo">Establecer imagen como...</string>
+	<string name="heEstado">He visitado</string>
 	
 	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->
