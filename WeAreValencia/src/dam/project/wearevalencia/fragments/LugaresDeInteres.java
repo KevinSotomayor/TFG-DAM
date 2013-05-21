@@ -95,7 +95,7 @@ public class LugaresDeInteres extends SherlockFragment {
 
 		menu.add(0, BUSCAR, 0, getActivity().getString(R.string.buscarLugaresDeInteres))
 			.setIcon(R.drawable.ic_action_search)
-			.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW).getItemId();
+			.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 
 	}
 
@@ -188,6 +188,8 @@ public class LugaresDeInteres extends SherlockFragment {
 						int arg2, long arg3) {
 					Intent i = new Intent(getActivity(), LugaresDeInteres_Ficha_Item.class);
 					startActivity(i);
+					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
 				}
 			});
 		}
@@ -247,6 +249,8 @@ public class LugaresDeInteres extends SherlockFragment {
 					b.putString(BUNDLE_DESCRIPTION_KEY, cadenaDescricion);
 					i.putExtras(b);
 					startActivity(i);
+					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
 				}
 			});
 			

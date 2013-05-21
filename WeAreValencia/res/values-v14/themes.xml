@@ -35,14 +35,14 @@
     
     <!-- Theme for android 2.x for ficha lugares de interes -->
     <style name="Theme.WeAreValenciaFichaLugaresDeInteres"    parent="Holo.Theme.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBarGallery</item>
+        <item name="android:actionBarStyle">@style/Widget.Styled.ActionBarFichaLugaresDeInteres</item>
             
    		 <!-- Theme for android 4.x -->
        <!--  <item name="android:actionBarStyle">@style/Widget.Styled.ActionBar</item>   -->
     </style>
     
     <!-- Custom theme for actionbar  for gallery --> 
-    <style name="Widget.Styled.ActionBarGallery"
+    <style name="Widget.Styled.ActionBarFichaLugaresDeInteres"
            parent="Widget.Sherlock.Light.ActionBar.Solid.Inverse">
         <item name="background">@drawable/background_actionbar_ficha_lugaresdeinteres</item> 
         <item name="android:background">@drawable/background_actionbar_ficha_lugaresdeinteres</item>

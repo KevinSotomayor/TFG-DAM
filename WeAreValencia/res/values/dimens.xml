@@ -11,4 +11,7 @@
 	<dimen name="irMapaTextView">17dp</dimen>
 	<dimen name="titleText">20dp</dimen>
 	<dimen name="textLayoutButton">20dp</dimen>
+	<dimen name="textViewContentFicha">18dp</dimen>
+	<dimen name="textViewLeerMasFicha">19dp</dimen>
+	<dimen name="textViewFichaLista">18dp</dimen>
 </resources>

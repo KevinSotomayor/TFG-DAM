@@ -270,7 +270,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		mapa.addMarker(new MarkerOptions() //marker personalizado
 		.position(myDestine)
 		.title(tituloMarker)
-		.snippet(descripcionMarker)
+		.snippet(descripcionMarker.substring(0, 40) + "...")
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	

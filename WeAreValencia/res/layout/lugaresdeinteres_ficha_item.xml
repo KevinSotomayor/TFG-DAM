@@ -9,6 +9,7 @@
     <LinearLayout 
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:baselineAligned="false"
         android:orientation="vertical">
         
         <LinearLayout 
@@ -90,12 +91,172 @@
                     android:textColor="@drawable/color_state_list_text_button_layout"
                     android:textSize="@dimen/textLayoutButton"/>
             </LinearLayout>
-            
-            
-            
+   
         </LinearLayout>
         
         
+       <LinearLayout 
+		    android:id="@+id/layoutLugaresDeInteres_IrAlMapa"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:layout_marginTop="5dp"
+		    android:layout_marginRight="15dp"
+		    android:layout_marginLeft="15dp"
+		    android:padding="2dp"
+		    android:background="@drawable/background_tarjeta">
+
+           <TextView
+               android:id="@+id/textView_Content_OnlyText"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:padding="5dp"
+               android:text="@string/cargando"
+               android:textColor="@color/TitleLugaresDeInteres"
+               android:textSize="@dimen/textViewContentFicha" />
+				
+			<TextView 
+			    android:id="@+id/textView_Button_LeerMas"
+			    android:layout_width="fill_parent"
+			    android:layout_height="wrap_content"
+			    android:gravity="center"
+			    android:layout_margin="5dp"
+			    android:text="@string/leerMas"
+			    android:padding="10dp"
+			    android:textStyle="bold"
+			    android:textColor="@color/highLineFichaContent"
+			    android:textSize="@dimen/textViewLeerMasFicha"
+			    android:background="@drawable/color_state_list_ir_mapa_layout"
+			    />
+				
+		</LinearLayout>
+		
+       <LinearLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    android:layout_marginTop="10dp"
+		    android:layout_marginRight="15dp"
+		    android:layout_marginLeft="15dp"
+		    android:background="@drawable/background_tarjeta">
+
+           <LinearLayout 
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:background="@drawable/background_line_item">
+	           <TextView
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:padding="10dp"
+	               android:text="@string/cargando"
+	               android:textStyle="bold"
+	               android:textColor="@color/highLineFichaContent"
+	               android:textSize="@dimen/textViewFichaLista" />
+					
+				<TextView 
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+	                android:padding="10dp"
+				    android:text="@string/cargando"
+				    android:textColor="@color/TitleLugaresDeInteres"
+				    android:textSize="@dimen/textViewFichaLista" />
+			</LinearLayout>
+			<LinearLayout 
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:background="@drawable/background_line_item">
+	           <TextView
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:padding="10dp"
+	               android:text="@string/cargando"
+	               android:textStyle="bold"
+	               android:textColor="@color/highLineFichaContent"
+	               android:textSize="@dimen/textViewFichaLista" />
+					
+			    <TextView 
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+	                android:padding="10dp"
+				    android:text="@string/cargando"
+				    android:textColor="@color/TitleLugaresDeInteres"
+				    android:textSize="@dimen/textViewFichaLista"  />
+			</LinearLayout>
+			<LinearLayout 
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:background="@drawable/background_line_item">
+	           <TextView
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:padding="10dp"
+	               android:text="@string/cargando"
+	               android:textStyle="bold"
+	               android:textColor="@color/highLineFichaContent"
+	               android:textSize="@dimen/textViewFichaLista" />
+					
+			    <TextView 
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+	                android:padding="10dp"
+				    android:text="@string/cargando"
+				    android:textColor="@color/TitleLugaresDeInteres"
+				    android:textSize="@dimen/textViewFichaLista"  />
+			</LinearLayout>
+			<LinearLayout 
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal">
+	           <TextView
+	               android:layout_width="wrap_content"
+	               android:layout_height="wrap_content"
+	               android:padding="10dp"
+	               android:text="@string/cargando"
+	               android:textStyle="bold"
+	               android:textColor="@color/highLineFichaContent"
+	               android:textSize="@dimen/textViewFichaLista" />
+					
+			    <TextView 
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="10dp"
+	                android:padding="10dp"
+				    android:text="@string/cargando"
+				    android:textColor="@color/TitleLugaresDeInteres"
+				    android:textSize="@dimen/textViewFichaLista"  />
+			</LinearLayout>
+				
+		</LinearLayout>
+        
+       <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:background="@drawable/color_state_list_ficha_item_layout">
+                
+                <ImageView 
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:src="@drawable/color_state_gallery_icon_button_layout" />
+                
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/irGaleria"
+                    android:padding="10dp"
+                    android:textColor="@drawable/color_state_list_text_button_layout"
+                    android:textSize="@dimen/textLayoutButton"/>
+            </LinearLayout>
+            
         
     </LinearLayout>
     

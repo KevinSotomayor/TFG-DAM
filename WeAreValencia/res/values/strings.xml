@@ -3,6 +3,7 @@
     <color name="action_bar_color_divider">#29FFA48F</color>
     <color name="background_slidingMenu">#141414</color>
     <color name="white">#FFFFFF</color>
+    <color name="whitLight">#10FFFFFF</color>
     <color name="orange">#FF6C4B</color>
     <color name="orangeLight">#FF7D5F</color>
     <color name="orangeLogo">#ff522c</color>
@@ -18,12 +19,17 @@
     <color name="greyShadow_Transparency">#e5e5e5</color>
     <color name="orangePressedButton_Transparency">#89FF6643</color>
     <color name="TitleLugaresDeInteres">#707070</color>
+	<color name="highLineFichaContent">#606060</color>
     <color name="ContentLugaresDeInteres">#8d8d8d</color>
     <color name="irAlMapaColor">#cccccc</color>
     <!-- degradado del textview ficha lugares de interes -->
     <color name="startColorDegreeTextView">#CC000000</color>
     <color name="centerColorDegreeTextView">#88000000</color>
     <color name="endColorDegreeTextView">#06000000</color>
+    <!-- degradado para la clase que presenta la ficha de lugares de interes -->
+    <color name="startColorDegreeFichaItem">#FFe5e5e5</color>
+    <color name="centerColorDegreeFichaItem">#CCe5e5e5</color>
+    <color name="endColorDegreeFichaItem">#FFFFFF</color>
         
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="valencia">VALENCIA</string>
@@ -55,6 +61,8 @@
 	<string name="guardarImagen">Guardar imagen</string>
 	<string name="establecerFondo">Establecer imagen como...</string>
 	<string name="heEstado">He visitado</string>
+	<string name="leerMas">Leer más</string>
+	<string name="cambioDivisas">Cambio de divisas</string>
 	
 	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->
