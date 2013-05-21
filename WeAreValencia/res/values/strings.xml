@@ -39,8 +39,6 @@
 	<string name="mainButton_Buscar">BUSCAR</string>
 	<string name="mainButton_Descubre">DESCUBRE VALENCIA</string>
 	<string name="description_logo_letras">Logo We Are Valencia</string>
-	<string name="torresDe">TORRES DE</string>
-	<string name="Serranos"> SERRANOS</string>
 	<string name="irGaleria">IR A LA GALERÍA</string>
 	<string name="cargando">Cargando...</string>
 	<string name="optionsMaps">Opciones del mapa</string>
@@ -50,10 +48,10 @@
 	<string name="mapaTerraneo">Mapa Terráneo</string>
 	<string name="buscarLugaresDeInteres">Buscar un lugar</string>
 	<string name="irAlMapa">Ir al mapa</string>
+	<string name="guardarImagen">Guardar imagen</string>
+	<string name="establecerFondo">Establecer imagen como...</string>
 	
-	
-	<string name="lugaresDe">LUGARES DE</string>
-	<string name="interes"> INTERÉS</string>
+	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->
 	<string name="Monumentos">Monumentos</string>
 	<string name="lonjaDeLaSeda">Lonja de la Seda</string>
@@ -72,6 +70,16 @@
 	</string>
 	
 	<string name="torresDeSerranos">Torres de Serranos</string>
+	<string name="torresDeSerranosContent">La <b>Puerta de Serranos</b> (<b>Torres dels Serrans</b> en valenciano) es una de las doce puertas
+	     que custodiaban la antigua muralla de la ciudad de Valencia. Su nombre parece provenir de que están situadas aproximadamente
+	      al noroeste del casco antiguo y, por lo tanto, eran la entrada natural que comunicaba con los caminos que iban 
+	      a Los Serranos (el camino real de Zaragoza, que confluía en este punto también con el camino real de Barcelona). 
+	      No obstante, existe otra teoría que dice que pudo tomar el nombre de la principal familia que habitaba la calle homónima. 
+	      
+	      Es un gran referente de la ciudad de Valencia y uno de sus monumentos mejor conservados. De la antigua muralla, que se ordenó derribar en 1865 
+	      por orden del gobernador de la provincia Cirilo Amorós, nada más quedan estas puertas y las Torres de Quart (posteriores), algunos otros
+	       vestigios peor conservados y restos arquelógicos como la Puerta de los Judíos.
+	</string>
 	<string name="torresDeQuart">Torres de Quart</string>
 	<string name="mercadoCentral">Mercado Central</string>
 	<string name="cac">Ciudad de las Artes y las Ciencias</string>

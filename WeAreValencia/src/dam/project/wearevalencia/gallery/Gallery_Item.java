@@ -25,17 +25,24 @@ import android.widget.ViewSwitcher.ViewFactory;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.view.SubMenu;
 
 import dam.project.wearevalencia.R;
 
-public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implements ViewFactory {
+public class Gallery_Item extends SherlockFragmentActivity implements ViewFactory {
+	private final String BUNDLE_TITLE_KEY = "title";
+	private final int GUARDAR_IMAGEN = 1;
+	private final int ESTABLECER_COMO = 2;
 	private ActionBar actionBar;
 	private Typeface robotoThin, robotoBoldCondensed;
 	//Integer pics[] = {R.drawable.serranos_1, R.drawable.main_bg_10, R.drawable.main_bg_11, R.drawable.main_bg_12, R.drawable.main_bg_14};
 	Integer[] pics;
 	int middle;
 	ImageSwitcher iSwitcher;
+	String tituloFromMarker;
+
 
 	/** Called when the activity is first created. */
 	@SuppressWarnings("deprecation")
@@ -43,7 +50,12 @@ public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implement
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.imageswitcher_gallery);
+		Bundle bundle = getIntent().getExtras();
 
+		if (bundle != null) {
+			tituloFromMarker = bundle.getString(BUNDLE_TITLE_KEY);
+		}
+		
 		actionBar = getSupportActionBar();
 		changeActionBar();
 
@@ -125,12 +137,25 @@ public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implement
 		iView.setImageResource(pics[middle]);
 		return iView;
 	}
+	
+	//Menu para ver el mapa con diferentes vistas
+	public boolean onCreateOptionsMenu(Menu menu){			
+		super.onCreateOptionsMenu(menu);
+		SubMenu submenu = menu.addSubMenu(getString(R.string.optionsMaps));
+		submenu.add(0, GUARDAR_IMAGEN, 0, getString(R.string.guardarImagen));
+		submenu.add(0, ESTABLECER_COMO, 1, getString(R.string.establecerFondo));
+		submenu.getItem().setIcon(R.drawable.abs__ic_menu_moreoverflow_normal_holo_dark)
+		.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+		
+		return true;
+		
+		}
 
 	//cuando el usuario pulsa el boton de volver del actionbar
 	public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
     	case android.R.id.home:
-    		TorresDeSerranos_Gallery.this.finish();
+    		Gallery_Item.this.finish();
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);	
     		return true;
 
@@ -157,17 +182,12 @@ public class TorresDeSerranos_Gallery extends SherlockFragmentActivity implement
 
 
 		        //inflar un view con el layout de los titulos
-		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title_gallery,null);
+		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title,null);
 
 		        //identificar las etiquetas y setTypeface otra letra
-		        TextView titulo = (TextView)customView.findViewById(R.id.tituloGallery);
-		        titulo.setText(getString(R.string.torresDe));
-		        titulo.setTypeface(robotoThin);
-
-		        TextView otroTitulo =(TextView)customView.findViewById(R.id.titulo2Gallery);
-		        otroTitulo.setText(getString(R.string.Serranos));
-		        otroTitulo.setTypeface(robotoBoldCondensed);
-
+		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
+		        titulo.setText(tituloFromMarker.toUpperCase());
+		        titulo.setTypeface(robotoBoldCondensed);
 
 		        /// center xml in actionbar
 		        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);

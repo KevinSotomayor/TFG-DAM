@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Sliding_Menu_Fragment extends ListFragment{
 	private final int INCIO = 0;
@@ -69,7 +71,8 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			break;
 		
 		case LUGARES_DE_INTERES: //fiestas populares
-			newContent = new LugaresDeInteres();
+			ArrayList<LugaresDeInteres_Item> arrayList = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+			newContent = new LugaresDeInteres(arrayList);
 			break;
 		
 		case FIESTAS_POPULARES: //centros comerciales

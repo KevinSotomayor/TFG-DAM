@@ -15,9 +15,11 @@ import com.viewpagerindicator.PageIndicator;
 import com.viewpagerindicator.TitlePageIndicator;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,19 +47,23 @@ public class LugaresDeInteres extends SherlockFragment {
 	private SlidingMenu slidingMenu;
 
 	private final int BUSCAR = 1;
+	private final String BUNDLE_MAP_KEY = "latlng";
+	private final String BUNDLE_TITLE_KEY = "title";
+	private final String BUNDLE_DESCRIPTION_KEY = "description";
 
+	
 	private ArrayList<LugaresDeInteres_Item> arrayLugaresDeInteres;
 	
 	//constructor cuando no se le pasan datos
-	/*public LugaresDeInteres () {
-		this.arrayLugaresDeInteres = obtainMonuments();
+	public LugaresDeInteres () {
+		this.arrayLugaresDeInteres = new ArrayList<LugaresDeInteres_Item>();
 	}
 	
 	//constructor cuando se le pasan datos
-	public LugaresDeInteres(ArrayList<String> arrayList) {
+	public LugaresDeInteres(ArrayList<LugaresDeInteres_Item> arrayList) {
 		this.arrayLugaresDeInteres = arrayList;
 		setRetainInstance(true);
-	}*/
+	}
 
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -126,16 +132,12 @@ public class LugaresDeInteres extends SherlockFragment {
 
 
 		        //inflar un view con el layout de los titulos
-		        View customView = LayoutInflater.from(getActivity()).inflate(R.layout.actionbar_title_maps_with_gallery,null);
+		        View customView = LayoutInflater.from(getActivity()).inflate(R.layout.actionbar_title,null);
 
 		        //identificar las etiquetas y setTypeface otra letra
-		        TextView titulo = (TextView)customView.findViewById(R.id.tituloOtherActivity);
-		        titulo.setText(getString(R.string.lugaresDe));
-		        titulo.setTypeface(robotoThin);
-
-		        TextView otroTitulo =(TextView)customView.findViewById(R.id.titulo2OtherActivity);
-		        otroTitulo.setText(getString(R.string.interes));
-		        otroTitulo.setTypeface(robotoBoldCondensed);
+		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
+		        titulo.setTypeface(robotoBoldCondensed);
+		        titulo.setText(getActivity().getString(R.string.lugaresDeInteres));
 
 
 		        /// center xml in actionbar
@@ -162,7 +164,7 @@ public class LugaresDeInteres extends SherlockFragment {
 
 
 			try{
-				arrayLugaresDeInteres = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+				//arrayLugaresDeInteres = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
 				listaMonumentos.setAdapter(adaptador);
 				
@@ -182,7 +184,6 @@ public class LugaresDeInteres extends SherlockFragment {
 	}
 	//clase interna que infla la vista con los empleados.
 	class AdaptadorLugaresDeInteres extends ArrayAdapter<LugaresDeInteres_Item> {
-		
     	Activity context;
     	int layoutResource;
     	ArrayList<LugaresDeInteres_Item> arrayLugares;
@@ -194,7 +195,7 @@ public class LugaresDeInteres extends SherlockFragment {
     		this.arrayLugares = arrayLugares;
     	}
 
-    	public View getView(int position, View convertView, ViewGroup parent) {
+    	public View getView(final int position, View convertView, ViewGroup parent) {
 			LayoutInflater inflater = getActivity().getLayoutInflater();
 			View item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
 
@@ -204,20 +205,37 @@ public class LugaresDeInteres extends SherlockFragment {
 			
 			TextView contenido = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Content);
 			contenido.setTypeface(robotoRegular);
-			//if(arrayLugares.get(position).getContent().length() )
-			contenido.setText(arrayLugares.get(position).getContent());
+			String cadena = arrayLugares.get(position).getContent();
+			String cadenaTotal = "";	
+			for (int i = 0; i < cadena.length(); i++ ){
+				
+				if (i <= 85) {
+					cadenaTotal += cadena.charAt(i);
+
+				}
+
+			}
+			cadenaTotal += "...";
+			
+			contenido.setText(cadenaTotal);
 			
 			TextView irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
 			irAlMapa.setTypeface(robotoRegular);
+		
 			
-			
-			final String aux = arrayLugares.get(position).getLatLng().toString();
+			final String cadenaDescricion = cadenaTotal;
 			LinearLayout layout = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
 			layout.setOnClickListener(new OnClickListener() {
-				
+				final LatLng latlng = arrayLugares.get(position).getLatLng();
 				@Override
 				public void onClick(View v) {
-					Toast.makeText(getActivity(), "Has presionado el mapa, en... " + aux , Toast.LENGTH_SHORT).show();
+					Intent i = new Intent(getActivity(), Map_Item.class);
+					Bundle b = new Bundle();
+					b.putParcelable(BUNDLE_MAP_KEY, latlng);
+					b.putString(BUNDLE_TITLE_KEY, arrayLugares.get(position).getTitle());
+					b.putString(BUNDLE_DESCRIPTION_KEY, cadenaDescricion);
+					i.putExtras(b);
+					startActivity(i);
 				}
 			});
 			

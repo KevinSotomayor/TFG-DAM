@@ -36,45 +36,59 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import dam.project.wearevalencia.R;
-import dam.project.wearevalencia.gallery.TorresDeSerranos_Gallery;
+import dam.project.wearevalencia.gallery.Gallery_Item;
 
-public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements LocationListener{
-	private Typeface robotoThin, robotoBoldCondensed;
+public class Map_Item extends SherlockFragmentActivity  implements LocationListener{
+	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed;
 	private ActionBar actionBar;
 	
 	//constantes para identificar que opcion de menu se selecciona.
 	private final int MAPA_NORMAL = 1;
 	private final int MAPA_HYBRIDO = 2;
 	private final int MAPA_SATELITE = 3;
+	
 	private final int MAPA_TERRANEO = 4;
 	
-	private final float latitud = (float) 39.47926986007646;
-	private final float longitud = (float) -0.3760123212119959;
+	/*private final float latitud = (float) 39.47926986007646;
+	private final float longitud = (float) -0.3760123212119959;*/
 
 	//constantes para el minimo de tiempo en actualizar la posicion y la distancia en radio de la posicion actual
 	private final int MIN_TIME = 2000;
 	private final int MIN_DISTANCE = 50;
+	private final String BUNDLE_MAP_KEY = "latlng";
+	private final String BUNDLE_TITLE_KEY = "title";
+	private final String BUNDLE_DESCRIPTION_KEY = "description";
+
+
 	
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
 	GoogleMap mapa;
 	Location location;
 	String provider;
-	
+
 	private LatLng myPosition;
 	private LatLng myDestine;
-	
-	
-		
+	String tituloMarker;
+	String descripcionMarker;
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_and_gallery);
+		Bundle bundle = getIntent().getExtras();
+		
+		if (bundle != null) {
+			myDestine = bundle.getParcelable(BUNDLE_MAP_KEY);
+			tituloMarker = bundle.getString(BUNDLE_TITLE_KEY);
+			descripcionMarker = bundle.getString(BUNDLE_DESCRIPTION_KEY);
+		}
+		
 		
 		//action bar + personalizaciones
 		actionBar = getSupportActionBar();
         changeActionBar();
         
-      //Obteniendo el estado de google play services, ya que gracias a ello se muestra el mapa
+        //Obteniendo el estado de google play services, ya que gracias a ello se muestra el mapa
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
     	
         // Mostrar mapa y demás si está disponible
@@ -215,7 +229,7 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 		switch(item.getItemId()){
     	
     	case android.R.id.home:
-    		TorresDeSerranos_Map.this.finish();
+    		Map_Item.this.finish();
 			//sobreescribir la animacion para finalizar esta activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
@@ -251,23 +265,21 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 	
 	private void goToTorresDeSerranos(){
 		//establecer la posicion y marker de las torres de serranos:		
-		LatLng torresLatLng = new LatLng(latitud, longitud);
-		myDestine = torresLatLng;
 		//dirige la posicion del mapa hacia esa latitud y esa longitud
 		CameraPosition cameraPosition = new CameraPosition.Builder()
-		.target(torresLatLng)
+		.target(myDestine)
 		.zoom(17)
-		.bearing(285)
-		//.tilt(75)
+		//.bearing(285) //angulo de orientacion
+		//.tilt(75) //angulo de vista 
 		.build();
 
 		
 		CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
 		mapa.animateCamera(cameraUpdate); //animacion para llegar a la lat y long indiciados que se le pasa al objeto cameraupdate
 		mapa.addMarker(new MarkerOptions() //marker personalizado
-		.position(torresLatLng)
-		.title("Las Torres de Serranos")
-		.snippet("Valencia, Centro histórico")
+		.position(myDestine)
+		.title(tituloMarker)
+		.snippet(descripcionMarker)
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	
@@ -283,7 +295,10 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 	}
 
 	private void goToIntent(){
-		Intent galeria = new Intent(TorresDeSerranos_Map.this, TorresDeSerranos_Gallery.class);
+		Intent galeria = new Intent(Map_Item.this, Gallery_Item.class);
+		Bundle bundle = new Bundle();
+		bundle.putString(BUNDLE_TITLE_KEY, tituloMarker);
+		galeria.putExtras(bundle);
 		startActivity(galeria);
 		//sobreescribir la animacion para dar entrada a la nueva pantalla
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -294,6 +309,7 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 		//typeface personalizadas
         robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
+        robotoCondensed = Typeface.createFromAsset(getAssets(), "Roboto-Condensed.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
@@ -307,18 +323,13 @@ public class TorresDeSerranos_Map extends SherlockFragmentActivity  implements L
 
 
 		        //inflar un view con el layout de los titulos
-		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title_maps_with_gallery,null);
+		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title,null);
 
 		        //identificar las etiquetas y setTypeface otra letra
-		        TextView titulo = (TextView)customView.findViewById(R.id.tituloOtherActivity);
-		        titulo.setText(getString(R.string.torresDe));
-		        titulo.setTypeface(robotoThin);
-
-		        TextView otroTitulo =(TextView)customView.findViewById(R.id.titulo2OtherActivity);
-		        otroTitulo.setText(getString(R.string.Serranos));
-		        otroTitulo.setTypeface(robotoBoldCondensed);
-
-
+		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
+		        titulo.setTypeface(robotoBoldCondensed);
+		        titulo.setText(tituloMarker.toUpperCase());
+		        
 		        /// center xml in actionbar
 		        ActionBar.LayoutParams lp = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
 		        lp.gravity = Gravity.CENTER;

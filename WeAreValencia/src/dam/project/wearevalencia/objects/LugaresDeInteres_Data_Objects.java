@@ -1,10 +1,14 @@
 package dam.project.wearevalencia.objects;
 
-import java.util.ArrayList;
+/*
+ * 
+ * Clase para formar objetos y devolver arraylist con los objetos cargados.
+ * 
+ */
 
-import android.app.Activity;
+
+import java.util.ArrayList;
 import android.content.Context;
-import android.os.Bundle;
 import com.google.android.gms.maps.model.LatLng;
 import dam.project.wearevalencia.R;
 
@@ -18,8 +22,9 @@ public class LugaresDeInteres_Data_Objects {
 			LugaresDeInteres_Item lonjaDeLaSeda =  new LugaresDeInteres_Item(contexto.getString(R.string.lonjaDeLaSeda), 
 					contexto.getString(R.string.LonjaDeLaSedaContent), latlng, R.drawable.lugaresdeinteres_content_lonja);
 			
-			LugaresDeInteres_Item torresDeSerranos = new LugaresDeInteres_Item("Torres de Serranos", 
-					"La lonja de la seda es declarada Patrimonio de la humanidad", latlng, R.drawable.lugaresdeinteres_content_torresdeserranos);
+			latlng = new LatLng(39.47926986007646, -0.3760123212119959);
+			LugaresDeInteres_Item torresDeSerranos = new LugaresDeInteres_Item(contexto.getString(R.string.torresDeSerranos), 
+					contexto.getString(R.string.torresDeSerranosContent), latlng, R.drawable.lugaresdeinteres_content_torresdeserranos);
 			
 			LugaresDeInteres_Item torresDeQuart = new LugaresDeInteres_Item("Torres de quart", 
 					"La lonja de la seda es declarada Patrimonio de la humanidad", latlng, R.drawable.lugaresdeinteres_content_torresdequart);

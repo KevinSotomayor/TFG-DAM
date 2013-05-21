@@ -137,8 +137,7 @@ public class Main_Content_Fragment extends SherlockFragment{
     		return true;
     		
     	case MAP:
-    		Intent ts = new Intent(getActivity(), TorresDeSerranos_Map.class);
-    		startActivity(ts);
+    		
     		return true;
     		
     	}
