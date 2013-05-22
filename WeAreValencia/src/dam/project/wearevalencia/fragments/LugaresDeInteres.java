@@ -2,6 +2,8 @@ package dam.project.wearevalencia.fragments;
 
 
 import java.util.ArrayList;
+
+import org.holoeverywhere.widget.ExpandableListConnector.PositionMetadata;
 import org.holoeverywhere.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -26,6 +28,7 @@ import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -54,6 +57,7 @@ public class LugaresDeInteres extends SherlockFragment {
 	private final String BUNDLE_MAP_KEY = "latlng";
 	private final String BUNDLE_TITLE_KEY = "title";
 	private final String BUNDLE_DESCRIPTION_KEY = "description";
+	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 
 	
 	private ArrayList<LugaresDeInteres_Item> arrayLugaresDeInteres;
@@ -185,8 +189,14 @@ public class LugaresDeInteres extends SherlockFragment {
 
 				@Override
 				public void onItemClick(AdapterView<?> arg0, View arg1,
-						int arg2, long arg3) {
+						int position, long arg3) {
+					LugaresDeInteres_Item object =  arrayLugaresDeInteres.get(position -1);
 					Intent i = new Intent(getActivity(), LugaresDeInteres_Ficha_Item.class);
+					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, object);
+					i.putExtras(bundle);
+					
 					startActivity(i);
 					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
@@ -238,6 +248,7 @@ public class LugaresDeInteres extends SherlockFragment {
 			
 			final String cadenaDescricion = cadenaTotal;
 			LinearLayout layout = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
+			
 			layout.setOnClickListener(new OnClickListener() {
 				final LatLng latlng = arrayLugares.get(position).getLatLng();
 				@Override
@@ -255,7 +266,7 @@ public class LugaresDeInteres extends SherlockFragment {
 			});
 			
 			ImageView icon = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
-			icon.setImageResource(arrayLugares.get(position).getIcon());
+			icon.setImageResource(arrayLugares.get(position).getThumbail());
 
     		return (item);
 

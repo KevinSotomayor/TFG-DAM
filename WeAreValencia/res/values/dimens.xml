@@ -10,8 +10,12 @@
 	<dimen name="TextViewLugaresDeInteresContent">14dp</dimen>
 	<dimen name="irMapaTextView">17dp</dimen>
 	<dimen name="titleText">20dp</dimen>
-	<dimen name="textLayoutButton">20dp</dimen>
-	<dimen name="textViewContentFicha">18dp</dimen>
-	<dimen name="textViewLeerMasFicha">19dp</dimen>
-	<dimen name="textViewFichaLista">18dp</dimen>
+	<dimen name="textLayoutButton">17dp</dimen>
+	<dimen name="textViewContentFicha">15dp</dimen>
+	<dimen name="textViewLeerMasFicha">16dp</dimen>
+	<dimen name="textViewFichaLista">17dp</dimen>
+	<dimen name="textViewTitleFichaLugaresDeInteres">35dp</dimen>
+	<dimen name="textViewFichaClock">45dp</dimen>
+	<dimen name="textViewFichaDate">25dp</dimen>
+	<dimen name="textViewEurIcon">55dp</dimen>
 </resources>

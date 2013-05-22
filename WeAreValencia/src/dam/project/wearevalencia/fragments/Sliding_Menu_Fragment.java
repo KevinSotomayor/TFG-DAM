@@ -153,7 +153,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			}
 			
 			holder.hPhoto .setImageResource(getItem(position).photoItem);
-			Typeface roboto = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
+			Typeface roboto = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
 			holder.hTexto.setTypeface(roboto);
 			holder.hTexto.setText(getItem(position).textItem);
 			
