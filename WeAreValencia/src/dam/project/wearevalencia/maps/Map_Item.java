@@ -68,7 +68,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	private LatLng myPosition;
 	private LatLng myDestine;
 	String tituloMarker;
-	String categoria;
+	String direccion;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,7 +79,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
 			myDestine = objeto.getLatLng();
 			tituloMarker = objeto.getTitle();
-			categoria = objeto.getCategory();
+			direccion = objeto.getAddres();
 		}
 		
 		
@@ -114,6 +114,10 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 				    			if(!flag == true){
 									Toast.makeText(getApplicationContext(), "Obteniendo tu ubicación, espera...", Toast.LENGTH_LONG).show();
 				    				flag = true;
+				    			}else{
+										Toast.makeText(Map_Item.this, "Ya te he ubicado...", Toast.LENGTH_LONG).show();
+										
+									}
 				    				mapa.setMyLocationEnabled(true);
 					    			// obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
 					    	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
@@ -140,12 +144,9 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 									location = locationManager.getLastKnownLocation(provider);
 									//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
 						
-									if(location!=null){
+									if(location!=null)
 										onLocationChanged(location);
-									}
-								}else{
-									Toast.makeText(Map_Item.this, "Ya te he ubicado...", Toast.LENGTH_LONG).show();
-								}
+									
 							}
 						});
 	        	}
@@ -279,7 +280,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		mapa.addMarker(new MarkerOptions() //marker personalizado
 		.position(myDestine)
 		.title(tituloMarker)
-		.snippet(categoria.toUpperCase())
+		.snippet(direccion.toUpperCase())
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	
