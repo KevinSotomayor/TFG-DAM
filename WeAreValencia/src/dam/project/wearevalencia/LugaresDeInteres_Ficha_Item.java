@@ -7,6 +7,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.holoeverywhere.widget.Toast;
+
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
@@ -19,6 +22,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -31,6 +35,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 import com.google.android.gms.maps.GoogleMap;
 
+import dam.project.wearevalencia.gallery.Gallery_Item;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
@@ -43,7 +48,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	private ImageView thumbailMax, map_static;
 	private TextView title, content, leermas, address, addressContent, price, priceContent, horary, horaryContent, telephone, telephoneContent,
 	textViewHeVisitado, textViewIrAlMapa, textViewIrGaleria, textViewClock, textViewDate;
-	private LinearLayout heVisitado;
+	private LinearLayout heVisitado, irAlMapa, irGaleria, direccion;
 	private LugaresDeInteres_Item objeto; 
 
 	
@@ -83,7 +88,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		String cadenaTotal = "";	
 		for (int i = 0; i < cadena.length(); i++ ){
 			
-			if (i <= 180) {
+			if (i <= 280) {
 				cadenaTotal += cadena.charAt(i);
 
 			}
@@ -128,7 +133,66 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		textViewClock.setTypeface(robotoThin);
 		textViewDate = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Date);
 		textViewDate.setTypeface(robotoThin);
-	
+		
+		
+		heVisitado = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_heVisitado);
+		heVisitado.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(LugaresDeInteres_Ficha_Item.this, "Añadido a sitios visitados", Toast.LENGTH_LONG).show();
+			}
+		});
+		
+		irAlMapa = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irAlMapa);
+		irAlMapa.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
+				Bundle bundle = new Bundle();
+				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+				i.putExtras(bundle);
+				
+				startActivity(i);
+				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+			}
+		});
+		
+		irGaleria = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irGaleria);
+		irGaleria.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Gallery_Item.class);					
+				Bundle bundle = new Bundle();
+				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+				i.putExtras(bundle);
+				
+				startActivity(i);
+				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+			}
+		});
+		
+		direccion = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_address);
+		direccion.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
+				Bundle bundle = new Bundle();
+				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+				i.putExtras(bundle);
+				
+				startActivity(i);
+				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				
+			}
+		});
+		
 	}
 	
 	private String getLatLng(String cadena){
@@ -209,7 +273,6 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 			
 			try {
 				  bitmap = BitmapFactory.decodeStream((InputStream)new URL(urlImage).getContent());
-				 
 				} catch (MalformedURLException e) {
 				  e.printStackTrace();
 				} catch (IOException e) {
@@ -226,23 +289,5 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		
 	}
 	
-	protected Drawable imageFromURL(String url) {
-        try {
-            InputStream is = (InputStream)this.fetch(url);
-            Drawable d = Drawable.createFromStream(is, "static_map");
-            return d;
-        } catch (MalformedURLException e){   
-            return null;
-        } 
-        catch (IOException e){
-            return null;
-        } 
-    }
-
-    protected Object fetch(String address) throws MalformedURLException,IOException {
-        URL url = new URL(address);
-        Object content = url.getContent();
-        return content;
-    }   
 
 }

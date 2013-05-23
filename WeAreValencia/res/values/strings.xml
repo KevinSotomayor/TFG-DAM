@@ -22,7 +22,7 @@
     <color name="contentLugaresDeInteresFicha">#858585</color>
 	<color name="highLineFichaContent">#606060</color>
     <color name="ContentLugaresDeInteres">#8d8d8d</color>
-    <color name="irAlMapaColor">#cccccc</color>
+    <color name="irAlMapaColor">#CC7e8083</color>
     <!-- degradado del textview ficha lugares de interes -->
     <color name="startColorDegreeTextView">#CC000000</color>
     <color name="centerColorDegreeTextView">#88000000</color>
@@ -32,6 +32,7 @@
     <color name="centerColorDegreeFichaItem">#CCe5e5e5</color>
     <color name="endColorDegreeFichaItem">#FFFFFF</color>
     <color name="iconsFichaLugaresDeInteres">#7e8083</color>
+    
         
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="valencia">VALENCIA</string>
@@ -72,6 +73,8 @@
 	<string name="clock">12:30</string>
 	<string name="date">Martes</string>
 	<string name="eurIcon">€</string>
+	<string name="estoyAqui">Estoy aquí</string>
+	<string name="obteniendoDireccion">Obteniendo dirección, espere...</string>
 	
 	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->

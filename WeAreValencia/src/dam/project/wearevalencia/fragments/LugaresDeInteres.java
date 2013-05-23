@@ -54,9 +54,6 @@ public class LugaresDeInteres extends SherlockFragment {
 	private SlidingMenu slidingMenu;
 
 	private final int BUSCAR = 1;
-	private final String BUNDLE_MAP_KEY = "latlng";
-	private final String BUNDLE_TITLE_KEY = "title";
-	private final String BUNDLE_DESCRIPTION_KEY = "description";
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 
 	
@@ -64,6 +61,7 @@ public class LugaresDeInteres extends SherlockFragment {
 	
 	//constructor cuando no se le pasan datos
 	public LugaresDeInteres () {
+		//imprimirá vacio, con lo que dejará las letras de cargando por defecto en los textViews ( si algo sale mal )
 		this.arrayLugaresDeInteres = new ArrayList<LugaresDeInteres_Item>();
 	}
 	
@@ -253,12 +251,13 @@ public class LugaresDeInteres extends SherlockFragment {
 				final LatLng latlng = arrayLugares.get(position).getLatLng();
 				@Override
 				public void onClick(View v) {
-					Intent i = new Intent(getActivity(), Map_Item.class);
-					Bundle b = new Bundle();
-					b.putParcelable(BUNDLE_MAP_KEY, latlng);
-					b.putString(BUNDLE_TITLE_KEY, arrayLugares.get(position).getTitle());
-					b.putString(BUNDLE_DESCRIPTION_KEY, cadenaDescricion);
-					i.putExtras(b);
+					LugaresDeInteres_Item object =  arrayLugaresDeInteres.get(position);
+					
+					Intent i = new Intent(getActivity(), Map_Item.class);					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, object);
+					i.putExtras(bundle);
+					
 					startActivity(i);
 					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 

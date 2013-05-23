@@ -162,8 +162,8 @@
 	               android:textSize="@dimen/textViewFichaLista" />
 				<ImageView 
 				    android:id="@+id/map_static_ficha_lugaresDeInteres"
-				    android:layout_width="fill_parent"
-				    android:layout_height="wrap_content"
+				    android:layout_width="match_parent"
+				    android:layout_height="match_parent"
 				    android:src="@drawable/map_static_drawable" 
 				    android:adjustViewBounds="true"/>
 				<LinearLayout 
@@ -171,13 +171,14 @@
 				    android:layout_height="wrap_content"
 				    android:orientation="horizontal"
 				    android:layout_marginBottom="4dp"
-				    android:layout_marginRight="5dp"
-				    android:layout_marginLeft="5dp"
+				    android:layout_marginTop="4dp"
 				    android:padding="2dp"
-				    android:gravity="center">
+				    android:gravity="center"
+				    android:background="@drawable/color_state_list_ir_mapa_layout_ficha">
 					<ImageView 
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"
+					    android:layout_marginLeft="5dp"
 					    android:src="@drawable/color_state_list_ir_mapa_icon" />
 					<TextView 
 					    android:id="@+id/textView_ficha_lugaresdeinteres_address_content"
@@ -186,7 +187,7 @@
 					    android:layout_weight="3"
 		                android:padding="10dp"
 					    android:text="@string/cargando"
-					    android:textColor="@color/contentLugaresDeInteresFicha"
+					    android:textColor="@drawable/color_state_list_text_buttons_direccion_ficha"
 					    android:textSize="@dimen/textViewFichaLista" />
 				</LinearLayout>
 			</LinearLayout>

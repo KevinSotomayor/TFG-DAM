@@ -30,9 +30,10 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
 
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Gallery_Item extends SherlockFragmentActivity implements ViewFactory {
-	private final String BUNDLE_TITLE_KEY = "title";
+	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 	private final int GUARDAR_IMAGEN = 1;
 	private final int ESTABLECER_COMO = 2;
 	private ActionBar actionBar;
@@ -41,7 +42,9 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 	Integer[] pics;
 	int middle;
 	ImageSwitcher iSwitcher;
-	String tituloFromMarker;
+	String tituloLugarDeInteres;
+	private LugaresDeInteres_Item objeto; 
+
 
 
 	/** Called when the activity is first created. */
@@ -50,10 +53,11 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.imageswitcher_gallery);
-		Bundle bundle = getIntent().getExtras();
 
+		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			tituloFromMarker = bundle.getString(BUNDLE_TITLE_KEY);
+			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
+			tituloLugarDeInteres = objeto.getTitle();
 		}
 		
 		actionBar = getSupportActionBar();
@@ -186,7 +190,7 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 
 		        //identificar las etiquetas y setTypeface otra letra
 		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
-		        titulo.setText(tituloFromMarker.toUpperCase());
+		        titulo.setText(tituloLugarDeInteres.toUpperCase());
 		        titulo.setTypeface(robotoBoldCondensed);
 
 		        /// center xml in actionbar

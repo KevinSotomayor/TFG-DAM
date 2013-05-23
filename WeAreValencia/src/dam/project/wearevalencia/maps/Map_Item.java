@@ -35,8 +35,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import dam.project.wearevalencia.LugaresDeInteres_Ficha_Item;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.gallery.Gallery_Item;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Map_Item extends SherlockFragmentActivity  implements LocationListener{
 	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed;
@@ -51,31 +53,33 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	
 	//constantes para el minimo de tiempo en actualizar la posicion y la distancia en radio de la posicion actual
 	private final int MIN_TIME = 2000;
-	private final int MIN_DISTANCE = 50;
-	private final String BUNDLE_MAP_KEY = "latlng";
-	private final String BUNDLE_TITLE_KEY = "title";
-	private final String BUNDLE_DESCRIPTION_KEY = "description";
+	private final int MIN_DISTANCE = 50;	
+	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
+	private LugaresDeInteres_Item objeto; 
+
 
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
 	GoogleMap mapa;
 	Location location;
 	String provider;
-
+	boolean flag = false;
+	
 	private LatLng myPosition;
 	private LatLng myDestine;
 	String tituloMarker;
-	String descripcionMarker;
+	String categoria;
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_and_gallery);
-		Bundle bundle = getIntent().getExtras();
 		
+		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			myDestine = bundle.getParcelable(BUNDLE_MAP_KEY);
-			tituloMarker = bundle.getString(BUNDLE_TITLE_KEY);
-			descripcionMarker = bundle.getString(BUNDLE_DESCRIPTION_KEY);
+			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
+			myDestine = objeto.getLatLng();
+			tituloMarker = objeto.getTitle();
+			categoria = objeto.getCategory();
 		}
 		
 		
@@ -102,40 +106,45 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 					
 		        	@Override
 					public void onClick(View v) {
-						Toast.makeText(getApplicationContext(), "Obteniendo tu ubicación, espera...", Toast.LENGTH_LONG).show();
 
 						new Handler().post(new Runnable() {
 							
 							@Override
 							public void run() {
-				    			mapa.setMyLocationEnabled(true);
-				    			// obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
-				    	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-				    			Criteria criteria = new Criteria(); //establecemos precision
-				    			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
-				    			provider = locationManager.getBestProvider(criteria, true); //devuelve en un string el provider con los mejores criterios 
-						        
-								if(locationManager != null){
-									boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-									boolean networkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-									
-									if(!gpsEnabled){
-										Toast toast = Toast.makeText(getApplicationContext(), "GPS Deshabilitado, actívalo para mejor precisión", Toast.LENGTH_LONG);
-										toast.setGravity(Gravity.CENTER,0,0);
-										toast.show();
+				    			if(!flag == true){
+									Toast.makeText(getApplicationContext(), "Obteniendo tu ubicación, espera...", Toast.LENGTH_LONG).show();
+				    				flag = true;
+				    				mapa.setMyLocationEnabled(true);
+					    			// obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
+					    	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
+					    			Criteria criteria = new Criteria(); //establecemos precision
+					    			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
+					    			provider = locationManager.getBestProvider(criteria, true); //devuelve en un string el provider con los mejores criterios 
+							        
+									if(locationManager != null){
+										boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+										boolean networkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+										
+										if(!gpsEnabled){
+											Toast toast = Toast.makeText(getApplicationContext(), "GPS Deshabilitado, actívalo para mejor precisión", Toast.LENGTH_LONG);
+											toast.setGravity(Gravity.CENTER,0,0);
+											toast.show();
+										}
+										if(!networkEnabled){
+											Toast toast = Toast.makeText(getApplicationContext(), "No hay conexión de datos, actívela para mostrar el mapa", Toast.LENGTH_LONG);
+											toast.setGravity(Gravity.CENTER,0,0);
+											toast.show();
+										}
 									}
-									if(!networkEnabled){
-										Toast toast = Toast.makeText(getApplicationContext(), "No hay conexión de datos, actívela para mostrar el mapa", Toast.LENGTH_LONG);
-										toast.setGravity(Gravity.CENTER,0,0);
-										toast.show();
+												
+									location = locationManager.getLastKnownLocation(provider);
+									//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
+						
+									if(location!=null){
+										onLocationChanged(location);
 									}
-								}
-											
-								location = locationManager.getLastKnownLocation(provider);
-								//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
-					
-								if(location!=null){
-									onLocationChanged(location);
+								}else{
+									Toast.makeText(Map_Item.this, "Ya te he ubicado...", Toast.LENGTH_LONG).show();
 								}
 							}
 						});
@@ -270,25 +279,17 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		mapa.addMarker(new MarkerOptions() //marker personalizado
 		.position(myDestine)
 		.title(tituloMarker)
-		.snippet(descripcionMarker.substring(0, 40) + "...")
+		.snippet(categoria.toUpperCase())
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	
-		//listener del windows info:
-		mapa.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
-			
-			@Override
-			public void onInfoWindowClick(Marker marker) {
-				goToIntent();
-			}
-		});
 	
 	}
 
 	private void goToIntent(){
 		Intent galeria = new Intent(Map_Item.this, Gallery_Item.class);
 		Bundle bundle = new Bundle();
-		bundle.putString(BUNDLE_TITLE_KEY, tituloMarker);
+		bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
 		galeria.putExtras(bundle);
 		startActivity(galeria);
 		//sobreescribir la animacion para dar entrada a la nueva pantalla
@@ -358,12 +359,21 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 			
 			//direccion de mi posicion actual
 			LatLng myCurrentPosition = new LatLng(latitude, longitude);
-			myDestine = myCurrentPosition;
+			myPosition = myCurrentPosition;
 			//mover la posicion del mapa hacia donde estoy ubicado en ese momento
 			CameraPosition myCameraPosition = new CameraPosition.Builder()
-			.target(myCurrentPosition).zoom(15).build();
+			.target(myCurrentPosition)
+			.zoom(18)
+			.build();
 			CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(myCameraPosition);
 			mapa.animateCamera(cameraUpdate);
+			mapa.addMarker(new MarkerOptions() //marker personalizado
+			.position(myPosition)
+			.title(getString(R.string.estoyAqui))
+			.snippet(getString(R.string.obteniendoDireccion))
+			.icon(BitmapDescriptorFactory.fromResource(R.drawable.my_position_marker)))
+			.showInfoWindow();
+
 		}
 		
 	}
