@@ -11,7 +11,7 @@ package dam.project.wearevalencia.objects;
  * -contenido
  * -categoria
  * -latitud y longitud en el mapa
- * -miniatura de la lista de lugares de interes
+ * -miniatura de la lista de lugares de interes que es la misma que la de la ficha del lugar de interes
  * -direccion
  * -precio
  * -horario
@@ -60,7 +60,6 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.LonjaDeLaSedaContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					R.drawable.lugaresdeinteres_content_lonja,
 					contexto.getString(R.string.lonjaDeLaSedaAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
@@ -75,7 +74,6 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.torresDeSerranosContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					R.drawable.lugaresdeinteres_content_torresdeserranos,
 					contexto.getString(R.string.lonjaDeLaSedaAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
@@ -90,7 +88,6 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.LonjaDeLaSedaContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					R.drawable.lugaresdeinteres_content_torresdequart,
 					contexto.getString(R.string.lonjaDeLaSedaAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
@@ -105,7 +102,6 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.LonjaDeLaSedaContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					R.drawable.lugaresdeinteres_content_mercadocentral,
 					contexto.getString(R.string.lonjaDeLaSedaAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
@@ -120,7 +116,6 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.LonjaDeLaSedaContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					R.drawable.lugaresdeinteres_content_mercadocolon,
 					contexto.getString(R.string.lonjaDeLaSedaAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),

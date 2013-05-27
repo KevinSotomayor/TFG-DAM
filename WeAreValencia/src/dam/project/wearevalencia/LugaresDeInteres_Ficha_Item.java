@@ -15,6 +15,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,13 +43,13 @@ import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
-	private final int CAMBIAR_MONEDA = 1;
+	private final int EMPTY = 0;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 	private String latlongString, urlImage;
 	private ImageView thumbailMax, map_static;
 	private TextView title, content, leermas, address, addressContent, price, priceContent, horary, horaryContent, telephone, telephoneContent,
 	textViewHeVisitado, textViewIrAlMapa, textViewIrGaleria, textViewClock, textViewDate;
-	private LinearLayout heVisitado, irAlMapa, irGaleria, direccion;
+	private LinearLayout heVisitado, irAlMapa, irGaleria, direccion, leermasLayoutButton, telephoneLayoutButton;
 	private LugaresDeInteres_Item objeto; 
 
 	
@@ -64,135 +65,163 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		actionBar = getSupportActionBar();
 		changeActionBar();
 		
-		thumbailMax = (ImageView)findViewById(R.id.imageView_Ficha_LugaresDeInteres);
-		thumbailMax.setImageResource(objeto.getThumbailMax());
-		
-		latlongString = getLatLng(objeto.getLatLng().toString()); //obtener la longitud y latitud separada de los ()
-		urlImage = "http://maps.google.com/maps/api/staticmap?center="+latlongString+"&zoom=17&markers=color:red|40.365827,-3.758285|"+latlongString+"&size=780x300&sensor=false";
-		//url de la imagen generada automaticamente
-		//sacada de: http://gmaps-samples.googlecode.com/svn/trunk/simplewizard/makestaticmap.html y el api de maps v2
-		map_static = (ImageView)findViewById(R.id.map_static_ficha_lugaresDeInteres);
-		new LoadImageAsyncTask().execute();
-		//bajar la imagen en un asynctask, en otro hilo que no sea el principal, e aquí el error que me daba:
-		//android.os.NetworkOnMainThreadException
-		//solucion: http://stackoverflow.com/questions/7408046/android-os-networkonmainthreadexception-in-asynctask
-	    
-		
-		title = (TextView)findViewById(R.id.textView_Ficha_LugaresDeInteres_titulo);
-		title.setTypeface(robotoBoldCondensed);
-		title.setText(objeto.getTitle());
-		
-		content = (TextView)findViewById(R.id.textView_Content_lugaresdeinteres_OnlyText);
-		content.setTypeface(robotoRegular);
-		String cadena = objeto.getContent();
-		String cadenaTotal = "";	
-		for (int i = 0; i < cadena.length(); i++ ){
+		if(objeto != null){
+			thumbailMax = (ImageView)findViewById(R.id.imageView_Ficha_LugaresDeInteres);
+			thumbailMax.setImageResource(objeto.getThumbailMax());
 			
-			if (i <= 280) {
-				cadenaTotal += cadena.charAt(i);
-
-			}
-
-		}
-		cadenaTotal += "...";
-		content.setText(cadenaTotal); 
-		
-		leermas = (TextView)findViewById(R.id.textView_Button_lugaresdeinteres_LeerMas);
-		leermas.setTypeface(robotoBoldCondensed);
-		leermas.setText(getString(R.string.leerMas).toUpperCase());
+			latlongString = getLatLng(objeto.getLatLng().toString()); //obtener la longitud y latitud separada de los ()
+			urlImage = "http://maps.google.com/maps/api/staticmap?center="+latlongString+"&zoom=17&markers=color:red|40.365827,-3.758285|"+latlongString+"&size=780x300&sensor=false";
+			//url de la imagen generada automaticamente
+			//sacada de: http://gmaps-samples.googlecode.com/svn/trunk/simplewizard/makestaticmap.html y el api de maps v2
+			map_static = (ImageView)findViewById(R.id.map_static_ficha_lugaresDeInteres);
+			new LoadImageAsyncTask().execute();
+			//bajar la imagen en un asynctask, en otro hilo que no sea el principal, e aquí el error que me daba:
+			//android.os.NetworkOnMainThreadException
+			//solucion: http://stackoverflow.com/questions/7408046/android-os-networkonmainthreadexception-in-asynctask
+		    
+			
+			title = (TextView)findViewById(R.id.textView_Ficha_LugaresDeInteres_titulo);
+			title.setTypeface(robotoBoldCondensed);
+			title.setText(objeto.getTitle());
+			
+			content = (TextView)findViewById(R.id.textView_Content_lugaresdeinteres_OnlyText);
+			content.setTypeface(robotoRegular);
+			String cadena = objeto.getContent();
+			String cadenaTotal = "";	
+			for (int i = 0; i < cadena.length(); i++ ){
+				
+				if (i <= 280) {
+					cadenaTotal += cadena.charAt(i);
 	
-		address = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_address);
-		address.setTypeface(robotoBoldCondensed);
-		address.setText(getString(R.string.addresFichaLugaresDeInteres).toUpperCase());
-		addressContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_address_content);
-		addressContent.setTypeface(robotoRegular);
-		addressContent.setText(objeto.getAddres());
-		
-		price = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_price);
-		price.setTypeface(robotoBoldCondensed);
-		price.setText(getString(R.string.priceFichaLugaresDeInteres).toUpperCase());
-		priceContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_price_content);
-		priceContent.setTypeface(robotoRegular);
-		priceContent.setText(objeto.getPrice());
-		
-		horary = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_horary);
-		horary.setTypeface(robotoBoldCondensed);
-		horary.setText(getString(R.string.horaryFichaLugaresDeInteres).toUpperCase());
-		horaryContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_horary_content);
-		horaryContent.setTypeface(robotoRegular);
-		horaryContent.setText(objeto.getHorary());
-		
-		telephone = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_telephone);
-		telephone.setTypeface(robotoBoldCondensed);
-		telephone.setText(getString(R.string.telephoneFichaLugaresDeInteres).toUpperCase());
-		telephoneContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_telephone_content);
-		telephoneContent.setTypeface(robotoRegular);
-		telephoneContent.setText(objeto.getTelephone());
-		
-		textViewClock = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Clock);
-		textViewClock.setTypeface(robotoThin);
-		textViewDate = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Date);
-		textViewDate.setTypeface(robotoThin);
-		
-		
-		heVisitado = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_heVisitado);
-		heVisitado.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(LugaresDeInteres_Ficha_Item.this, "Añadido a sitios visitados", Toast.LENGTH_LONG).show();
+				}
+	
 			}
-		});
-		
-		irAlMapa = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irAlMapa);
-		irAlMapa.setOnClickListener(new OnClickListener() {
+			cadenaTotal += "...";
+			content.setText(cadenaTotal); 
 			
-			@Override
-			public void onClick(View v) {
+			leermas = (TextView)findViewById(R.id.textView_Button_lugaresdeinteres_LeerMas);
+			leermas.setTypeface(robotoBoldCondensed);
+			leermas.setText(getString(R.string.leerMas).toUpperCase());
+			leermasLayoutButton = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_content);
+			leermasLayoutButton.setOnClickListener(new OnClickListener() {
 				
-				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
-				Bundle bundle = new Bundle();
-				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
-				i.putExtras(bundle);
-				
-				startActivity(i);
-				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, LugaresDeInteres_Ficha_Item_Detallle.class);					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+					i.putExtras(bundle);
+					
+					startActivity(i);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				}
+			});
 		
-		irGaleria = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irGaleria);
-		irGaleria.setOnClickListener(new OnClickListener() {
+			address = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_address);
+			address.setTypeface(robotoBoldCondensed);
+			address.setText(getString(R.string.addresFichaLugaresDeInteres).toUpperCase());
+			addressContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_address_content);
+			addressContent.setTypeface(robotoRegular);
+			addressContent.setText(objeto.getAddres());
 			
-			@Override
-			public void onClick(View v) {
-				
-				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Gallery_Item.class);					
-				Bundle bundle = new Bundle();
-				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
-				i.putExtras(bundle);
-				
-				startActivity(i);
-				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-			}
-		});
-		
-		direccion = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_address);
-		direccion.setOnClickListener(new OnClickListener() {
+			price = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_price);
+			price.setTypeface(robotoBoldCondensed);
+			price.setText(getString(R.string.priceFichaLugaresDeInteres).toUpperCase());
+			priceContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_price_content);
+			priceContent.setTypeface(robotoRegular);
+			priceContent.setText(objeto.getPrice());
 			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
-				Bundle bundle = new Bundle();
-				bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
-				i.putExtras(bundle);
+			horary = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_horary);
+			horary.setTypeface(robotoBoldCondensed);
+			horary.setText(getString(R.string.horaryFichaLugaresDeInteres).toUpperCase());
+			horaryContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_horary_content);
+			horaryContent.setTypeface(robotoRegular);
+			horaryContent.setText(objeto.getHorary());
+			
+			telephone = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_telephone);
+			telephone.setTypeface(robotoBoldCondensed);
+			telephone.setText(getString(R.string.telephoneFichaLugaresDeInteres).toUpperCase());
+			telephoneContent = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_telephone_content);
+			telephoneContent.setTypeface(robotoRegular);
+			telephoneContent.setText(objeto.getTelephone());
+			
+			textViewClock = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Clock);
+			textViewClock.setTypeface(robotoThin);
+			textViewDate = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Date);
+			textViewDate.setTypeface(robotoThin);
+			
+			
+			heVisitado = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_heVisitado);
+			heVisitado.setOnClickListener(new OnClickListener() {
 				
-				startActivity(i);
-				overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(LugaresDeInteres_Ficha_Item.this, "Añadido a sitios visitados", Toast.LENGTH_LONG).show();
+				}
+			});
+			
+			irAlMapa = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irAlMapa);
+			irAlMapa.setOnClickListener(new OnClickListener() {
 				
-			}
-		});
-		
+				@Override
+				public void onClick(View v) {
+					
+					Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+					i.putExtras(bundle);
+					
+					startActivity(i);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+	
+				}
+			});
+			
+			irGaleria = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_irGaleria);
+			irGaleria.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					
+					Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Gallery_Item.class);					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+					i.putExtras(bundle);
+					
+					startActivity(i);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+				}
+			});
+			
+			direccion = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_address);
+			direccion.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(LugaresDeInteres_Ficha_Item.this, Map_Item.class);					
+					Bundle bundle = new Bundle();
+					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
+					i.putExtras(bundle);
+					
+					startActivity(i);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+					
+				}
+			});
+			
+			telephoneLayoutButton = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_telephone);
+			telephoneLayoutButton.setOnClickListener(new OnClickListener() {
+								
+				@Override
+				public void onClick(View v) {
+					
+					Intent dial = new Intent(Intent.ACTION_DIAL);
+					dial.setData(Uri.parse("tel:"+objeto.getTelephone()));
+					startActivity(dial);
+					
+				}
+			});
+		}
 	}
 	
 	private String getLatLng(String cadena){
@@ -206,7 +235,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	public boolean onCreateOptionsMenu(Menu menu){			
 		super.onCreateOptionsMenu(menu);
 		//item de menu
-		menu.add(0, CAMBIAR_MONEDA, 0, getString(R.string.cambioDivisas)).setIcon(R.drawable.ic_cambiar_divisas)
+		menu.add(0, EMPTY, 0, getString(R.string.vacio)).setIcon(R.drawable.ic_empty)
 		.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
 		return true;
@@ -284,8 +313,11 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		
 		protected void onPostExecute(Void result){
 			super.onPostExecute(result);
-			 map_static.setImageBitmap(bitmap); 
-		}
+			if (bitmap != null) 
+				map_static.setImageBitmap(bitmap); 
+			else 
+				Toast.makeText(LugaresDeInteres_Ficha_Item.this, "No se ha podido descargar la ubicación, verifica tu conexión a internet", Toast.LENGTH_LONG).show();
+					}
 		
 	}
 	

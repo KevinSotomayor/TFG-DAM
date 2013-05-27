@@ -30,12 +30,16 @@
 			    <TextView 
 			        android:id="@+id/textView_Ficha_LugaresDeInteres_titulo"
 			        android:layout_width="fill_parent"
-			        android:layout_height="60dp"
+			        android:layout_height="75dp"
 			        android:textSize="@dimen/textViewTitleFichaLugaresDeInteres"
 			        android:gravity="center"
 			        android:layout_gravity="bottom"
 			        android:textColor="@color/white"
 			        android:text="@string/cargando"
+			        android:shadowColor="@color/ContentLugaresDeInteres"
+			        android:shadowDx="1"
+			        android:shadowDy="1"
+			        android:shadowRadius="3"
 			        android:background="@drawable/background_textview_degree"/>
     		</FrameLayout>
 		</LinearLayout>
@@ -123,18 +127,26 @@
 			    android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
 			    android:background="@drawable/background_line_item"/>	
-			<TextView 
-			    android:id="@+id/textView_Button_lugaresdeinteres_LeerMas"
-			    android:layout_width="fill_parent"
-			    android:layout_height="wrap_content"
-			    android:gravity="center"
-			    android:text="@string/leerMas"
-			    android:padding="10dp"
-			    android:textStyle="bold"
-			    android:textColor="@color/highLineFichaContent"
-			    android:textSize="@dimen/textViewLeerMasFicha"
-			    android:background="@drawable/color_state_list_ir_mapa_layout_ficha"
-			    />
+			    
+			<LinearLayout 
+               		android:id="@+id/button_ficha_lugaresdeinteres_leermas"
+				    android:layout_width="fill_parent"
+				    android:layout_height="0dp"
+				    android:layout_weight="1"
+				    android:orientation="horizontal"
+				    android:gravity="center"
+				    android:background="@drawable/color_state_list_ir_mapa_layout">
+					<TextView 
+					    android:id="@+id/textView_Button_lugaresdeinteres_LeerMas"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:gravity="center"
+					    android:text="@string/leerMas"
+					    android:padding="10dp"
+					    android:textStyle="bold"
+						android:textColor="@drawable/color_state_list_text_buttons_direccion_ficha"
+					    android:textSize="@dimen/textViewLeerMasFicha"/>
+		   </LinearLayout>
 				
 		</LinearLayout>
 		
@@ -170,11 +182,9 @@
 				    android:layout_width="fill_parent"
 				    android:layout_height="wrap_content"
 				    android:orientation="horizontal"
-				    android:layout_marginBottom="4dp"
-				    android:layout_marginTop="4dp"
 				    android:padding="2dp"
 				    android:gravity="center"
-				    android:background="@drawable/color_state_list_ir_mapa_layout_ficha">
+				    android:background="@drawable/color_state_list_ir_mapa_layout">
 					<ImageView 
 					    android:layout_width="wrap_content"
 					    android:layout_height="wrap_content"

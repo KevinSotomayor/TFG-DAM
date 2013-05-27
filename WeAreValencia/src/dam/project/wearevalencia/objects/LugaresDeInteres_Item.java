@@ -11,7 +11,6 @@ public class LugaresDeInteres_Item implements Parcelable {
 	private String content;
 	private String category;
 	private LatLng latLng;
-	private int thumbail;
 	private String addres;
 	private String price;
 	private String horary;
@@ -20,7 +19,7 @@ public class LugaresDeInteres_Item implements Parcelable {
 	private int[] gallery;
 	
 	public LugaresDeInteres_Item(int id, String title, String content,
-			String category, LatLng latLng, int thumbail, String addres,
+			String category, LatLng latLng, String addres,
 			String price, String horary, String telephone, int thumbailMax,
 			int[] gallery) {
 		super();
@@ -29,7 +28,6 @@ public class LugaresDeInteres_Item implements Parcelable {
 		this.content = content;
 		this.category = category;
 		this.latLng = latLng;
-		this.thumbail = thumbail;
 		this.addres = addres;
 		this.price = price;
 		this.horary = horary;
@@ -64,7 +62,6 @@ public class LugaresDeInteres_Item implements Parcelable {
 		dest.writeString(content);
 		dest.writeString(category);
 		dest.writeParcelable(latLng, flags);
-		dest.writeInt(thumbail);
 		dest.writeString(addres);
 		dest.writeString(price);
 		dest.writeString(horary);
@@ -80,7 +77,6 @@ public class LugaresDeInteres_Item implements Parcelable {
 		content = in.readString();
 		category = in.readString();
 		latLng = in.readParcelable(LugaresDeInteres_Item.class.getClassLoader());
-		thumbail = in.readInt();
 		addres = in.readString();
 		price = in.readString();
 		horary = in.readString();
@@ -154,14 +150,6 @@ public class LugaresDeInteres_Item implements Parcelable {
 
 	public void setLatLng(LatLng latLng) {
 		this.latLng = latLng;
-	}
-
-	public int getThumbail() {
-		return thumbail;
-	}
-
-	public void setThumbail(int thumbail) {
-		this.thumbail = thumbail;
 	}
 
 	public String getAddres() {

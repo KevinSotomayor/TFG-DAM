@@ -230,7 +230,7 @@ public class LugaresDeInteres extends SherlockFragment {
 			String cadenaTotal = "";	
 			for (int i = 0; i < cadena.length(); i++ ){
 				
-				if (i <= 85) {
+				if (i <= 50) {
 					cadenaTotal += cadena.charAt(i);
 
 				}
@@ -238,11 +238,11 @@ public class LugaresDeInteres extends SherlockFragment {
 			}
 			cadenaTotal += "...";
 			contenido.setText(cadenaTotal); 
-			//solo dejo imrpimir 85 caracteres en cada item  que se presenta en la lista
+			//solo dejo imrpimir 50 caracteres en cada item  que se presenta en la lista
 			
 			TextView irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
 			irAlMapa.setTypeface(robotoRegular);
-		
+			irAlMapa.setText(arrayLugares.get(position).getAddres());
 			
 			final String cadenaDescricion = cadenaTotal;
 			LinearLayout layout = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
@@ -265,7 +265,7 @@ public class LugaresDeInteres extends SherlockFragment {
 			});
 			
 			ImageView icon = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
-			icon.setImageResource(arrayLugares.get(position).getThumbail());
+			icon.setImageResource(arrayLugares.get(position).getThumbailMax());
 
     		return (item);
 

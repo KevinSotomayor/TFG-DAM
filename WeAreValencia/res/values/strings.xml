@@ -22,11 +22,11 @@
     <color name="contentLugaresDeInteresFicha">#858585</color>
 	<color name="highLineFichaContent">#606060</color>
     <color name="ContentLugaresDeInteres">#8d8d8d</color>
-    <color name="irAlMapaColor">#CC7e8083</color>
+    <color name="irAlMapaColor">#947e8083</color>
     <!-- degradado del textview ficha lugares de interes -->
-    <color name="startColorDegreeTextView">#CC000000</color>
-    <color name="centerColorDegreeTextView">#88000000</color>
-    <color name="endColorDegreeTextView">#06000000</color>
+    <color name="startColorDegreeTextView">#e5e5e5</color>
+    <color name="centerColorDegreeTextView">#88e5e5e5</color>
+    <color name="endColorDegreeTextView">#01e5e5e5</color>
     <!-- degradado para la clase que presenta la ficha de lugares de interes -->
     <color name="startColorDegreeFichaItem">#FFe5e5e5</color>
     <color name="centerColorDegreeFichaItem">#CCe5e5e5</color>
@@ -75,6 +75,7 @@
 	<string name="eurIcon">€</string>
 	<string name="estoyAqui">Estoy aquí</string>
 	<string name="obteniendoDireccion">Obteniendo dirección, espere...</string>
+	<string name="volver">Volver</string>
 	
 	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->
