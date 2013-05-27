@@ -2,6 +2,7 @@ package dam.project.wearevalencia.fragments;
 
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.holoeverywhere.widget.ExpandableListConnector.PositionMetadata;
 import org.holoeverywhere.widget.Toast;
@@ -53,7 +54,7 @@ public class LugaresDeInteres extends SherlockFragment {
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
 
-	private final int BUSCAR = 1;
+	private final int MAPA = 1;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 
 	
@@ -86,7 +87,7 @@ public class LugaresDeInteres extends SherlockFragment {
 		changeActionBar();
 
 		slidingMenu = Main_FragmentActivity.putReference();
-
+		
 		new ListAsyncTask().execute();
 
 	}
@@ -95,8 +96,8 @@ public class LugaresDeInteres extends SherlockFragment {
 	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){			
 		super.onCreateOptionsMenu(menu, menuInflater);
 
-		menu.add(0, BUSCAR, 0, getActivity().getString(R.string.buscarLugaresDeInteres))
-			.setIcon(R.drawable.ic_action_search)
+		menu.add(0, MAPA, 0, getActivity().getString(R.string.irAlMapa))
+			.setIcon(R.drawable.ic_action_go_map)
 			.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 
 	}
@@ -110,7 +111,7 @@ public class LugaresDeInteres extends SherlockFragment {
 			return true;
 
 		case 1:
-			Toast.makeText(getActivity(), "Buscador", Toast.LENGTH_LONG).show();
+			Toast.makeText(getActivity(), "Mapa de " + arrayLugaresDeInteres.get(MAPA).getCategory(), Toast.LENGTH_LONG).show();
 			return true;
 		}
 
@@ -163,8 +164,15 @@ public class LugaresDeInteres extends SherlockFragment {
 		View HeaderListView = (View)getActivity().getLayoutInflater().inflate(R.layout.lugaresdeinteres_list_header, null);
 
 		protected Void doInBackground(Void... params) {
-
 			lista = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_Monumentos);
+			
+			ImageView imageView = (ImageView)HeaderListView.findViewById(R.id.imageViewLugaresDeInteres_Header);
+			Random r = new Random();
+			int max = arrayLugaresDeInteres.size() - 1;
+			int randomNum = r.nextInt(max);
+			//elegir una imagen al azar de cualquiera de los items de la lista para ponerla como fondo del header.
+			imageView.setImageResource(arrayLugaresDeInteres.get(randomNum).getThumbailMax());
+			
 			lista.addHeaderView(HeaderListView);
 
 
@@ -217,15 +225,31 @@ public class LugaresDeInteres extends SherlockFragment {
     	}
 
     	public View getView(final int position, View convertView, ViewGroup parent) {
-			LayoutInflater inflater = getActivity().getLayoutInflater();
-			View item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
+    		
+    		View item = convertView;
+    		ViewHolder holder;
+    		
+    		if ( item == null) {
+    			LayoutInflater inflater = getActivity().getLayoutInflater();
+    			item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
+    			
+    			//guardando solo las referencias a los controles que utilizarré
+    			holder = new ViewHolder();
+    			holder.titulo =  (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Title);
+    			holder.contenido = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Content);holder.irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
+    			holder.irAlMapa .setTypeface(robotoRegular);
+    			holder.layoutIrAlMapa = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
+    			holder.thumbail = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
+    			
+    			item.setTag(holder);
+    			
+    		}else{
+    			holder = (ViewHolder)item.getTag();
+    		}
+    		holder.titulo.setText(arrayLugares.get(position).getTitle());
+			holder.titulo.setTypeface(robotoCondensed);
 
-			TextView titulo = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Title);
-			titulo.setText(arrayLugares.get(position).getTitle());
-			titulo.setTypeface(robotoCondensed);
-			
-			TextView contenido = (TextView)item.findViewById(R.id.textViewLugaresDeInteres_Content);
-			contenido.setTypeface(robotoRegular);
+			holder.contenido .setTypeface(robotoRegular);
 			String cadena = arrayLugares.get(position).getContent();
 			String cadenaTotal = "";	
 			for (int i = 0; i < cadena.length(); i++ ){
@@ -237,18 +261,12 @@ public class LugaresDeInteres extends SherlockFragment {
 
 			}
 			cadenaTotal += "...";
-			contenido.setText(cadenaTotal); 
+			holder.contenido .setText(cadenaTotal); 
 			//solo dejo imrpimir 50 caracteres en cada item  que se presenta en la lista
-			
-			TextView irAlMapa = (TextView)item.findViewById(R.id.button_lugaresDeInteres_irMapa);
-			irAlMapa.setTypeface(robotoRegular);
-			irAlMapa.setText(arrayLugares.get(position).getAddres());
-			
-			final String cadenaDescricion = cadenaTotal;
-			LinearLayout layout = (LinearLayout)item.findViewById(R.id.layoutLugaresDeInteres_IrAlMapa);
-			
-			layout.setOnClickListener(new OnClickListener() {
-				final LatLng latlng = arrayLugares.get(position).getLatLng();
+			holder.irAlMapa .setText(arrayLugares.get(position).getAddres());
+
+
+			holder.layoutIrAlMapa.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					LugaresDeInteres_Item object =  arrayLugaresDeInteres.get(position);
@@ -264,13 +282,24 @@ public class LugaresDeInteres extends SherlockFragment {
 				}
 			});
 			
-			ImageView icon = (ImageView)item.findViewById(R.id.imageViewLugaresDeInteres_Icon);
-			icon.setImageResource(arrayLugares.get(position).getThumbailMax());
-
+			holder.thumbail.setImageResource(arrayLugares.get(position).getThumbailMax());
     		return (item);
 
     	}
 
     }
+	//obtención de la referencia a cada uno de los objetos a modificar mediante el método findViewById().
+	//Para mejorar rendimiento aprovecho que estoy “guardando” un layout anterior para guardar
+	//también la referencia a los controles que lo forman y defino la siguiente clase viewHolder 
+    //con aquellos atributos con referencia a cada uno de los controles que tengo que manipular
+	
+	public static class ViewHolder{
+		TextView titulo;
+		TextView contenido;
+		TextView irAlMapa;
+		LinearLayout layoutIrAlMapa;
+		ImageView thumbail;
+	}
+	
 
 }

@@ -25,22 +25,24 @@
 			        android:layout_height="wrap_content"
 			        android:contentDescription="@string/imageViewDescription"
 			        android:adjustViewBounds="true"
-			        android:src="@drawable/lugaresdeinteres_monumentos"/>
+			        android:src="@drawable/lugaresdeinteres_ficha_lonjadelaseda"/>
 			    
-			    <TextView 
+			    <TextView
 			        android:id="@+id/textView_Ficha_LugaresDeInteres_titulo"
 			        android:layout_width="fill_parent"
-			        android:layout_height="75dp"
-			        android:textSize="@dimen/textViewTitleFichaLugaresDeInteres"
-			        android:gravity="center"
+			        android:layout_height="84dp"
 			        android:layout_gravity="bottom"
-			        android:textColor="@color/white"
-			        android:text="@string/cargando"
+			        android:background="@drawable/background_textview_degree"
+			        android:gravity="center"
+			        android:padding="3dp"
 			        android:shadowColor="@color/ContentLugaresDeInteres"
-			        android:shadowDx="1"
-			        android:shadowDy="1"
-			        android:shadowRadius="3"
-			        android:background="@drawable/background_textview_degree"/>
+			        android:shadowDx="2"
+			        android:shadowDy="2"
+			        android:shadowRadius="4"
+			        android:text="@string/cargando"
+			        android:textColor="@color/white"
+			        android:textSize="@dimen/textViewTitleFichaLugaresDeInteres" />
+
     		</FrameLayout>
 		</LinearLayout>
 		
