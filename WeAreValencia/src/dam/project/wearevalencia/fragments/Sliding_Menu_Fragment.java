@@ -66,28 +66,28 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	public void onListItemClick(ListView lista, View view, int position, long id){
 		Fragment newContent = null;
 		switch (position){
-		case INCIO: //lugares de interes
+		case INCIO: //volver al inicio
 			newContent = new Main_Content_Fragment();
 			break;
 		
-		case LUGARES_DE_INTERES: //fiestas populares
+		case LUGARES_DE_INTERES: //listas de lugares de interes
 			ArrayList<LugaresDeInteres_Item> arrayList = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 			newContent = new LugaresDeInteres(arrayList);
 			break;
 		
-		case FIESTAS_POPULARES: //centros comerciales
+		case FIESTAS_POPULARES: //fiestas populares de valencia
 			break;
 			
-		case CENTROS_COMERCIALES: //mas sobre valencia
+		case CENTROS_COMERCIALES: //centros comerciales ubicados en un mapa
 			break;
 			
-		case MAS_SOBRE_VALENCIA: //recomendaciones
+		case MAS_SOBRE_VALENCIA: //historia de valencia
 			break;
 		
-		case RECOMENDACIONES: //mapa
+		case RECOMENDACIONES: //recomendaciones personalizadas
 			break;
 			
-		case MAPA:
+		case MAPA: //mapa con todos los lugares de valencia
 			break;
 		
 		default:
@@ -161,7 +161,8 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			
 		}
 	}
-	
+	//obtención de la referencia a cada uno de los objetos a modificar mediante el método findViewById().
+	//mejora el scroll de la lista
 	public class ViewHolder {
 		TextView hTexto;
 		ImageView hPhoto;

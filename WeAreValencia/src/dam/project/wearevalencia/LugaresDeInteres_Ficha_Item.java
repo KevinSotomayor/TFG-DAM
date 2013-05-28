@@ -4,44 +4,31 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.holoeverywhere.widget.Toast;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.SubMenu;
-import com.google.android.gms.maps.GoogleMap;
-
 import dam.project.wearevalencia.gallery.Gallery_Item;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
-	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed, robotoRegular;
+	private Typeface robotoThin, robotoBoldCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private final int EMPTY = 0;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
@@ -66,6 +53,15 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		changeActionBar();
 		
 		if(objeto != null){
+			//cambiar typeface a los "botones"
+			textViewHeVisitado = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_heVisitado);
+			textViewHeVisitado.setTypeface(robotoRegular);
+			textViewIrAlMapa = (TextView)findViewById(R.id.textView_ficha_lugaresdeinteres_irAlMapa);
+			textViewIrAlMapa.setTypeface(robotoRegular);
+			textViewIrGaleria = (TextView)findViewById(R.id.textView_irGaleria);
+			textViewIrGaleria.setTypeface(robotoRegular);
+			
+			
 			thumbailMax = (ImageView)findViewById(R.id.imageView_Ficha_LugaresDeInteres);
 			thumbailMax.setImageResource(objeto.getThumbailMax());
 			
@@ -221,9 +217,12 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 					
 				}
 			});
+		}else{
+			Toast.makeText(LugaresDeInteres_Ficha_Item.this, "Lo sentimos, no se han podido cargar los datos", Toast.LENGTH_LONG).show();
 		}
 	}
 	
+	//extraigo la latitud y la longitud que se pasa a tostring y queda algo como  lat/lng(3.156116, 0.462623) y con este metodo solo queda 3.156116, 0.462623
 	private String getLatLng(String cadena){
 		String cadenaTotal="";
 		int start = 10;
@@ -231,10 +230,10 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		cadenaTotal = cadena.substring(start, end);
 		return cadenaTotal;
 	}
-	//Menu para ver el mapa con diferentes vistas
+	
+	//Menu que tiene un item vacio para ayudar a centrar el texto del actionbar
 	public boolean onCreateOptionsMenu(Menu menu){			
 		super.onCreateOptionsMenu(menu);
-		//item de menu
 		menu.add(0, EMPTY, 0, getString(R.string.vacio)).setIcon(R.drawable.ic_empty)
 		.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 		
@@ -251,7 +250,6 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
     		LugaresDeInteres_Ficha_Item.this.finish();
 			//sobreescribir la animacion para finalizar esta activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
     		return true;
 
 		}
@@ -262,7 +260,6 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	
 	private void changeActionBar() {
 		//typeface personalizadas
-		robotoCondensed = Typeface.createFromAsset(getAssets(), "Roboto-Condensed.ttf");
 		robotoRegular = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
         robotoThin  = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
@@ -317,7 +314,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 				map_static.setImageBitmap(bitmap); 
 			else 
 				Toast.makeText(LugaresDeInteres_Ficha_Item.this, "No se ha podido descargar la ubicación, verifica tu conexión a internet", Toast.LENGTH_LONG).show();
-					}
+		}//asi el fondo predeterminado no se cambia y avisa al usuario que hace falta internet para poder cambiarla.
 		
 	}
 	

@@ -1,47 +1,23 @@
 package dam.project.wearevalencia;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.holoeverywhere.widget.Toast;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.SubMenu;
-import com.google.android.gms.maps.GoogleMap;
-
-import dam.project.wearevalencia.gallery.Gallery_Item;
-import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class LugaresDeInteres_Ficha_Item_Detallle extends SherlockFragmentActivity{
-	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed, robotoRegular;
+	private Typeface robotoThin, robotoBoldCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private final int EMPTY = 0;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
@@ -57,36 +33,42 @@ public class LugaresDeInteres_Ficha_Item_Detallle extends SherlockFragmentActivi
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
-		}
-
-		actionBar = getSupportActionBar();
-		changeActionBar();
-		
- 
-		if(objeto != null){
-			content = (TextView)findViewById(R.id.textView_Content_lugaresdeinteres_OnlyText_Detalle);
-			content.setTypeface(robotoRegular);
-			content.setText(objeto.getContent());
-
-			volver = (TextView)findViewById(R.id.textView_Button_lugaresdeinteres_Detalle_Volver);
-			volver.setTypeface(robotoBoldCondensed);
-			volver.setText(getString(R.string.volver).toUpperCase());
 			
-			volverButtonLayout = (LinearLayout)findViewById(R.id.button_ficha_detalle_volver);
-			volverButtonLayout.setOnClickListener(new OnClickListener() {
+			//personalizar actionbar
+			actionBar = getSupportActionBar();
+			changeActionBar();
+			
+	 
+			if(objeto != null){
+				//recogo el contenido del objeto y lo imprimo en pantalla
+				content = (TextView)findViewById(R.id.textView_Content_lugaresdeinteres_OnlyText_Detalle);
+				content.setTypeface(robotoRegular);
+				content.setText(objeto.getContent());
+	
+				volver = (TextView)findViewById(R.id.textView_Button_lugaresdeinteres_Detalle_Volver);
+				volver.setTypeface(robotoBoldCondensed);
+				volver.setText(getString(R.string.volver).toUpperCase());
 				
-				@Override
-				public void onClick(View v) {
-					LugaresDeInteres_Ficha_Item_Detallle.this.finish();
-		            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
-				}
-			});
+				volverButtonLayout = (LinearLayout)findViewById(R.id.button_ficha_detalle_volver);
+				volverButtonLayout.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						LugaresDeInteres_Ficha_Item_Detallle.this.finish();
+			            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+			            //salir y sobreescribir la transicion de salida
+	
+					}
+				});
+			}
+			
+		}else{
+			Toast.makeText(LugaresDeInteres_Ficha_Item_Detallle.this, "Lo sentimos, no se ha podido cargar la informacion", Toast.LENGTH_LONG).show();
 		}
 	
 	}
 	
-	//Menu para ver el mapa con diferentes vistas
+	//menu que ayuda a centrar el titulo del actionbar.
 	public boolean onCreateOptionsMenu(Menu menu){			
 		super.onCreateOptionsMenu(menu);
 		//item de menu
@@ -99,14 +81,11 @@ public class LugaresDeInteres_Ficha_Item_Detallle extends SherlockFragmentActivi
 	
 	
 	public boolean onOptionsItemSelected (MenuItem item){
-    	
 		switch(item.getItemId()){
-    	
     	case android.R.id.home:
     		LugaresDeInteres_Ficha_Item_Detallle.this.finish();
 			//sobreescribir la animacion para finalizar esta activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
     		return true;
 
 		}
@@ -117,7 +96,6 @@ public class LugaresDeInteres_Ficha_Item_Detallle extends SherlockFragmentActivi
 	
 	private void changeActionBar() {
 		//typeface personalizadas
-		robotoCondensed = Typeface.createFromAsset(getAssets(), "Roboto-Condensed.ttf");
 		robotoRegular = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
         robotoThin  = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");

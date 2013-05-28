@@ -1,10 +1,7 @@
 package dam.project.wearevalencia.fragments;
 
-
 import java.util.ArrayList;
 import java.util.Random;
-
-import org.holoeverywhere.widget.ExpandableListConnector.PositionMetadata;
 import org.holoeverywhere.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -12,26 +9,17 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.google.android.gms.maps.model.LatLng;
 import com.slidingmenu.lib.SlidingMenu;
-import com.viewpagerindicator.PageIndicator;
-import com.viewpagerindicator.TitlePageIndicator;
-
 import dam.project.wearevalencia.LugaresDeInteres_Ficha_Item;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.maps.Map_Item;
-import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Parcelable;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -41,11 +29,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class LugaresDeInteres extends SherlockFragment {
@@ -53,20 +39,12 @@ public class LugaresDeInteres extends SherlockFragment {
 	private Typeface robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
-
 	private final int MAPA = 1;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
-
-	
 	private ArrayList<LugaresDeInteres_Item> arrayLugaresDeInteres;
 	
-	//constructor cuando no se le pasan datos
-	public LugaresDeInteres () {
-		//imprimirá vacio, con lo que dejará las letras de cargando por defecto en los textViews ( si algo sale mal )
-		this.arrayLugaresDeInteres = new ArrayList<LugaresDeInteres_Item>();
-	}
 	
-	//constructor cuando se le pasan datos
+	//constructor cuando se le pasan datos, el arraylist de objetos
 	public LugaresDeInteres(ArrayList<LugaresDeInteres_Item> arrayList) {
 		this.arrayLugaresDeInteres = arrayList;
 		setRetainInstance(true);
@@ -74,6 +52,7 @@ public class LugaresDeInteres extends SherlockFragment {
 
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
 		return inflater.inflate(R.layout.lugaresdeinteres_list, null);
 	}
 
@@ -82,20 +61,18 @@ public class LugaresDeInteres extends SherlockFragment {
 		super.onActivityCreated(savedInstanceState);
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
-
-		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
+		//personalizar el actionbar
 		changeActionBar();
-
+		//referencia del slidginmenu
 		slidingMenu = Main_FragmentActivity.putReference();
-		
+		//tarea asíncrona que se encarga de gestionar la lista, el header y el inflado de los items
 		new ListAsyncTask().execute();
 
 	}
 	
-	
+	//menu con el mapa de todos los lugares de interes que se muestren en ese moment
 	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){			
 		super.onCreateOptionsMenu(menu, menuInflater);
-
 		menu.add(0, MAPA, 0, getActivity().getString(R.string.irAlMapa))
 			.setIcon(R.drawable.ic_action_go_map)
 			.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
@@ -105,7 +82,6 @@ public class LugaresDeInteres extends SherlockFragment {
 
    public boolean onOptionsItemSelected (MenuItem item){
 		switch(item.getItemId()){
-
 		case android.R.id.home:
 			slidingMenu.toggle();
 			return true;
@@ -166,18 +142,17 @@ public class LugaresDeInteres extends SherlockFragment {
 		protected Void doInBackground(Void... params) {
 			lista = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres_Monumentos);
 			
+			//elegir una imagen al azar de cualquiera de los items de la lista para ponerla como fondo del header.
 			ImageView imageView = (ImageView)HeaderListView.findViewById(R.id.imageViewLugaresDeInteres_Header);
 			Random r = new Random();
 			int max = arrayLugaresDeInteres.size() - 1;
 			int randomNum = r.nextInt(max);
-			//elegir una imagen al azar de cualquiera de los items de la lista para ponerla como fondo del header.
 			imageView.setImageResource(arrayLugaresDeInteres.get(randomNum).getThumbailMax());
 			
 			lista.addHeaderView(HeaderListView);
 
 
 			try{
-				//arrayLugaresDeInteres = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
 				lista.setAdapter(adaptador);
 				
@@ -211,6 +186,7 @@ public class LugaresDeInteres extends SherlockFragment {
 		}
 
 	}
+	
 	//clase interna que infla la vista con los empleados.
 	class AdaptadorLugaresDeInteres extends ArrayAdapter<LugaresDeInteres_Item> {
     	Activity context;

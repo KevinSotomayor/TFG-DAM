@@ -27,28 +27,23 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import dam.project.wearevalencia.LugaresDeInteres_Ficha_Item;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.gallery.Gallery_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Map_Item extends SherlockFragmentActivity  implements LocationListener{
-	private Typeface robotoThin, robotoBoldCondensed, robotoCondensed;
+	private Typeface robotoBoldCondensed;
 	private ActionBar actionBar;
 	
 	//constantes para identificar que opcion de menu se selecciona.
 	private final int MAPA_NORMAL = 1;
 	private final int MAPA_HYBRIDO = 2;
 	private final int MAPA_SATELITE = 3;
-	
 	private final int MAPA_TERRANEO = 4;
 	
 	//constantes para el minimo de tiempo en actualizar la posicion y la distancia en radio de la posicion actual
@@ -60,71 +55,67 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
-	GoogleMap mapa;
-	Location location;
-	String provider;
-	boolean flag = false;
-	
+	private GoogleMap mapa;
+	private Location location;
+	private String provider;
+	private boolean flag = false;
 	private LatLng myPosition;
 	private LatLng myDestine;
-	String tituloMarker;
-	String direccion;
+	
+	//variables para recuperar informacion del objeto
+	String tituloMarker ="";
+	String direccion ="";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_and_gallery);
-		
+
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
 			myDestine = objeto.getLatLng();
 			tituloMarker = objeto.getTitle();
 			direccion = objeto.getAddres();
-		}
-		
-		
-		//action bar + personalizaciones
-		actionBar = getSupportActionBar();
-        changeActionBar();
-        
-        //Obteniendo el estado de google play services, ya que gracias a ello se muestra el mapa
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
-    	
-        // Mostrar mapa y demás si está disponible
-        if(status!=ConnectionResult.SUCCESS){ // Google Play Services no esta disponible
-            int requestCode = 10;
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
-            //http://developer.android.com/intl/es/google/play-services/setup.html
-            dialog.show();
-        }else{
-  
-	        mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-			goToTorresDeSerranos();
 			
-			 ImageButton myPosition = (ImageButton)findViewById(R.id.myLocationButton);
-		        myPosition.setOnClickListener(new OnClickListener() {
-					
+			//action bar + personalizaciones
+			actionBar = getSupportActionBar();
+	        changeActionBar();
+	        
+	        //Obteniendo el estado de google play services, ya que gracias a ello se muestra el mapa
+	        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
+	    	
+	        // Mostrar mapa y demás si está disponible
+	        if(status!=ConnectionResult.SUCCESS){ // Google Play Services no esta disponible
+	            int requestCode = 10;
+	            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
+	            //http://developer.android.com/intl/es/google/play-services/setup.html
+	            dialog.show();
+	        }else{
+	  
+		        mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+				goToLugar();
+				
+				 ImageButton myPosition = (ImageButton)findViewById(R.id.myLocationButton);
+		         myPosition.setOnClickListener(new OnClickListener() {
 		        	@Override
 					public void onClick(View v) {
-
 						new Handler().post(new Runnable() {
-							
 							@Override
 							public void run() {
 				    			if(!flag == true){
 									Toast.makeText(getApplicationContext(), "Obteniendo tu ubicación, espera...", Toast.LENGTH_LONG).show();
 				    				flag = true;
-				    			}else{
-										Toast.makeText(Map_Item.this, "Ya te he ubicado...", Toast.LENGTH_LONG).show();
-										
-									}
+				    			
 				    				mapa.setMyLocationEnabled(true);
 					    			// obteniendo el objeto LocationManager desde el System Service -> LOCATION_SERVICE
 					    	     	locationManager = (LocationManager)getSystemService(LOCATION_SERVICE);
-					    			Criteria criteria = new Criteria(); //establecemos precision
-					    			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
-					    			provider = locationManager.getBestProvider(criteria, true); //devuelve en un string el provider con los mejores criterios 
+					    			Criteria criteria = new Criteria(); 
+					    			criteria.setAccuracy(Criteria.ACCURACY_FINE); //establecemos criterios de precision
+					    			provider = locationManager.getBestProvider(criteria, true); 
+					    			//establecemos que se escuche al mejor proveedor de señal, ya sea el wifi, gps o red movil
+					    			//devuelve en un string el provider con los mejores criterios 
 							        
+					    			//identificar el motivo por el cual no ubica en el mapa
 									if(locationManager != null){
 										boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
 										boolean networkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
@@ -145,69 +136,75 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 									//Returns a Location indicating the data from the last known location fix obtained from the given provider. 
 						
 									if(location!=null)
-										onLocationChanged(location);
-									
+										onLocationChanged(location); //llama al metodo que hace que la camara del mapa se dirija donde tu estas
+				    			}else{
+									Toast.makeText(Map_Item.this, "Ya te he ubicado...", Toast.LENGTH_LONG).show(); //porque ya le han hecho click para ubicar
+									onLocationChanged(location);
+								}
 							}
 						});
-	        	}
-			});
-		        if(locationManager != null)
-		        	locationManager.requestLocationUpdates(provider, MIN_TIME, MIN_DISTANCE, this); //obtener actualizaciones de posicionamiento
-
-        }
-        
-
-        ImageButton galeria = (ImageButton)findViewById(R.id.torresdeserranos_galleryButton);
-        galeria.setOnClickListener(new OnClickListener() {
-			
-        	@Override
-			public void onClick(View v) {
-        		goToIntent();
-			}
-		});
-        
-
-        ImageButton visitedSite = (ImageButton)findViewById(R.id.visitedSiteButton);
-        visitedSite.setOnClickListener(new OnClickListener() {
-			
-        	@Override
-			public void onClick(View v) {
-        		
-        		Toast.makeText(getApplicationContext(), "He visitado ya las Torres de Serranos", Toast.LENGTH_LONG).show();
-    	           
-    			}
-		
-		});
-        
-        //trazar ruta entre mi posicion y mi destino
-        ImageButton makeRoute = (ImageButton)findViewById(R.id.makeRouteButton);
-        makeRoute.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Toast.makeText(getApplicationContext(), "Estableciendo ruta...", Toast.LENGTH_LONG).show();
-				new Handler().post(new Runnable() {
-					
-					@Override
-					public void run() {
 						
-					}
-				});
-			}
-			
-		});
-        
-        //cuando se pulse el boton, se posicionara nuevamente al usuario con la vista de las torres de serranos.
-        ImageButton goLocation = (ImageButton)findViewById(R.id.goLocationMapButton);
-        goLocation.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
+			        	}
+					});
+			        if(locationManager != null)
+			        	locationManager.requestLocationUpdates(provider, MIN_TIME, MIN_DISTANCE, this); //obtener actualizaciones de posicionamiento
+	
+	        }
+	        
+	        //primer boton, galería
+	        ImageButton galeria = (ImageButton)findViewById(R.id.torresdeserranos_galleryButton);
+	        galeria.setOnClickListener(new OnClickListener() {
+	        	@Override
+				public void onClick(View v) {
+	        		goToGallery();
+				}
+			});
+	        
+	        //segundo boton, añadir el sitio a la base de datos
+	        ImageButton visitedSite = (ImageButton)findViewById(R.id.visitedSiteButton);
+	        visitedSite.setOnClickListener(new OnClickListener() {
 				
-				goToTorresDeSerranos();
+	        	@Override
+				public void onClick(View v) {
+	        		
+	        		Toast.makeText(getApplicationContext(), "He visitado ya las Torres de Serranos", Toast.LENGTH_LONG).show();
+	    	           
+	    			}
+			
+			});
+	        
+	        //trazar ruta entre mi posicion y mi destino
+	        ImageButton makeRoute = (ImageButton)findViewById(R.id.makeRouteButton);
+	        makeRoute.setOnClickListener(new OnClickListener() {
 				
-			}
-		});
+				@Override
+				public void onClick(View v) {
+					Toast.makeText(getApplicationContext(), "Estableciendo ruta...", Toast.LENGTH_LONG).show();
+					new Handler().post(new Runnable() {
+						
+						@Override
+						public void run() {
+							
+						}
+					});
+				}
+				
+			});
+	        
+	        //cuando se pulse el boton, se posicionara nuevamente al usuario con la vista de las torres de serranos.
+	        ImageButton goLocation = (ImageButton)findViewById(R.id.goLocationMapButton);
+	        goLocation.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					goToLugar();
+					
+				}
+			});
+	        
+		}else{
+			Toast.makeText(Map_Item.this, "Lo sentimos, no se ha podido cargar la información", Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	//Menu para ver el mapa con diferentes vistas
@@ -257,6 +254,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 
     	}
     	
+		//ver valor de las variables al pulsar el menu, debugger
 		Log.e("Variable item", "" + item.getItemId());
 
 		return super.onOptionsItemSelected(item);
@@ -264,8 +262,8 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
     }
 	
 	
-	private void goToTorresDeSerranos(){
-		//establecer la posicion y marker de las torres de serranos:		
+	private void goToLugar(){
+		//establecer la posicion y marker:		
 		//dirige la posicion del mapa hacia esa latitud y esa longitud
 		CameraPosition cameraPosition = new CameraPosition.Builder()
 		.target(myDestine)
@@ -284,10 +282,9 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	
-	
 	}
 
-	private void goToIntent(){
+	private void goToGallery(){
 		Intent galeria = new Intent(Map_Item.this, Gallery_Item.class);
 		Bundle bundle = new Bundle();
 		bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, objeto);
@@ -300,9 +297,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	
 	private void changeActionBar() {
 		//typeface personalizadas
-        robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
-        robotoCondensed = Typeface.createFromAsset(getAssets(), "Roboto-Condensed.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
@@ -333,22 +328,8 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		        actionBar.setCustomView(customView);
 
 	}
-	
-/*	public void onPause(){
-		super.onPause();
-		if(locationManager != null){
-			locationManager.removeUpdates((LocationListener)this);
-		}
-	}
-	
-	public void onResume(){
-		super.onResume();
-		initMap();
-		if(locationManager != null){
-			mapa.setMyLocationEnabled(true);
-		}
-	}*/
 
+	//metodos autoimplementados
 	@Override
 	public void onLocationChanged(Location location) {
 		if(location != null){

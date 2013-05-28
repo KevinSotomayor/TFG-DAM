@@ -11,7 +11,8 @@ package dam.project.wearevalencia.objects;
  * -contenido
  * -categoria
  * -latitud y longitud en el mapa
- * -miniatura de la lista de lugares de interes que es la misma que la de la ficha del lugar de interes
+ * -"miniatura de la lista de lugares de interes que es la misma que la de la ficha del lugar de interes" -> este antes existia
+ * 		Ahora la miniatura que se comparte es thumbailMax que sirve tanto como para la lista de lugares como para la ficha
  * -direccion
  * -precio
  * -horario
@@ -47,13 +48,14 @@ public class LugaresDeInteres_Data_Objects {
 	private final static int PLAZA_TOROS = 9;
 	private final static int PLAZA_VIRGEN = 10;
 	private final static int EL_MICALET = 11;
-	private final static int PALAU_MUSICA = 12;
 	
+	//devolver lista de lugares de interes - Monumentos
 	public static ArrayList<LugaresDeInteres_Item> obtainMonuments(Context contexto){
 			arrayList = new ArrayList<LugaresDeInteres_Item>();
+			//sobreescribir estas variables que contendrán otra información como la latlong y las imagenes
+			//que leerá de la sd.
 			latlng = new LatLng(39.47434857729124, -0.3785929481113093);
 			arrayGallery = new int[]{R.drawable.main_bg_1, R.drawable.main_bg_2, R.drawable.main_bg_3, R.drawable.main_bg_4, R.drawable.main_bg_5};
-		
 			LugaresDeInteres_Item lonjaDeLaSeda =  new LugaresDeInteres_Item(
 					LONJA_SEDA,
 					contexto.getString(R.string.lonjaDeLaSeda), 
@@ -67,14 +69,15 @@ public class LugaresDeInteres_Data_Objects {
 					R.drawable.lugaresdeinteres_ficha_lonjadelaseda, 
 					arrayGallery
 					);
-			latlng = new LatLng(39.4792574384201,-0.37599086353987676);
+			
+			latlng = new LatLng(39.47913178119177,-0.37600058732025765);
 			LugaresDeInteres_Item torresDeSerranos =  new LugaresDeInteres_Item(
 					TORRES_DE_SERRANOS,
 					contexto.getString(R.string.torresDeSerranos), 
 					contexto.getString(R.string.torresDeSerranosContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
+					contexto.getString(R.string.torresDeSerranosAddres),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
 					contexto.getString(R.string.lonjaDeLaSedaTelephone),

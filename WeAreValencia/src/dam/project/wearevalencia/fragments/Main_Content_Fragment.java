@@ -1,7 +1,6 @@
 package dam.project.wearevalencia.fragments;
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
@@ -22,19 +21,16 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
 import android.view.View.OnClickListener;
-
-
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
-import dam.project.wearevalencia.maps.*;
 
 public class Main_Content_Fragment extends SherlockFragment{
-	//constantes
+	//constante que identifica que se presiona el boton del actionbar mapa
 	private final static int MAP = 1;
 
 	private ActionBar actionBar;
 	private TextView titulo;
-	private Typeface robotoBoldCondensed, robotoThin, robotoCondensed, robotoRegular;
+	private Typeface robotoBoldCondensed;
 	private SlidingMenu slidingMenu;
 
 	private LinearLayout main_Layout;
@@ -62,9 +58,8 @@ public class Main_Content_Fragment extends SherlockFragment{
 
 		//hace referencia al objeto de la clase Main_fragment con todas las propiedades del slidingMenu
 		slidingMenu = Main_FragmentActivity.putReference();
-
 		
-		/*codigo de animationDrawable*/
+		/*codigo de animationDrawable, fondo que cambia en la pantalla principal*/
 		//animacion asociada al linearLayout (tema 3 de Android - Dibujar en Android - pag 10)
 		main_Layout = (LinearLayout)getActivity().findViewById(R.id.main_bg_layout);
 		animacion_backgrounds = (AnimationDrawable)getActivity().getResources().getDrawable(R.anim.animacion_main_bg);
@@ -95,17 +90,16 @@ public class Main_Content_Fragment extends SherlockFragment{
 		main_buscar = (Button)getActivity().findViewById(R.id.main_buscar_sitio_button);
 		main_buscar.setTypeface(robotoBoldCondensed);
 
-
 		main_descubre = (Button)getActivity().findViewById(R.id.main_descubre_button);
 		main_descubre.setTypeface(robotoBoldCondensed);
 		main_descubre.setOnClickListener(new OnClickListener() {
-
+			//abrir el menu con el boton descubre valencia
 			@Override
 			public void onClick(View v) {
 				if(slidingMenu.isShown()){
 					slidingMenu.toggle();
-				}else{
-					slidingMenu.showMenu();
+				}else{   // -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
+					slidingMenu.toggle();
 				}
 
 			}
@@ -115,29 +109,24 @@ public class Main_Content_Fragment extends SherlockFragment{
 
    
 
-	//Metodo del menu y el listener del menú	
-		/*Menu del actionBarSherlock*/
-			public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
-				super.onCreateOptionsMenu(menu, menuInflater);
+	//Metodo del menu y el listener del menú	/*Menu  actionBarSherlock*/
+	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+		super.onCreateOptionsMenu(menu, menuInflater);
+		menu.add(0, MAP, 0, "Ir al mapa")
+		.setIcon(R.drawable.ic_location_place)
+		.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 
 
-				menu.add(0, MAP, 0, "Ir al mapa")
-				.setIcon(R.drawable.ic_location_place)
-				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-
-
-			}
+	}
 
 
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
     	case android.R.id.home:
-    		slidingMenu.toggle();// -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
-    		
+    		slidingMenu.toggle();
     		return true;
     		
     	case MAP:
-    		
     		return true;
     		
     	}
@@ -152,10 +141,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	private void changeActionBar() {
 			//typeface personalizadas
 	        robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
-	        robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
-	        robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
-	        robotoRegular = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Regular.ttf");
-
+	      
 					//boton de volver atras del boton home, e icono personalizado
 					actionBar.setDisplayHomeAsUpEnabled(false);
 	        		actionBar.setHomeButtonEnabled(true);

@@ -2,11 +2,7 @@ package dam.project.wearevalencia.gallery;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,24 +18,24 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ViewSwitcher.ViewFactory;
-
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.SubMenu;
-
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
+@SuppressWarnings("deprecation")
 public class Gallery_Item extends SherlockFragmentActivity implements ViewFactory {
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 	private final int GUARDAR_IMAGEN = 1;
 	private final int ESTABLECER_COMO = 2;
 	private ActionBar actionBar;
-	private Typeface robotoThin, robotoBoldCondensed;
+	private Typeface robotoBoldCondensed;
+	
 	//Integer pics[] = {R.drawable.serranos_1, R.drawable.main_bg_10, R.drawable.main_bg_11, R.drawable.main_bg_12, R.drawable.main_bg_14};
-	Integer[] pics;
+	int[] pics;
 	int middle;
 	ImageSwitcher iSwitcher;
 	String tituloLugarDeInteres;
@@ -48,7 +44,6 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 
 
 	/** Called when the activity is first created. */
-	@SuppressWarnings("deprecation")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,7 +62,7 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 		Bitmap unoBitmap = BitmapFactory.decodeFile("../sdcard/wearevalencia/torres_de_serranos/torres_serranos_1.png");
 		Drawable unoDrawable = new BitmapDrawable(getResources(), unoBitmap);*/
 
-		pics = new Integer[]{R.drawable.main_bg_1, R.drawable.main_bg_10, R.drawable.main_bg_11, R.drawable.main_bg_12, R.drawable.main_bg_14};
+		pics = objeto.getGallery(); //galeria recogida del objeto
 		middle = pics.length / 2;
 		
 		iSwitcher = (ImageSwitcher) findViewById(R.id.imageSwitcherSerranos);
@@ -171,7 +166,6 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 
 	private void changeActionBar() {
 		//typeface personalizadas
-        robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
         robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
@@ -183,7 +177,6 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 		        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal
 		        //permitir el customizado
 		        actionBar.setDisplayShowCustomEnabled(true);
-
 
 		        //inflar un view con el layout de los titulos
 		        View customView = LayoutInflater.from(this).inflate(R.layout.actionbar_title,null);

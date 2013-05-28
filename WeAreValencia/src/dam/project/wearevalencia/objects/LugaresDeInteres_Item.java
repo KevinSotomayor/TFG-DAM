@@ -110,7 +110,7 @@ public class LugaresDeInteres_Item implements Parcelable {
        };
        
        
-    
+    //getters y setters autogenerados
 	public int getId() {
 		return id;
 	}
