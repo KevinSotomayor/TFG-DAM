@@ -62,6 +62,9 @@
         <activity android:name="dam.project.wearevalencia.gallery.Gallery_Item" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaGalery"/>
         
+        <activity android:name="dam.project.wearevalencia.LugaresDeInteres_List" 
+            android:screenOrientation="portrait" />
+        
         <activity android:name="dam.project.wearevalencia.LugaresDeInteres_Ficha_Item" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaFichaLugaresDeInteres"/>
         

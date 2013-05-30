@@ -1,7 +1,5 @@
 package dam.project.wearevalencia.fragments;
 
-import java.util.ArrayList;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.content.Context;
@@ -14,11 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
-import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
-import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Sliding_Menu_Fragment extends ListFragment{
 	private final int INCIO = 0;
@@ -71,8 +66,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			break;
 		
 		case LUGARES_DE_INTERES: //listas de lugares de interes
-			ArrayList<LugaresDeInteres_Item> arrayList = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
-			newContent = new LugaresDeInteres(arrayList);
+			newContent = new Main_LugaresDeInteres();
 			break;
 		
 		case FIESTAS_POPULARES: //fiestas populares de valencia

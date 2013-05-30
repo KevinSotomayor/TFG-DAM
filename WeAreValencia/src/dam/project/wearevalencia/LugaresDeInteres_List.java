@@ -1,17 +1,14 @@
-package dam.project.wearevalencia.fragments;
+package dam.project.wearevalencia;
 
 import java.util.ArrayList;
 import java.util.Random;
 import org.holoeverywhere.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
-import dam.project.wearevalencia.LugaresDeInteres_Ficha_Item;
-import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
@@ -23,7 +20,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,66 +35,66 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class LugaresDeInteres extends SherlockFragment {
+public class LugaresDeInteres_List extends SherlockFragmentActivity {
 	
 	private Typeface robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
-	private SlidingMenu slidingMenu;
 	private final int MAPA = 1;
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
+	private final String BUNDLE_FROM_FRAGMENT = "bundleFromFragment";
 	private ArrayList<LugaresDeInteres_Item> arrayLugaresDeInteres;
 	String categoria = "";
 	TextView textoBuscador;
 	EditText buscador;
 	ListView lista;
 	AdaptadorLugaresDeInteres adaptador;
-	
-	//constructor cuando se le pasan datos, el arraylist de objetos
-	public LugaresDeInteres(ArrayList<LugaresDeInteres_Item> arrayList) {
-		this.arrayLugaresDeInteres = arrayList;
-		setRetainInstance(true);
-	}
 
-	@Override
-	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
-		return inflater.inflate(R.layout.lugaresdeinteres_list, null);
-	}
-
-
-	public void onActivityCreated(Bundle savedInstanceState){
-		super.onActivityCreated(savedInstanceState);
+	@SuppressWarnings("unchecked")
+	public void onCreate(Bundle savedInstanceState){
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.lugaresdeinteres_list);
+		actionBar = getSupportActionBar();	
+		
+		Bundle bundle = getIntent().getExtras();
+		if(bundle != null){
+			arrayLugaresDeInteres = (ArrayList<LugaresDeInteres_Item>)bundle.getSerializable(BUNDLE_FROM_FRAGMENT);
+		
+		categoria = arrayLugaresDeInteres.get(MAPA).getCategory();
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
-		setHasOptionsMenu(true);
+		//setHasOptionsMenu(true);
 		//personalizar el actionbar
 		changeActionBar();
-		//referencia del slidginmenu
-		slidingMenu = Main_FragmentActivity.putReference();
-		//tarea asíncrona que se encarga de gestionar la lista, el header y el inflado de los items
-		categoria = arrayLugaresDeInteres.get(MAPA).getCategory();
-		new ListAsyncTask().execute();
 		
+		//tarea asíncrona que se encarga de gestionar la lista, el header y el inflado de los items
+		new ListAsyncTask().execute();
+		}else{
+			Toast.makeText(this, "No se han podido cargar los items", Toast.LENGTH_SHORT).show();
+		}
+			
 
 	}
 	
-	//menu con el mapa de todos los lugares de interes que se muestren en ese moment
-	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){			
-		super.onCreateOptionsMenu(menu, menuInflater);
-		menu.add(0, MAPA, 0, getActivity().getString(R.string.irAlMapa))
-			.setIcon(R.drawable.ic_action_go_map)
-			.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
-
+	//menu que presentará en el mapa todos los lugares de interes que tenga el arraylist
+	public boolean onCreateOptionsMenu(Menu menu){			
+		super.onCreateOptionsMenu(menu);
+		menu.add(0, MAPA, 0,  getString(R.string.irAlMapa))
+		.setIcon(R.drawable.ic_action_go_map)
+		.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+		
+		return true;
+		
 	}
 
 
    public boolean onOptionsItemSelected (MenuItem item){
 		switch(item.getItemId()){
 		case android.R.id.home:
-			slidingMenu.toggle();
+			LugaresDeInteres_List.this.finish();
+			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 			return true;
 
 		case 1:
-			Toast.makeText(getActivity(), "Mapa de " + categoria, Toast.LENGTH_LONG).show();
+			Toast.makeText(this, "Mapa de " + categoria, Toast.LENGTH_LONG).show();
 			return true;
 		}
 
@@ -112,28 +108,28 @@ public class LugaresDeInteres extends SherlockFragment {
 		
 		protected void onPreExecute(){
 			super.onPreExecute();
-			layout_list = (LinearLayout)getView().findViewById(R.id.layout_List_LugaresDeInteres);
+			layout_list = (LinearLayout)findViewById(R.id.layout_List_LugaresDeInteres);
 			layout_list.setVisibility(View.GONE);
 
-			progressBar = (ProgressBar)getView().findViewById(R.id.progressBar_LugaresDeInteres_List);
+			progressBar = (ProgressBar)findViewById(R.id.progressBar_LugaresDeInteres_List);
 			progressBar.setVisibility(View.VISIBLE);
 		}
 		
 		protected Void doInBackground(Void... params) {
-			lista = (ListView)getView().findViewById(R.id.listView_lugaresDeInteres);
+			lista = (ListView)findViewById(R.id.listView_lugaresDeInteres);
 
-			textoBuscador = (TextView)getView().findViewById(R.id.textView_HeaderImageView);
+			textoBuscador = (TextView)findViewById(R.id.textView_HeaderImageView);
 			textoBuscador.setTypeface(robotoBoldCondensed);
 			
-			buscador = (EditText)getView().findViewById(R.id.editText_header_lugaresDeInteres);
+			buscador = (EditText)findViewById(R.id.editText_header_lugaresDeInteres);
 			buscador.addTextChangedListener(filterText); //listener cuando se escribe un caracter en el edittext
 		
 			try{
-				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
+				adaptador = new AdaptadorLugaresDeInteres(LugaresDeInteres_List.this, R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres );
 				lista.setAdapter(adaptador);
 				
 				}catch (Exception e) {
-					Log.e("Error en postExecute", getTag());
+					
 				}
 
 			return null;	
@@ -153,14 +149,14 @@ public class LugaresDeInteres extends SherlockFragment {
 					//ver en antiguo commit como estaba el listener de la lista.
 					
 					LugaresDeInteres_Item object = (LugaresDeInteres_Item)adaptador.getItem(position);
-					Intent i = new Intent(getActivity(), LugaresDeInteres_Ficha_Item.class);
+					Intent i = new Intent(LugaresDeInteres_List.this, LugaresDeInteres_Ficha_Item.class);
 					
 					Bundle bundle = new Bundle();
 					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, object);
 					i.putExtras(bundle);
 					
 					startActivity(i);
-					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
 				}
 			});
@@ -199,7 +195,7 @@ public class LugaresDeInteres extends SherlockFragment {
     		ViewHolder holder;
     		
     		if ( item == null) {
-    			LayoutInflater inflater = getActivity().getLayoutInflater();
+    			LayoutInflater inflater = getLayoutInflater();
     			item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
     			
     			//guardando solo las referencias a los controles que utilizarré
@@ -240,13 +236,13 @@ public class LugaresDeInteres extends SherlockFragment {
 				public void onClick(View v) {
 					LugaresDeInteres_Item object =  arrayLugaresDeInteres.get(auxposition);
 					
-					Intent i = new Intent(getActivity(), Map_Item.class);					
+					Intent i = new Intent(LugaresDeInteres_List.this, Map_Item.class);					
 					Bundle bundle = new Bundle();
 					bundle.putParcelable(BUNDLE_OBJECT_ARRAYLIST, object);
 					i.putExtras(bundle);
 					
 					startActivity(i);
-					getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+					overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
 				}
 			});
@@ -301,7 +297,7 @@ public class LugaresDeInteres extends SherlockFragment {
 		    				}
 		    			}
 
-		    			adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayBusqueda);
+		    			adaptador = new AdaptadorLugaresDeInteres(LugaresDeInteres_List.this, R.layout.lugaresdeinteres_item_list, arrayBusqueda);
 		    			lista.setAdapter(adaptador);
 		    			
 		    			try{
@@ -309,7 +305,7 @@ public class LugaresDeInteres extends SherlockFragment {
 		    			if (total == 0){
 		    				textoBuscador.setText("No coincide ningún lugar :(");
 		    				ArrayList<LugaresDeInteres_Item> vacio = new ArrayList<LugaresDeInteres_Item>();
-		    				adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, vacio);
+		    				adaptador = new AdaptadorLugaresDeInteres(LugaresDeInteres_List.this, R.layout.lugaresdeinteres_item_list, vacio);
 			    			lista.setAdapter(adaptador);
 		    			}else if(total == 1){
 		    				textoBuscador.setText("Encontrado "+ total+ " lugar con " +"'"+s.toString()+"'");
@@ -321,7 +317,7 @@ public class LugaresDeInteres extends SherlockFragment {
 						}
 		    			
 		    		}else{
-		    			adaptador = new AdaptadorLugaresDeInteres(getActivity(), R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres);
+		    			adaptador = new AdaptadorLugaresDeInteres(LugaresDeInteres_List.this, R.layout.lugaresdeinteres_item_list, arrayLugaresDeInteres);
 		    			lista.setAdapter(adaptador);
 		    			
 		    			try{
@@ -362,14 +358,14 @@ public class LugaresDeInteres extends SherlockFragment {
 
 	private void changeActionBar() {
 		//typeface personalizadas
-        robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
-        robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
-        robotoRegular = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Regular.ttf");
+        robotoBoldCondensed = Typeface.createFromAsset(getAssets(), "Roboto-BoldCondensed.ttf");
+        robotoCondensed = Typeface.createFromAsset(getAssets(), "Roboto-Condensed.ttf");
+        robotoRegular = Typeface.createFromAsset(getAssets(), "Roboto-Regular.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
         		actionBar.setHomeButtonEnabled(true);
-		        actionBar.setIcon(R.drawable.ic_nav_menu);
+		        actionBar.setIcon(R.drawable.ic_navigation_back);
 
 		        //cambiar el titulo por otro con subtitulo + layout
 		        actionBar.setDisplayShowTitleEnabled(false);//ocultar titulo normal
@@ -378,12 +374,12 @@ public class LugaresDeInteres extends SherlockFragment {
 
 
 		        //inflar un view con el layout de los titulos
-		        View customView = LayoutInflater.from(getActivity()).inflate(R.layout.actionbar_title,null);
+		        View customView = LayoutInflater.from(LugaresDeInteres_List.this).inflate(R.layout.actionbar_title,null);
 
 		        //identificar las etiquetas y setTypeface otra letra
 		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
 		        titulo.setTypeface(robotoBoldCondensed);
-		        titulo.setText(getActivity().getString(R.string.lugaresDeInteres));
+		        titulo.setText(categoria.toUpperCase());
 
 
 		        /// center xml in actionbar

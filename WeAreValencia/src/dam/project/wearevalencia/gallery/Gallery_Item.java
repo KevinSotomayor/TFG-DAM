@@ -47,7 +47,7 @@ public class Gallery_Item extends SherlockFragmentActivity implements ViewFactor
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.imageswitcher_gallery);
+		setContentView(R.layout.galerias);
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {

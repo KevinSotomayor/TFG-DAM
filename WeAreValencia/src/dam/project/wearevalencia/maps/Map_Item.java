@@ -68,7 +68,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.map_and_gallery);
+		setContentView(R.layout.mapas);
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
