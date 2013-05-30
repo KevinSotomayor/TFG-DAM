@@ -123,7 +123,12 @@ public class Main_Content_Fragment extends SherlockFragment{
     public boolean onOptionsItemSelected (MenuItem item){
     	switch(item.getItemId()){
     	case android.R.id.home:
-    		slidingMenu.toggle();
+    		new Handler().postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					slidingMenu.showMenu();
+				}
+    		},80);
     		return true;
     		
     	case MAP:

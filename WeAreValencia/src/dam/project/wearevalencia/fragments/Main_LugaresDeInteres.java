@@ -5,6 +5,7 @@ import org.holoeverywhere.widget.Toast;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,7 +84,12 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 	   public boolean onOptionsItemSelected (MenuItem item){
 			switch(item.getItemId()){
 			case android.R.id.home:
-				slidingMenu.toggle();
+				new Handler().postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						slidingMenu.toggle();
+					}
+				},80);
 				return true;
 
 			case 1:
