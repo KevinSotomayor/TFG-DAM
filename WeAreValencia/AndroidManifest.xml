@@ -51,7 +51,7 @@
             </intent-filter>
         </activity>
         
-        <activity android:name=".Main_FragmentActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".Main_FragmentActivity" android:screenOrientation="portrait" />
         
         <activity android:name="dam.project.wearevalencia.maps.TorresDeSerranosMap" 
              android:screenOrientation="portrait"/>

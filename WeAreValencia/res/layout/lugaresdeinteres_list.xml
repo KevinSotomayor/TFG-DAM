@@ -6,13 +6,59 @@
     android:layout_height="fill_parent"
     android:background="@color/DividerListView"
     android:orientation="vertical">
- 
-    <ListView 
-        android:id="@+id/listView_lugaresDeInteres_Monumentos"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:divider="@color/DividerListView"
-        android:listSelector="@color/DividerListView"
-   		android:dividerHeight="5dp"/>
-    
+	 <LinearLayout
+	     	android:id="@+id/layout_List_LugaresDeInteres"
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:background="@color/DividerListView"
+		    android:orientation="vertical"
+		    android:gravity="center">
+		    <EditText
+		     android:id="@+id/editText_header_lugaresDeInteres"
+		     android:layout_width="fill_parent"
+		     android:layout_height="wrap_content"
+		     android:padding="12dp"
+			 android:layout_margin="10dp"
+		     android:layout_gravity="bottom"
+		     android:hint="@string/buscarLugaresDeInteres"
+		     android:textColorHint="@color/greyShadow"
+		     android:background="@drawable/background_tarjeta"
+		      />
+		    <TextView
+			        android:id="@+id/textView_HeaderImageView"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:gravity="center"
+			        android:padding="10dp"
+			        android:shadowColor="@color/ContentLugaresDeInteres"
+			        android:shadowDx="2"
+			        android:shadowDy="2"
+			        android:shadowRadius="4"
+			        android:text="@string/cargando"
+			        android:textColor="@color/white"
+			        android:textSize="@dimen/textViewHeaderImageView"
+			        android:visibility="gone" />
+	    <ListView 
+	        android:id="@+id/listView_lugaresDeInteres"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:divider="@color/DividerListView"
+	        android:listSelector="@color/DividerListView"
+	   		android:dividerHeight="5dp"
+	   		android:descendantFocusability="afterDescendants"/>
+	</LinearLayout>
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/DividerListView"
+	    android:orientation="vertical"
+	    android:gravity="center">
+	    <ProgressBar
+	        android:id="@+id/progressBar_LugaresDeInteres_List"
+	        style="?android:attr/progressBarStyleLarge"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone" />
+	 </LinearLayout>
 </LinearLayout>

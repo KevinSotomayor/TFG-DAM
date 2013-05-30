@@ -10,7 +10,7 @@ public class LugaresDeInteres_Item implements Parcelable {
 	private String title;
 	private String content;
 	private String category;
-	private LatLng latLng;
+	private LatLng latLng; 
 	private String addres;
 	private String price;
 	private String horary;
