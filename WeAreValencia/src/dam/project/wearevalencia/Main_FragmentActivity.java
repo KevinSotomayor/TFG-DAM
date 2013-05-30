@@ -87,20 +87,18 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	public void switchContent(Fragment fragment) {
 		mContent = fragment;
 		FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
-		transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
 		transaction.replace(R.id.content_fragment, fragment);
-		//transaction.addToBackStack(null);
 		transaction.commit();
 
 		//este handler hace que la transicion de cierre
 		//del contenido de la derecha del menu sea posible de ver
 		Handler handler = new Handler();
-		handler.post(new Runnable() {
+		handler.postDelayed(new Runnable() {
 			@Override
 			public void run() {
 				getSlidingMenu().showContent();
 			}
-		});
+		},40);
 		
 		
 	}
@@ -120,7 +118,7 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		bundle.putSerializable(BUNDLE_FROM_FRAGMENT, lugares);
 		i.putExtras(bundle);
 		startActivity(i);
-		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
 		
 	}
 }

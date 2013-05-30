@@ -90,7 +90,7 @@ public class LugaresDeInteres_List extends SherlockFragmentActivity {
 		switch(item.getItemId()){
 		case android.R.id.home:
 			LugaresDeInteres_List.this.finish();
-			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+			overridePendingTransition(R.anim.grow_fade_in_from_bottom, R.anim.shrink_fade_out_from_bottom);
 			return true;
 
 		case 1:
