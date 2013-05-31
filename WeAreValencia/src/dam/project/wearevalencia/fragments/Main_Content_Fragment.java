@@ -31,8 +31,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	private ActionBar actionBar;
 	private TextView titulo;
 	private Typeface robotoBoldCondensed;
-	private SlidingMenu slidingMenu;
-
+	private SlidingMenu slidingMenu;	
 	private LinearLayout main_Layout;
 	private AnimationDrawable animacion_backgrounds;
 
@@ -96,15 +95,18 @@ public class Main_Content_Fragment extends SherlockFragment{
 			//abrir el menu con el boton descubre valencia
 			@Override
 			public void onClick(View v) {
-				if(slidingMenu.isShown()){
-					slidingMenu.toggle();
-				}else{   // -> Toggle the SlidingMenu. If it is open, it will be closed, and vice versa.
-					slidingMenu.toggle();
+				if(slidingMenu.isShown())
+					new Handler().postDelayed(new Runnable() {
+						
+						@Override
+						public void run() {
+			    			slidingMenu.toggle();
+							
+						}
+					}, 80);
 				}
-
-			}
-		});
-
+			});
+		
 	}
 
    
@@ -124,11 +126,13 @@ public class Main_Content_Fragment extends SherlockFragment{
     	switch(item.getItemId()){
     	case android.R.id.home:
     		new Handler().postDelayed(new Runnable() {
+				
 				@Override
 				public void run() {
-					slidingMenu.showMenu();
+	    			slidingMenu.toggle();
+					
 				}
-    		},80);
+			}, 80);
     		return true;
     		
     	case MAP:

@@ -1,14 +1,11 @@
 package dam.project.wearevalencia;
 
 import java.util.ArrayList;
-
-import org.holoeverywhere.widget.Toast;
-
 import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
-import dam.project.wearevalencia.fragments.Main_LugaresDeInteres;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
+import dam.project.wearevalencia.objects.FiestasPopulares_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,7 +19,7 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	static SlidingMenu slidingMenu;
 	private final String BUNDLE_KEY = "mContent";
 	private final String BUNDLE_FROM_FRAGMENT = "bundleFromFragment";
-
+	private final String BUNDLE_FROM_FRAGMENT_FP ="bundleFromFragmentFP";
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		//identificar sliding menu:
@@ -121,4 +118,16 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		overridePendingTransition(R.anim.push_down_in, R.anim.push_down_out);
 		
 	}
+	
+	//este metodo gestiona los intents de las fiestas populares, la lista.
+	public void onFiestaPopularSelecconada(FiestasPopulares_Item fiesta) {
+		Intent i = new Intent(Main_FragmentActivity.this, FiestasPopulares_Ficha_Item.class);
+		Bundle bundle = new Bundle();
+		bundle.putParcelable(BUNDLE_FROM_FRAGMENT_FP, fiesta);
+		i.putExtras(bundle);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		
+	}
+	
 }

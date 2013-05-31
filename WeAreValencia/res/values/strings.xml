@@ -27,10 +27,14 @@
     <color name="startColorDegreeTextView">#e5e5e5</color>
     <color name="centerColorDegreeTextView">#88e5e5e5</color>
     <color name="endColorDegreeTextView">#01e5e5e5</color>
-    <!-- degradado para la clase que presenta la ficha de lugares de interes -->
+    <!-- degradado para la clase que presenta la ficha de lugares de interes  - TEMA -->
     <color name="startColorDegreeFichaItem">#FFe5e5e5</color>
     <color name="centerColorDegreeFichaItem">#CCe5e5e5</color>
     <color name="endColorDegreeFichaItem">#FFFFFF</color>
+    <!-- degradado de cada item de la lista de fiestas populares -->
+    <color name="startColorDegreeItemFP">#FFFFFF</color>
+    <color name="centerColorDegreeItemFP">#88FFFFFF</color>
+    <color name="endColorDegreeItemFP">#01FFFFFF</color>
     <color name="iconsFichaLugaresDeInteres">#7e8083</color>
     <color name="grey_layout_pressed_light">#eeeeee</color>
     
@@ -78,54 +82,131 @@
 	<string name="estoyAqui">Estoy aquí</string>
 	<string name="obteniendoDireccion">Obteniendo dirección, espere...</string>
 	<string name="volver">Volver</string>
+	<string name="calendario">Calendario</string>
 	
 	<string name="lugaresDeInteres">LUGARES DE INTERÉS</string>
 	<!-- Lista de contenido de Lugares de interes -->
 	<string name="Monumentos">Monumentos</string>
 	
+	<!-- lonja object -->
 	<string name="lonjaDeLaSeda">Lonja de la Seda</string>
-	<string name="LonjaDeLaSedaContent">La <b>Lonja de la Seda de Valencia</b> o <b>Lonja de los Mercaderes</b>
+	<string name="LonjaDeLaSedaContent">La Lonja de la Seda de Valencia o Lonja de los Mercaderes
 	    es una obra maestra del gótico civil valenciano 
-	    situada en el centro histórico de la ciudad de Valencia (España). 
-	    Declarada <b>Patrimonio de la Humanidad</b> por la <b>Unesco</b>, se encuentra
-	     situada en la Plaza del Mercado, número 31, frente a 
-	    la Iglesia de los Santos Juanes y del Mercado Central de Valencia.
-	    
-	    Fue construida entre 1482 y 1548, y su primer constructor fue <b>Pere Compte</b> 
+	    situada en el centro histórico de la ciudad de Valencia (España).\n\nDeclarada <b>Patrimonio de la Humanidad</b> por la <b>Unesco</b>, se encuentra 
+	    situada en la Plaza del Mercado, número 31, frente a 
+	    la Iglesia de los Santos Juanes y del Mercado Central de Valencia.\n\nFue construida entre 1482 y 1548, y su primer constructor fue <b>Pere Compte</b> 
 	    entre los años 1483 y 1498 sobre el modelo de la Lonja de Palma de Mallorca, 
 	    constituyéndose en un edificio emblemático de la riqueza del 
 	    siglo de oro valenciano (siglo XV) y muestra de revolución comercial durante la Baja Edad Media, 
 	    del desarrollo social y del prestigio conseguido por la burguesía valenciana.
 	</string>
-	<string name="lonjaDeLaSedaAddres">Plaza del Mercado, 7.</string>
-	<string name="lonjaDeLaSedaPrice">2€, 1€ para grupos, estudiantes, pensionistas, familias numerosas. Gratuita los domingos y festivos.</string>
-	<string name="lonjaDeLaSedaHorary">Martes a Sábado, de 10:00 a 14:00 h. y de 16:30 a 20:30 h.\n 
-	    Domingos y festivos, de 10:00 a 15:00 h.\n Lunes cerrado.</string>
+	<string name="lonjaDeLaSedaAddress">Plaza del Mercado, 7.</string>
+	<string name="lonjaDeLaSedaPrice">2€, 1€ para grupos, estudiantes, pensionistas, familias numerosas.\n\nGratuita los domingos y festivos.</string>
+	<string name="lonjaDeLaSedaHorary">Martes a Sábado, de 10:00 a 14:00 h. y de 16:30 a 20:30 h.\n \nDomingos y festivos, de 10:00 a 15:00 h.\n \n Lunes cerrado.</string>
 	<string name="lonjaDeLaSedaTelephone">+34 962 084 153</string>
 	
+	<!-- Torres de serranos object -->
 	<string name="torresDeSerranos">Torres de Serranos</string>
 	<string name="torresDeSerranosContent">La <b>Puerta de Serranos</b> (<b>Torres dels Serrans</b> en valenciano) es una de las doce puertas
-	     que custodiaban la antigua muralla de la ciudad de Valencia. Su nombre parece provenir de que están situadas aproximadamente
+	     que custodiaban la antigua muralla de la ciudad de Valencia.\n\nSu nombre parece provenir de que están situadas aproximadamente
 	      al noroeste del casco antiguo y, por lo tanto, eran la entrada natural que comunicaba con los caminos que iban 
-	      a Los Serranos (el camino real de Zaragoza, que confluía en este punto también con el camino real de Barcelona). 
-	      No obstante, existe otra teoría que dice que pudo tomar el nombre de la principal familia que habitaba la calle homónima. 
-	      
-	      Es un gran referente de la ciudad de Valencia y uno de sus monumentos mejor conservados. De la antigua muralla, que se ordenó derribar en 1865 
+	      a Los Serranos (el camino real de Zaragoza, que confluía en este punto también con el camino real de Barcelona).\n\nNo obstante, existe otra teoría que dice que pudo tomar el nombre de la principal familia que habitaba la calle homónima. 
+	      \nEs un gran referente de la ciudad de Valencia y uno de sus monumentos mejor conservados.\nDe la antigua muralla, que se ordenó derribar en 1865 
 	      por orden del gobernador de la provincia Cirilo Amorós, nada más quedan estas puertas y las Torres de Quart (posteriores), algunos otros
-	       vestigios peor conservados y restos arquelógicos como la Puerta de los Judíos.
+	      vestigios peor conservados y restos arquelógicos como la Puerta de los Judíos.
 	</string>
-	<string name="torresDeSerranosAddres">Plaza Fueros, 1.</string>
+	<string name="torresDeSerranosAddress">Plaza Fueros, 1.</string>
+	<string name="torresDeSerranosPrice">Entrada individual: 2 euros.\nGratuita los domingos y festivos.</string>
+	<string name="torresDeSerranosHorary">Desde el 15 de marzo al 15 de octubre:\nMartes a sábado, de 10:00 a 19:00 horas\n
+	    Domingo y festivos, de 10:00 a 15:00 horas\n
+	    \nDesde el 16 de octubre hasta el 14 de marzo:\nMartes a sábado, de 10:00 a 18:00 horas\n
+	    \nDomingo y festivos, de 10:00 a 15:00 horas\n</string>
+	<string name="torresDeSerranosTelephone">96 391 90 70</string>
 	
+	<!-- Torres de quart object -->
 	<string name="torresDeQuart">Torres de Quart</string>
+	<string name="torresDeQuartContent">El Portal de Quart, constituye junto al de Serranos, anterior en construcción, el principal 
+	    testimonio de los restos de una ciudad amurallada, como lo fue la Valencia medieval.\n\nSe trataba de la puerta que enlazaba con el camino que pasando por Quart se dirigía
+	    hacia Castilla, y por tanto constituía una de las principales puertas de acceso
+	     a la ciudad, junto con el de Serranos abierto hacia el norte y los desaparecidos
+	      de San Vicente hacia el sur y el del Mar, hacia el este y por tanto hacia el Grao.</string>
+	<string name="torresDeQuartAddress">Calle Guillem de Castro, 139-149</string>
+	<string name="torresDeQuartPrice">Entrada individual: 2 euros.\nDomingos y festivos: gratuito</string>
+	<string name="torresDeQuartHorary">Desde el 15 de marzo al 15 de octubre:\nMartes a sábado, de 10:00 a 19:00 horas\n
+	    Domingo y festivos, de 10:00 a 15:00 horas\n\nDesde el 16 de octubre hasta el 14 de marzo:\nMartes a sábado, de 10:00 a 18:00 horas\n\nDomingo y festivos, de 10:00 a 15:00 horas
+	</string>
+	<string name="torresDeQuartTelephone">+34 963 91 20 48</string>
+	
 	<string name="mercadoCentral">Mercado Central</string>
+	<string name="mercadoCentralContent">El Mercat Central de València se ha caracterizado siempre por la calidad, variedad y frescura de sus productos, así como por el trato atento y personalizado de sus vendedores.\n\nEl carácter innovador y comercial de sus vendedores ha hecho que este Mercado crezca y se supere día a día.\nEn la actualidad es no sólo un importante espacio para la venta de productos frescos, sino también un gran atractivo cultural y turístico tanto para visitantes extranjeros como para los propios valencianos.\n\nEl Mercat Central de València ocupa exactamente una superficie de 8.160 metros, dividida en dos zonas o polígonos; el primero de ellos es irregular, con una superficie de 6.760 metros cuadrados; y el otro, octogonal, destinado a la pescadería, tiene una extensión de 1.400 metros cuadrados. El sótano es de 7.690 metros cuadrados; se dedicó a la subasta del pescado y actualmente se utiliza como aparcamiento.\n\nEl Mercat Central de València agrupa a casi 300 pequeños comerciantes que ocupan 1.219 puestos creados en origen. Es el mayor centro de Europa dedicado a la especialidad de productos frescos; y el primer mercado del mundo que afrontó el reto de la informatización de las ventas y distribución a domicilio, desde el día 2 de octubre de 1996.\n\nEn la actualidad, el Mercat es un importante foco económico en la ciudad de Valencia, tanto por la actividad de los comerciantes como por las numerosas visitas que recibe y actos que se organizan.</string>
+	<string name="mercadoCentralAddress">Av Barón Cárcer, s/n</string>
+	<string name="mercadoCentralPrice">Varía dependiendo si el servicio es a domicilio.</string>
+	<string name="mercadoCentralHorary">Lunes	07:30 – 15:00\nMartes	07:30 – 15:00\nMiércoles	07:30 – 15:00\nJueves	07:30 – 15:00\nViernes	07:30 – 15:00\nSábado	07:30 – 15:00\nDomingo	Cerrado
+	</string>
+	<string name="mercadoCentralTelephone">+34 963 82 91 00</string>
+	
+	<string name="mercadoColon">Mercado de Colón</string>
+	<string name="mercadoColonContent">Situado en una de las mayores manzanas del primer ensanche, es una de las piezas mas relevantes del modernismo en Valencia. Su construcción se inició en 1914.\n\nDiseñado por Francisco Mora Berenguer aporta como novedad en este tipo de mercados su carácter abierto, que permite la visión a través del mismo produciendo una agradable sensación de diafanidad y transparencia, perceptible fundamentalmente en sus lados mayores, lo que constituye sin duda un original y apreciable acierto.\n\n
+La estructura metálica sobre pilares de fundición está enmarcada por dos potentes testeros de ladrillo, perforados por imponentes arcos, en los que se produce una brillante utilización ornamental de diversos materiales, fundamentalmente la piedra y el mosaico, formando una singular composición.</string>
+	<string name="mercadoColonAddress">Calle Jorge Juan, 19</string>
+	<string name="mercadoColonPrice">Entrada gratuita</string>
+	<string name="mercadoColonHorary">Lunes a Domingo: 07:00 - 13:30 horas.\n\nConsultar horario para cada tienda en específico.</string>
+	<string name="mercadoColonTelephone">96 352 54 78</string>
+	
 	<string name="cac">Ciudad de las Artes y las Ciencias</string>
-	<string name="mercadoColon">Mercado Colón</string>
+	<string name="cacContent">La Ciudad de las Artes y las Ciencias de Valencia es un conjunto único dedicado a la divulgación científica y cultural, que está integrado por seis grandes elementos: el Hemisfèric (cine IMAX y proyecciones digitales), el Umbracle (mirador ajardinado y aparcamiento), el Museo de las Ciencias Príncipe Felipe (innovador centro de ciencia interactiva), el Oceanográfico (el mayor acuario de Europa con más de 500 especies marinas) y el Palau de les Arts Reina Sofía (dedicado la programación operística).\nY  el Ágora, que dota al complejo de un espacio multifuncional.\n\n
+A lo largo de un eje de casi dos kilómetros, en el antiguo cauce del río Turia, este complejo impulsado por la Generalitat Valenciana sorprende por su arquitectura - obra de Santiago Calatrava y Félix Candela - y por su inmensa capacidad para divertir y estimular las mentes de sus visitantes que, recorriendo sus edificios, conocen diferentes aspectos relacionados con la ciencia, la tecnología, la naturaleza o el arte.\n\nEl papel relevante de la arquitectura en la Ciudad de las Artes y las Ciencias de Valencia ha sido posible gracias al trabajo de dos arquitectos españoles de prestigio internacional, que han aportado aquí lo mejor de su obra: Santiago Calatrava, con el Palau de les Arts Reina Sofía, el Hemisfèric, el Museo de las Ciencias Príncipe Felipe, el Umbracle y el Ágora, y Félix Candela, con las singulares cubiertas de los edificios principales del Oceanográfico.\nUn conjunto arquitectónico de excepcional belleza, que armoniza el continente con el contenido. Una ciudad donde conviven el mar y la luz del Mediterráneo de manera sorprendente. Se ha constituido como uno de los mayores focos de difusión cultural.\n\n
+Se trata de participar, interactuar y sobre todo disfrutar con experiencias únicas, como dejarse envolver por espectaculares imágenes IMAX en una pantalla cóncava de 900 metros cuadrados, convertirse en astronauta y viajar hasta la Estación Espacial Internacional, participar en un experimento científico en directo o contemplar casi al alcance de la mano las numerosas hileras de dientes de varias especies de tiburón y aprender a valorar y conservar estos animales gravemente amenazados, entre otras muchas vivencias.\n\n
+En conjunto, las proyecciones digitales y las películas en gran formato en el Hemisfèric, las exposiciones interactivas en el Museo de las Ciencias Príncipe Felipe y las exhibiciones bioeducativas del Oceanográfico, conforman una gran oferta interrelacionada, que se complementa, con el único objetivo de satisfacer la curiosidad y las ganas de divertirse del visitante.\n\n
+La Ciudad de las Artes y las Ciencias  une además la admirada tradición mediterránea del mar y la luz, de los colores azules y blancos, con una arquitectura vanguardista diseñada por Santiago Calatrava y Félix Candela.\nSus audaces líneas identifican a la capital del Turia del siglo XXI; es la estampa futurista que simboliza a la nueva Valencia: una ciudad moderna dentro de la ciudad milenaria, donde millones de visitantes acuden cada año para disfrutar con la cultura, la naturaleza, el arte y la ciencia.
+	</string>
+	<string name="cacAddress">Avda. del Professor López Piñero, 3, 5, 7.</string>
+	<string name="cacPrice">Museo de las Ciencias Principe Felipe: 8,00€\nHemisfèric: 8,80€\nMuseo de las Ciencias y Hemisfèric: 12,60€\nOcenaogràfic: 27,90€\nMuseo de las Ciencias y Oceanogràfic: 29,70€\nOceanogràfic y Hemisfèric: 30,30€\nOceanogràfic, Hemisfèric y Museo: 36,25€
+	</string>
+	<string name="cacHorary">Consultar programación en cada edificio.</string>
+	<string name="cacTelephone">+34 902 10 00 31</string>
+	
+	
 	<string name="plazaAyuntamiento">Plaza del Ayuntamiento</string>
+	<string name="plazaAyuntamientoContent">Está constituido por dos cuerpos unificados: Las antiguas Escuelas del Arzobispo Mayoral, "Casa de la Enseñanza", y la edificación levantada ya en nuestro siglo, obra de los arquitectos Francisco de Mora y Berenguer y Carlos Carbonell Pañella.\nEl primer bloque tiene un estilo académico en general con elementos barrocos en las puertas principales, y el construido en el siglo XX combina el casticismo con elementos manieristas.\n\nEl asentamiento definitivo de la Corporación Municipal en este edificio fue en 1.934.\nAlberga el Archivo Municipal y su Museo, encontrándose en el resto distintas dependencias administrativas.\nLa edificación es moderna y monumental. La decoración es abundante, con elementos valencianos. En el centro de la fachada principal hay una torre que alberga el reloj. En el interior destaca el Salón de Cristal y el de Sesiones, al igual que la gran escalera de mármol.\nEn el exterior destacan dos cúpulas elípticas recubiertas de teja vidriada, y el gran balcón que cubre el cuerpo central del piso principal.</string>
+	<string name="plazaAyuntamientoAddress">Plaza del Ayuntamiento, 1.</string>
+	<string name="plazaAyuntamientoPrice">Acceso gratuito.</string>
+	<string name="plazaAyuntamientoHorary">De lunes a viernes, de 10.00 a 13.30 h., a menos que algún acto oficial impida el acceso al Salón de Cristal o al Hemiciclo (último viernes de cada mes).</string>
+	<string name="plazaAyuntamientoTelephone">+34 963 525 478</string>
+	
 	<string name="estacionDelNorte">Estación del Norte</string>
+	<string name="estacionDelNorteContent">La Estación del Norte (en valenciano Estació del Nord), también conocida como Valencia-Norte o Valencia-Estación del Norte, o históricamente Valencia-Término, es la principal estación de ferrocarril de la ciudad española de Valencia.\nEn 2010 recibió más de 14 millones de pasajeros de los cuales más de 11 millones se correspondían con sus servicios de Cercanías.\n\n
+Es una estación terminal de carácter monumental y estilo modernista inaugurada en 1917 por Norte quien encargó su construcción a Demetrio Ribes uno de los arquitectos de la compañía. Destaca por su riqueza ornamental y sus grandes proporciones.\nEn 1983 fue catalogada como Bien de Interés Cultural.6 Goza también de la consideración de estación histórica por parte de Adif.\n\n
+Está situada en el centro de la ciudad junto a la Plaza de toros y a apenas 200 m del ayuntamiento.\nDispone de conexiones con las líneas 3 y 5 del metro de la ciudad y con la red de autobuses urbanos.</string>
+	<string name="estacionDelNorteAddress">Calle Xátiva, 24</string>
+	<string name="estacionDelNortePrice">Acceso gratuito, informate del precio de los viajes en ventanilla.</string>
+	<string name="estacionDelNorteHorary">Horario de venta de billetes:\nCercanias y Regionales de 6:00 a 22:30 horas.\nGrandes lineas de 7:00 a 21:00 horas.</string>
+	<string name="estacionDelNorteTelephone">902 24 02 02</string>
+	    
 	<string name="plazaDeToros">Plaza de Toros</string>
-	<string name="plazaDeLaVirgen">Plaza de la Virgen</string>
-	<string name="elMicalet">El Micalet (El Miguelete)</string>
-	<string name="palauDeLaMusica">Palau de la Música</string>
+	<string name="plazaDeTorosContent">La Plaza de Toros de Valencia fue construida entre los años 1850 y 1860 en el solar de una plaza anterior que por problemas de presupuesto nunca llegó a terminarse.\nEs neoclásica, inspirada en la arquitectura civil romana, el teatro de Flavio Marcelo (Coliseo),4 o el anfiteatro de Nimes (Francia).\nFue construida por el arquitecto valenciano Sebastián Monleón Estellés.\nSe trata de un cuerpo polígonal de 48 lados, con más de 17 metros de altura y 52 de diámetro del ruedo. Con estas dimensiones la hacen una de las plazas más grandes de España.\n\nFué inaugurada el 20 de junio de 1859 según refleja la prensa de la época.\n\nSe encuentra ubicada junto a la Estación del Norte de Valencia. Accesos con las líneas 3 y 5 de MetroValencia (Estación de Xátiva).</string>
+	<string name="plazaDeTorosAddress">Calle de Xàtiva, 28</string>
+	<string name="plazaDeTorosPrice">Preguntar en taquilla por el valor de las entradas.</string>
+	<string name="plazaDeTorosHorary">Varía según el espectáculo.</string>
+	<string name="plazaDeTorosTelephone">+34 963 51 93 15</string>
+	
+	<string name="basilicaPlazaDeLaVirgen">Basílica Virgen de los Desamparados</string>
+	<string name="basilicaPlazaDeLaVirgenContent">Situada en la Plaza de la Virgen, la Basílica de la Virgen de los Desamparados constituye, junto a la Catedral, uno de los enclaves históricos más importantes de la ciudad de Valencia.\n\nBasílica de la Virgen de los Desamparados se encuentra en el centro histórico de Valencia, concretamente en la Plaza de la Virgen, al lado de la Catedral.\n\n
+La Real Capilla de la Virgen de los Desamparados está categorizada como basílica desde 1872. Este monumento fue construido en 1652 y 1666 por  Diego Martínez Ponce de Urrana.\n\n
+La Virgen de los Desamparados es la Patrona de la ciudad por lo que esta basílica tiene un interés especial para todos los valencianos. La Virgen de los Desamparados es una de las protagonistas de la Ofrenda de Flores que se celebra durante la semana fallera.</string>
+	<string name="basilicaPlazaDeLaVirgenAddress">Plaza de la Virgen, s/n</string>
+	<string name="basilicaPlazaDeLaVirgenPrice">Gratuito.</string>
+	<string name="basilicaPlazaDeLaVirgenHorary">Lunes a Domingo: 07:00 - 14:00\n16:30 - 21:00.</string>
+	<string name="basilicaPlazaDeLaVirgenTelephone">+34 963 919 214</string>
+	
+	<string name="micalet">Micalet (Torre del Miguelete)</string>
+	<string name="micaletContent">El campanario de la Catedral de Valencia más conocido por el nombre de Torre del Miguelete o Torre del Micalet en valenciano.\n\nSu construcción se inició en 1381 y terminó en 1429. La tiene en total 70 metros de altura con 207 escalones. Es uno de los monumentos más visitados de la ciudad.\n\n
+Se puede visitar todos los días del año adquiriendo la entrada. En El Miguelete hay tres salas: la prisión, la del campanero y la de las campanas. Este última es la única que puede visitarse si se coincide con els campaners durante la visita.\n\n
+Desde la terraza podrán disfrutar de unas maravillosas vistas de la ciudad de Valencia. La actual barandilla de la terraza fue arrasada en el siglo XVIII, y tras una restauración se utilizó una barandilla metálica.</string>
+	<string name="micaletAddress">Plaza de la Reina, s/n</string>
+	<string name="micaletPrice">General: 2,00€\nGrupos: 1,50€</string>
+	<string name="micaletHorary">Lunes a Domingo: 10:00 - 13:00\n16:00 - 19:00.</string>
+	<string name="micaletTelephone">+34 963 51 93 15</string>
 	
 	<!-- Ciudad de las artes y las ciencias -->
 	<string name="hemisferic">Hemisfèric</string>
@@ -149,4 +230,30 @@
 	<string name="gulliver">Gulliver</string>
 	<string name="palauMusica">Palau de la Música</string>
 	<string name="parqueCabecera">Parque de Cabecera</string>
+	
+	
+	<!-- FIESTAS, apartado FIESTAS POPULARES -->
+	<string name="fiestas">Fiestas Populares</string>
+	<string name="fallas">Las Fallas</string>
+	<string name="fallasContent">Cada mes de Marzo Valencia se prepara para recibir la primavera. Las calles se llenan de alegría y bullicio con la fiesta de las Fallas, exponente máximo de la unión de tradición, sátira, arte y sentimiento por una tierra.\n\nLos valencianos viven su fiesta más internacional al máximo, y su carácter llano y amable invita a visitar la ciudad y participar de esta fiesta, que quema todo lo malo y renace de sus cenizas para dar la bienvenida a una nueva estación del año.\n\n
+Origen de las Fallas.\n\n
+En las calles de los gremios de la ciudad, en vísperas de la primavera, se prescindía del trabajo nocturno y se quemaba a la puerta de cada taller el rústico parot (artilugio de madera para alumbrar). Para alimentar la hoguera, los mismos artesanos acumulaban virutas y listones inservibles junto a trastos viejos que aportaba el vecindario.\nPosteriormente se animaría el parot con harapos dando aspecto humano, y algún sombrero como cabeza, y así nacía el Ninot.\n\n
+Sólo falta que esos muñecos, protagonistas de cualquier sainete del barrio, de la ciudad, del país, del mundo, sean puestos en lo alto de un pedestal, para ser vistos mejor.\n\nOtro elemento fundamental para comprender el significado de las fallas es el Llibret, que contiene versificadamente “la relació i explicació de la Falla”. Cuando todo esto se produce y combina, ya tenemos la verdadera falla valenciana.</string>
+	<string name="fallasCalendar">La Mascletá: Todos los días en la Plaza del Ayuntamiento a las 14:00 h.\nDel 1 al 19 de Marzo.
+	    \n\nLa plantà:\nMadrugada del 15 al 16 de Marzo.
+	    \n\nEntrega de premios de las Fallas:\n17 de Marzo.
+	    \n\nCastillos de Fuegos artificiales y Nit del Foc:\nDel 15 al 19 de Marzo.
+	    \n\nOfrenda de Flores:\n17 y 18 de Marzo.
+	    \n\nLa Cremà: 19 de Marzo.\n\n
+	    El 19 de marzo por la noche todos los monumentos, infantiles y grandes, arden en llamas.\n\nA partir de las  22 h, da comienzo la Cremà de los monumentos infantiles. Dos horas más tarde es el momento de los monumentos grandes. La Falla de la Plaza del Ayuntamiento es la última en arder, a la 1 de la madrugada.\n\nSiempre va precedida de un ramillete de espectaculares carcasas que llenan de ruido, luz y color la plaza, y que dan pasa a la Cremà de la última falla de la ciudad, y por tanto al final de la fiesta.
+	    </string>
+	    
+	<string name="sanVicenteFerrer">San Vicente Ferrer</string>
+	<string name="corpus">Corpus</string>
+	<string name="semanaSanta">Semana Santa</string>
+	<string name="virgenDesamparados">La Virgen de los Desamparados</string>
+	<string name="nueveOctubre">9 de Octubre</string>
+
+
+
 </resources>

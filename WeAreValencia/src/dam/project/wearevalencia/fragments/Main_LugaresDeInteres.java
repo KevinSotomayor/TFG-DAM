@@ -2,7 +2,6 @@ package dam.project.wearevalencia.fragments;
 
 import java.util.ArrayList;
 import org.holoeverywhere.widget.Toast;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,10 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -22,14 +19,13 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
-import dam.project.wearevalencia.LugaresDeInteres_List;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Main_LugaresDeInteres extends SherlockFragment{
-	private Typeface robotoBoldCondensed, robotoCondensed, robotoRegular, robotoThin;
+	private Typeface robotoBoldCondensed, robotoCondensed, robotoThin;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
 	private TextView textViewMonumentos, textViewCentroCiudad, textViewParques, textViewCAC, textViewWeAre, textViewValencia;
@@ -85,11 +81,13 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 			switch(item.getItemId()){
 			case android.R.id.home:
 				new Handler().postDelayed(new Runnable() {
+					
 					@Override
 					public void run() {
-						slidingMenu.toggle();
+		    			slidingMenu.toggle();
+						
 					}
-				},80);
+				}, 80);
 				return true;
 
 			case 1:
@@ -105,7 +103,6 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 		//typeface personalizadas
         robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
         robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
-        robotoRegular = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Regular.ttf");
         robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado

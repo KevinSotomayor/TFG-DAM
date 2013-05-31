@@ -38,6 +38,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	textViewHeVisitado, textViewIrAlMapa, textViewIrGaleria, textViewClock, textViewDate;
 	private LinearLayout heVisitado, irAlMapa, irGaleria, direccion, leermasLayoutButton, telephoneLayoutButton;
 	private LugaresDeInteres_Item objeto; 
+	private Bitmap bitmap;
 
 	
 	public void onCreate(Bundle savedInstanceState){
@@ -247,6 +248,11 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		switch(item.getItemId()){
     	
     	case android.R.id.home:
+    		//ahorro trabajo al garbage collector
+    		if (bitmap != null) {
+    			bitmap.recycle(); //Free the native object associated with this bitmap, and clear the reference to the pixel data.
+    			bitmap = null;
+    		}
     		LugaresDeInteres_Ficha_Item.this.finish();
 			//sobreescribir la animacion para finalizar esta activity
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
@@ -293,7 +299,7 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	}	
 	
 	private class LoadImageAsyncTask extends AsyncTask<Void, Void, Void>{
-		Bitmap bitmap;
+		
 		@Override
 		protected Void doInBackground(Void... params) {
 			

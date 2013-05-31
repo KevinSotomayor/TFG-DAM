@@ -20,4 +20,5 @@
 	<dimen name="textViewEurIcon">55dp</dimen>
 	<dimen name="textViewHeaderImageView">20dp</dimen>
 	<dimen name="textViewTitleMainLugaresDeInteres">16dp</dimen>
+	<dimen name="TextViewFiestasPopularesDescriptionContent">18dp</dimen>
 </resources>

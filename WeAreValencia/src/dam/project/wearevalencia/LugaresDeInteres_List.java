@@ -6,9 +6,7 @@ import org.holoeverywhere.widget.Toast;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-import com.slidingmenu.lib.SlidingMenu;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
@@ -234,7 +232,7 @@ public class LugaresDeInteres_List extends SherlockFragmentActivity {
 			holder.layoutIrAlMapa.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					LugaresDeInteres_Item object =  arrayLugaresDeInteres.get(auxposition);
+					LugaresDeInteres_Item object =  (LugaresDeInteres_Item)adaptador.getItem(auxposition);
 					
 					Intent i = new Intent(LugaresDeInteres_List.this, Map_Item.class);					
 					Bundle bundle = new Bundle();

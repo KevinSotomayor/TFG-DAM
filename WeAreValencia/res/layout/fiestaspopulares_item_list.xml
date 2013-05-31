@@ -1,0 +1,84 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/DividerListView">
+	
+    <LinearLayout 
+               android:id="@+id/button_ficha_lugaresdeinteres_address"
+               android:layout_width="fill_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+			   android:layout_marginLeft="10dp"
+			   android:layout_marginRight="10dp"
+			   android:layout_marginTop="10dp"
+			   android:layout_marginBottom="5dp"
+               android:gravity="center"
+               android:background="@drawable/background_tarjeta">
+	           
+				<FrameLayout 
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content">
+			    <ImageView 
+			        android:id="@+id/imageView_fiestaspopulares_item_list"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:contentDescription="@string/imageViewDescription"
+			        android:adjustViewBounds="true"
+			        android:src="@drawable/fiestaspopulares_fallas"/>
+			    
+			    <TextView
+			        android:id="@+id/textView_fiestaspopulares_item_list"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="bottom"
+			        android:gravity="center"
+			        android:padding="3dp"
+			        android:shadowColor="@color/ContentLugaresDeInteres"
+			        android:shadowDx="2"
+			        android:shadowDy="2"
+			        android:shadowRadius="4"
+			        android:text="@string/cargando"
+			        android:textColor="@color/white"
+			        android:textSize="@dimen/textViewTitleFichaLugaresDeInteres" />
+
+    		</FrameLayout>
+				<LinearLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_weight="8"
+			        android:orientation="vertical"
+			        android:layout_marginLeft="10dp"
+			        android:layout_marginTop="5dp"
+			        android:layout_marginBottom="10dp"
+			        android:layout_marginRight="10dp"
+			        android:gravity="left">
+
+					<TextView
+					    android:id="@+id/textViewfiestaspopulares_description"
+					    android:layout_width="fill_parent"
+					    android:layout_height="wrap_content"
+					    android:layout_margin="3dp"
+					    android:text="@string/cargando"
+					    android:textColor="@color/TitleLugaresDeInteres"
+					    android:textSize="@dimen/TextViewFiestasPopularesDescriptionContent" />
+				    <View  
+				        android:layout_margin="5dp"
+					    android:layout_width="fill_parent"
+		                android:layout_height="3dp"
+					    android:background="@drawable/background_line_item" />	
+						
+				    <TextView
+				        android:id="@+id/textViewfiestaspopulares_description_day"
+				        android:layout_width="fill_parent"
+				        android:layout_height="wrap_content"
+						android:layout_margin="3dp"
+				        android:text="@string/cargando"
+				        android:textSize="@dimen/textViewContentFicha"
+				        android:textColor="@color/ContentLugaresDeInteres"/>
+			    </LinearLayout>
+				
+			</LinearLayout>
+	
+</LinearLayout>

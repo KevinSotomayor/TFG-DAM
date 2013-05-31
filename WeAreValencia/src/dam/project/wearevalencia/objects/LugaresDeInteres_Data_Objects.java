@@ -47,7 +47,7 @@ public class LugaresDeInteres_Data_Objects {
 	private final static int ESTACION_NORTE =8;
 	private final static int PLAZA_TOROS = 9;
 	private final static int PLAZA_VIRGEN = 10;
-	private final static int EL_MICALET = 11;
+	private final static int MICALET = 11;
 	
 	//devolver lista de lugares de interes - Monumentos
 	public static ArrayList<LugaresDeInteres_Item> obtainMonuments(Context contexto){
@@ -62,7 +62,7 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.LonjaDeLaSedaContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
+					contexto.getString(R.string.lonjaDeLaSedaAddress),
 					contexto.getString(R.string.lonjaDeLaSedaPrice),
 					contexto.getString(R.string.lonjaDeLaSedaHorary),
 					contexto.getString(R.string.lonjaDeLaSedaTelephone),
@@ -77,134 +77,145 @@ public class LugaresDeInteres_Data_Objects {
 					contexto.getString(R.string.torresDeSerranosContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.torresDeSerranosAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.torresDeSerranosAddress),
+					contexto.getString(R.string.torresDeSerranosPrice),
+					contexto.getString(R.string.torresDeSerranosHorary),
+					contexto.getString(R.string.torresDeSerranosTelephone),
 					R.drawable.lugaresdeinteres_ficha_torresdeserranos, 
 					arrayGallery
 					);
 			
+			latlng = new LatLng(39.47574166307943,-0.3841759499999853); 
 			LugaresDeInteres_Item torresDeQuart =  new LugaresDeInteres_Item(
 					TORRES_DE_QUART,
 					contexto.getString(R.string.torresDeQuart), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.torresDeQuartContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.torresDeQuartAddress),
+					contexto.getString(R.string.torresDeQuartPrice),
+					contexto.getString(R.string.torresDeQuartHorary),
+					contexto.getString(R.string.torresDeQuartTelephone),
 					R.drawable.lugaresdeinteres_ficha_torresquart, 
 					arrayGallery
 					);
 			
+			latlng = new LatLng(39.473612081180725,-0.3793405272460859); 
 			LugaresDeInteres_Item mercadoCentral =  new LugaresDeInteres_Item(
 					MERCADO_CENTRAL,
 					contexto.getString(R.string.mercadoCentral), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.mercadoCentralContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.mercadoCentralAddress),
+					contexto.getString(R.string.mercadoCentralPrice),
+					contexto.getString(R.string.mercadoCentralHorary),
+					contexto.getString(R.string.mercadoCentralTelephone),
 					R.drawable.lugaresdeinteres_ficha_mercadocentral, 
 					arrayGallery
 					);
 			
+			latlng = new LatLng(39.46880596688192,-0.3688555079345468);
 			LugaresDeInteres_Item mercadoColon =  new LugaresDeInteres_Item(
 					MERCADO_COLON,
 					contexto.getString(R.string.mercadoColon), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.mercadoColonContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.mercadoColonAddress),
+					contexto.getString(R.string.mercadoColonPrice),
+					contexto.getString(R.string.mercadoColonHorary),
+					contexto.getString(R.string.mercadoColonTelephone),
 					R.drawable.lugaresdeinteres_ficha_mercadocolon, 
 					arrayGallery
 					);
 			
+			latlng = new LatLng(39.45697498085445,-0.3526350330353045); 
 			LugaresDeInteres_Item ciudadartesyciencias =  new LugaresDeInteres_Item(
 					CAC,
 					contexto.getString(R.string.cac), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.cacContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.cacAddress),
+					contexto.getString(R.string.cacPrice),
+					contexto.getString(R.string.cacHorary),
+					contexto.getString(R.string.cacTelephone),
 					R.drawable.lugaresdeinteres_ficha_cac, 
 					arrayGallery
 					);
 			
-			
+			latlng = new LatLng(39.46977456919956,-0.37673604736028654); 
 			LugaresDeInteres_Item plazaAyuntamiento =  new LugaresDeInteres_Item(
 					PLAZA_AYUNTAMIENTO,
 					contexto.getString(R.string.plazaAyuntamiento), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.plazaAyuntamientoContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.plazaAyuntamientoAddress),
+					contexto.getString(R.string.plazaAyuntamientoPrice),
+					contexto.getString(R.string.plazaAyuntamientoHorary),
+					contexto.getString(R.string.plazaAyuntamientoTelephone),
 					R.drawable.lugaresdeinteres_ficha_plazaayuntamiento, 
 					arrayGallery
 					);
 			
+			latlng = new LatLng(39.467364213075506,-0.3770545999999513); 
 			LugaresDeInteres_Item estacionNorte =  new LugaresDeInteres_Item(
 					ESTACION_NORTE,
 					contexto.getString(R.string.estacionDelNorte), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.estacionDelNorteContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.estacionDelNorteAddress),
+					contexto.getString(R.string.estacionDelNortePrice),
+					contexto.getString(R.string.estacionDelNorteHorary),
+					contexto.getString(R.string.estacionDelNorteTelephone),
 					R.drawable.lugaresdeinteres_ficha_estacionnorte, 
 					arrayGallery
 					);
+			
+			latlng = new LatLng(39.46723169263762,-0.3757349531646259); 
 			LugaresDeInteres_Item plazaToros =  new LugaresDeInteres_Item(
 					PLAZA_TOROS,
 					contexto.getString(R.string.plazaDeToros), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.plazaDeTorosContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.plazaDeTorosAddress),
+					contexto.getString(R.string.plazaDeTorosPrice),
+					contexto.getString(R.string.plazaDeTorosHorary),
+					contexto.getString(R.string.plazaDeTorosTelephone),
 					R.drawable.lugaresdeinteres_ficha_plazatoros, 
 					arrayGallery
 					);
-			LugaresDeInteres_Item plazaVirgen =  new LugaresDeInteres_Item(
+			
+			latlng = new LatLng(39.476333263079695,-0.3753375500000402); 
+			LugaresDeInteres_Item basilicaVirgenDesamparados =  new LugaresDeInteres_Item(
 					PLAZA_VIRGEN,
-					contexto.getString(R.string.plazaDeLaVirgen), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+					contexto.getString(R.string.basilicaPlazaDeLaVirgen), 
+					contexto.getString(R.string.basilicaPlazaDeLaVirgenContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.basilicaPlazaDeLaVirgenAddress),
+					contexto.getString(R.string.basilicaPlazaDeLaVirgenPrice),
+					contexto.getString(R.string.basilicaPlazaDeLaVirgenHorary),
+					contexto.getString(R.string.basilicaPlazaDeLaVirgenTelephone),
 					R.drawable.lugaresdeinteres_ficha_plazavirgen, 
 					arrayGallery
 					);
-			LugaresDeInteres_Item elMicalet =  new LugaresDeInteres_Item(
-					EL_MICALET,
-					contexto.getString(R.string.elMicalet), 
-					contexto.getString(R.string.LonjaDeLaSedaContent), 
+			
+			latlng = new LatLng(39.47526494758923,-0.37548775370488396); 
+			LugaresDeInteres_Item micalet =  new LugaresDeInteres_Item(
+					MICALET,
+					contexto.getString(R.string.micalet), 
+					contexto.getString(R.string.micaletContent), 
 					contexto.getString(R.string.Monumentos),
 					latlng, 
-					contexto.getString(R.string.lonjaDeLaSedaAddres),
-					contexto.getString(R.string.lonjaDeLaSedaPrice),
-					contexto.getString(R.string.lonjaDeLaSedaHorary),
-					contexto.getString(R.string.lonjaDeLaSedaTelephone),
+					contexto.getString(R.string.micaletAddress),
+					contexto.getString(R.string.micaletPrice),
+					contexto.getString(R.string.micaletHorary),
+					contexto.getString(R.string.micaletTelephone),
 					R.drawable.lugaresdeinteres_ficha_elmicalet, 
 					arrayGallery
 					);
@@ -219,8 +230,8 @@ public class LugaresDeInteres_Data_Objects {
 			arrayList.add(plazaAyuntamiento);
 			arrayList.add(estacionNorte);
 			arrayList.add(plazaToros);
-			arrayList.add(plazaVirgen);
-			arrayList.add(elMicalet);
+			arrayList.add(basilicaVirgenDesamparados);
+			arrayList.add(micalet);
 
 		return arrayList;
 		

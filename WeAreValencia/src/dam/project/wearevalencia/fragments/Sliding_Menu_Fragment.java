@@ -70,6 +70,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			break;
 		
 		case FIESTAS_POPULARES: //fiestas populares de valencia
+			newContent = new Main_FiestasPopulares();
 			break;
 			
 		case CENTROS_COMERCIALES: //centros comerciales ubicados en un mapa
