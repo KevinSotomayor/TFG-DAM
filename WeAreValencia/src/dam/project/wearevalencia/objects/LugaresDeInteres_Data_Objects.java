@@ -248,7 +248,7 @@ public class LugaresDeInteres_Data_Objects {
 				arrayList = new ArrayList<LugaresDeInteres_Item>();
 				//sobreescribir estas variables que contendrán otra información como la latlong y las imagenes
 				//que leerá de la sd.
-				latlng = new LatLng(39.47434857729124, -0.3785929481113093);
+				latlng = new LatLng(39.45680230241901, -0.3540386599063372);
 				arrayGallery = new int[]{R.drawable.main_bg_1, R.drawable.main_bg_2, R.drawable.main_bg_3, R.drawable.main_bg_4, R.drawable.main_bg_5};
 				LugaresDeInteres_Item hemisferic =  new LugaresDeInteres_Item(
 						HEMISFERIC,
@@ -264,8 +264,8 @@ public class LugaresDeInteres_Data_Objects {
 						arrayGallery
 						);
 				
-				latlng = new LatLng(39.47913178119177,-0.37600058732025765);
-				LugaresDeInteres_Item torresDeSerranos =  new LugaresDeInteres_Item(
+				latlng = new LatLng(39.45596770693522,-0.3519519012927508);
+				LugaresDeInteres_Item museoDeLasCiencias =  new LugaresDeInteres_Item(
 						MUSEO_DE_LAS_CIENCIAS,
 						contexto.getString(R.string.museoDeLasCiencias), 
 						contexto.getString(R.string.museoDeLasCienciasContent), 
@@ -279,8 +279,8 @@ public class LugaresDeInteres_Data_Objects {
 						arrayGallery
 						);
 				
-				latlng = new LatLng(39.47574166307943,-0.3841759499999853); 
-				LugaresDeInteres_Item torresDeQuart =  new LugaresDeInteres_Item(
+				latlng = new LatLng(39.4529357423685,-0.3479835730552172); 
+				LugaresDeInteres_Item oceanografic =  new LugaresDeInteres_Item(
 						OCEANOGRAFIC,
 						contexto.getString(R.string.oceanografic), 
 						contexto.getString(R.string.oceanograficContent), 
@@ -294,8 +294,8 @@ public class LugaresDeInteres_Data_Objects {
 						arrayGallery
 						);
 				
-				latlng = new LatLng(39.473612081180725,-0.3793405272460859); 
-				LugaresDeInteres_Item mercadoCentral =  new LugaresDeInteres_Item(
+				latlng = new LatLng(39.45814219037214,-0.3559618037700152); 
+				LugaresDeInteres_Item palauDeLesArts =  new LugaresDeInteres_Item(
 						PALAU_DE_LES_ARTS,
 						contexto.getString(R.string.palauDeLesArts), 
 						contexto.getString(R.string.palauDeLesArtsContent), 
@@ -309,8 +309,8 @@ public class LugaresDeInteres_Data_Objects {
 						arrayGallery
 						);
 				
-				latlng = new LatLng(39.46880596688192,-0.3688555079345468);
-				LugaresDeInteres_Item mercadoColon =  new LugaresDeInteres_Item(
+				latlng = new LatLng(39.45532570360177,-0.3538911384105181);
+				LugaresDeInteres_Item umbracle =  new LugaresDeInteres_Item(
 						UMBRACLE,
 						contexto.getString(R.string.umbracle), 
 						contexto.getString(R.string.umbracleContent), 
@@ -324,8 +324,8 @@ public class LugaresDeInteres_Data_Objects {
 						arrayGallery
 						);
 				
-				latlng = new LatLng(39.45697498085445,-0.3526350330353045); 
-				LugaresDeInteres_Item ciudadartesyciencias =  new LugaresDeInteres_Item(
+				latlng = new LatLng(39.45396298012831,-0.34972030339236015); 
+				LugaresDeInteres_Item agora =  new LugaresDeInteres_Item(
 						AGORA,
 						contexto.getString(R.string.agora), 
 						contexto.getString(R.string.agoraContent), 
@@ -341,11 +341,11 @@ public class LugaresDeInteres_Data_Objects {
 	
 				
 				arrayList.add(hemisferic);
-				arrayList.add(torresDeSerranos);
-				arrayList.add(torresDeQuart);
-				arrayList.add(mercadoCentral);
-				arrayList.add(mercadoColon);
-				arrayList.add(ciudadartesyciencias);
+				arrayList.add(museoDeLasCiencias);
+				arrayList.add(oceanografic);
+				arrayList.add(palauDeLesArts);
+				arrayList.add(umbracle);
+				arrayList.add(agora);
 				
 
 			return arrayList;

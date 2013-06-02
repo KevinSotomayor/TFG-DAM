@@ -219,56 +219,85 @@ Inaugurado en 1998, el Hemisfèric fue el primer edificio de la Ciudad de las Ar
 El Hemisfèric ofrece una variada programación de proyecciones inmersivas en domo semiesférico –IMAX, proyecciones digitales…- en un escenario exclusivo y único en el mundo por su diseño. Tras quince años en marcha suma cerca de 7 millones de espectadores, y se ha convertido además en sede de importantes encuentros científicos y de divulgación. En estos años, por la sala del Hemisfèric han pasado más de 49 producciones; en total, más de 40.000 horas de proyección. 
 </string>
 	<string name="hemisfericAddress">Ciudad de las Artes y las Ciencias</string>
-	<string name="hemisfericPrice">Adultos: 8.80€\n\nReducida: 6.85€\n\nEscolares: 4.70€\n\nGrupos adultos: 6.40€</string>
+	<string name="hemisfericPrice">Adultos: 8.80€\n\nReducida: 6.85€\n\nEscolares: 4.70€\n\nGrupo Adultos: 6.40€</string>
 	<string name="hemisfericHorary">De lunes a viernes:\n09.30 - 18.00 horas.\n\n
 Fines de semana y festivos:\n10.00-14.00 horas.</string>
 	<string name="hemisfericTelephone">902 100 031</string>
 	
 	<string name="museoDeLasCiencias">Museo de las Ciencias Príncipe Felipe</string>
-	<string name="museoDeLasCienciasContent"></string>
-	<string name="museoDeLasCienciasAddress"></string>
-	<string name="museoDeLasCienciasPrice"></string>
-	<string name="museoDeLasCienciasHorary"></string>
-	<string name="museoDeLasCienciasTelephone"></string>
+	<string name="museoDeLasCienciasContent">Es el gran museo del siglo XXI para dar a conocer de forma didáctica, interactiva y amena todo lo relacionado con la evolución de la vida, la ciencia y la tecnología. En el espectacular edificio diseñado por Santiago Calatrava los visitantes cuentan con más de 26.000 metros cuadrados de exposiciones relacionadas con la actualidad científica y tecnológica.\n\n
+El Museo de las Ciencias Príncipe Felipe se ha convertido en un referente mundial de la ciencia interactiva y en uno de los centros más visitados del país, con más de 29 millones de visitantes desde su puesta en marcha en 2000. Su principal objetivo consiste en fomentar la curiosidad y el espíritu crítico, intentando sorprender y divertir al público a través de los contenidos que ofrece en torno al mundo de la ciencia, la tecnología y el medio ambiente.\n\n
+La interactividad plena es una de sus señas de identidad, bajo el lema “Prohibido no tocar, no sentir, no pensar”. El vehículo que utiliza el Museo consta de una enorme variedad de exposiciones temporales y animaciones científicas de todo tipo que despiertan la curiosidad acerca de las nuevas tecnologías y los avances de la ciencia, generando un aprendizaje divertido en el que el protagonista es siempre el visitante, que elige dónde ha de ir y lo que quiere saber.\n\n
+La diversidad de exposiciones interactivas y las numerosas actividades de divulgación que vienen desarrollándose en el Museo han culminado en un importante éxito de público, que sin duda ha respondido calurosamente a la propuesta de divulgar y difundir la ciencia y la tecnología desde la diversión y el entretenimiento, pero sin renunciar al mínimo rigor científico necesario a la hora de abordar los temas que se tratan.\n\n
+En todas esas actividades de divulgación, la experiencia en directo sigue siendo la forma más estimulante y divertida de adquirir conocimiento científico. Por eso, además de las exposiciones, el Museo ofrece un completo programa de animación científica, que fomenta la participación del público y su colaboración con los monitores.\n\n
+Algunas de estas animaciones tienen lugar en la zona expositiva. La intención es posibilitar al visitante la participación y la realización de preguntas. Los mensajes científicos que recogen las exposiciones se explican aquí de una manera más cercana.
+	</string>
+	<string name="museoDeLasCienciasAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="museoDeLasCienciasPrice">Adultos: 8.80€\n\nReducida: 6.20€\n\nEscolares: 4.30€\n\nGrupo Adultos: 5.80€</string>
+	<string name="museoDeLasCienciasHorary">De lunes a viernes:\n09.30 - 18.00 horas.\n\n
+Fines de semana y festivos:\n10.00-14.00 horas.</string>
+	<string name="museoDeLasCienciasTelephone">902 100 031</string>
 	
 	<string name="oceanografic">Oceanogràfic</string>
-	<string name="oceanograficContent"></string>
-	<string name="oceanograficAddress"></string>
-	<string name="oceanograficPrice"></string>
-	<string name="oceanograficHorary"></string>
-	<string name="oceanograficTelephone"></string>
+	<string name="oceanograficContent">El Oceanogràfic de la Ciudad de las Artes y las Ciencias es el mayor acuario de Europa, y en él se representan los principales ecosistemas marinos del planeta. Cada edificio se identifica con los siguientes ambientes acuáticos: Mediterráneo, Humedales, Mares Templados y Tropicales, Océanos, Antártico, Ártico, Islas y Mar Rojo, además del Delfinario, con 24 millones de litros de agua y una profundidad de 10,5 metros. El Restaurante Submarino y el Edificio de Acceso que da la bienvenida a los visitantes, destacan por las espectaculares cubiertas diseñadas por Félix Candela.\n\n
+Durante la visita y a lo largo del recorrido por las diferentes instalaciones, podremos conocer de cerca el comportamiento y forma de vida de los más de 45.000 ejemplares de 500 especies diferentes que alberga. Entre las especies de gran interés, el visitante observa delfines, belugas, morsas, leones marinos, focas, pingüinos, tortugas, tiburones, rayas, peces sierra, medusas, estrellas, erizos, gran variedad de crustáceos, así como las aves típicas de zonas húmedas, como las que viven en la Albufera de Valencia y en manglares tropicales, entre otros animales.\n\n
+Desde su apertura en 2003,  más de 13 millones de personas han visitado estas instalaciones en las que se realizan a lo largo del año numerosas actividades divulgativas, ciclos de conferencias, exposiciones de temáticas diversas, congresos y cursos, sin olvidar los proyectos de investigación y los talleres bioeducativos que desde el principio se han puesto en marcha en su Edificio E+I en colaboración con universidades y entidades científicas nacionales e internacionales.\n\n
+El Oceanogràfic de la Ciudad de las Artes y las Ciencias se concibe así como un parque natural, un centro científico y divulgativo, que contribuye a la recuperación de fauna y flora protegida, promoviendo ante sus visitantes un mensaje de conservación y respeto por el medio ambiente, al tiempo que desarrolla programas específicos de investigación sobre las ciencias del mar y sus habitantes.    
+	</string>
+	<string name="oceanograficAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="oceanograficPrice">Adultos: 27.90 €\n\nReducida: 21.00 €\n\nEscolares: 12.55 €\n\nGrupo Adultos: 18.65 €</string>
+	<string name="oceanograficHorary">De lunes a viernes:\n09.30 - 18.00 horas.\n\n
+Fines de semana y festivos:\n10.00-14.00 horas.</string>
+	<string name="oceanograficTelephone">902 100 031</string>
 	
 	
 	<string name="palauDeLesArts">Palau de les Arts Reina Sofía</string>
-	<string name="palauDeLesArtsContent"></string>
-	<string name="palauDeLesArtsAddress"></string>
-	<string name="palauDeLesArtsPrice"></string>
-	<string name="palauDeLesArtsHorary"></string>
-	<string name="palauDeLesArtsTelephone"></string>
+	<string name="palauDeLesArtsContent">El Palau de les Arts Reina Sofía, tras la inauguración del Hemisfèric en 1998, el Museo de las Ciencias Príncipe Felipe junto con el Umbracle en 2000 y la apertura al público del Oceanográfico en 2003, completa el componente artístico que representa esta decidida apuesta de la Generalitat por la cultura en su más amplio sentido, junto a la ciencia, la tecnología y la naturaleza.\n\n
+	    Inaugurado en 2005, cuenta con las más modernas tecnologías, adoptando la imagen correspondiente a un espacio vanguardista y actual, convirtiéndose en dinamizador cultural que sitúa a la Comunidad Valenciana, desde su centenaria tradición musical, en un lugar privilegiado entre las regiones de todo el mundo.\n\n
+	    El majestuoso edificio, diseñado por el arquitecto e ingeniero valenciano Santiago Calatrava, supone para la ciudad de Valencia y la Comunidad Valenciana disponer de la mejor infraestructura para introducirlas en los circuitos internacionales, especialmente en lo referido a la ópera y los grandes espectáculos musicales.</string>
+	<string name="palauDeLesArtsAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="palauDeLesArtsPrice">Varía según el espectáculo.</string>
+	<string name="palauDeLesArtsHorary">Depende del espectáculo</string>
+	<string name="palauDeLesArtsTelephone">902 100 031</string>
 	
 	
 	<string name="umbracle">Umbracle</string>
-	<string name="umbracleContent"></string>
-	<string name="umbracleAddress"></string>
-	<string name="umbraclePrice"></string>
-	<string name="umbracleHorary"></string>
-	<string name="umbracleTelephone"></string>
+	<string name="umbracleContent">El Umbracle es un mirador de más de 17.500 metros cuadrados con zona expositiva desde el que se puede contemplar la globalidad de edificios, estanques, paseos y zonas ajardinadas de la Ciudad de las Artes y las Ciencias. Presenta vegetación propia de la región mediterránea, de la Comunidad Valenciana y de países tropicales, que varía a lo largo de las estaciones del año, y donde además existe una interesante muestra de esculturas contemporáneas de artistas en el Paseo del Arte.\n\n
+	    El Umbracle acoge también el Jardín de Astronomía un espacio de acceso libre al público que complementa los contenidos y actividades que se desarrollan en Ciudad de las Artes y las Ciencias relacionados con esta disciplina.\n\nEn su interior alberga el aparcamiento de la Ciudad de las Artes y las Ciencias, con capacidad para 665 vehículos y 25 autobuses repartidos en dos plantas.</string>
+	<string name="umbracleAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="umbraclePrice">Gratuito.</string>
+	<string name="umbracleHorary">Abierto todos los días.</string>
+	<string name="umbracleTelephone">902 100 031</string>
 	
 	
 	<string name="agora">Ágora</string>
-	<string name="agoraContent"></string>
-	<string name="agoraAddress"></string>
-	<string name="agoraPrice"></string>
-	<string name="agoraHorary"></string>
-	<string name="agoraTelephone"></string>
+	<string name="agoraContent">El nuevo icono de la Ciudad de la Artes y las Ciencias es un espacio con una versatilidad que permite acoger eventos de diversa naturaleza. Un escenario multifuncional proyectado para la celebración de congresos, convenciones, conciertos o representaciones, con la posibilidad de transformarse en zona para exposiciones. En los últimos años, este edificio ha acogido con éxito la celebración de los torneos del Valencia Open 500 de tenis, una de las grandes citas deportivas internacionales.\n\n
+	    Durante 2010, el Agora se convirtió en escenario de la Copa España Burn Freestyle, certamen en el que participan los mejores pilotos del panorama nacional e internacional. También se celebró en sus instalaciones la programación especial de Navidad de la Ciudad de las Artes y las Ciencias, que incluyó pista de patinaje sobre hielo además de espectáculos infantiles.\n\n
+	    Otra de las actividades que ha acogido ha sido una sesión artística protagonizada por Juan Ripollés y Willy Ramos, que crearon en directo tres cuadros, uno de ellos de temática libre sobre lienzo que pintaron a cuatro manos. Además, cada autor eligió una fotografía de la Ciudad de las Artes y las Ciencias para realizar su propia interpretación artística de la imagen. Las tres obras fueron donadas a la Casa de la Caridad de Valencia para su posterior subasta.\n\n
+	    Cabe destacar que el Ágora ha acogido  la Valencia Fashion Week (VFW), donde los diseñadores valencianos muestran sus propuestas de moda.</string>
+	<string name="agoraAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="agoraPrice">Varía según el espectáculo.</string>
+	<string name="agoraHorary">Depende del espectáculo.</string>
+	<string name="agoraTelephone">902 100 031</string>
 	
 	
 	
 	<!-- Centro de la ciudad -->
 	<string name="centroCiudad">Centro de la Ciudad</string>
 	<string name="elCarmen">El Carmen</string>
+	<string name="elCarmenContent"></string>
+	<string name="elCarmenAddress"></string>
+	<string name="elCarmenPrice"></string>
+	<string name="elCarmenHorary"></string>
+	<string name="elCarmenTelephone"></string>
+	
 	<string name="ccbancaja">Centro Cultural Bancaja</string>
-	<string name="streetArt">Arte Urbano</string>
+	<string name="ccbancajaContent"></string>
+	<string name="ccbancajaAddress"></string>
+	<string name="ccbancajaPrice"></string>
+	<string name="ccbancajaHorary"></string>
+	<string name="ccbancajaTelephone"></string>
+	
 	
 	<!-- Parques -->
 	<string name="parques">Parques</string>
