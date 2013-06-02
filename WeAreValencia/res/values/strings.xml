@@ -248,11 +248,88 @@ Sólo falta que esos muñecos, protagonistas de cualquier sainete del barrio, de
 	    El 19 de marzo por la noche todos los monumentos, infantiles y grandes, arden en llamas.\n\nA partir de las  22 h, da comienzo la Cremà de los monumentos infantiles. Dos horas más tarde es el momento de los monumentos grandes. La Falla de la Plaza del Ayuntamiento es la última en arder, a la 1 de la madrugada.\n\nSiempre va precedida de un ramillete de espectaculares carcasas que llenan de ruido, luz y color la plaza, y que dan pasa a la Cremà de la última falla de la ciudad, y por tanto al final de la fiesta.
 	    </string>
 	    
+	<string name="sanJuan">San Juan</string>
+	<string name="sanJuanContent">La Noche de San Juan es una festividad de origen muy antiguo que suele ir ligada a encender hogueras o fuegos, ligada con las celebraciones en la que se festejaba la llegada del solsticio de verano en el hemisferio norte, cuyo rito principal consiste en encender una hoguera.\n\n
+Todos los años, el 23 de junio a las 12 de la noche, los más supersticiosos y los más fiesteros realizan varios rituales para aprovechar las energías mágicas de la noche de San Juan, tales como saltar las olas o hacer una hoguera.\n\n
+Pasar por encima de las hogueras que se encienden esta noche o meterse en el mar y saltar olas, son sólo algunas de esas leyendas que permiten, según se dice, que se cumplan algunos de los deseos que pedimos durante esta noche tan llena de magia.\n\n
+El fuego dará protección todo el año a aquellos que se atravan a saltar por encima de las llamas. En Galicia el ritual marca que es necesario saltar nueve veces mientras que en Alicante y Valencia siete es el número mágico.\n
+Si cuando se está saltando al fuego se arroja una trenza hecha con flores o cintas de colores a la persona amada y esta la recoge antes de que caiga, habrá felicidad entre ambos y buena fortuna.\n\n
+	</string>
+	<string name="sanJuanCalendar">En Valencia se celebra la madrugada del 23 al 24 de junio. Las playas de Valencia se convierten así en el escenario donde llevar a cabo el ritual en el que el mar y el fuego se unen para hacer realidad tus deseos.\n\n</string>
+	
+	
 	<string name="sanVicenteFerrer">San Vicente Ferrer</string>
+	<string name="sanVicenteFerrerContent">Durante el segundo lunes de Pascua, la ciudad de Valencia celebra la festividad de San Vicente Ferrer, uno de los patronos de la ciudad. Quizá sea el valenciano más universal que ha dado la ciudad. Reconocido como la mayor fuente de milagros de la Iglesia y uno de los políticos, teólogos, intelectuales y filósofos más influyentes de su época.\n\n
+Pero sin duda, lo que más caracteriza las celebraciones son las representaciones de su vida y milagros en "els altars". Se trata de un residuo de la vida religiosa más ancestral y directa que se perpetua en la ciudad desde el año 1561.\n\n
+"Els Milacres", son dramatizaciones de los milagros atribuidos al santo patrón, que escenifican niños menores de 13 años, siempre en verso y en lengua valenciana. Son numerosos los altares que se levantan en los distintos barrios de la ciudad, presididos siempre por la imagen del santo.\n\n</string>
+	<string name="sanVicenteFerrerCalendar">Pese a que el programa de actos se alarga durante toda una semana, su cumbre tiene lugar el día de la efemérides, fecha que el Ayuntamiento no olvida y nos recuerda ya desde la víspera, con la ayuda del Gremi de Campaners de la Catedral, y su volteo de campanas a las 7.30 h. Pero será a lo largo del día de la fiesta, cuando los campaneros se afanen más con una serie de toques a lo largo del día.\n\n
+Su punto álgido, se alcanzará con los volteos de campanas a la salida del Santo por la Puerta de los hierros durante la Solemne Procesión. Sin duda es ésta una festividad de peculiar carisma y atractivo que atrae a propios y visitantes, que compatibilizan el sol de nuestras playas, ya repletas a estas alturas de mes, con la cultura y raíces valencianas.  </string>
+	
 	<string name="corpus">Corpus</string>
+	<string name="corpusContent">Domingo de la sexagésima (60 días) de pascua. Estamos ante la celebración que históricamente ha sido considerada como la "Fiesta Grande" de la ciudad. Más allá del puro sentido católico, el Corpus es una muestra de la convivencia del espíritu festivo, simbólico, metafórico y religioso de la sociedad valenciana.\n\n
+El origen de la festividad se sitúa en 1263, pero sería en 1355 cuando el obispo de Valencia Hugo de Fenollet (quien 5 años antes habría bautizado a San Vicente Ferrer) instauraría la procesión. Actualmente, gracias a la inmejorable labor de la Asociación Amics del Corpus de la Ciudad de Valencia, la fiesta ha retomado 
+la vitalidad de sus inicios.\n\n</string>
+	<string name="corpusCalendar">12.00 La Cabalgata del Convite donde destacan: \n\n
+	    El Capellá de les Roques
+	    \n
+	    Las Danzas
+	    \n
+	    El Baile de los “Nanos” y  “Gegants"
+	    \n
+	    La Poalà
+	    \n\n
+	    16:30h Paso de las Rocas\n\n19.00h Solemne Procesión
+	    </string>
+	
 	<string name="semanaSanta">Semana Santa</string>
+	<string name="semanaSantaContent">En uno de los distritos mas emblematicos de la ciudad de Valencia, EL MARITIM, tiene lugar la tradicional Semana Santa Marinera. El carácter mediterráneo de sus habitantes, hace única esta festividad dentro del marco de celebracion de la semana santa en España.\n\n
+La tradición nos dice que el origen de la Semana Santa Marinera se encuentra en el siglo XV, al crearse un grupo llamado la "Concordia dels disciplinants", de la que fue prior San Vicente Ferrer, aunque no existen documentos escritos de ésto.\n\n
+Es cierto, que carece de Pasos Procesionales tales como los de la Semana Santa andaluza o castellana, ni tampoco desatan la misma expectación. Con la salvedad, eso sí, de La Verónica de D. Mariano Benlliure. Sin embargo, está llena de actos y celebraciones que le confieren una significación única.\n\n
+Por un lado tenemos que, junto con el programa de actos conjuntos , hay un día señalado para cada Hermandad, en la que se procesiona con el trono-anda y se realiza el traslado de la imagen a casa del cofrade a quien haya correspondido por sorteo. Es tradición en Valencia, que el culto se haga en casa del cofrade seleccionado y para ello el lugar se decora con primor y esmero.\n\n
+Es también algo característico de esta celebración, que junto a las imágenes de las cofradías, procesionen otras vivientes (vecinos ataviados como Pilatos, Herodes, Salomé, la Dolorosa...) que desfilan a toque de campanas y acompañamiento de música tradicional. Muchos de estos personajes bíblicos han sido rescatados de la antigua procesión del Corpus Christi. De su conjunto indumentarista, lo que más destaca es lo complicado y llamativo de los peinados.\n\n
+</string>
+	<string name="semanaSantaCalendar">La Semana Santa del año 2013 según el calendario litúrgico se celebrará entre el 24 y el 31 de Marzo del 2013.\n\n
+	    Las fechas más señaladas de la Semana Santa del año 2013 son:\n
+24 de Marzo, Domingo de Ramos\n
+25 de Marzo, Lunes Santo\n
+26 de Marzo, Martes Santo\n
+27 de Marzo, Miércoles Santo\n
+28 de Marzo, Jueves Santo\n
+29de Marzo, Viernes Santo\n
+30 de Marzo, Sábado de Gloria (ó Sábado de Gloria)\n
+31 de Marzo, Domingo de Resurrección (ó Domingo de Pascua)\n
+1 de Abril, Lunes de Pascua, festivo en algunas comunidades\n
+	    </string>
+	
 	<string name="virgenDesamparados">La Virgen de los Desamparados</string>
+	<string name="virgenDesamparadosContent">El segundo domingo de mayo, todos los valencianos tienen una cita con La Geperudeta, a quien dedican toda clase de honores y tributos. La Mare de Deu dels Desamparats tiene una larga historia que pasa de generación en generación, de padres a hijos.\n\n
+	    La Virgen de los Desamparados, La Geperudeta (así llamada por la posición de la cabeza mirando hacia abajo), además de ser la Patrona de la ciudad de Valencia, fue coronada canónicamente en 1923 en presencia de los reyes de España y diversas autoridades eclesiásticas.\n\n
+	    Toda esa historia, tiene su continuación cada segundo domingo de mayo (aunque el día oficial fuese el 8 de mayo). La Missa de Descoberta, Missa d Infants, Traslado y Procesión son los momentos más esperados por miles y miles de fieles. Pero sin duda es el traslado el momento en el que los valencianos expresan de manera más espontánea su devoción.\n\n
+	    En los umbrales del s. XXI, Valencia retoma sus más enraizadas costumbres el día de la Virgen de los Desamparados. La modernidad, la vanguardia y el agitado ritmo de una ciudad cosmopolita que mira de forma desafiante hacia el futuro, hace un sitio a la tradición, la devoción y el carisma de un pueblo que exhibe orgulloso sus raíces.\n\n
+	    Llama la atención como en la noche anterior al 2º domingo de mayo, el popular barrio del Carmen es escenario tanto de la vigilia de aquellos que acuden a los actos en honor de la Patrona como de la vida nocturna típica de los locales de ocio. Ejemplo claro de cómo Valencia avanza imparable hacia delante sin olvidar sus orígenes.	    
+	    </string>
+	<string name="virgenDesamparadosCalendar">Segundo Sabado de Mayo\n
+	    20:00 horas Salve Solemne a la Virgen en su Real Capilla.\n
+	    23:00 horas En la plaza de la Virgen, concierto por la Banda Municipal.\n
+	    24:00 horas Disparo de un castillo de fuegos artificiales en la Plaza del Ayuntamiento. Finalizado el castillo en la Plaza de la Virgen, Gran "Dansà" y "Cantá d'Albaes" en honor a "la Mare de Deu" (Colabora la Asociación de Cant Valencià) de la F.F.C.V.\n\n
+	    
+	    Segundo Domingo de Mayo\n
+	    5:00 horas Misa de Descoberta de la Sagrada imagen en su Capilla.\n
+	    8:00 horas Misa d infants, en la Plaza de la Virgen.\n
+	    10:30 horas Traslado de la Virgen desde su Real Capilla a la Catedral. Itinerario del Traslado: Salida de la Basílica, rodea la Plaza de la Virgen, C/ Miguelete, Plaza de la Reina, entrando a la Catedral por la Puerta de los Hierros.\n
+	    14:00 horas Disparo de una "mascletà" terrestre en la Plaza del Ayuntamiento.\n
+	    18:30 horas Solemne Procesión General por el itinerario de costumbre. Itinerario de la Procesión: Plaza de la Virgen, Caballeros, Tossal, Bolsería, Mercado, Mª Cristina, San Vicente, Plaza de la Reina, Mar, Avellanas, Palau, Almoina.
+	    
+	</string>
+	
 	<string name="nueveOctubre">9 de Octubre</string>
+	<string name="nueveOctubreContent"> Históricamente se festeja que en esa fecha, en el año 1238, Jaime I entró oficialmente en la ciudad de Valencia para liberarla del dominio musulmán.\n\n
+	    Desde 1365, cada 9 de octubre la Senyera valenciana preside los actos. Es descendida desde el balcón principal del Excelentísimo Ayuntamiento y se traslada en procesión cívica hasta la Catedral, donde se celebra un “Te Deum”, para seguidamente llegar hasta el Parterre, donde ante la Estatua del Rey D. Jaime se realiza una ofrenda floral. Al acabar el acto y después de cantar el Himno Valenciano es entregada en el Archivo Municipal.\n\n
+	    Actualmente, el 9 de octubre es jornada festiva en toda la Comunitat Valenciana, aunque tiene mucho más arraigo en la ciudad de Valencia. Paralelamente al programa oficial, otras instituciones y colectivos efectúan otros actos, como por ejemplo bailes y música regionales o la entrada de Moros y Cristianos.\n\n
+	    El 9 de octubre coincide con el día de Sant Donís, el día de los enamorados valencianos. Es típico de esta festividad que los hombres regalen a las mujeres lo que se conoce como “Mocadorà”, o también llamada “Mocaorà”, que es el nombre que se le dan a los dulces mazapán recogidos dentro de un pañuelo, en forma de hatillo, cerrado con un nudo o un anillo.\n\n
+	    Cada año, los pasteleros valencianos preparan miles y miles de estas figuritas de mazapán. Como dato curioso, cabe decir que para ese día son más de 70.000 los kilos de mazapán empleados en elaborar unas 200.000 “mocadoràs”, que luego se regalan a esposas, novias o madres.
+	    </string>
+	<string name="nueveOctubreCalendar">Cada 9 de octubre, los valencianos y valencianas celebran el día de su comunidad.</string>
 
 
 

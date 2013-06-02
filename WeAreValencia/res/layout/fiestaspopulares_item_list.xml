@@ -61,7 +61,7 @@
 					    android:layout_height="wrap_content"
 					    android:layout_margin="3dp"
 					    android:text="@string/cargando"
-					    android:textColor="@color/TitleLugaresDeInteres"
+					    android:textColor="@color/ContentLugaresDeInteres"
 					    android:textSize="@dimen/TextViewFiestasPopularesDescriptionContent" />
 				    <View  
 				        android:layout_margin="5dp"
@@ -76,7 +76,7 @@
 						android:layout_margin="3dp"
 				        android:text="@string/cargando"
 				        android:textSize="@dimen/textViewContentFicha"
-				        android:textColor="@color/ContentLugaresDeInteres"/>
+				        android:textColor="@color/irAlMapaColor"/>
 			    </LinearLayout>
 				
 			</LinearLayout>
