@@ -35,6 +35,7 @@
 			        android:layout_gravity="bottom"
 			        android:gravity="center"
 			        android:padding="3dp"
+			        android:background="@drawable/background_textview_degree_fiestas_populares_list"
 			        android:shadowColor="@color/ContentLugaresDeInteres"
 			        android:shadowDx="2"
 			        android:shadowDy="2"

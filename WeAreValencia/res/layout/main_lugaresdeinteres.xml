@@ -57,31 +57,31 @@
 			            android:textColor="@color/TitleLugaresDeInteres" />
 			    </LinearLayout>
 			    <LinearLayout 
-			        android:id="@+id/layout_button_CentroCiudad"
+			        android:id="@+id/layout_button_CiudadArtesCiencias"
 			        android:layout_width="fill_parent"
 			        android:layout_height="fill_parent"
 			        android:gravity="center"
 			        android:layout_weight="1"
-			        android:orientation="vertical"
+			        android:orientation="vertical" 
 			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
 			        
 			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_centroCiudad"
+			            android:id="@+id/imageView_mainlugaresdeinteres_cac"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
-			            android:src="@drawable/centrociudad_icon"
-			            android:layout_margin="4dp"
-			            android:adjustViewBounds="true"/>
+			            android:src="@drawable/cac_icon"
+			            android:adjustViewBounds="true"
+			            android:layout_margin="10dp"/>
 			        
 			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_centroCiudad"
+			            android:id="@+id/textView_mainlugaresdeinteres_cac"
 			            android:layout_width="fill_parent"
 			            android:layout_height="wrap_content"
 			            android:gravity="center"
 			            android:padding="10dp"
-			            android:text="@string/centroCiudad" 
+			            android:text="@string/cac"
 			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres"/>
+			            android:textColor="@color/TitleLugaresDeInteres" />
 			    </LinearLayout>
 		    </LinearLayout>
 		    <LinearLayout 
@@ -117,33 +117,38 @@
 			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
 			            android:textColor="@color/TitleLugaresDeInteres"/>
 			    </LinearLayout>
+			    
+			    
+			    
 			    <LinearLayout 
-			        android:id="@+id/layout_button_CAC"
+			        android:id="@+id/layout_button_CentroDeLaCiudad"
 			        android:layout_width="fill_parent"
 			        android:layout_height="fill_parent"
 			        android:gravity="center"
 			        android:layout_weight="1"
-			        android:orientation="vertical" 
+			        android:orientation="vertical"
 			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
 			        
 			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_cac"
+			            android:id="@+id/imageView_mainlugaresdeinteres_centroCiudad"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
-			            android:src="@drawable/cac_icon"
-			            android:adjustViewBounds="true"
-			            android:layout_margin="10dp"/>
+			            android:src="@drawable/centrociudad_icon"
+			            android:layout_margin="4dp"
+			            android:adjustViewBounds="true"/>
 			        
 			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_cac"
+			            android:id="@+id/textView_mainlugaresdeinteres_centroCiudad"
 			            android:layout_width="fill_parent"
 			            android:layout_height="wrap_content"
 			            android:gravity="center"
 			            android:padding="10dp"
-			            android:text="@string/cac"
+			            android:text="@string/centroCiudad" 
 			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres" />
+			            android:textColor="@color/TitleLugaresDeInteres"/>
 			    </LinearLayout>
+			    
+			    
 		    </LinearLayout>
 	    </LinearLayout>
 	    <LinearLayout

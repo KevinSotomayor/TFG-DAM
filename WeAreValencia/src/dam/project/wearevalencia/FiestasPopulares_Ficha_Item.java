@@ -39,7 +39,7 @@ public class FiestasPopulares_Ficha_Item extends SherlockFragmentActivity{
 		
 		if(objeto != null){
 			title = (TextView)findViewById(R.id.textView_Ficha_FP_titulo);
-			title.setTypeface(robotoRegular);
+			title.setTypeface(robotoBoldCondensed);
 			title.setText(objeto.getTitle());
 			
 			content = (TextView)findViewById(R.id.textView_Content_FP_OnlyText);

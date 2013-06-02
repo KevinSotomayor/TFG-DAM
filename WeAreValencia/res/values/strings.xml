@@ -32,9 +32,9 @@
     <color name="centerColorDegreeFichaItem">#CCe5e5e5</color>
     <color name="endColorDegreeFichaItem">#FFFFFF</color>
     <!-- degradado de cada item de la lista de fiestas populares -->
-    <color name="startColorDegreeItemFP">#FFFFFF</color>
-    <color name="centerColorDegreeItemFP">#88FFFFFF</color>
-    <color name="endColorDegreeItemFP">#01FFFFFF</color>
+    <color name="startColorDegreeItemFP">#FF000000</color>
+    <color name="centerColorDegreeItemFP">#88000000</color>
+    <color name="endColorDegreeItemFP">#01000000</color>
     <color name="iconsFichaLugaresDeInteres">#7e8083</color>
     <color name="grey_layout_pressed_light">#eeeeee</color>
     
@@ -210,11 +210,59 @@ Desde la terraza podrán disfrutar de unas maravillosas vistas de la ciudad de V
 	
 	<!-- Ciudad de las artes y las ciencias -->
 	<string name="hemisferic">Hemisfèric</string>
-	<string name="museoDeLasCiencias">Museo Príncipe Felipe</string>
+	<string name="hemisfericContent">Es la sala más grande de España que alberga tres sistemas de proyección en una pantalla cóncava de 900 metros cuadrados:\n\n
+Cine en gran formato, IMAX Dome.\n
+Cine digital 3D. Medidas de la pantalla 3D, rectángulo de aproximadamente 12x6 metros.\n
+Proyecciones digitales. Representaciones astronómicas y espectáculos de entretenimiento.\n
+
+Inaugurado en 1998, el Hemisfèric fue el primer edificio de la Ciudad de las Artes y las Ciencias que abrió sus puertas al público. Es un edificio espectacular diseñado por Santiago Calatrava, que cuenta con una cubierta ovoide de más de 100 metros de longitud, que alberga en su interior la gran esfera que constituye la sala de proyecciones.\n\n
+El Hemisfèric ofrece una variada programación de proyecciones inmersivas en domo semiesférico –IMAX, proyecciones digitales…- en un escenario exclusivo y único en el mundo por su diseño. Tras quince años en marcha suma cerca de 7 millones de espectadores, y se ha convertido además en sede de importantes encuentros científicos y de divulgación. En estos años, por la sala del Hemisfèric han pasado más de 49 producciones; en total, más de 40.000 horas de proyección. 
+</string>
+	<string name="hemisfericAddress">Ciudad de las Artes y las Ciencias</string>
+	<string name="hemisfericPrice">Adultos: 8.80€\n\nReducida: 6.85€\n\nEscolares: 4.70€\n\nGrupos adultos: 6.40€</string>
+	<string name="hemisfericHorary">De lunes a viernes:\n09.30 - 18.00 horas.\n\n
+Fines de semana y festivos:\n10.00-14.00 horas.</string>
+	<string name="hemisfericTelephone">902 100 031</string>
+	
+	<string name="museoDeLasCiencias">Museo de las Ciencias Príncipe Felipe</string>
+	<string name="museoDeLasCienciasContent"></string>
+	<string name="museoDeLasCienciasAddress"></string>
+	<string name="museoDeLasCienciasPrice"></string>
+	<string name="museoDeLasCienciasHorary"></string>
+	<string name="museoDeLasCienciasTelephone"></string>
+	
 	<string name="oceanografic">Oceanogràfic</string>
-	<string name="palauDeLesArts">Palau de les Arts</string>
+	<string name="oceanograficContent"></string>
+	<string name="oceanograficAddress"></string>
+	<string name="oceanograficPrice"></string>
+	<string name="oceanograficHorary"></string>
+	<string name="oceanograficTelephone"></string>
+	
+	
+	<string name="palauDeLesArts">Palau de les Arts Reina Sofía</string>
+	<string name="palauDeLesArtsContent"></string>
+	<string name="palauDeLesArtsAddress"></string>
+	<string name="palauDeLesArtsPrice"></string>
+	<string name="palauDeLesArtsHorary"></string>
+	<string name="palauDeLesArtsTelephone"></string>
+	
+	
 	<string name="umbracle">Umbracle</string>
+	<string name="umbracleContent"></string>
+	<string name="umbracleAddress"></string>
+	<string name="umbraclePrice"></string>
+	<string name="umbracleHorary"></string>
+	<string name="umbracleTelephone"></string>
+	
+	
 	<string name="agora">Ágora</string>
+	<string name="agoraContent"></string>
+	<string name="agoraAddress"></string>
+	<string name="agoraPrice"></string>
+	<string name="agoraHorary"></string>
+	<string name="agoraTelephone"></string>
+	
+	
 	
 	<!-- Centro de la ciudad -->
 	<string name="centroCiudad">Centro de la Ciudad</string>

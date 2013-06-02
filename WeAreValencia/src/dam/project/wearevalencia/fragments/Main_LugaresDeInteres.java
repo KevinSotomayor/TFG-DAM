@@ -58,6 +58,9 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 		
 		
 		arrayListMonumentos = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+		arrayListCAC = LugaresDeInteres_Data_Objects.obtainCAC(getActivity());
+		arrayListCentroCiudad = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+		arrayListParques = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 		//listeners de cada boton para que lleve a la siguiente pantalla pasando un objeto
 		listenersLayoutsButtons();
 		
@@ -170,12 +173,12 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 			}
 		});
 		
-		layoutCentroCiudad = (LinearLayout)getView().findViewById(R.id.layout_button_CentroCiudad);
+		layoutCentroCiudad = (LinearLayout)getView().findViewById(R.id.layout_button_CentroDeLaCiudad);
 		layoutCentroCiudad.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
+				goToIntent(arrayListCentroCiudad);
 			}
 		});
 		
@@ -184,23 +187,23 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 			
 			@Override
 			public void onClick(View v) {
-				
+				goToIntent(arrayListParques);
 			}
 		});
 		
-		layoutCAC = (LinearLayout)getView().findViewById(R.id.layout_button_CAC);
+		layoutCAC = (LinearLayout)getView().findViewById(R.id.layout_button_CiudadArtesCiencias);
 		layoutCAC.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-
+				goToIntent(arrayListCAC);
 			}
 		});
 	}
 
 	private void goToIntent(ArrayList<LugaresDeInteres_Item> arrayList){
 		Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
-		mFragmentActivity.onLugarDeInteresSelecconado(arrayListMonumentos);
+		mFragmentActivity.onLugarDeInteresSelecconado(arrayList);
 	}
 
 }

@@ -37,17 +37,23 @@ public class LugaresDeInteres_Data_Objects {
 	private static int[] arrayGallery;
 	
 	/*constantes identificadoras de cada lugar*/
-	private final static int LONJA_SEDA = 1;
-	private final static int TORRES_DE_SERRANOS = 2;
-	private final static int TORRES_DE_QUART = 3;
-	private final static int MERCADO_CENTRAL = 4;
-	private final static int MERCADO_COLON = 5;
-	private final static int CAC = 6;
-	private final static int PLAZA_AYUNTAMIENTO = 7;
-	private final static int ESTACION_NORTE =8;
-	private final static int PLAZA_TOROS = 9;
-	private final static int PLAZA_VIRGEN = 10;
-	private final static int MICALET = 11;
+	private static final  int LONJA_SEDA = 1;
+	private static final  int TORRES_DE_SERRANOS = 2;
+	private static final int TORRES_DE_QUART = 3;
+	private static final int MERCADO_CENTRAL = 4;
+	private static final int MERCADO_COLON = 5;
+	private static final int CAC = 6;
+	private static final int PLAZA_AYUNTAMIENTO = 7;
+	private static final int ESTACION_NORTE =8;
+	private static final int PLAZA_TOROS = 9;
+	private static final int PLAZA_VIRGEN = 10;
+	private static final int MICALET = 11;
+	private static final int HEMISFERIC = 12;
+	private static final int MUSEO_DE_LAS_CIENCIAS = 13;
+	private static final int OCEANOGRAFIC = 14;
+	private static final int PALAU_DE_LES_ARTS = 15;
+	private static final int UMBRACLE = 16;
+	private static final int AGORA = 17;
 	
 	//devolver lista de lugares de interes - Monumentos
 	public static ArrayList<LugaresDeInteres_Item> obtainMonuments(Context contexto){
@@ -237,5 +243,114 @@ public class LugaresDeInteres_Data_Objects {
 		
 	}
 	
+	//devolver lista de lugares de interes - Ciudad de las Artes y las Ciencias
+		public static ArrayList<LugaresDeInteres_Item> obtainCAC(Context contexto){
+				arrayList = new ArrayList<LugaresDeInteres_Item>();
+				//sobreescribir estas variables que contendrán otra información como la latlong y las imagenes
+				//que leerá de la sd.
+				latlng = new LatLng(39.47434857729124, -0.3785929481113093);
+				arrayGallery = new int[]{R.drawable.main_bg_1, R.drawable.main_bg_2, R.drawable.main_bg_3, R.drawable.main_bg_4, R.drawable.main_bg_5};
+				LugaresDeInteres_Item hemisferic =  new LugaresDeInteres_Item(
+						HEMISFERIC,
+						contexto.getString(R.string.hemisferic), 
+						contexto.getString(R.string.hemisfericContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.hemisfericAddress),
+						contexto.getString(R.string.hemisfericPrice),
+						contexto.getString(R.string.hemisfericHorary),
+						contexto.getString(R.string.hemisfericTelephone),
+						R.drawable.lugaresdeinteres_hemisferic, 
+						arrayGallery
+						);
+				
+				latlng = new LatLng(39.47913178119177,-0.37600058732025765);
+				LugaresDeInteres_Item torresDeSerranos =  new LugaresDeInteres_Item(
+						MUSEO_DE_LAS_CIENCIAS,
+						contexto.getString(R.string.museoDeLasCiencias), 
+						contexto.getString(R.string.museoDeLasCienciasContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.museoDeLasCienciasAddress),
+						contexto.getString(R.string.museoDeLasCienciasPrice),
+						contexto.getString(R.string.museoDeLasCienciasHorary),
+						contexto.getString(R.string.museoDeLasCienciasTelephone),
+						R.drawable.lugaresdeinteres_museoprincipefelipe, 
+						arrayGallery
+						);
+				
+				latlng = new LatLng(39.47574166307943,-0.3841759499999853); 
+				LugaresDeInteres_Item torresDeQuart =  new LugaresDeInteres_Item(
+						OCEANOGRAFIC,
+						contexto.getString(R.string.oceanografic), 
+						contexto.getString(R.string.oceanograficContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.oceanograficAddress),
+						contexto.getString(R.string.oceanograficPrice),
+						contexto.getString(R.string.oceanograficHorary),
+						contexto.getString(R.string.oceanograficTelephone),
+						R.drawable.lugaresdeinteres_oceanografic, 
+						arrayGallery
+						);
+				
+				latlng = new LatLng(39.473612081180725,-0.3793405272460859); 
+				LugaresDeInteres_Item mercadoCentral =  new LugaresDeInteres_Item(
+						PALAU_DE_LES_ARTS,
+						contexto.getString(R.string.palauDeLesArts), 
+						contexto.getString(R.string.palauDeLesArtsContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.palauDeLesArtsAddress),
+						contexto.getString(R.string.palauDeLesArtsPrice),
+						contexto.getString(R.string.palauDeLesArtsHorary),
+						contexto.getString(R.string.palauDeLesArtsTelephone),
+						R.drawable.lugaresdeinteres_palaudelesarts, 
+						arrayGallery
+						);
+				
+				latlng = new LatLng(39.46880596688192,-0.3688555079345468);
+				LugaresDeInteres_Item mercadoColon =  new LugaresDeInteres_Item(
+						UMBRACLE,
+						contexto.getString(R.string.umbracle), 
+						contexto.getString(R.string.umbracleContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.umbracleAddress),
+						contexto.getString(R.string.umbraclePrice),
+						contexto.getString(R.string.umbracleHorary),
+						contexto.getString(R.string.umbracleTelephone),
+						R.drawable.lugaresdeinteres_umbracle, 
+						arrayGallery
+						);
+				
+				latlng = new LatLng(39.45697498085445,-0.3526350330353045); 
+				LugaresDeInteres_Item ciudadartesyciencias =  new LugaresDeInteres_Item(
+						AGORA,
+						contexto.getString(R.string.agora), 
+						contexto.getString(R.string.agoraContent), 
+						contexto.getString(R.string.cac),
+						latlng, 
+						contexto.getString(R.string.agoraAddress),
+						contexto.getString(R.string.agoraPrice),
+						contexto.getString(R.string.agoraHorary),
+						contexto.getString(R.string.agoraTelephone),
+						R.drawable.lugaresdeinteres_agora, 
+						arrayGallery
+						);
+	
+				
+				arrayList.add(hemisferic);
+				arrayList.add(torresDeSerranos);
+				arrayList.add(torresDeQuart);
+				arrayList.add(mercadoCentral);
+				arrayList.add(mercadoColon);
+				arrayList.add(ciudadartesyciencias);
+				
+
+			return arrayList;
+			
+		}
+		
 
 }
