@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+     <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" 
+        android:layout_marginTop="5dp"
+        android:background="@drawable/background_tarjeta"
+        android:orientation="horizontal">
+        
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="3.3"
+        android:gravity="center_vertical">
+
+        <ImageView 
+            android:id="@+id/imageView_CentrosComerciales_Item"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:adjustViewBounds="true"
+            android:padding="5dp"
+            android:src="@drawable/centroscomerciales_aqua"/>
+       
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.8"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_margin="5dp">
+        
+    <TextView 
+        android:id="@+id/textView_CentrosComerciales_Item_Title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/cargando"
+        android:textColor="@color/ContentLugaresDeInteres"
+        android:textSize="@dimen/textViewFichaLista"/>
+    
+    <TextView 
+        android:id="@+id/textView_CentrosComerciales_Item_Address"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/cargando"
+        android:textColor="@color/irAlMapaColor"
+        android:textSize="@dimen/textViewCCText"/>
+    
+    <TextView 
+        android:id="@+id/textView_CentrosComerciales_Item_Telephone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/cargando"
+        android:textColor="@color/irAlMapaColor"
+        android:textSize="@dimen/textViewCCText"/>
+    
+    <TextView 
+        android:id="@+id/textView_CentrosComerciales_Item_web"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:text="@string/cargando"
+        android:textColor="@color/orangePressedButton"
+        android:textSize="@dimen/textViewCCText"/>
+	    
+     </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="4"
+        android:gravity="center">
+	  
+        <ImageView 
+            android:layout_margin="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/navigation_next"/>
+		
+	</LinearLayout>
+</LinearLayout>
+ 
+</LinearLayout>

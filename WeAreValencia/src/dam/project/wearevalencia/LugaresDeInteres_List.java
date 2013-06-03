@@ -194,7 +194,7 @@ public class LugaresDeInteres_List extends SherlockFragmentActivity {
     		
     		if ( item == null) {
     			LayoutInflater inflater = getLayoutInflater();
-    			item = inflater.inflate(R.layout.lugaresdeinteres_item_list, null);
+    			item = inflater.inflate(layoutResource, null);
     			
     			//guardando solo las referencias a los controles que utilizarré
     			holder = new ViewHolder();

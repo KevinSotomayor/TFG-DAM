@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -34,6 +35,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import dam.project.wearevalencia.R;
 import dam.project.wearevalencia.gallery.Gallery_Item;
+import dam.project.wearevalencia.objects.CentrosComerciales_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Map_Item extends SherlockFragmentActivity  implements LocationListener{
@@ -50,8 +52,9 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	private final int MIN_TIME = 2000;
 	private final int MIN_DISTANCE = 50;	
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
+	private final String BUNDLE_FROM_FRAGMENT_CC ="bundleFromFragmentCC";
 	private LugaresDeInteres_Item objeto; 
-
+	private CentrosComerciales_Item objetoCC; 
 
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
@@ -65,18 +68,40 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	//variables para recuperar informacion del objeto
 	String tituloMarker ="";
 	String direccion ="";
+	String telefono = "";
+	String web="";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mapas);
+	    mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
-			myDestine = objeto.getLatLng();
-			tituloMarker = objeto.getTitle();
-			direccion = objeto.getAddres();
-			
+			if (bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST) instanceof LugaresDeInteres_Item) {
+	
+				objeto = bundle.getParcelable(BUNDLE_OBJECT_ARRAYLIST);
+				myDestine = objeto.getLatLng();
+				tituloMarker = objeto.getTitle();
+				direccion = objeto.getAddres();
+				
+				goToLugar();
+						
+			}
+			if(bundle.getParcelable(BUNDLE_FROM_FRAGMENT_CC) instanceof CentrosComerciales_Item){
+				objetoCC = bundle.getParcelable(BUNDLE_FROM_FRAGMENT_CC);
+				myDestine = objetoCC.getLatLng();
+				tituloMarker = objetoCC.getTitle();
+				direccion = objetoCC.getAddress();
+				telefono = objetoCC.getTelephone();
+				web = objetoCC.getTelephone();
+				
+				//ocultar los controles de posicion, galeria, etc.
+				LinearLayout layout = (LinearLayout)findViewById(R.id.layout_Buttons_Map_bottom);
+				layout.setVisibility(View.GONE);
+				
+				goToCC();	
+			}
 			//action bar + personalizaciones
 			actionBar = getSupportActionBar();
 	        changeActionBar();
@@ -92,9 +117,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	            dialog.show();
 	        }else{
 	  
-		        mapa = ((SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
-				goToLugar();
-				
+		    
 				 ImageButton myPosition = (ImageButton)findViewById(R.id.myLocationButton);
 		         myPosition.setOnClickListener(new OnClickListener() {
 		        	@Override
@@ -278,7 +301,29 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		mapa.addMarker(new MarkerOptions() //marker personalizado
 		.position(myDestine)
 		.title(tituloMarker)
-		.snippet(direccion.toUpperCase())
+		.snippet(direccion)
+		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
+		.showInfoWindow();
+	
+	}
+	
+	private void goToCC(){
+		//establecer la posicion y marker:		
+		//dirige la posicion del mapa hacia esa latitud y esa longitud
+		CameraPosition cameraPosition = new CameraPosition.Builder()
+		.target(myDestine)
+		.zoom(17)
+		//.bearing(285) //angulo de orientacion
+		//.tilt(75) //angulo de vista 
+		.build();
+
+		
+		CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+		mapa.animateCamera(cameraUpdate); //animacion para llegar a la lat y long indiciados que se le pasa al objeto cameraupdate
+		mapa.addMarker(new MarkerOptions() //marker personalizado
+		.position(myDestine)
+		.title(tituloMarker)
+		.snippet(direccion)
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)))
 		.showInfoWindow();
 	

@@ -20,9 +20,8 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	private final int LUGARES_DE_INTERES = 1;
 	private final int FIESTAS_POPULARES = 2;
 	private final int CENTROS_COMERCIALES = 3;
-	private final int MAS_SOBRE_VALENCIA = 4;
-	private final int RECOMENDACIONES = 5;
-	private final int MAPA = 6;
+	private final int RECOMENDACIONES = 4;
+	private final int MAPA = 5;
 	
 	SampleAdapterMenu adapter;
 	@Override
@@ -40,7 +39,6 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
 		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fiesta);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
-		ItemList masSobreValencia = new ItemList(getActivity().getString(R.string.smMasSobreValencia), R.drawable.slidingmenu_valencia);
 		ItemList recomendaciones = new ItemList(getString(R.string.smRecomendaciones), R.drawable.slidingmenu_recomendaciones);
 		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
 		
@@ -48,7 +46,6 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		adapter.add(lugaresDeInteres);
 		adapter.add(fiestasPopulares);
 		adapter.add(cc);
-		adapter.add(masSobreValencia);
 		adapter.add(recomendaciones);
 		adapter.add(mapa);
 
@@ -74,9 +71,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			break;
 			
 		case CENTROS_COMERCIALES: //centros comerciales ubicados en un mapa
-			break;
-			
-		case MAS_SOBRE_VALENCIA: //historia de valencia
+			newContent = new Main_CentrosComerciales();
 			break;
 		
 		case RECOMENDACIONES: //recomendaciones personalizadas

@@ -3,6 +3,7 @@ package dam.project.wearevalencia.fragments;
 import java.util.ArrayList;
 import org.holoeverywhere.widget.Toast;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
@@ -25,10 +27,10 @@ import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Main_LugaresDeInteres extends SherlockFragment{
-	private Typeface robotoBoldCondensed, robotoCondensed, robotoThin;
+	private Typeface robotoBoldCondensed, robotoCondensed;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
-	private TextView textViewMonumentos, textViewCentroCiudad, textViewParques, textViewCAC, textViewWeAre, textViewValencia;
+	private TextView textViewMonumentos, textViewCentroCiudad, textViewParques, textViewCAC;
 	private LinearLayout layoutMonumentos, layoutCentroCiudad, layoutParques, layoutCAC;
 	private final int MAPA = 1;
 
@@ -52,15 +54,12 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 		slidingMenu = Main_FragmentActivity.putReference();
 		//personalizar el actionbar
 		changeActionBar();
-		
+		//tarea asincrona para obtener los arraylists
+		new TareaAsincrona().execute();
 		//cambiar typeface a las etiquetas de texto que hay en la pantalla principal, además de los textview del footer
 		changeTypefaceTextViews();
 		
 		
-		arrayListMonumentos = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
-		arrayListCAC = LugaresDeInteres_Data_Objects.obtainCAC(getActivity());
-		arrayListCentroCiudad = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
-		arrayListParques = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 		//listeners de cada boton para que lleve a la siguiente pantalla pasando un objeto
 		listenersLayoutsButtons();
 		
@@ -101,12 +100,54 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 			return super.onOptionsItemSelected(item);
 	    }
 		
+	public class TareaAsincrona extends AsyncTask<Void, Void, Void>{
+		View layout, layout_pogressBar, progressBar;
+		
+		@Override
+		protected void onPreExecute(){
+			super.onPreExecute();
+			layout = (LinearLayout)getView().findViewById(R.id.layout_main_lugaresdeinteres);
+			layout.setVisibility(View.GONE);
 
+			layout_pogressBar = (LinearLayout)getView().findViewById(R.id.layout_lugaresdeinteres_progressBar);
+			layout_pogressBar.setVisibility(View.VISIBLE);
+			
+			progressBar = (ProgressBar)getView().findViewById(R.id.progressBar_LugaresDeInteres_Main);
+			progressBar.setVisibility(View.VISIBLE);
+		}
+		
+		@Override
+		protected Void doInBackground(Void... params) {
+			arrayListMonumentos = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+			arrayListCAC = LugaresDeInteres_Data_Objects.obtainCAC(getActivity());
+			arrayListCentroCiudad = LugaresDeInteres_Data_Objects.obtainCentroCiudad(getActivity());
+			arrayListParques = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+			return null;
+		}
+		
+		protected void onPostExecute(Void result) {
+			super.onPostExecute(result);
+	
+			
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					layout_pogressBar.setVisibility(View.GONE);
+					progressBar.setVisibility(View.GONE);
+					layout.setVisibility(View.VISIBLE);
+
+				}
+			}, 1500); //esta espera simulará la descarga de datos, el arraylist de objetos
+				
+		}
+	}
+	   
+	   
 	private void changeActionBar() {
 		//typeface personalizadas
         robotoBoldCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-BoldCondensed.ttf");
         robotoCondensed = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Condensed.ttf");
-        robotoThin = Typeface.createFromAsset(getActivity().getAssets(), "Roboto-Thin.ttf");
 
 				//boton de volver atras del boton home, e icono personalizado
 				actionBar.setDisplayHomeAsUpEnabled(false);
@@ -154,13 +195,6 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 		
 		textViewCAC = (TextView)getView().findViewById(R.id.textView_mainlugaresdeinteres_cac);
 		textViewCAC.setTypeface(robotoCondensed);
-		
-		textViewWeAre = (TextView)getView().findViewById(R.id.textView_main_lugaresdeinteres_weare);
-		textViewWeAre.setTypeface(robotoThin);
-		
-		textViewValencia = (TextView)getView().findViewById(R.id.textView_main_lugaresdeinteres_valencia);
-		textViewValencia.setTypeface(robotoBoldCondensed);
-
 	}
 	
 	private void listenersLayoutsButtons() {

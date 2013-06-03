@@ -1,194 +1,166 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<ScrollView
-     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="fill_parent"
-     android:layout_height="fill_parent"
-     android:background="@color/DividerListView"
-     android:fillViewport="true">
-     
-	<LinearLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent"
-	    android:orientation="vertical">
-	    
+<?xml version="1.0" encoding="UTF-8"?>   
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/DividerListView"
+    android:orientation="vertical"
+	>
+    
+    <LinearLayout 
+        android:id="@+id/layout_main_lugaresdeinteres"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"   
+        android:layout_weight="2"
+		android:layout_margin="10dp"
+        android:orientation="vertical" 
+        android:background="@drawable/background_main_lugaresdeinteres"
+        android:visibility="visible">
+        
 	    <LinearLayout 
 	        android:layout_width="fill_parent"
-	        android:layout_height="0dp"   
+	        android:layout_height="fill_parent"
 	        android:layout_weight="2"
-	        android:layout_marginTop="10dp"
-	        android:layout_marginLeft="10dp"
-	        android:layout_marginRight="10dp"
-	        android:orientation="vertical" 
-	        android:background="@drawable/background_main_lugaresdeinteres">
-	        
-		    <LinearLayout 
-		        android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-		        android:layout_weight="2"
-		        android:orientation="horizontal"
-		        android:baselineAligned="false" >
-			    
-			    <LinearLayout 
-			        android:id="@+id/layout_button_Monuments"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"
-			        android:gravity="center"
-			        android:layout_weight="1"
-			        android:orientation="vertical"
-			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
-			        
-			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_monumentos"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:src="@drawable/monumentos_icon"
-			            android:layout_margin="4dp"
-			            android:adjustViewBounds="true"/>
-			        
-			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_monumentos"
-			            android:layout_width="fill_parent"
-			            android:layout_height="wrap_content"
-			            android:gravity="center" 
-			            android:padding="10dp"
-			            android:text="@string/Monumentos"
-			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres" />
-			    </LinearLayout>
-			    <LinearLayout 
-			        android:id="@+id/layout_button_CiudadArtesCiencias"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"
-			        android:gravity="center"
-			        android:layout_weight="1"
-			        android:orientation="vertical" 
-			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
-			        
-			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_cac"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:src="@drawable/cac_icon"
-			            android:adjustViewBounds="true"
-			            android:layout_margin="10dp"/>
-			        
-			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_cac"
-			            android:layout_width="fill_parent"
-			            android:layout_height="wrap_content"
-			            android:gravity="center"
-			            android:padding="10dp"
-			            android:text="@string/cac"
-			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres" />
-			    </LinearLayout>
-		    </LinearLayout>
-		    <LinearLayout 
-		        android:layout_width="fill_parent"
-		        android:layout_height="fill_parent"
-		        android:layout_weight="2"
-		        android:orientation="horizontal">
-			    
-			    <LinearLayout 
-			        android:id="@+id/layout_button_Parques"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"
-			        android:gravity="center"
-			        android:layout_weight="1"
-			        android:orientation="vertical"
-			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
-			        
-			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_parques"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:layout_margin="5dp"
-			            android:adjustViewBounds="true"
-			            android:src="@drawable/parques_icon"/>
-			        
-			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_parques"
-			            android:layout_width="fill_parent"
-			            android:layout_height="wrap_content"
-			            android:gravity="center"
-			            android:padding="10dp"
-			            android:text="@string/parques" 
-			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres"/>
-			    </LinearLayout>
-			    
-			    
-			    
-			    <LinearLayout 
-			        android:id="@+id/layout_button_CentroDeLaCiudad"
-			        android:layout_width="fill_parent"
-			        android:layout_height="fill_parent"
-			        android:gravity="center"
-			        android:layout_weight="1"
-			        android:orientation="vertical"
-			        android:background="@drawable/color_state_list_main_lugaresdeinteres">
-			        
-			        <ImageView 
-			            android:id="@+id/imageView_mainlugaresdeinteres_centroCiudad"
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:src="@drawable/centrociudad_icon"
-			            android:layout_margin="4dp"
-			            android:adjustViewBounds="true"/>
-			        
-			        <TextView 
-			            android:id="@+id/textView_mainlugaresdeinteres_centroCiudad"
-			            android:layout_width="fill_parent"
-			            android:layout_height="wrap_content"
-			            android:gravity="center"
-			            android:padding="10dp"
-			            android:text="@string/centroCiudad" 
-			            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
-			            android:textColor="@color/TitleLugaresDeInteres"/>
-			    </LinearLayout>
-			    
-			    
-		    </LinearLayout>
-	    </LinearLayout>
-	    <LinearLayout
-	        android:layout_width="fill_parent"
-	        android:layout_height="wrap_content"
-	        android:gravity="center"
-	        android:layout_marginLeft="5dp"
-	        android:layout_marginRight="5dp"
-	        android:layout_marginTop="10dp"
 	        android:orientation="horizontal"
-	        android:padding="10dp" >
+	        android:baselineAligned="false" >
 		    
-		     <TextView 
-		        	 android:id="@+id/textView_main_lugaresdeinteres_weare"
+		    <LinearLayout 
+		        android:id="@+id/layout_button_Monuments"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:orientation="vertical"
+		        android:background="@drawable/color_state_list_main_lugaresdeinteres">
+		        
+		        <ImageView 
+		            android:id="@+id/imageView_mainlugaresdeinteres_monumentos"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
-		            android:gravity="center"
-	             	android:shadowColor="@color/ContentLugaresDeInteres"
-			        android:shadowDx="2"
-			        android:shadowDy="2"
-				    android:shadowRadius="4"
-		            android:text="@string/weare"
-		            android:textSize="@dimen/titleText"
-		            android:textColor="@color/white"
-		            />
-		     <TextView 
-		         	android:id="@+id/textView_main_lugaresdeinteres_valencia"
+		            android:src="@drawable/monumentos_icon"
+		            android:layout_margin="4dp"
+		            android:adjustViewBounds="true"/>
+		        
+		        <TextView 
+		            android:id="@+id/textView_mainlugaresdeinteres_monumentos"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:gravity="center" 
+		            android:padding="10dp"
+		            android:text="@string/Monumentos"
+		            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
+		            android:textColor="@color/TitleLugaresDeInteres" />
+		    </LinearLayout>
+		    <LinearLayout 
+		        android:id="@+id/layout_button_CiudadArtesCiencias"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:orientation="vertical" 
+		        android:background="@drawable/color_state_list_main_lugaresdeinteres">
+		        
+		        <ImageView 
+		            android:id="@+id/imageView_mainlugaresdeinteres_cac"
 		            android:layout_width="wrap_content"
 		            android:layout_height="wrap_content"
+		            android:src="@drawable/cac_icon"
+		            android:adjustViewBounds="true"
+		            android:layout_margin="10dp"/>
+		        
+		        <TextView 
+		            android:id="@+id/textView_mainlugaresdeinteres_cac"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
 		            android:gravity="center"
-		            android:shadowColor="@color/ContentLugaresDeInteres"
-			        android:shadowDx="1"
-			        android:shadowDy="1"
-				    android:shadowRadius="3"
-		            android:layout_marginLeft="4dp"
-		            android:text="@string/valencia"
-		            android:textSize="@dimen/titleText"
-		            android:textColor="@color/white"
-		            />
+		            android:padding="10dp"
+		            android:text="@string/cac"
+		            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
+		            android:textColor="@color/TitleLugaresDeInteres" />
+		    </LinearLayout>
 	    </LinearLayout>
-	    
-	</LinearLayout>
-</ScrollView>
+	    <LinearLayout 
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="2"
+	        android:orientation="horizontal">
+		    
+		    <LinearLayout 
+		        android:id="@+id/layout_button_Parques"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:orientation="vertical"
+		        android:background="@drawable/color_state_list_main_lugaresdeinteres">
+		        
+		        <ImageView 
+		            android:id="@+id/imageView_mainlugaresdeinteres_parques"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_margin="5dp"
+		            android:adjustViewBounds="true"
+		            android:src="@drawable/parques_icon"/>
+		        
+		        <TextView 
+		            android:id="@+id/textView_mainlugaresdeinteres_parques"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:gravity="center"
+		            android:padding="10dp"
+		            android:text="@string/parques" 
+		            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
+		            android:textColor="@color/TitleLugaresDeInteres"/>
+		    </LinearLayout>
+		    
+		    
+		    
+		    <LinearLayout 
+		        android:id="@+id/layout_button_CentroDeLaCiudad"
+		        android:layout_width="fill_parent"
+		        android:layout_height="fill_parent"
+		        android:gravity="center"
+		        android:layout_weight="1"
+		        android:orientation="vertical"
+		        android:background="@drawable/color_state_list_main_lugaresdeinteres">
+		        
+		        <ImageView 
+		            android:id="@+id/imageView_mainlugaresdeinteres_centroCiudad"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/centrociudad_icon"
+		            android:layout_margin="4dp"
+		            android:adjustViewBounds="true"/>
+		        
+		        <TextView 
+		            android:id="@+id/textView_mainlugaresdeinteres_centroCiudad"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:gravity="center"
+		            android:padding="10dp"
+		            android:text="@string/centroCiudad" 
+		            android:textSize="@dimen/textViewTitleMainLugaresDeInteres"
+		            android:textColor="@color/TitleLugaresDeInteres"/>
+		    </LinearLayout>
+		    
+		    
+	    </LinearLayout>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/layout_lugaresdeinteres_progressBar"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:background="@color/DividerListView"
+	    android:orientation="vertical"
+	    android:gravity="center"
+	    android:visibility="gone">
+	    <ProgressBar
+	        android:id="@+id/progressBar_LugaresDeInteres_Main"
+	        style="?android:attr/progressBarStyleLarge"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:visibility="gone" />
+ 	</LinearLayout>
+ 	
+</LinearLayout>

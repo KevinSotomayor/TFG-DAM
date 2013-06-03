@@ -11,6 +11,5 @@
         android:layout_height="fill_parent"
         android:divider="@color/DividerListView"
         android:listSelector="@color/DividerListView"
-   		android:dividerHeight="5dp"
    		android:descendantFocusability="afterDescendants"/>	
 </LinearLayout>

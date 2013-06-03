@@ -1,6 +1,7 @@
 package dam.project.wearevalencia.fragments;
 
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,11 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
@@ -23,16 +24,16 @@ import com.actionbarsherlock.view.MenuItem;
 import com.slidingmenu.lib.SlidingMenu;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
-import dam.project.wearevalencia.objects.FiestasPopulares_Item;
-import dam.project.wearevalencia.objects.FiestasPopulares_Data_Objects;
+import dam.project.wearevalencia.objects.CentrosComerciales_Data_Objects;
+import dam.project.wearevalencia.objects.CentrosComerciales_Item;
 
-public class Main_FiestasPopulares extends SherlockFragment{
+public class Main_CentrosComerciales extends SherlockFragment{
 	private Typeface robotoBoldCondensed, robotoCondensed, robotoRegular;
 	private ActionBar actionBar;
 	private SlidingMenu slidingMenu;
-	private ListView listaFiestas;
+	private ListView listaCC;
 	private AdaptadorFiestasPopulares adaptador;
-	ArrayList<FiestasPopulares_Item> arrayListFiestas;
+	ArrayList<CentrosComerciales_Item> arrayListCC;
 		
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -52,19 +53,19 @@ public class Main_FiestasPopulares extends SherlockFragment{
 		changeActionBar();
 		
 		//obtener el arrayList con los objetos en el arraylist
-		arrayListFiestas = FiestasPopulares_Data_Objects.obtainFiestasPopulares(getActivity());
+		arrayListCC = CentrosComerciales_Data_Objects.obtainCentrosComerciales(getActivity());
 		
-		listaFiestas = (ListView)getView().findViewById(R.id.listView_fiestasPopulares);
-		adaptador = new AdaptadorFiestasPopulares(getActivity(), R.layout.fiestaspopulares_item_list, arrayListFiestas );
-		listaFiestas.setAdapter(adaptador);
-		listaFiestas.setOnItemClickListener(new OnItemClickListener() {
+		listaCC = (ListView)getView().findViewById(R.id.listView_fiestasPopulares);
+		adaptador = new AdaptadorFiestasPopulares(getActivity(), R.layout.centroscomerciales_item_list, arrayListCC );
+		listaCC.setAdapter(adaptador);
+		listaCC.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3){
 				
-			FiestasPopulares_Item object = adaptador.getItem(position);
+			CentrosComerciales_Item object = adaptador.getItem(position);
 			Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
-			mFragmentActivity.onFiestaPopularSelecconada(object);
+			mFragmentActivity.onCentroComercialSeleccionado(object);
 
 			}
 		});
@@ -91,12 +92,12 @@ public class Main_FiestasPopulares extends SherlockFragment{
 	    }
 				
 	//clase interna que infla la vista con los empleados.
-	class AdaptadorFiestasPopulares extends ArrayAdapter<FiestasPopulares_Item> {
+	class AdaptadorFiestasPopulares extends ArrayAdapter<CentrosComerciales_Item> {
     	Activity context;
     	int layoutResource;
-    	ArrayList<FiestasPopulares_Item> arrayAdapter;
+    	ArrayList<CentrosComerciales_Item> arrayAdapter;
 
-    	AdaptadorFiestasPopulares(Activity context, int layoutResource, ArrayList<FiestasPopulares_Item> array) {
+    	AdaptadorFiestasPopulares(Activity context, int layoutResource, ArrayList<CentrosComerciales_Item> array) {
     		super(context, layoutResource, array);
     		this.context = context;
     		this.layoutResource = layoutResource;
@@ -114,10 +115,11 @@ public class Main_FiestasPopulares extends SherlockFragment{
     			
     			//guardando solo las referencias a los controles que utilizarré
     			holder = new ViewHolder();
-    			holder.textViewTitle =  (TextView)item.findViewById(R.id.textView_fiestaspopulares_item_list);
-    			holder.textViewContent = (TextView)item.findViewById(R.id.textViewfiestaspopulares_description);
-    			holder.textViewCalendar = (TextView)item.findViewById(R.id.textViewfiestaspopulares_description_day);
-    			holder.thumbail = (ImageView)item.findViewById(R.id.imageView_fiestaspopulares_item_list);
+    			holder.textViewTitle =  (TextView)item.findViewById(R.id.textView_CentrosComerciales_Item_Title);
+    			holder.textViewAddress = (TextView)item.findViewById(R.id.textView_CentrosComerciales_Item_Address);
+    			holder.textViewTelephone = (TextView)item.findViewById(R.id.textView_CentrosComerciales_Item_Telephone);
+    			holder.textViewWeb = (TextView)item.findViewById(R.id.textView_CentrosComerciales_Item_web);
+    			holder.thumbail = (ImageView)item.findViewById(R.id.imageView_CentrosComerciales_Item);
     			
     			item.setTag(holder);
     			
@@ -127,39 +129,29 @@ public class Main_FiestasPopulares extends SherlockFragment{
     		holder.textViewTitle.setText(arrayAdapter.get(position).getTitle());
     		holder.textViewTitle.setTypeface(robotoCondensed);
     		
-    		holder.textViewContent.setText(obtainsCharactersFromString(arrayAdapter.get(position).getContent(), 75));
-    		holder.textViewContent.setTypeface(robotoRegular);
+    		holder.textViewAddress.setText(arrayAdapter.get(position).getAddress());
+    		holder.textViewAddress.setTypeface(robotoRegular);
     		
     		
-    		holder.textViewCalendar.setText(obtainsCharactersFromString(arrayAdapter.get(position).getCalendar(),45));
-			holder.textViewCalendar.setTypeface(robotoRegular);
+    		holder.textViewTelephone.setText(arrayAdapter.get(position).getTelephone());
+			holder.textViewTelephone.setTypeface(robotoRegular);
+			
+			holder.textViewWeb.setText(arrayAdapter.get(position).getWeb());
+			holder.textViewWeb.setTypeface(robotoRegular);
+			
 			holder.thumbail.setImageResource(arrayAdapter.get(position).getThumbail());
 		
     		return (item);
 
     	}
     	
-    	private String obtainsCharactersFromString(String cadena, int caracteres){
-	
-			String cadenaTotal = "";	
-			for (int i = 0; i < cadena.length(); i++ ){
-				
-				if (i <= caracteres) {
-					cadenaTotal += cadena.charAt(i);
-
-				}
-
-			}
-			return cadenaTotal += "...";
-    	}
-
     }
 	//obtención de la referencia a cada uno de los objetos a modificar mediante el método findViewById().
 	//Para mejorar rendimiento aprovecho que estoy “guardando” un layout anterior para guardar
 	//también la referencia a los controles que lo forman y defino la siguiente clase viewHolder 
     //con aquellos atributos con referencia a cada uno de los controles que tengo que manipular
 	public static class ViewHolder{
-		TextView textViewTitle, textViewContent, textViewCalendar;
+		TextView textViewTitle, textViewAddress, textViewTelephone, textViewWeb;
 		ImageView thumbail;
 	}
 	   
@@ -188,7 +180,7 @@ public class Main_FiestasPopulares extends SherlockFragment{
 		        //identificar las etiquetas y setTypeface otra letra
 		        TextView titulo = (TextView)customView.findViewById(R.id.tituloWeAreValencia);
 		        titulo.setTypeface(robotoBoldCondensed);
-		        titulo.setText(getActivity().getString(R.string.fiestas).toUpperCase());
+		        titulo.setText(getActivity().getString(R.string.centrosComerciales).toUpperCase());
 
 
 		        /// center xml in actionbar
@@ -201,5 +193,4 @@ public class Main_FiestasPopulares extends SherlockFragment{
 		        actionBar.setCustomView(customView);
 
 	}
-	
 }

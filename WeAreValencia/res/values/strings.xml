@@ -37,7 +37,7 @@
     <color name="endColorDegreeItemFP">#01000000</color>
     <color name="iconsFichaLugaresDeInteres">#7e8083</color>
     <color name="grey_layout_pressed_light">#eeeeee</color>
-    
+    <color name="blueHolo">#2E9AFE</color>
         
     <string name="app_name">WE ARE VALENCIA</string>
     <string name="weare">WE ARE</string>
@@ -285,18 +285,21 @@ Fines de semana y festivos:\n10.00-14.00 horas.</string>
 	<!-- Centro de la ciudad -->
 	<string name="centroCiudad">Centro de la Ciudad</string>
 	<string name="elCarmen">El Carmen</string>
-	<string name="elCarmenContent"></string>
-	<string name="elCarmenAddress"></string>
-	<string name="elCarmenPrice"></string>
-	<string name="elCarmenHorary"></string>
-	<string name="elCarmenTelephone"></string>
+	<string name="elCarmenContent">El Carmen (en valenciano El Carme) es uno de los barrios del distrito de Ciutat Vella, que conforma el casco histórico de la ciudad de Valencia. Es un barrio milenario, que creció entre dos murallas: la musulmana (siglo XI), construida por Abd al-Aziz ibn Amir, lo limitaba por el este; y la nueva muralla cristiana (siglo XIV) lo protegía por el oeste. Su población era de 6.155 habitantes en 2008.\n\n
+El 18 de agosto de 1356, y durante en el reinado de Pedro II de Valencia (Pedro II el Ceremonioso), las previsiones para mejorar la fortificación de la ciudad y los imperativos de ensanche de la misma, obligaron al Consejo General la puesta en marcha de la construcción de una nueva muralla que abarcó los arrabales o afueras del Barrio.\n\n
+El viejo muro defensivo del recinto árabe no se derribó, sino que permaneció como una segunda defensa militar. El problema de las comunicaciones con una y otra parte se resolvió por medio de portales, entre los que destaca principalmente el de Valldigna. Este barrio ha sufrido grandes modificaciones a lo largo de sus más de mil años de historia.\n\nHa sido huerta, arrabal y refugio musulmán, mancebía o burdel, asentamiento gremial, hogar de la aristocracia medieval, lugar de conventos, zona proletaria-marginal durante la Revolución industrial y, a finales del siglo XX, espacio de ocio de la población juvenil de la ciudad.
+</string>
+	<string name="elCarmenAddress">Plaza de Mosén Sorell, 7</string>
+	<string name="elCarmenPrice">Gratuito.</string>
+	<string name="elCarmenHorary">Varía dependiendo del restaurante, bar, etc.</string>
+	<string name="elCarmenTelephone">+34 963 91 13 20</string>
 	
 	<string name="ccbancaja">Centro Cultural Bancaja</string>
-	<string name="ccbancajaContent"></string>
-	<string name="ccbancajaAddress"></string>
-	<string name="ccbancajaPrice"></string>
-	<string name="ccbancajaHorary"></string>
-	<string name="ccbancajaTelephone"></string>
+	<string name="ccbancajaContent">El Centro Cultural es resultado de la unión de dos edificios históricos: la sede de la antigua Caja de Ahorros y Monte de Piedad de Valencia, de principios del siglo XX, y de la antigua residencia de Manuel Gómez Fos, de finales del siglo XIX. La rehabilitación, llevada a cabo en 2007 por los arquitectos Pablo Martínez Montesa, José Ricardo Martínez Montesa y José Alberto Jordá Albiñana, supuso la unión de ambos edificios y permitió crear el actual Centro Cultural Bancaja con una superficie de 12.000 metros cuadrados.</string>
+	<string name="ccbancajaAddress">Plaza Tetuan, 23</string>
+	<string name="ccbancajaPrice">Entrada gratuita.</string>
+	<string name="ccbancajaHorary">Sala de estudio:\nDe lunes a viernes de 10.00 a 14.0 y de 17.00 a 21.00 horas.\n\nExposiciones:\nDe lunes a sábado de 9.00 a 14.00 y de 16.00 a 21.00 horas.\n\nHorario de atención: De lunes a sábado de 9.00 a 14.00 y de 16.00 a 21.00 horas.</string>
+	<string name="ccbancajaTelephone">96 387 58 64</string>
 	
 	
 	<!-- Parques -->
@@ -332,7 +335,7 @@ Pasar por encima de las hogueras que se encienden esta noche o meterse en el mar
 El fuego dará protección todo el año a aquellos que se atravan a saltar por encima de las llamas. En Galicia el ritual marca que es necesario saltar nueve veces mientras que en Alicante y Valencia siete es el número mágico.\n
 Si cuando se está saltando al fuego se arroja una trenza hecha con flores o cintas de colores a la persona amada y esta la recoge antes de que caiga, habrá felicidad entre ambos y buena fortuna.\n\n
 	</string>
-	<string name="sanJuanCalendar">En Valencia se celebra la madrugada del 23 al 24 de junio. Las playas de Valencia se convierten así en el escenario donde llevar a cabo el ritual en el que el mar y el fuego se unen para hacer realidad tus deseos.\n\n</string>
+	<string name="sanJuanCalendar">En Valencia se celebra la madrugada del 23 al 24 de junio. Las playas de Valencia se convierten así en el escenario donde llevar a cabo el ritual en el que el mar y el fuego se unen para hacer realidad tus deseos.</string>
 	
 	
 	<string name="sanVicenteFerrer">San Vicente Ferrer</string>
@@ -346,17 +349,8 @@ Su punto álgido, se alcanzará con los volteos de campanas a la salida del Sant
 	<string name="corpusContent">Domingo de la sexagésima (60 días) de pascua. Estamos ante la celebración que históricamente ha sido considerada como la "Fiesta Grande" de la ciudad. Más allá del puro sentido católico, el Corpus es una muestra de la convivencia del espíritu festivo, simbólico, metafórico y religioso de la sociedad valenciana.\n\n
 El origen de la festividad se sitúa en 1263, pero sería en 1355 cuando el obispo de Valencia Hugo de Fenollet (quien 5 años antes habría bautizado a San Vicente Ferrer) instauraría la procesión. Actualmente, gracias a la inmejorable labor de la Asociación Amics del Corpus de la Ciudad de Valencia, la fiesta ha retomado 
 la vitalidad de sus inicios.\n\n</string>
-	<string name="corpusCalendar">12.00 La Cabalgata del Convite donde destacan: \n\n
-	    El Capellá de les Roques
-	    \n
-	    Las Danzas
-	    \n
-	    El Baile de los “Nanos” y  “Gegants"
-	    \n
-	    La Poalà
-	    \n\n
-	    16:30h Paso de las Rocas\n\n19.00h Solemne Procesión
-	    </string>
+	<string name="corpusCalendar">12.00 La Cabalgata del Convite donde destacan: \n\nEl Capellá de les Roques\nLas Danzas\nEl Baile de los “Nanos” y  “Gegants"\nLa Poalà\n\n16:30h Paso de las Rocas\n\n19.00h Solemne Procesión
+	</string>
 	
 	<string name="semanaSanta">Semana Santa</string>
 	<string name="semanaSantaContent">En uno de los distritos mas emblematicos de la ciudad de Valencia, EL MARITIM, tiene lugar la tradicional Semana Santa Marinera. El carácter mediterráneo de sus habitantes, hace única esta festividad dentro del marco de celebracion de la semana santa en España.\n\n
@@ -385,8 +379,7 @@ Es también algo característico de esta celebración, que junto a las imágenes
 	    En los umbrales del s. XXI, Valencia retoma sus más enraizadas costumbres el día de la Virgen de los Desamparados. La modernidad, la vanguardia y el agitado ritmo de una ciudad cosmopolita que mira de forma desafiante hacia el futuro, hace un sitio a la tradición, la devoción y el carisma de un pueblo que exhibe orgulloso sus raíces.\n\n
 	    Llama la atención como en la noche anterior al 2º domingo de mayo, el popular barrio del Carmen es escenario tanto de la vigilia de aquellos que acuden a los actos en honor de la Patrona como de la vida nocturna típica de los locales de ocio. Ejemplo claro de cómo Valencia avanza imparable hacia delante sin olvidar sus orígenes.	    
 	    </string>
-	<string name="virgenDesamparadosCalendar">Segundo Sabado de Mayo\n
-	    20:00 horas Salve Solemne a la Virgen en su Real Capilla.\n
+	<string name="virgenDesamparadosCalendar">Segundo Sabado de Mayo 20:00 horas Salve Solemne a la Virgen en su Real Capilla.\n
 	    23:00 horas En la plaza de la Virgen, concierto por la Banda Municipal.\n
 	    24:00 horas Disparo de un castillo de fuegos artificiales en la Plaza del Ayuntamiento. Finalizado el castillo en la Plaza de la Virgen, Gran "Dansà" y "Cantá d'Albaes" en honor a "la Mare de Deu" (Colabora la Asociación de Cant Valencià) de la F.F.C.V.\n\n
 	    
@@ -409,5 +402,37 @@ Es también algo característico de esta celebración, que junto a las imágenes
 	<string name="nueveOctubreCalendar">Cada 9 de octubre, los valencianos y valencianas celebran el día de su comunidad.</string>
 
 
-
+	<!-- Centros comerciales -->
+	<string name="centrosComerciales">Centros Comerciales</string>
+	
+	<string name="aqua">C.C. Aqua Multiespacio</string>
+	<string name="aquaAddress">Menorca, 19 (junto a Av. Francia)\n46023 Valencia</string>
+	<string name="aquaTelephone">+34 963 308 429</string>
+	<string name="aquaWeb">www.aqua-multiespacio.com</string>
+	
+	<string name="ademuz">C.C. Ademuz</string>
+	<string name="ademuzAddress">Avda. Pío XII, 51\n46015 Valencia</string>
+	<string name="ademuzTelephone">+34 963 469 000</string>
+	<string name="ademuzWeb">www.elcorteingles.es</string>
+	
+	<string name="arena">C.C. Arena Multiespacio</string>
+	<string name="arenaAddress">Santa Genoveva Torres, 21\n46019 Valencia</string>
+	<string name="arenaTelephone">+34 963 689 878</string>
+	<string name="arenaWeb">www.arenamultiespacio.com</string>
+	
+	<string name="saler">C.C. El Saler</string>
+	<string name="salerAddress">Autopista de El Saler, 16\n46013 Valencia</string>
+	<string name="salerTelephone">+34 963 957 012</string>
+	<string name="salerWeb">www.elsaler.com</string>
+	
+	<string name="granTuria">C.C. Gran Turia</string>
+	<string name="granTuriaAddress">Plaza Europa, s/n\n46950 Xirivella (Valencia)</string>
+	<string name="granTuriaTelephone">+34 963 503 222</string>
+	<string name="granTuriaWeb">www.granturia.com</string>
+	
+	<string name="nuevoCentro">C.C. Nuevo Centro</string>
+	<string name="nuevoCentroAddress">Avda. Pío XII, 2, 4 y 6\n46009 Valencia</string>
+	<string name="nuevoCentroTelephone">+34 963 471 642 9</string>
+	<string name="nuevoCentroWeb">www.nuevocentro.es</string>
+	
 </resources>

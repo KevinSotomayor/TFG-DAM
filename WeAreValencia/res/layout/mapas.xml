@@ -22,6 +22,7 @@
         
     </LinearLayout>
     <LinearLayout 
+        android:id="@+id/layout_Buttons_Map_bottom"
         android:layout_width="fill_parent"
 	    android:layout_height="fill_parent"
 	    android:layout_weight="8"
