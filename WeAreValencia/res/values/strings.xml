@@ -304,12 +304,56 @@ El viejo muro defensivo del recinto árabe no se derribó, sino que permaneció 
 	
 	<!-- Parques -->
 	<string name="parques">Parques</string>
+	
 	<string name="jBotanico">Jardín Botánico</string>
+	<string name="jBotanicoContent"></string>
+	<string name="jBotanicoAddress">Calle Quart, 80</string>
+	<string name="jBotanicoPrice">ENTRADA ORDINARIA: 2 euros\n\nENTRADA GRATUITA:
+Niños menores de 7 años, miembros de la comunidad universitaria (Universidad de Valencia) y acompañantes (uno solo) de las personas dependientes.\n\nENTRADA CON TARIFA REDUCIDA:
+\n\n
+Tarifa: 1 euro\n
+Mayores de 65 años, pensionistas, personas con discapacidad absoluta, personas desempleadas, niños de 7 a 17 años, titulares del carné de familia numerosa, estudiantes universitarios, titulares del carné jove, miembros de las asociaciones vinculadas al Jardín Botánico, amigos y antiguos alumnos de la Universidad de Valencia.\n\n
+\n\n
+Tarifa: 1,5 euros\n
+Grupos de más de 10 personas
+\n\n
+Tarifa: 1,8 euros\n
+Portadores de la tarjeta Valencia Card</string>
+	<string name="jBotanicoHorary">Abierto todos los días, excepto los días con viento y lluvia, y los festivos 25 de diciembre y 1 de enero:
+de noviembre a febrero, de 10 a 18 h.\n\n
+marzo y octubre, de 10 a 19 h.\n\n
+abril y septiembre, de 10 a 20 h.\n\n
+de mayo a agosto, de 10 a 21 h</string>
+	<string name="jBotanicoTelephone">+34 963 15 68 00</string>
+	
 	<string name="jViveros">Jardínes Real - Viveros</string>
+	<string name="jViverosContent">La categoría histórica de este jardín, su extensión y cuidada jardinería, y la misma abundancia de monumentos escultóricos o de otro tipo que realzan su entorno, lo convierten en el corazón verde de la ciudad de Valencia.\n\nActualmente, este representativo jardín de la ciudad de Valencia, dadas las características propias del espacio, ha sido propuesto para su catalogación como “Conjunto Arbóreo Singular de Interés Local”, a efectos del artículo 6 de la Ley 4/2006, de 19 de mayo, de la Generalitat, de Patrimonio Arbóreo Monumental de la Comunitat Valenciana.\n\nPuede considerarse el jardín más emblemático de la ciudad por su historia, valor cultural, ecológico y paisajístico, extensión y diversidad botánica.</string>
+	<string name="jViverosAddress">San Pío V, s/n</string>
+	<string name="jViverosPrice">Entrada gratuita.</string>
+	<string name="jViverosHorary">Todos los días de 8:00 horas a la puesta de sol.</string>
+	<string name="jViverosTelephone">96 352 54 78 </string>
+	
 	<string name="jTuria">Jardínes del Turia</string>
+	<string name="jTuriaContent">El Jardín del Turia es un parque urbano público de 110 ha; situado en la ciudad de Valencia. Este parque es uno de los más visitados de Valencia y de España. Es el mayor jardín netamente urbano de España.\n\nSe fundó en 1986 varios decenios después de la Gran riada de Valencia. Tras la riada, el ayuntamiento y el Gobierno de España decidieron que se haría en la superficie del viejo cauce una autopista que cruzaría la ciudad en 1970. Posteriormente decidieron que seria mejor convertirlo en un lugar de ocio y naturaleza para los ciudadanos y visitantes.\n\nEn el año 1986 se inaugura el parque en el que uno de sus tramos más céntricos se junta con el parque de Viveros. El Jardín cruza la ciudad desde prácticamente el puerto, más concretamente desde la Ciudad de las Artes y las Ciencias hasta el nuevo Bioparc donde se alberga el Zoo de Valencia.</string>
+	<string name="jTuriaAddress">Jardín del Turia</string>
+	<string name="jTuriaPrice">Entrada gratuita.</string>
+	<string name="jTuriaHorary">Todo el día.</string>
+	<string name="jTuriaTelephone">No hay número.</string>
+	
 	<string name="gulliver">Gulliver</string>
-	<string name="palauMusica">Palau de la Música</string>
+	<string name="gulliverContent">Situado en el antiguo cauce del río Turia, y muy cerca de la Ciudad de las Artes y de las Ciencias, se encuentra el parque de Gulliver.\n\nBasado en el cuento "Los viajes de Gulliver" de Jonathan Swift, este parque representa la figura del gigante Gulliver tendido en el suelo, e inmovilizado con cuerdas. Los niños que juegan a su alrededor, serían los liliputienses del cuento de Swift.\n\n</string>
+	<string name="gulliverAddress">Pont del Regne</string>
+	<string name="gulliverPrice">Entrada gratuita.</string>
+	<string name="gulliverHorary">De 10 a 20 horas, de lunes a domingo.</string>
+	<string name="gulliverTelephone">No hay número.</string>
+	
+	
 	<string name="parqueCabecera">Parque de Cabecera</string>
+	<string name="parqueCabeceraContent">Ubicado en el lecho histórico del río Turia, el Parque de Cabecera prolonga el gran cinturón verde del antiguo cauce, el parque/ jardín del Turia. Cumpliéndose así parte del proyecto que unificará el brazo natural del Turia con el artificial restituyendo el carácter originario y vertebrador del río.\n\nEste parque metropolitano recrea el paisaje original del Turia dando el protagonismo al agua, que con su discurrir nos va presentando la topografía, la vegetación, los recorridos y los diferentes equipamientos del parque.</string>
+	<string name="parqueCabeceraAddress">Paseo de la Pechina, 77</string>
+	<string name="parqueCabeceraPrice">Entrada gratuita.</string>
+	<string name="parqueCabeceraHorary">Abierto todo el día.</string>
+	<string name="parqueCabeceraTelephone">96 325 78 81</string>
 	
 	
 	<!-- FIESTAS, apartado FIESTAS POPULARES -->

@@ -121,7 +121,7 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 			arrayListMonumentos = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
 			arrayListCAC = LugaresDeInteres_Data_Objects.obtainCAC(getActivity());
 			arrayListCentroCiudad = LugaresDeInteres_Data_Objects.obtainCentroCiudad(getActivity());
-			arrayListParques = LugaresDeInteres_Data_Objects.obtainMonuments(getActivity());
+			arrayListParques = LugaresDeInteres_Data_Objects.obtainParques(getActivity());
 			return null;
 		}
 		

@@ -57,6 +57,11 @@ public class LugaresDeInteres_Data_Objects {
 	private static final int AGORA = 17;
 	private static final int EL_CARMEN = 18;
 	private static final int CC_BANCAJA = 19;
+	private static final int JARDIN_BOTANICO = 20;
+	private static final int JARDIN_REAL_VIVEROS = 21;
+	private static final int JARDIN_TURIA = 22;
+	private static final int GULLIVER = 23;
+	private static final int PARQUE_CABECERA = 24;
 	
 	//devolver lista de lugares de interes - Monumentos
 	public static ArrayList<LugaresDeInteres_Item> obtainMonuments(Context contexto){
@@ -374,6 +379,7 @@ public class LugaresDeInteres_Data_Objects {
 				arrayGallery
 				);
 		
+		latlng = new LatLng(39.473766613078496,-0.3700800999999956); 
 		LugaresDeInteres_Item ccBancaja =  new LugaresDeInteres_Item(
 				CC_BANCAJA,
 				contexto.getString(R.string.ccbancaja), 
@@ -410,6 +416,97 @@ public class LugaresDeInteres_Data_Objects {
 	}
 		
 		
+	public static ArrayList<LugaresDeInteres_Item> obtainParques(Context contexto){
+		context = contexto;
+		ArrayList<LugaresDeInteres_Item> arrayList = new ArrayList<LugaresDeInteres_Item>();
+		
+		latlng = new LatLng(39.475594617842916,-0.3864657883606326); 
+		LugaresDeInteres_Item jbotanico =  new LugaresDeInteres_Item(
+				JARDIN_BOTANICO,
+				contexto.getString(R.string.jBotanico), 
+				contexto.getString(R.string.jBotanicoContent), 
+				contexto.getString(R.string.parques),
+				latlng, 
+				contexto.getString(R.string.jBotanicoAddress),
+				contexto.getString(R.string.jBotanicoPrice),
+				contexto.getString(R.string.jBotanicoHorary),
+				contexto.getString(R.string.jBotanicoTelephone),
+				R.drawable.lugaresdeinteres_jardinbotanico, 
+				arrayGallery
+				);
+		
+		latlng = new LatLng(39.48062722308237,-0.36767339269862864); 
+		LugaresDeInteres_Item viveros =  new LugaresDeInteres_Item(
+				JARDIN_REAL_VIVEROS,
+				contexto.getString(R.string.jViveros), 
+				contexto.getString(R.string.jViverosContent), 
+				contexto.getString(R.string.parques),
+				latlng, 
+				contexto.getString(R.string.jViverosAddress),
+				contexto.getString(R.string.jViverosPrice),
+				contexto.getString(R.string.jViverosHorary),
+				contexto.getString(R.string.jViverosTelephone),
+				R.drawable.lugaresdeinteres_jardinesviveros, 
+				arrayGallery
+				);
+		
+		latlng = new LatLng(39.47214869110472,-0.36479100546569443); 
+		LugaresDeInteres_Item turia =  new LugaresDeInteres_Item(
+				JARDIN_TURIA,
+				contexto.getString(R.string.jTuria), 
+				contexto.getString(R.string.jTuriaContent), 
+				contexto.getString(R.string.parques),
+				latlng, 
+				contexto.getString(R.string.jTuriaAddress),
+				contexto.getString(R.string.jTuriaPrice),
+				contexto.getString(R.string.jTuriaHorary),
+				contexto.getString(R.string.jTuriaTelephone),
+				R.drawable.lugaresdeinteres_jardinturia, 
+				arrayGallery
+				);
+		
+		latlng = new LatLng(39.46245695426065,-0.3595953449607836); 
+		LugaresDeInteres_Item gulliver =  new LugaresDeInteres_Item(
+				GULLIVER,
+				contexto.getString(R.string.gulliver), 
+				contexto.getString(R.string.gulliverContent), 
+				contexto.getString(R.string.parques),
+				latlng, 
+				contexto.getString(R.string.gulliverAddress),
+				contexto.getString(R.string.gulliverPrice),
+				contexto.getString(R.string.gulliverHorary),
+				contexto.getString(R.string.gulliverTelephone),
+				R.drawable.lugaresdeinteres_gulliver, 
+				arrayGallery
+				);
+		
+		latlng = new LatLng(39.47299344487753,-0.40648326239318466); 
+		LugaresDeInteres_Item parqueCabecera =  new LugaresDeInteres_Item(
+				PARQUE_CABECERA,
+				contexto.getString(R.string.parqueCabecera), 
+				contexto.getString(R.string.parqueCabeceraContent), 
+				contexto.getString(R.string.parques),
+				latlng, 
+				contexto.getString(R.string.parqueCabeceraAddress),
+				contexto.getString(R.string.parqueCabeceraPrice),
+				contexto.getString(R.string.parqueCabeceraHorary),
+				contexto.getString(R.string.parqueCabeceraTelephone),
+				R.drawable.lugaresdeinteres_parquecabecera, 
+				arrayGallery
+				);
+
+
+		
+		
+		arrayList.add(jbotanico);
+		arrayList.add(viveros);
+		arrayList.add(turia);
+		arrayList.add(gulliver);
+		arrayList.add(parqueCabecera);
+		
+		return arrayList;
+	}
+	
 	//metodo para obtener objetos de un arrayList, mediante el id.	
 	private static LugaresDeInteres_Item getFromId(int id, ArrayList<LugaresDeInteres_Item> arrayList){
 		LugaresDeInteres_Item object = null;
