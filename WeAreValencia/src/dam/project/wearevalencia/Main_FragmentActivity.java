@@ -7,6 +7,7 @@ import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.CentrosComerciales_Item;
+import dam.project.wearevalencia.objects.Eventos_Item;
 import dam.project.wearevalencia.objects.FiestasPopulares_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 import android.content.Intent;
@@ -23,6 +24,8 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private final String BUNDLE_FROM_FRAGMENT = "bundleFromFragment";
 	private final String BUNDLE_FROM_FRAGMENT_FP ="bundleFromFragmentFP";
 	private final String BUNDLE_FROM_FRAGMENT_CC ="bundleFromFragmentCC";
+	private final String BUNDLE_FROM_FRAGMENT_EVENTS_MAP ="bundleFromFragment";
+
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		//identificar sliding menu:
@@ -144,5 +147,16 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		
 	}
 	
+	//metodo que envia el objeto seleccionado de los eventos a la siguiente pantalla
+	//este metodo gestiona los intents de las fiestas populares, la lista.
+		public void onEventoSeleccionado(Eventos_Item evento) {
+			Intent i = new Intent(Main_FragmentActivity.this, Eventos_Ficha_Map.class);
+			Bundle bundle = new Bundle();
+			bundle.putParcelable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP, evento);
+			i.putExtras(bundle);
+			startActivity(i);
+			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+			
+		}
 	
 }

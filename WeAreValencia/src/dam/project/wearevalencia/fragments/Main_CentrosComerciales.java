@@ -38,7 +38,7 @@ public class Main_CentrosComerciales extends SherlockFragment{
 	@Override
 	public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
-		return inflater.inflate(R.layout.fiestaspopulares_centroscomerciales_list, null);
+		return inflater.inflate(R.layout.fiestaspopulares_centroscomerciales_eventos_list, null);
 	}
 
 

@@ -6,6 +6,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +35,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	private SlidingMenu slidingMenu;	
 	private LinearLayout main_Layout;
 	private AnimationDrawable animacion_backgrounds;
+	private Fragment newContent = null;
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
@@ -45,7 +47,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
-		Button main_galeria, main_sitios, main_buscar, main_descubre;
+		Button main_eventos, main_sitios, main_buscar, main_descubre;
 
 		//debe ser llamado para crear el menú, de lo contrario no aparecerán los items en el actionbar
 		setHasOptionsMenu(true);
@@ -80,8 +82,19 @@ public class Main_Content_Fragment extends SherlockFragment{
 		},500);
 
 		//cambiar typeface's a los botones de la pantalla principal
-		main_galeria = (Button)getActivity().findViewById(R.id.main_galeria_button);
-		main_galeria.setTypeface(robotoBoldCondensed);
+		main_eventos = (Button)getActivity().findViewById(R.id.main_eventos_button);
+		main_eventos.setTypeface(robotoBoldCondensed);
+		main_eventos.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				newContent = new Main_Eventos();
+				
+				if(newContent != null){
+					switchFragment(newContent);
+				}
+			}
+		});
 
 		main_sitios = (Button)getActivity().findViewById(R.id.main_sitios_visitados_button);
 		main_sitios.setTypeface(robotoBoldCondensed);
@@ -107,9 +120,21 @@ public class Main_Content_Fragment extends SherlockFragment{
 				}
 			});
 		
+
 	}
 
-   
+	private void switchFragment(Fragment newContent) {
+		if(getActivity() == null)
+			return;
+		
+		//comprueba si getActivity es una instancia de Main_FragmentActivity, la clase que va a contener este fragment
+		//llama al metodo de swtich para hacer el replace().
+		if(getActivity() instanceof Main_FragmentActivity){
+			Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
+			mFragmentActivity.switchContent(newContent);
+		}
+		
+	}
 
 	//Metodo del menu y el listener del menú	/*Menu  actionBarSherlock*/
 	public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){

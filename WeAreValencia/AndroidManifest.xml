@@ -73,6 +73,9 @@
         
         <activity android:name="dam.project.wearevalencia.FiestasPopulares_Ficha_Item" 
             android:screenOrientation="portrait" android:theme="@style/Theme.WeAreValenciaFichaLugaresDeInteres"/>
+        
+        <activity android:name="dam.project.wearevalencia.Eventos_Ficha_Map" 
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

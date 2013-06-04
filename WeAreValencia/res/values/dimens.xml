@@ -23,4 +23,10 @@
 	<dimen name="TextViewFiestasPopularesDescriptionContent">18dp</dimen>
 	<dimen name="textViewCCTitle">18dp</dimen>
 	<dimen name="textViewCCText">13dp</dimen>
+	<dimen name="textViewEventosTitle">27dp</dimen>
+	<dimen name="textViewEventosContent">16dp</dimen>
+	<dimen name="textViewEventosContentFicha">17dp</dimen>
+	<dimen name="textViewEventosHorary">14dp</dimen>
+	<dimen name="textViewEventosHoraryFicha">15dp</dimen>
+	<dimen name="textViewEventosAddress">14dp</dimen>
 </resources>

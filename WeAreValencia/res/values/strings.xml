@@ -23,6 +23,7 @@
 	<color name="highLineFichaContent">#606060</color>
     <color name="ContentLugaresDeInteres">#8d8d8d</color>
     <color name="irAlMapaColor">#947e8083</color>
+    <color name="contentEvents">#7e8083</color>
     <!-- degradado del textview ficha lugares de interes -->
     <color name="startColorDegreeTextView">#e5e5e5</color>
     <color name="centerColorDegreeTextView">#88e5e5e5</color>
@@ -306,7 +307,7 @@ El viejo muro defensivo del recinto árabe no se derribó, sino que permaneció 
 	<string name="parques">Parques</string>
 	
 	<string name="jBotanico">Jardín Botánico</string>
-	<string name="jBotanicoContent"></string>
+	<string name="jBotanicoContent">El Jardín Botánico de la Universidad de Valencia tiene su origen en un huerto para la enseñanza de la botánica o hort de simples que se creó durante el siglo XVI, aunque desconocemos su emplazamiento original. En el siglo XVIII, con la llegada de las ideas de la Ilustración y el apoyo de ciertas organizaciones como la Real Sociedad Económica de Amigos del País, se instaló el nuevo jardín, más adaptado a los avances científicos, en el llamado huerto de Tramoyeres, extramuros de la calle de Quart. Pero los trabajos en él no comenzarían hasta 1803, bajo la dirección del rector Vicent Blasco.\n\nSu época de esplendor le llegó bajo la dirección del catedrático de Botánica Félix Pizcueta, entre 1829 y 1863, quien mejoró las colecciones y permitió la aclimatación de plantas exóticas. Poco después se amplió el jardín hacia el Paseo de la Pechina, se construyó el invernadero de la Balsa y a finales del siglo XIX se construyó el gran umbráculo, obra del arquitecto Arturo Mélida.</string>
 	<string name="jBotanicoAddress">Calle Quart, 80</string>
 	<string name="jBotanicoPrice">ENTRADA ORDINARIA: 2 euros\n\nENTRADA GRATUITA:
 Niños menores de 7 años, miembros de la comunidad universitaria (Universidad de Valencia) y acompañantes (uno solo) de las personas dependientes.\n\nENTRADA CON TARIFA REDUCIDA:
@@ -377,9 +378,8 @@ Sólo falta que esos muñecos, protagonistas de cualquier sainete del barrio, de
 Todos los años, el 23 de junio a las 12 de la noche, los más supersticiosos y los más fiesteros realizan varios rituales para aprovechar las energías mágicas de la noche de San Juan, tales como saltar las olas o hacer una hoguera.\n\n
 Pasar por encima de las hogueras que se encienden esta noche o meterse en el mar y saltar olas, son sólo algunas de esas leyendas que permiten, según se dice, que se cumplan algunos de los deseos que pedimos durante esta noche tan llena de magia.\n\n
 El fuego dará protección todo el año a aquellos que se atravan a saltar por encima de las llamas. En Galicia el ritual marca que es necesario saltar nueve veces mientras que en Alicante y Valencia siete es el número mágico.\n
-Si cuando se está saltando al fuego se arroja una trenza hecha con flores o cintas de colores a la persona amada y esta la recoge antes de que caiga, habrá felicidad entre ambos y buena fortuna.\n\n
-	</string>
-	<string name="sanJuanCalendar">En Valencia se celebra la madrugada del 23 al 24 de junio. Las playas de Valencia se convierten así en el escenario donde llevar a cabo el ritual en el que el mar y el fuego se unen para hacer realidad tus deseos.</string>
+Si cuando se está saltando al fuego se arroja una trenza hecha con flores o cintas de colores a la persona amada y esta la recoge antes de que caiga, habrá felicidad entre ambos y buena fortuna.</string>
+	<string name="sanJuanCalendar">En Valencia se celebra la madrugada del 23 al 24 de junio.</string>
 	
 	
 	<string name="sanVicenteFerrer">San Vicente Ferrer</string>
@@ -478,5 +478,39 @@ Es también algo característico de esta celebración, que junto a las imágenes
 	<string name="nuevoCentroAddress">Avda. Pío XII, 2, 4 y 6\n46009 Valencia</string>
 	<string name="nuevoCentroTelephone">+34 963 471 642 9</string>
 	<string name="nuevoCentroWeb">www.nuevocentro.es</string>
+	
+<!-- Eventos en valencia -->
+	<string name="eventos">Eventos</string>
+	<string name="festivalDelMediterrani">Fetival del Mediterrani</string>
+	<string name="festivalDelMediterraniContent">El Palau de les Arts culminará su séptima temporada con la sexta edición del Festival del Mediterrani.\n\nUn año más tarde será Zubin Mehta el director artístico del festival que contará con la respresentación de Otello, del maestro italiano Giuseppe Verdi, los días 1, 5, 11 y 16 de Junio.</string>
+	<string name="festivalDelMediterraniHorary">1, 5, 11 y 16 de Junio</string>
+	<string name="festivalDelMediterraniAddress">Palau de les Arts Reina Sofía</string>
+	
+	<string name="valenciaCuinaOberta">Valencia Cuina Oberta</string>
+	<string name="valenciaCuinaObertaContent">Vuelve Valencia Cuina Oberta en su octava edición del 6 al 17 de Junio. Durante diez días podrás saborear delicioso menús por 20€ al mediodía y 30€ la cena en los mejores restaurantes de la ciudad.</string>
+	<string name="valenciaCuinaObertaHorary">6, 17 de Junio</string>
+	<string name="valenciaCuinaObertaAddress">Todos los restaurantes de Valencia</string>
+	
+	<!-- incluida la noche de san juan como celebración próxima -->
+	<string name="sanJuanAddress">Playas de Valencia</string>
+	
+	<!-- incluida la celebración del corpus que la cogeré de donde ya esta escrita arriba. -->
+	<string name="corpusAddress">Centro de Valencia</string>
+	
+	<string name="fromVLC">From Valencia with design</string>
+	<string name="fromVLCContent">Es el turno ahora de conocer los trabajos de más de 20 diseñadores valencianos que han traspasado fronteras y que han colaborado con marcas internacionales como AUDI, IKEA, o MUJI, entre otras.\n\nNo te pierdas la exposición FROM VALENCIA WITH DESIGN que se exhibirá hasta el 25 de Mayo en las Naves-Espacio de Creación Contemporánea.</string>
+	<string name="fromVLCHorary">Hasta el 25 de Mayo</string>
+	<string name="fromVLCAddress">Las Naves</string>
+	
+	<string name="hemisfericCincoAniversario">Hemisfèric 5 Aniversario</string>
+	<string name="hemisfericCincoAniversarioContent">L Hemisfèric de la Ciudad de las Artes y las Ciencias cumple 5 años y quiere celebrarlo con todos los espectadores que quieran disfrutar de una experiencia única.\n\nTodos los sábados y domingos hasta el 16 de Junio podrás gozar de proyeciones en 3D en una pantalla de 900 metros cuadradaos por tan solo 5€.</string>
+	<string name="hemisfericCincoAniversarioHorary">Sábados y Domingos hasta el 16 de Junio</string>
+	<string name="hemisfericCincoAniversarioAddress">Ciudad de las artes y las Ciencias</string>
+	
+	
+	<string name="alejandroSanz">Alejandro Sanz en concierto</string>
+	<string name="alejandroSanzContent">Alejandro Sanz es uno de los cantantes españoles más internacionales, actuará en la Marina Real Juan Carlos I de Valencia el 12 de Junio. Miles de seguidores podrán disfrutar de su último disco, La música no se toca, así como otros tantos hitos musicales del artista madrileño.</string>
+	<string name="alejandroSanzHorary">12 de Junio</string>
+	<string name="alejandroSanzAddress">Marina Real Juan Carlos I</string>
 	
 </resources>

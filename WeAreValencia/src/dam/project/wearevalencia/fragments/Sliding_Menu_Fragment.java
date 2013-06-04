@@ -20,7 +20,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	private final int LUGARES_DE_INTERES = 1;
 	private final int FIESTAS_POPULARES = 2;
 	private final int CENTROS_COMERCIALES = 3;
-	private final int RECOMENDACIONES = 4;
+	private final int EVENTOS = 4;
 	private final int MAPA = 5;
 	
 	SampleAdapterMenu adapter;
@@ -39,15 +39,15 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		ItemList lugaresDeInteres = new ItemList(getActivity().getString(R.string.smLugares), R.drawable.slidingmenu_lugaresdeinteres);
 		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fiesta);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
-		ItemList recomendaciones = new ItemList(getString(R.string.smRecomendaciones), R.drawable.slidingmenu_recomendaciones);
+		ItemList eventos = new ItemList(getString(R.string.eventos).toUpperCase(), R.drawable.slidingmenu_recomendaciones);
 		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
 		
 		adapter.add(inicio);
 		adapter.add(lugaresDeInteres);
 		adapter.add(fiestasPopulares);
 		adapter.add(cc);
-		adapter.add(recomendaciones);
-		adapter.add(mapa);
+		adapter.add(eventos);
+		//adapter.add(mapa); -> No será posible por falta de tiempo en el proyecto
 
 		setListAdapter(adapter);
 		
@@ -74,12 +74,14 @@ public class Sliding_Menu_Fragment extends ListFragment{
 			newContent = new Main_CentrosComerciales();
 			break;
 		
-		case RECOMENDACIONES: //recomendaciones personalizadas
+		case EVENTOS: //eventos en valencia
+			newContent = new Main_Eventos();
 			break;
 			
-		case MAPA: //mapa con todos los lugares de valencia
+		/*case MAPA: //mapa con todos los lugares de valencia
 			break;
-		
+		*/
+			
 		default:
 			break;
 		}
