@@ -1,8 +1,12 @@
 package dam.project.wearevalencia.fragments;
 
+import java.util.ArrayList;
+
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -24,6 +28,8 @@ import com.slidingmenu.lib.SlidingMenu;
 import android.view.View.OnClickListener;
 import dam.project.wearevalencia.Main_FragmentActivity;
 import dam.project.wearevalencia.R;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Data_Objects;
+import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
 public class Main_Content_Fragment extends SherlockFragment{
 	//constante que identifica que se presiona el boton del actionbar mapa
@@ -36,7 +42,7 @@ public class Main_Content_Fragment extends SherlockFragment{
 	private LinearLayout main_Layout;
 	private AnimationDrawable animacion_backgrounds;
 	private Fragment newContent = null;
-
+	
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 		actionBar = ((SherlockFragmentActivity) getActivity()).getSupportActionBar();	
 		return inflater.inflate(R.layout.main_content_activity, null);	
@@ -161,6 +167,7 @@ public class Main_Content_Fragment extends SherlockFragment{
     		return true;
     		
     	case MAP:
+    		goToMaps();
     		return true;
     		
     	}
@@ -170,6 +177,54 @@ public class Main_Content_Fragment extends SherlockFragment{
     }
 
     
+	private void goToMaps() {
+		new ListAsyncTask().execute();
+		
+	}
+
+	
+	//clase asincrona:
+	class ListAsyncTask extends AsyncTask<Void, Void, Void>{
+		ProgressDialog progressDialog;
+		ArrayList<LugaresDeInteres_Item> arrayListAllLugares;
+		
+		protected void onPreExecute() {
+			super.onPreExecute();
+			progressDialog = new ProgressDialog(getActivity());
+			progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+			progressDialog.setMessage("Obteniendo rutas de lugares...");
+			progressDialog.setIndeterminate(false);
+			progressDialog.setCancelable(true);
+			progressDialog.show();
+			
+		}
+		
+		protected Void doInBackground(Void... params) {
+			arrayListAllLugares = LugaresDeInteres_Data_Objects.AllTheLugaresDeInteres(getActivity());
+		return null;	
+			
+		}
+		protected void onPostExecute(Void result) {
+			
+			
+				new Handler().postDelayed(new Runnable() {
+					
+					@Override
+					public void run() {
+						progressDialog.dismiss();
+						
+						Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
+						mFragmentActivity.onMapIconActionbarSeleccionado(arrayListAllLugares);
+						
+						
+					}
+				}, 1500); // una pequeña espera para cargar el arrayList
+
+			}
+		}
+	
+	
+
 	//cambiar el actionbar con iconos y fondo personalizado
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 	private void changeActionBar() {

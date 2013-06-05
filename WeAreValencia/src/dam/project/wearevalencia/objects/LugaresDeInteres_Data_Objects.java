@@ -519,5 +519,32 @@ public class LugaresDeInteres_Data_Objects {
 		
 		return object;
 	}
+	
+	//metodo para devolver un arrayList con TODOS los objetos de todos los arrayList
+	public static ArrayList<LugaresDeInteres_Item> AllTheLugaresDeInteres(Context contexto){
+		
+		ArrayList<LugaresDeInteres_Item> arrayListMonumentos, arrayListCAC, arrayListCentroCiudad, arrayListParques;
+		ArrayList<LugaresDeInteres_Item>  arrayList = new ArrayList<LugaresDeInteres_Item>();
+		
+		arrayListMonumentos = obtainMonuments(contexto);
+		arrayListCAC = obtainCAC(contexto);
+		arrayListCentroCiudad = obtainCentroCiudad(contexto);
+		arrayListParques = obtainParques(contexto);
+		
+		for (int i = 0; i < arrayListMonumentos.size(); i++){
+			arrayList.add(arrayListMonumentos.get(i));
+		}
+		for (int i = 0; i < arrayListCAC.size(); i++){
+			arrayList.add(arrayListCAC.get(i));
+		}
+		for (int i = 0; i < arrayListCentroCiudad.size(); i++){
+			arrayList.add(arrayListCentroCiudad.get(i));
+		}
+		for (int i = 0; i < arrayListParques.size(); i++){
+			arrayList.add(arrayListParques.get(i));
+		}
+		
+		return arrayList;
+	}
 
 }

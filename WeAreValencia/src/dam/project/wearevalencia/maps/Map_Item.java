@@ -1,5 +1,7 @@
 package dam.project.wearevalencia.maps;
 
+import java.util.ArrayList;
+
 import org.holoeverywhere.widget.Toast;
 import android.app.Dialog;
 import android.content.Intent;
@@ -53,8 +55,11 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	private final int MIN_DISTANCE = 50;	
 	private final String BUNDLE_OBJECT_ARRAYLIST = "objetoTotal";
 	private final String BUNDLE_FROM_FRAGMENT_CC ="bundleFromFragmentCC";
+	private final String BUNDLE_FROM_FRAGMENT_EVENTS_MAP ="bundleFromFragment";
+
 	private LugaresDeInteres_Item objeto; 
 	private CentrosComerciales_Item objetoCC; 
+	private ArrayList<LugaresDeInteres_Item> arrayListLugares;
 
 	//escuchar los cambios de posicion del usuario
 	private LocationManager locationManager;
@@ -71,6 +76,7 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 	String telefono = "";
 	String web="";
 
+	@SuppressWarnings("unchecked")
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mapas);
@@ -102,6 +108,27 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 				
 				goToCC();	
 			}
+			
+			if(bundle.getSerializable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP)!= null){
+				tituloMarker = "Sitios a Visitar";
+				//ocultar los controles de posicion, galeria, etc.
+				LinearLayout layout = (LinearLayout)findViewById(R.id.layout_Buttons_Map_bottom);
+				layout.setVisibility(View.GONE);
+				
+				arrayListLugares = (ArrayList<LugaresDeInteres_Item>) bundle.getSerializable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP);
+				new Handler().post(new Runnable() {
+					
+					@Override
+					public void run() {
+
+						for ( int i = 0; i < arrayListLugares.size(); i++){
+							goToLugares(arrayListLugares.get(i).getTitle(), arrayListLugares.get(i).getAddres(), arrayListLugares.get(i).getLatLng());
+						}
+					}
+				});
+				
+			}
+			
 			//action bar + personalizaciones
 			actionBar = getSupportActionBar();
 	        changeActionBar();
@@ -283,6 +310,29 @@ public class Map_Item extends SherlockFragmentActivity  implements LocationListe
 		return super.onOptionsItemSelected(item);
 
     }
+	
+	
+	private void goToLugares(String titulo, String direccion, final LatLng destino){
+		//establecer la posicion y marker:		
+		//dirige la posicion del mapa hacia esa latitud y esa longitud
+		LatLng latlng = new LatLng(39.477003501129666, -0.37951830444328927); //posicion de valencia
+		CameraPosition cameraPosition = new CameraPosition.Builder()
+		.target(latlng)
+		.zoom(12)
+		.build();
+
+		
+		CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+		mapa.animateCamera(cameraUpdate); //animacion para llegar a la lat y long indiciados que se le pasa al objeto cameraupdate
+		mapa.addMarker(new MarkerOptions() //marker personalizado
+		.position(destino)
+		.title(titulo)
+		.snippet(direccion)
+		.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker_map_red)));
+
+		
+	}
+	
 	
 	
 	private void goToLugar(){

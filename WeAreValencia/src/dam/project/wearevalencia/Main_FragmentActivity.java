@@ -5,6 +5,7 @@ import com.slidingmenu.lib.SlidingMenu;
 import com.slidingmenu.lib.app.SlidingFragmentActivity;
 import dam.project.wearevalencia.fragments.Main_Content_Fragment;
 import dam.project.wearevalencia.fragments.Sliding_Menu_Fragment;
+import dam.project.wearevalencia.maps.Eventos_Ficha_Map;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.CentrosComerciales_Item;
 import dam.project.wearevalencia.objects.Eventos_Item;
@@ -149,14 +150,24 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	
 	//metodo que envia el objeto seleccionado de los eventos a la siguiente pantalla
 	//este metodo gestiona los intents de las fiestas populares, la lista.
-		public void onEventoSeleccionado(Eventos_Item evento) {
-			Intent i = new Intent(Main_FragmentActivity.this, Eventos_Ficha_Map.class);
-			Bundle bundle = new Bundle();
-			bundle.putParcelable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP, evento);
-			i.putExtras(bundle);
-			startActivity(i);
-			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-			
-		}
+	public void onEventoSeleccionado(Eventos_Item evento) {
+		Intent i = new Intent(Main_FragmentActivity.this, Eventos_Ficha_Map.class);
+		Bundle bundle = new Bundle();
+		bundle.putParcelable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP, evento);
+		i.putExtras(bundle);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		
+	}
+	
+	public void onMapIconActionbarSeleccionado(ArrayList<LugaresDeInteres_Item> lugares) {
+		Intent i = new Intent(Main_FragmentActivity.this, Map_Item.class);
+		Bundle bundle = new Bundle();
+		bundle.putSerializable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP, lugares);
+		i.putExtras(bundle);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		
+	}
 	
 }

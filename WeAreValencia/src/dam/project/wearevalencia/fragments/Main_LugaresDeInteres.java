@@ -59,13 +59,8 @@ public class Main_LugaresDeInteres extends SherlockFragment{
 		//cambiar typeface a las etiquetas de texto que hay en la pantalla principal, además de los textview del footer
 		changeTypefaceTextViews();
 		
-		
 		//listeners de cada boton para que lleve a la siguiente pantalla pasando un objeto
 		listenersLayoutsButtons();
-		
-		
-		
-	
 
 	}
 	

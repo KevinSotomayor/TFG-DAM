@@ -1,4 +1,4 @@
-package dam.project.wearevalencia;
+package dam.project.wearevalencia.maps;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

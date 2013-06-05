@@ -21,7 +21,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 	private final int FIESTAS_POPULARES = 2;
 	private final int CENTROS_COMERCIALES = 3;
 	private final int EVENTOS = 4;
-	private final int MAPA = 5;
+	//private final int MAPA = 5;
 	
 	SampleAdapterMenu adapter;
 	@Override
@@ -40,7 +40,7 @@ public class Sliding_Menu_Fragment extends ListFragment{
 		ItemList fiestasPopulares = new ItemList(getActivity().getString(R.string.smFiestas), R.drawable.slidingmenu_fiesta);
 		ItemList cc = new ItemList(getActivity().getString(R.string.smCC), R.drawable.slidingmenu_cc);
 		ItemList eventos = new ItemList(getString(R.string.eventos).toUpperCase(), R.drawable.slidingmenu_recomendaciones);
-		ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
+		//ItemList mapa = new ItemList(getActivity().getString(R.string.smMapaVLC), R.drawable.slidingmenu_mapa);
 		
 		adapter.add(inicio);
 		adapter.add(lugaresDeInteres);
