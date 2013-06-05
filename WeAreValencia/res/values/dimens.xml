@@ -29,4 +29,5 @@
 	<dimen name="textViewEventosHorary">14dp</dimen>
 	<dimen name="textViewEventosHoraryFicha">15dp</dimen>
 	<dimen name="textViewEventosAddress">14dp</dimen>
+	<dimen name="textViewNoEncontrado">25dp</dimen>
 </resources>

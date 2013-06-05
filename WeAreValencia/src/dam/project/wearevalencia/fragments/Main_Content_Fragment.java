@@ -1,7 +1,6 @@
 package dam.project.wearevalencia.fragments;
 
 import java.util.ArrayList;
-
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.graphics.Typeface;
@@ -107,6 +106,16 @@ public class Main_Content_Fragment extends SherlockFragment{
 
 		main_buscar = (Button)getActivity().findViewById(R.id.main_buscar_sitio_button);
 		main_buscar.setTypeface(robotoBoldCondensed);
+		main_buscar.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				ArrayList<LugaresDeInteres_Item> arrayListAllLugares = LugaresDeInteres_Data_Objects.AllTheLugaresDeInteres(getActivity());
+				Main_FragmentActivity mFragmentActivity = (Main_FragmentActivity)getActivity();
+				mFragmentActivity.onBuscarSeleccionado(arrayListAllLugares);
+				
+			}
+		});
 
 		main_descubre = (Button)getActivity().findViewById(R.id.main_descubre_button);
 		main_descubre.setTypeface(robotoBoldCondensed);

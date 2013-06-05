@@ -26,6 +26,7 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 	private final String BUNDLE_FROM_FRAGMENT_FP ="bundleFromFragmentFP";
 	private final String BUNDLE_FROM_FRAGMENT_CC ="bundleFromFragmentCC";
 	private final String BUNDLE_FROM_FRAGMENT_EVENTS_MAP ="bundleFromFragment";
+	private final String BUNDLE_BUSCADOR ="bundleBuscador";
 
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
@@ -164,6 +165,16 @@ public class Main_FragmentActivity extends SlidingFragmentActivity{
 		Intent i = new Intent(Main_FragmentActivity.this, Map_Item.class);
 		Bundle bundle = new Bundle();
 		bundle.putSerializable(BUNDLE_FROM_FRAGMENT_EVENTS_MAP, lugares);
+		i.putExtras(bundle);
+		startActivity(i);
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		
+	}
+	
+	public void onBuscarSeleccionado(ArrayList<LugaresDeInteres_Item> lugares) {
+		Intent i = new Intent(Main_FragmentActivity.this, Buscar.class);
+		Bundle bundle = new Bundle();
+		bundle.putSerializable(BUNDLE_BUSCADOR, lugares);
 		i.putExtras(bundle);
 		startActivity(i);
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

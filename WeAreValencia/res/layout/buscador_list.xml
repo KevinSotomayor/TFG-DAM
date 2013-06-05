@@ -1,34 +1,110 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layoutLugaresDeInteres"
+    android:id="@+id/layout_Buscador_main_layout"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/DividerListView">
     
     <EditText 
-        android:id="@+id/buscadorLugaresDeInteres"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/orange"
-        android:textColorHint="@color/blackTransparency"
-        android:hint="@string/buscarLugaresDeInteres"/>
+         android:id="@+id/editText_buscadorMainContent"
+         android:layout_width="fill_parent"
+	     android:layout_height="wrap_content"
+	     android:padding="12dp"
+		 android:layout_margin="10dp"
+	     android:layout_gravity="bottom"
+	     android:hint="@string/buscarLugaresDeInteres"
+	     android:textColorHint="@color/greyShadow"
+	     android:background="@drawable/background_tarjeta"/>
     <LinearLayout 
+        android:id="@+id/layout_buscador_list_listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:paddingBottom="3dp"
-        android:background="@color/orangeLight" >
-        
+        android:background="@color/DividerListView"
+        android:orientation="vertical"
+        android:visibility="visible" >
+        <TextView 
+            android:id="@+id/textView_buscador_Lista_Coincidencias"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:padding="10dp"
+	        android:shadowColor="@color/ContentLugaresDeInteres"
+	        android:shadowDx="2"
+	        android:shadowDy="2"
+	        android:shadowRadius="4"
+	        android:text="@string/cargando"
+	        android:textColor="@color/white"
+	        android:textSize="@dimen/textViewHeaderImageView"
+	        />
         <ListView 
-            android:id="@+id/listView_lugaresDeInteres"
+            android:id="@+id/listView_BuscadorMainContent"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:divider="@color/orangeLight"
+            android:divider="@color/DividerListView"
        		android:dividerHeight="2dp"/>
     </LinearLayout>
     
+    <LinearLayout 
+        android:id="@+id/layout_buscador_list_icono_noencontrado"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:visibility="gone" 
+        android:orientation="vertical"
+        android:background="@color/DividerListView">
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_logo_search"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+       		/>
+        <TextView 
+            android:id="@+id/textView_buscador_noencontrado"
+            android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:padding="10dp"
+	        android:shadowColor="@color/ContentLugaresDeInteres"
+	        android:shadowDx="2"
+	        android:shadowDy="2"
+	        android:shadowRadius="4"
+	        android:text="@string/cargando"
+	        android:textColor="@color/white"
+	        android:textSize="@dimen/textViewNoEncontrado"
+	        />
+    </LinearLayout>
     
+    <LinearLayout 
+        android:id="@+id/layout_buscador_list_icono_search"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="gone"
+        android:orientation="vertical" 
+        android:gravity="center"
+        android:background="@color/DividerListView">
+        
+        <ImageView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" 
+            android:src="@drawable/ic_search_big"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="100dp"
+            android:layout_gravity="center"
+       		/>
+    </LinearLayout>
+
 </LinearLayout>

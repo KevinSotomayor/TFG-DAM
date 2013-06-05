@@ -76,6 +76,10 @@
         
         <activity android:name="dam.project.wearevalencia.maps.Eventos_Ficha_Map" 
             android:screenOrientation="portrait"/>
+        
+        <activity android:name="dam.project.wearevalencia.Buscar" 
+            android:screenOrientation="portrait"/>
+        
     </application>
 
 </manifest>
