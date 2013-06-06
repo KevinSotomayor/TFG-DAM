@@ -4,7 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import org.holoeverywhere.widget.Toast;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -27,6 +32,7 @@ import dam.project.wearevalencia.gallery.Gallery_Item;
 import dam.project.wearevalencia.maps.Map_Item;
 import dam.project.wearevalencia.objects.LugaresDeInteres_Item;
 
+@SuppressLint("SimpleDateFormat")
 public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 	private Typeface robotoThin, robotoBoldCondensed, robotoRegular;
 	private ActionBar actionBar;
@@ -142,10 +148,24 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 			telephoneContent.setTypeface(robotoRegular);
 			telephoneContent.setText(objeto.getTelephone());
 			
+			//establecer la hora en ese momento del sistema:
+			//http://www.mkyong.com/android/android-time-picker-example/
+			final Calendar c = Calendar.getInstance();
+			int hour = c.get(Calendar.HOUR_OF_DAY);
+			int minute = c.get(Calendar.MINUTE);
 			textViewClock = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Clock);
 			textViewClock.setTypeface(robotoThin);
+			textViewClock.setText(
+                    new StringBuilder().append(pad(hour))
+                    .append(":").append(pad(minute)));
+
+			//obtener la fecha
+			//ayuda, api de android + stackoverflow
+			Date now = new Date();
+			SimpleDateFormat dateFormatter = new SimpleDateFormat("EEEE");
 			textViewDate = (TextView)findViewById(R.id.textView_ficha_lugaresDeInteres_Date);
 			textViewDate.setTypeface(robotoThin);
+			textViewDate.setText(dateFormatter.format(now));
 			
 			
 			heVisitado = (LinearLayout)findViewById(R.id.button_ficha_lugaresdeinteres_heVisitado);
@@ -230,6 +250,13 @@ public class LugaresDeInteres_Ficha_Item extends SherlockFragmentActivity{
 		int end = cadena.length() -1;
 		cadenaTotal = cadena.substring(start, end);
 		return cadenaTotal;
+	}
+	
+	private static String pad(int c) {
+		if (c >= 10)
+		   return String.valueOf(c);
+		else
+		   return "0" + String.valueOf(c);
 	}
 	
 	//Menu que tiene un item vacio para ayudar a centrar el texto del actionbar
