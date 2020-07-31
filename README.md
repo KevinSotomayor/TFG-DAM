@@ -1,8 +1,8 @@
-Proyecto
+Trabajo de final de grado - Desarrollo de Aplicaciones Multiplataforma
 ========
 
-Proyecto de final de curso de 2∫ de DAM - We Are Valencia - GuÌ≠a Valenciana.
+Proyecto de final de curso de 2¬∫ de DAM - We Are Valencia - Gu√≠¬≠a Valenciana.
 
-Tutora del proyecto: ¡ngeles Lorenzo.
+Tutora del proyecto: √Ångeles Lorenzo.
 Creador del proyecto: Kevin Sotomayor.
-Asignatura: ProgramaciÛn Multimedia y Dispositivos MÛviles.
+Asignatura: Programaci√≥n Multimedia y Dispositivos M√≥viles.
